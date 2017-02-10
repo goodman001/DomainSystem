@@ -1,0 +1,9 @@
+body {
+	margin:0 auto;
+	width:1000px;
+  }
+.navbar .navbar-nav {
+  display: inline-block;
+    float: none;
+	   vertical-align: top;
+		}

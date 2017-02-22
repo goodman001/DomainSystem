@@ -25,6 +25,32 @@ function getWhois($domain){
 
 
 }
+/**
+ * email send
+ */
+function sendMail($to, $subject, $content) {
+		Vendor('PHPMailer.PHPMailerAutoload');	 
+		$mail = new PHPMailer(); 
+		 $mail->IsSMTP(); // start SMTP
+		 $mail->Host=C('MAIL_HOST'); //smtp
+		 $mail->SMTPAuth = C('MAIL_SMTPAUTH'); 
+		 $mail->Username = C('MAIL_USERNAME'); 
+		 $mail->Password = C('MAIL_PASSWORD') ; 
+		 $mail->From = C('MAIL_FROM'); 
+		 $mail->FromName = C('MAIL_FROMNAME'); 
+		 $mail->AddAddress($to,"name");
+		 $mail->WordWrap = 50; 
+		 $mail->IsHTML(C('MAIL_ISHTML')); // 
+		 $mail->CharSet=C('MAIL_CHARSET'); 
+		 $mail->Subject =$subject; 
+		 $mail->Body = $content; 
+		 $mail->AltBody = "This is the body in plain text for non-HTML mail clients"; 
+		 if(!$mail->Send()) {
+		 return 0;
+		 } else{
+		 return 1;
+		 }
+	}
 
 
 

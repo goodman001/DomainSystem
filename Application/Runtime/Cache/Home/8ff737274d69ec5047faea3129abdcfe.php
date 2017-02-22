@@ -1,0 +1,212 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wb="http://open.weibo.com/wb" lang="zh-CN">
+	<head>
+		<title>domain shopping</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="domain shopping">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/DomainSystem/Public/style.css" rel="stylesheet" type="text/css">
+		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	</head>
+	<body>
+			<!-- nav -->
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">菜鸟教程</a>
+				</div>
+				<div>
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">iOS</a></li>
+						<li><a href="#">SVN</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								Java
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">jmeter</a></li>
+								<li><a href="#">EJB</a></li>
+								<li><a href="#">Jasper Report</a></li>
+								<li class="divider"></li>
+								<li><a href="#">分离的链接</a></li>
+								<li class="divider"></li>
+								<li><a href="#">另一个分离的链接</a></li>
+							</ul>
+						</li>
+					</ul>
+					<!--right-->
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#">Login</a>
+						</li>
+						<li>
+							<a href="<?php echo U('Login/register');;?>">Register </a>
+						</li>
+						<li>
+							
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<!-- nav end-->
+
+		
+	<div class="container" style="margin-top:10px;margin-left:1%;margin-right:2%;">
+		<div class="row">
+			<h3><i class="fa fa-user" aria-hidden="true">User register</i></h3>
+			<div class="row" style="margin-left:5px;margin-right:5px;padding:10px; width:50%;">			          
+				<form role="form" class="form-horizontal" action="<?php echo U('Login/checkReg');;?>" method="post">  
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="name">Username</label>  
+					<div class="col-md-9">  
+						<input class="form-control" name="username" type="text" id="username" placeholder="username" value="" required/>  
+					</div>  
+				</div> 
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="name">First Name</label>  
+					<div class="col-md-9">  
+						<input class="form-control" name="firstname" type="text" id="firstname" placeholder="first name" value="" required/>  
+					</div>  
+				</div>
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="name">Last Name</label>  
+					<div class="col-md-9">  
+						<input class="form-control" name="lastname" type="text" id="lastname" placeholder="last name" value="" required/>  
+					</div>  
+				</div>
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="name">Company(option)</label>  
+					<div class="col-md-9">  
+						<input class="form-control" name="company" type="text" id="company" placeholder="Company" value="" />  
+					</div>  
+				</div>	
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="name">Job title</label>  
+					<div class="col-md-9">  
+						<input class="form-control" name="jobtitle" type="text" id="jobtitle" placeholder="Job title" value="" />  
+					</div>  
+				</div>
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="email">Email</label>  
+					<div class="col-md-9">  
+						<input class="form-control" name="email" type="email" id="email" placeholder="Email" value="" required/>  
+					</div>  
+				</div> 	
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="exampleInputPassword1">Password</label>  
+					<div class="col-md-9">  
+						<input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>  
+					</div>  	
+				</div>  
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="exampleInputPassword2">Security Question</label>  
+					<div class="col-md-9">  
+						<select class="form-control" name="question" required>
+							<option value="Where is your birthplace?" >Where is your birthplace?</option> 
+							<option value="What is your favorite sport?">What is your favorite sport?</option>
+							<option value="Who is your first love?">Who is your first love?</option>
+						</select>  
+					</div>  
+				</div>
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="name">Answer</label>  
+					<div class="col-md-9">  
+						<input class="form-control" name="answer" type="text" id="answer" placeholder="answer" value="" required/>  
+					</div>  
+				</div>
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="name">Address1</label>  
+					<div class="col-md-9">  
+						<input class="form-control" name="address1" type="text" id="address1" placeholder="Address 1" value="" required/>  
+					</div>  
+				</div>
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="name">Address2</label>  
+					<div class="col-md-9">  
+						<input class="form-control" name="address2" type="text" id="address2" placeholder="Address 2" value="" required/>  
+					</div>  
+				</div>
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="name">City</label>  
+					<div class="col-md-9">  
+						<input class="form-control" name="city" type="text" id="city" placeholder="Address 2" value="" required/>  
+					</div>  
+				</div>
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="name">State</label>  
+					<div class="col-md-9">  
+						<input class="form-control" name="state" type="text" id="state" placeholder="State" value="" required/>  
+					</div>  
+				</div>
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="name">Postcode</label>  
+					<div class="col-md-9">  
+						<input class="form-control" type="number" value="" name="postcode" id="postcode" placeholder="Postcode" required> 
+					</div>  
+				</div>
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="name">Country</label>  
+					<div class="col-md-9">  
+						<input class="form-control" name="country" type="text" id="country" placeholder="Country" value="" required/>  
+					</div>  
+				</div>
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="name">Phone</label>  
+					<div class="col-md-9">  
+						<input class="form-control" type="tel" value="" name="phone" id="phone" placeholder="Phone" required> 
+					</div>  
+				</div>
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="name">Fax</label>  
+					<div class="col-md-9">  
+						<input class="form-control" type="tel" value="" name="fax" id="fax" placeholder="Fax" required> 
+					</div>  
+				</div>
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="name">Overdue Notice</label>  
+					<div class="col-md-9">  
+						<div class="form-check">
+						<label class="form-check-label">
+							<input type="radio" class="form-check-input" name="overdue" id="optionsRadios1" value="1" checked>Enable
+						</label>
+						</div>
+						<div class="form-check">
+							<label class="form-check-label">
+								<input type="radio" class="form-check-input" name="overdue" id="optionsRadios2" value="0">Disable
+							</label>
+						</div>
+					</div>  
+				</div>
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="exampleInputPassword2">Currency</label>  
+					<div class="col-md-9">  
+						<select class="form-control" name="currency" required>
+							<option value="USD" >USD</option> 
+							<option value="EUR">EUR</option>
+							<option value="HKD">HKD</option>
+						</select>  
+					</div>  
+				</div>	
+					
+					
+						  		  
+				<div class="form-group">  
+					<div class="col-md-offset-2 col-md-12">  
+						<button type="submit" class="btn btn-primary  btn-large">  
+							Submit
+						</button>  
+						<button type="reset" class="btn btn-primary btn-large">  
+							Reset
+						</button>  
+					</div>  
+				</div>  
+				</form> 
+			</div> 
+		</div>
+	</div>
+
+	</body>
+</html>

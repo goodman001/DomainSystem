@@ -38,17 +38,28 @@
 						</li>
 					</ul>
 					<!--right-->
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<a href="#">Login</a>
-						</li>
-						<li>
-							<a href="<?php echo U('Login/register');;?>">Register </a>
-						</li>
-						<li>
+					<?php if(cookie('u_username')): ?><ul class="nav navbar-nav navbar-right">
 							
-						</li>
-					</ul>
+							<li>
+								<a href="<?php echo U('Login/login');;?>">My Account</a>
+							</li>
+							<li>
+								<a href="<?php echo U('Login/logout');;?>">Logout</a>
+							</li>
+						</ul>
+					<?php else: ?> 
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="<?php echo U('Login/login');;?>">Login</a>
+							</li>
+							<li>
+								<a href="<?php echo U('Login/register');;?>">Register </a>
+							</li>
+							<li>
+
+							</li>
+						</ul><?php endif; ?>
+					
 				</div>
 			</nav>
 			<!-- nav end-->
@@ -184,9 +195,10 @@
 					<label class="col-md-3 control-label" for="exampleInputPassword2">Currency</label>  
 					<div class="col-md-9">  
 						<select class="form-control" name="currency" required>
-							<option value="USD" >USD</option> 
-							<option value="EUR">EUR</option>
 							<option value="HKD">HKD</option>
+							<option value="USD" >USD</option> 
+							<option value="EUR">GBP</option>
+							<option value="EUR">CNY</option>
 						</select>  
 					</div>  
 				</div>	

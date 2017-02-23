@@ -40,7 +40,7 @@
 					<!--right-->
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="#">Login</a>
+							<a href="<?php echo U('Login/login');;?>">Login</a>
 						</li>
 						<li>
 							<a href="<?php echo U('Login/register');;?>">Register </a>

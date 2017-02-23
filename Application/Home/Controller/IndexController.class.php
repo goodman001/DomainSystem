@@ -15,7 +15,7 @@ class IndexController extends Controller {
         $dm_name = I('post.dmname');
         if(!empty($dm_name)){
             $msg = getWhois($dm_name);
-            //echo $msg[0];
+            echo $msg[0];
 			echo $msg[1];
             $available = 1;
         }else
@@ -23,8 +23,9 @@ class IndexController extends Controller {
             $this->error('Domain name must be not null！');
             return 0;
         }
-        $this->assign('showflag',1);
-        $this->assign('available',1);
-        $this->display(T('homepage/index'));
+        //$this->assign('showflag',1);
+        //$this->assign('available',1);
+        //$this->display(T('homepage/index'));
     }
+    
 }

@@ -14,16 +14,16 @@ class LoginController extends Controller {
     **/
     public function register()
     {
-    	session('u_username',null);
+    	cookie('u_username',null);
     	$this->display(T('reglogin/reg'));
     }
 	/**
 	** check register
 	**/
 	public function checkReg(){
-		$data['email'] = I('post.email','','htmlspecialchars');//get email
+		$data['username'] = I('post.username','','htmlspecialchars');//get username
 		$Model = M('users');
-		$content = $Model->field('email,regtime,status')->where($data)->find();
+		$content = $Model->field('username,regtime,status')->where($data)->find();
 		if(!empty($content))//exist email
 		{
 			if($content['status'] == 0 )//Pending = 0
@@ -41,7 +41,8 @@ class LoginController extends Controller {
 			}
 		}else
 		{
-			$data['username'] = I('post.username','','htmlspecialchars');//get username
+			
+			$data['email'] = I('post.email','','htmlspecialchars');//get email
 			$data['firstname'] = I('post.firstname','','htmlspecialchars');//get firstname
 			$data['lastname'] = I('post.lastname','','htmlspecialchars');//get firstname
 			$data['company'] = I('post.company','','htmlspecialchars');//get firstname
@@ -63,7 +64,7 @@ class LoginController extends Controller {
 			$data['status'] = 1;//get firstname
 			$data['regtime'] = time();//get firstname
 			$Model->data($data)->add();
-			$this->success('Congratulations ! please log in',U('Login/login'),10);
+			$this->success('Congratulations ! please log in',U('Login/login'),3);
 			//print_r($data);
 		}
 	}
@@ -72,6 +73,7 @@ class LoginController extends Controller {
 	*/
 	public function findpwdstep0()
     {
+		cookie('u_usename',null);
 		$this->display(T('reglogin/getemail'));
     }
 	public function findpwdstep1()//send email
@@ -89,8 +91,8 @@ class LoginController extends Controller {
 				$emailbody="Dear".$content['username']."：<br/>The email is for finding your password verification <br/>your verification code is 9823<br/> "; 
 				if(sendMail($data['email'],"Find password verification",$emailbody) == 1)
 				{
-					session('findpwd_email',$data['email']);
-					session('findpwd_code',9823);
+					cookie('findpwd_email',$data['email'],3600);
+					cookie('findpwd_code',9823,3600);
 					$this->display(T('reglogin/findpwd'));
 				}else
 				{
@@ -111,16 +113,19 @@ class LoginController extends Controller {
     }
 	public function findpwdcheck()
 	{
-		if(!empty(session('findpwd_email')) && !empty(session('findpwd_code')))
+		if(!empty(cookie('findpwd_email')) && !empty(cookie('findpwd_code')))
 		{
-			$datas["email"] = session('findpwd_email');
+			$datas["email"] = cookie('findpwd_email');
 			$data['password'] = I('post.password','','htmlspecialchars');//get pwd
 			$data['code'] = I('post.code','','htmlspecialchars');//get code
-			if($data['code'] == session('findpwd_code')){
+			if($data['code'] == cookie('findpwd_code')){
 				$Model = M('users');
 				$Model-> where($datas)->setField('password',$data['password']);
 				$Model-> where($datas)->setField('status',1);
+				cookie('findpwd_email',null);
+				cookie('findpwd_code',null);
 				$this->success('The password has been successfully found, please log in',U('Login/login'),3);
+				
 			}else
 			{
 				$this->error('The verification code is wrong !Please resend email!',U('Login/login'),3);
@@ -135,10 +140,37 @@ class LoginController extends Controller {
     **/
     public function login()
     {
-		$this->show('login');
-    	//$this->display(T('index/index'));
+		//$this->show('login');
+    	$this->display(T('reglogin/log'));
     }
-	
+	public function checkLog()
+	{
+		$data['username']= I('post.username','','htmlspecialchars');//get name
+		$data['password'] = I('post.password','','htmlspecialchars');//get name
+		$Model = M('users');
+		$content = $Model->field('username,regtime,status')->where($data)->find();
+		if(!empty($content) )//exist email
+		{
+			if($content['status'] == 0 || $content['status'] == 1 ){
+				$Model-> where($data)->setField('status',1);
+				cookie('u_username',$data['username'],3600);
+				$this->success('Login successfully! welcome ',U('Index/index'));
+			}else
+			{
+				$this->error('Account Status is Suspend, please contact the administrator',U('Index/index'),3);
+			}
+		}else
+		{
+			cookie('u_username',null);
+			$this->error('Email or password is wrong!', U('Login/login'),3);
+		}
+	}
+	public function logout()
+    {
+		cookie('u_username',null);
+		//$this->show('login');
+    	$this->display(T('homepage/index'));
+    }
 	
 }
 ?>

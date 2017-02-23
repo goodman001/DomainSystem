@@ -1,4 +1,4 @@
-body {
+/*body {
 	margin:0 auto;
 	width:1000px;
   }
@@ -7,3 +7,8 @@ body {
     float: none;
 	   vertical-align: top;
 		}
+*/
+.cus0{
+	margin:0 auto;
+	width:1000px;
+}

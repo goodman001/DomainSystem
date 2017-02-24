@@ -42,7 +42,7 @@ class ClientController extends Controller {
 	{
 		$data_['username'] = cookie('u_username');//get username
 		$Model = M('users');
-		$content = $Model->where($datas)->find();
+		$content = $Model->where($data_)->find();
 		if(!empty($content))
 		{
 			$data['email'] = I('post.email','','htmlspecialchars');//get email
@@ -68,10 +68,52 @@ class ClientController extends Controller {
 			$this->success('Update profile successfully!',U('Client/myprofile'),1);
 		}else
 		{
+			cookie('u_username',null);
 			$this->error('please log in firstly',U('Login/login'),3);
 		}
 		
 	}
+	public function updatepwd()
+	{
+		$data_['username'] = cookie('u_username');//get username
+		$Model = M('users');
+		$content = $Model->where($data_)->find();
+		if(!empty($content))
+		{
+			
+			$oldpwd = I('post.pwd1','','htmlspecialchars');//get currency pwd
+			$data['password'] = I('post.pwd2','','htmlspecialchars');//get currency pwd
+			if($oldpwd != $content['password'])
+			{
+				$this->error('Please input right currency password!Update password failed',U('Client/myprofile'),3);
+			}else{
+				//print_r($data);
+				$Model->where($data_)->save($data);
+				$this->success('Update password successfully!',U('Client/myprofile'),1);
+			}
+		}else
+		{
+			cookie('u_username',null);
+			$this->error('please log in firstly',U('Login/login'),3);
+		}
+	}
+	public function mywallet()
+	{
+		$balance = 0;
+		$type = "";
+		$data_['username'] = cookie('u_username');//get username
+		$Model = M('users');
+		$content = $Model->where($data_)->find();
+		if(!empty($content)){
+			$balance = $content['balance'];
+			$type = $content['currency'];
+		}
+		
+		$this->assign('balance',$balance);
+		$this->assign('type',$type);
+		$this->display(T('client/my_wallet'));
+	}
+	// 
 	//enter inbox page
 	public function inbox(){
 		$this->display(T('client/inbox'));

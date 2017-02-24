@@ -30,14 +30,10 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <link href="/DomainSystem/Public/metronic/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
     <link href="/DomainSystem/Public/metronic/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
     <link href="/DomainSystem/Public/metronic/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/chosen.css" rel="stylesheet" type="text/css" />
+<!-- END CORE PLUGINS -->
+    <link href="/DomainSystem/Public/metronic/media/css/profile.css" rel="stylesheet" type="text/css" />
     <!-- END begin global -->
-    <!-- BEGIN page-->
-    <link href="/DomainSystem/Public/metronic/media/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
-    <link href="/DomainSystem/Public/metronic/media/css/daterangepicker.css" rel="stylesheet" type="text/css"/>
-    <link href="/DomainSystem/Public/metronic/media/css/fullcalendar.css" rel="stylesheet" type="text/css"/>
-    <link href="/DomainSystem/Public/metronic/media/css/jqvmap.css" rel="stylesheet" type="text/css" /DomainSystem/Public/metronic/media="screen"/>
-    <link href="/DomainSystem/Public/metronic/media/css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" /DomainSystem/Public/metronic/media="screen"/>
-    <!-- END page ->
     <!--favicon
     <link rel="shortcut icon" href="/DomainSystem/Public/metronic/media/image/favicon.ico"/>
     -->
@@ -165,9 +161,10 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <!-- BEGIN CONTAINER -->
     <div class="page-container">
     <!-- BEGIN SIDEBAR -->
-    <div class="page-sidebar nav-collapse collapse">
+    
     <!-- BEGIN SIDEBAR MENU -->
         
+<div class="page-sidebar nav-collapse collapse">
     <ul class="page-sidebar-menu">
     <li>
         <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
@@ -203,6 +200,10 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 <a href="<?php echo U('Client/myprofile');;?>">
                     My Profile
                 </a>
+            </li>
+            <li>
+                <a href="<?php echo U('Client/mywallet');;?>">
+                    My Wallet</a>
             </li>
             <li>
                 <a href="ui_buttons.html">
@@ -568,10 +569,11 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         </a>
     </li>
     </ul>
+</div>
 
     
     <!-- END SIDEBAR MENU -->
-    </div>
+    
     <!-- END SIDEBAR -->
     <!-- BEGIN PAGE -->
         
@@ -670,7 +672,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN CORE PLUGINS -->
 <!--jquery-->
 <script src="/DomainSystem/Public/metronic/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
-<!--兼容1.9 以前的代??->
+<!--兼容1.9 以前的代??-->
 <script src="/DomainSystem/Public/metronic/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
 <!-- IMPORTANT!   ??引入bootstrap.min.js 前引??jquery-ui-1.10.1.custom.min.js 避免 bootstrap tooltip ??jquery ui tooltip 冲突 -->
 <!--jquery UI js-->
@@ -689,55 +691,33 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <script src="/DomainSystem/Public/metronic/media/js/jquery.cookie.min.js" type="text/javascript"></script>
 <!--美化 form 表单元素-->
 <script src="/DomainSystem/Public/metronic/media/js/jquery.uniform.min.js" type="text/javascript"></script>
-<!-- END CORE PLUGINS -->
+
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<!-- jquery.vmap 地图    js 可以         shenglve  -->
-<script src="/DomainSystem/Public/metronic/media/js/jquery.vmap.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.vmap.russia.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.vmap.world.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.vmap.europe.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.vmap.germany.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.vmap.usa.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.vmap.sampledata.js" type="text/javascript"></script>
-<!-- jquery.vmap 地图 end -- >
-<!--图表数据js -->
-<script src="/DomainSystem/Public/metronic/media/js/jquery.flot.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.flot.resize.js" type="text/javascript"></script>
-<!--脉动效果，引起用户注  http://kilianvalkhof.com/jquerypulsate/  -->
-<script src="/DomainSystem/Public/metronic/media/js/jquery.pulsate.min.js" type="text/javascript"></script>
-<!--日期操作类js http://www.datejs.com/-->
-<script src="/DomainSystem/Public/metronic/media/js/date.js" type="text/javascript"></script>
-<!--日期范围选择  https://github.com/dangrossman/bootstrap-daterangepicker -->
-<script src="/DomainSystem/Public/metronic/media/js/daterangepicker.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.gritter.js" type="text/javascript"></script>
-<!--日历js-->
-<script src="/DomainSystem/Public/metronic/media/js/fullcalendar.min.js" type="text/javascript"></script>
-<!--饼图js-->
-<script src="/DomainSystem/Public/metronic/media/js/jquery.easy-pie-chart.js" type="text/javascript"></script>
-<!--折线??->
-<script src="/DomainSystem/Public/metronic/media/js/jquery.sparkline.min.js" type="text/javascript"></script>
+
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <!--项目config -->
+
+
+    <script src="/DomainSystem/Public/metronic/media/js/index.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+        jQuery(document).ready(function () {
+            App.init(); // initlayout and core plugins
+            Index.init();
+            Index.initJQVMAP(); // init index page's custom scripts
+            Index.initCalendar(); // init index page's custom scripts
+            Index.initCharts(); // init index page's custom scripts
+            Index.initChat();
+            Index.initMiniCharts();
+            Index.initDashboardDaterange();
+            Index.initIntro();
+        });
+    </script>
+
 <script src="/DomainSystem/Public/metronic/media/js/app.js" type="text/javascript"></script>
-<!--首页js-->
-<script src="/DomainSystem/Public/metronic/media/js/index.js" type="text/javascript"></script>
-<!-- END PAGE LEVEL SCRIPTS -->
-<script>
-    jQuery(document).ready(function () {
-        App.init(); // initlayout and core plugins
-        Index.init();
-        Index.initJQVMAP(); // init index page's custom scripts
-        Index.initCalendar(); // init index page's custom scripts
-        Index.initCharts(); // init index page's custom scripts
-        Index.initChat();
-        Index.initMiniCharts();
-        Index.initDashboardDaterange();
-        Index.initIntro();
-    });
-</script>
 <script type="text/javascript" charset="utf-8">  
-	MyValidator.init();  
+	//MyValidator.init();  
 </script>
 <!-- END JAVASCRIPTS -->
 </body>

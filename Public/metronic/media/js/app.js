@@ -159,6 +159,7 @@ var App = function () {
     //处理左侧工具栏的 点击事件
     var handleSidebarMenu = function () {
         jQuery('.page-sidebar').on('click', 'li > a', function (e) {
+			console.log("ccc");
             if ($(this).next().hasClass('sub-menu') == false) {
                 if ($('.btn-navbar').hasClass('collapsed') == false) {
                     $('.btn-navbar').click();

@@ -30,14 +30,10 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <link href="/DomainSystem/Public/metronic/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
     <link href="/DomainSystem/Public/metronic/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
     <link href="/DomainSystem/Public/metronic/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/chosen.css" rel="stylesheet" type="text/css" />
+<!-- END CORE PLUGINS -->
+    <link href="/DomainSystem/Public/metronic/media/css/profile.css" rel="stylesheet" type="text/css" />
     <!-- END begin global -->
-    <!-- BEGIN page-->
-    <link href="/DomainSystem/Public/metronic/media/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
-    <link href="/DomainSystem/Public/metronic/media/css/daterangepicker.css" rel="stylesheet" type="text/css"/>
-    <link href="/DomainSystem/Public/metronic/media/css/fullcalendar.css" rel="stylesheet" type="text/css"/>
-    <link href="/DomainSystem/Public/metronic/media/css/jqvmap.css" rel="stylesheet" type="text/css" /DomainSystem/Public/metronic/media="screen"/>
-    <link href="/DomainSystem/Public/metronic/media/css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" /DomainSystem/Public/metronic/media="screen"/>
-    <!-- END page ->
     <!--favicon
     <link rel="shortcut icon" href="/DomainSystem/Public/metronic/media/image/favicon.ico"/>
     -->
@@ -165,9 +161,10 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <!-- BEGIN CONTAINER -->
     <div class="page-container">
     <!-- BEGIN SIDEBAR -->
-    <div class="page-sidebar nav-collapse collapse">
+    
     <!-- BEGIN SIDEBAR MENU -->
         
+<div class="page-sidebar nav-collapse collapse">
     <ul class="page-sidebar-menu">
     <li>
         <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
@@ -185,24 +182,28 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         </form>
         <!-- END RESPONSIVE QUICK SEARCH FORM -->
     </li>
-    <li class="">
+    <li class="start">
         <a href="index.html">
             <i class="icon-home"></i>
             <span class="title">Welcome</span>
             <span class="selected"></span>
         </a>
     </li>
-    <li class="start active">
+    <li class="active">
         <a href="javascript:;">
             <i class="icon-bookmark-empty"></i>
             <span class="title">My Infomation</span>
             <span class="arrow "></span>
         </a>
         <ul class="sub-menu">
-            <li>
+            <li class="active">
                 <a href="<?php echo U('Client/myprofile');;?>">
                     My Profile
                 </a>
+            </li>
+            <li>
+                <a href="<?php echo U('Client/mywallet');;?>">
+                    My Wallet</a>
             </li>
             <li>
                 <a href="ui_buttons.html">
@@ -214,7 +215,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             </li>
             <li>
                 <a href="ui_tabs_accordions.html">
-                    Tabs切换�?手风琴风�?/a>
+                    Tabs切换�?手风琴</a>
             </li>
             <li>
                 <a href="ui_jqueryui.html">
@@ -289,12 +290,12 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <li>
                 <a href="page_timeline.html">
                     <i class="icon-time"></i>
-                    时间轴顺�?/a>
+                    时间轴顺</a>
             </li>
             <li>
                 <a href="page_coming_soon.html">
                     <i class="icon-cogs"></i>
-                    倒计�?/a>
+                    倒计</a>
             </li>
             <li>
                 <a href="page_blog.html">
@@ -314,12 +315,12 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <li>
                 <a href="page_news_item.html">
                     <i class="icon-bell"></i>
-                    新闻详情�?/a>
+                    新闻详情</a>
             </li>
             <li>
                 <a href="page_about.html">
                     <i class="icon-group"></i>
-                    关于�?/a>
+                    关于</a>
             </li>
             <li>
                 <a href="page_contact.html">
@@ -397,7 +398,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <li>
         <a class="active" href="javascript:;">
             <i class="icon-sitemap"></i>
-            <span class="title">3级目�?/span>
+            <span class="title">3级目</span>
             <span class="arrow "></span>
         </a>
         <ul class="sub-menu">
@@ -511,7 +512,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             </li>
             <li>
                 <a href="table_responsive.html">
-                    响应式表�?/a>
+                    响应式表</a>
             </li>
             <li>
                 <a href="table_managed.html">
@@ -540,7 +541,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             </li>
             <li>
                 <a href="portlet_draggable.html">
-                    可拖动组�?/a>
+                    可拖动组</a>
             </li>
         </ul>
     </li>
@@ -568,10 +569,11 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         </a>
     </li>
     </ul>
+</div>
 
     
     <!-- END SIDEBAR MENU -->
-    </div>
+    
     <!-- END SIDEBAR -->
     <!-- BEGIN PAGE -->
         
@@ -668,7 +670,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     
     <li class="active"><a href="#tab_1_1" data-toggle="tab">Profile Info</a></li>
     <li><a href="#tab_1_3" data-toggle="tab">Account</a></li>
-    <li><a href="#tab_1_4" data-toggle="tab">Projects</a></li>
+    <li><a href="#tab_1_4" data-toggle="tab">Change Password</a></li>
     <li><a href="#tab_1_6" data-toggle="tab">Help</a></li>
 </ul>
 <div class="tab-content">
@@ -712,8 +714,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             </a>
             <span class="after"></span>
         </li>
-        <li class=""><a data-toggle="tab" href="#tab_2-2"><i class="icon-picture"></i> Change Avatar</a></li>
-        <li class=""><a data-toggle="tab" href="#tab_3-3"><i class="icon-lock"></i> Change Password</a></li>
+        <li class=""><a data-toggle="tab" href="#tab_2-2"><i class="icon-lock"></i> Change Password</a></li>
         <li class=""><a data-toggle="tab" href="#tab_4-4"><i class="icon-eye-open"></i> Privacity Settings</a></li>
     </ul>
 </div>
@@ -723,16 +724,16 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <div style="height: auto;" id="accordion1-1" class="accordion collapse">
         <form role="form" action="<?php echo U('Client/updateprofile');;?>" method="post">  
             <label class="control-label">First Name</label>
-            <input name="firstname" type="text" id="firstname" placeholder="first name" value="" class="m-wrap span8" required/>
+            <input name="firstname" type="text" id="firstname" placeholder="first name" value="<?php echo ($profiles["firstname"]); ?>" class="m-wrap span8" required/>
             <label class="control-label">Last Name</label>
-            <input name="lastname" type="text" id="lastname" placeholder="last name" value=""   class="m-wrap span8" required />
+            <input name="lastname" type="text" id="lastname" placeholder="last name" value="<?php echo ($profiles["lastname"]); ?>"   class="m-wrap span8" required />
             <label class="control-label">Company</label>
-            <input name="company" type="text" id="company" placeholder="Company" value="" class="m-wrap span8" />
+            <input name="company" type="text" id="company" placeholder="Company" value="<?php echo ($profiles["company"]); ?>" class="m-wrap span8" />
 				
 			<label class="control-label">Job title</label>
-            <input type="text" name="jobtitle" type="text" id="jobtitle" placeholder="Job title" value=""  class="m-wrap span8" />
+            <input type="text" name="jobtitle" type="text" id="jobtitle" placeholder="Job title" value="<?php echo ($profiles["jobtitle"]); ?>"  class="m-wrap span8" />
 			<label class="control-label">Email</label>
-            <input name="email" type="email" id="email" placeholder="Email" value=""  class="m-wrap span8" required/>
+            <input name="email" type="email" id="email" placeholder="Email" value="<?php echo ($profiles["email"]); ?>"  class="m-wrap span8" required/>
 			
 			<label class="control-label">Security Question</label>
             <select class="form-control" name="question" required>
@@ -743,22 +744,22 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 			<label class="control-label">Answer</label>
             <input name="answer" type="text" id="answer" placeholder="answer" value=""  class="m-wrap span8" required/>	
 			<label class="control-label">Address1</label>
-            <input name="address1" type="text" id="address1" placeholder="Address 1" value=""  class="m-wrap span8" required/>	
+            <input name="address1" type="text" id="address1" placeholder="Address 1" value="<?php echo ($profiles["address1"]); ?>"  class="m-wrap span8" required/>	
 			<label class="control-label">Address2</label>
-            <input name="address2" type="text" id="address2" placeholder="Address 2" value=""  class="m-wrap span8" required/>
+            <input name="address2" type="text" id="address2" placeholder="Address 2" value="<?php echo ($profiles["address2"]); ?>"  class="m-wrap span8" required/>
 			
 			<label class="control-label">City</label>
-            <input name="city" type="text" id="city" placeholder="City" value=""  class="m-wrap span8" required/>
+            <input name="city" type="text" id="city" placeholder="City" value="<?php echo ($profiles["city"]); ?>"  class="m-wrap span8" required/>
 			<label class="control-label">State</label>
-            <input name="state" type="text" id="state" placeholder="state" value=""  class="m-wrap span8" required/>
+            <input name="state" type="text" id="state" placeholder="state" value="<?php echo ($profiles["state"]); ?>"  class="m-wrap span8" required/>
 			<label class="control-label">Postcode</label>
-            <input type="number" value="" name="postcode" id="postcode" placeholder="Postcode"  class="m-wrap span8" required> 
+            <input type="number" value="<?php echo ($profiles["postcode"]); ?>" name="postcode" id="postcode" placeholder="Postcode"  class="m-wrap span8" required> 
 			<label class="control-label">Country</label>
-			<input name="country" type="text" id="country" placeholder="Country" value=""  class="m-wrap span8" required/> 
+			<input name="country" type="text" id="country" placeholder="Country" value="<?php echo ($profiles["country"]); ?>"  class="m-wrap span8" required/> 
 			<label class="control-label">Phone</label>
-			<input type="tel" value="" name="phone" id="phone" placeholder="Phone"  class="m-wrap span8" required> 
+			<input type="tel" value="<?php echo ($profiles["phone"]); ?>" name="phone" id="phone" placeholder="Phone"  class="m-wrap span8" required> 
 			<label class="control-label">Fax</label>
-			<input type="tel" value="" name="fax" id="fax" placeholder="Fax"  class="m-wrap span8" required> 
+			<input type="tel" value="<?php echo ($profiles["fax"]); ?>" name="fax" id="fax" placeholder="Fax"  class="m-wrap span8" required> 
 			<label class="control-label">Overdue Notice</label>
 			<div class="controls">
 			<label class="radio">
@@ -774,8 +775,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 			<select class="form-control" name="currency" required>
 				<option value="HKD">HKD</option>
 				<option value="USD" >USD</option> 
-				<option value="EUR">GBP</option>
-				<option value="EUR">CNY</option>
+				<option value="GBP">GBP</option>
+				<option value="CNY">CNY</option>
 			</select>  	
             <div class="submit-btn">
                 <button type="submit" class="btn green">Save Changes</button>
@@ -785,57 +786,18 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     </div>
 </div>
 <div id="tab_2-2" class="tab-pane">
-    <div style="height: auto;" id="accordion2-2" class="accordion collapse">
-        <form action="#">
-            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                eiusmod.</p>
-            <br/>
-            <div class="controls">
-                <div class="thumbnail" style="width: 291px; height: 170px;">
-                    <img src="media/image/AAAAAA&amp;text=no+image" alt=""/>
-                </div>
-            </div>
-            <div class="space10"></div>
-            <div class="fileupload fileupload-new" data-provides="fileupload">
-                <div class="input-append">
-                    <div class="uneditable-input">
-                        <i class="icon-file fileupload-exists"></i>
-                        <span class="fileupload-preview"></span>
-                    </div>
-																		<span class="btn btn-file">
-																		<span class="fileupload-new">Select file</span>
-																		<span class="fileupload-exists">Change</span>
-																		<input type="file" class="default"/>
-																		</span>
-                    <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="controls">
-                <span class="label label-important">NOTE!</span>
-                <span>You can write some information here..</span>
-            </div>
-            <div class="space10"></div>
-            <div class="submit-btn">
-                <a href="#" class="btn green">Submit</a>
-                <a href="#" class="btn">Cancel</a>
-            </div>
-        </form>
-    </div>
-</div>
-<div id="tab_3-3" class="tab-pane">
     <div style="height: auto;" id="accordion3-3" class="accordion collapse">
-        <form action="#">
+        <form role="form" data-toggle="validator" action="<?php echo U('Client/updatepwd');;?>" method="post">
             <label class="control-label">Current Password</label>
-            <input type="password" class="m-wrap span8"/>
+            <input name="pwd1" type="password" class="m-wrap span8" required/>
             <label class="control-label">New Password</label>
-            <input type="password" class="m-wrap span8"/>
+            <input name="pwd2" id="pwd2" type="password" class="m-wrap span8" required/>
             <label class="control-label">Re-type New Password</label>
-            <input type="password" class="m-wrap span8"/>
+            <input type="password" class="m-wrap span8" id="inputPasswordConfirm" data-match="#pwd2" data-match-error="Whoops, these don't match" placeholder="Confirm" required>
+            <div class="help-block with-errors">Please re-type the password</div>
             <div class="submit-btn">
-                <a href="#" class="btn green">Change Password</a>
-                <a href="#" class="btn">Cancel</a>
+                <button type="submit" class="btn green">Save Changes</button>
+                <a href="<?php echo U('Client/myprofile');;?>" class="btn">Cancel</a>
             </div>
         </form>
     </div>
@@ -1434,7 +1396,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN CORE PLUGINS -->
 <!--jquery-->
 <script src="/DomainSystem/Public/metronic/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
-<!--兼容1.9 以前的代??->
+<!--兼容1.9 以前的代??-->
 <script src="/DomainSystem/Public/metronic/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
 <!-- IMPORTANT!   ??引入bootstrap.min.js 前引??jquery-ui-1.10.1.custom.min.js 避免 bootstrap tooltip ??jquery ui tooltip 冲突 -->
 <!--jquery UI js-->
@@ -1453,55 +1415,34 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <script src="/DomainSystem/Public/metronic/media/js/jquery.cookie.min.js" type="text/javascript"></script>
 <!--美化 form 表单元素-->
 <script src="/DomainSystem/Public/metronic/media/js/jquery.uniform.min.js" type="text/javascript"></script>
-<!-- END CORE PLUGINS -->
+
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<!-- jquery.vmap 地图    js 可以         shenglve  -->
-<script src="/DomainSystem/Public/metronic/media/js/jquery.vmap.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.vmap.russia.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.vmap.world.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.vmap.europe.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.vmap.germany.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.vmap.usa.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.vmap.sampledata.js" type="text/javascript"></script>
-<!-- jquery.vmap 地图 end -- >
-<!--图表数据js -->
-<script src="/DomainSystem/Public/metronic/media/js/jquery.flot.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.flot.resize.js" type="text/javascript"></script>
-<!--脉动效果，引起用户注  http://kilianvalkhof.com/jquerypulsate/  -->
-<script src="/DomainSystem/Public/metronic/media/js/jquery.pulsate.min.js" type="text/javascript"></script>
-<!--日期操作类js http://www.datejs.com/-->
-<script src="/DomainSystem/Public/metronic/media/js/date.js" type="text/javascript"></script>
-<!--日期范围选择  https://github.com/dangrossman/bootstrap-daterangepicker -->
-<script src="/DomainSystem/Public/metronic/media/js/daterangepicker.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.gritter.js" type="text/javascript"></script>
-<!--日历js-->
-<script src="/DomainSystem/Public/metronic/media/js/fullcalendar.min.js" type="text/javascript"></script>
-<!--饼图js-->
-<script src="/DomainSystem/Public/metronic/media/js/jquery.easy-pie-chart.js" type="text/javascript"></script>
-<!--折线??->
-<script src="/DomainSystem/Public/metronic/media/js/jquery.sparkline.min.js" type="text/javascript"></script>
+
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <!--项目config -->
-<script src="/DomainSystem/Public/metronic/media/js/app.js" type="text/javascript"></script>
-<!--首页js-->
-<script src="/DomainSystem/Public/metronic/media/js/index.js" type="text/javascript"></script>
-<!-- END PAGE LEVEL SCRIPTS -->
-<script>
-    jQuery(document).ready(function () {
-        App.init(); // initlayout and core plugins
-        Index.init();
-        Index.initJQVMAP(); // init index page's custom scripts
-        Index.initCalendar(); // init index page's custom scripts
-        Index.initCharts(); // init index page's custom scripts
-        Index.initChat();
-        Index.initMiniCharts();
-        Index.initDashboardDaterange();
-        Index.initIntro();
+
+
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/bootstrap-fileupload.js"></script>
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/validator.min.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+
+        // initiate layout and plugins
+
+        App.init();
+
     });
-</script>
+   
+});
+        
+    </script>
+
+<script src="/DomainSystem/Public/metronic/media/js/app.js" type="text/javascript"></script>
 <script type="text/javascript" charset="utf-8">  
-	MyValidator.init();  
+	//MyValidator.init();  
 </script>
 <!-- END JAVASCRIPTS -->
 </body>

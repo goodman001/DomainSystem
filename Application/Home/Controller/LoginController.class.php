@@ -24,7 +24,7 @@ class LoginController extends Controller {
 		$data['username'] = I('post.username','','htmlspecialchars');//get username
 		$Model = M('users');
 		$content = $Model->field('username,regtime,status')->where($data)->find();
-		if(!empty($content))//exist email
+		if(!empty($content))//exist username
 		{
 			if($content['status'] == 0 )//Pending = 0
 			{
@@ -59,10 +59,10 @@ class LoginController extends Controller {
 			$data['phone'] = I('post.phone','','htmlspecialchars');//get firstname
 			$data['fax'] = I('post.fax','','htmlspecialchars');//get firstname
 			$data['overdue'] = I('post.overdue','','htmlspecialchars');//get firstname
-			$data['taxexemption'] = 0;//get firstname
+			$data['taxexemption'] = 'NO';//get firstname
 			$data['currency'] = I('post.currency','','htmlspecialchars');//get firstname
 			$data['status'] = 1;//get firstname
-			$data['regtime'] = time();//get firstname
+			$data['regtime'] =date('Y-m-d H:i:s',time());//get firstname
 			$Model->data($data)->add();
 			$this->success('Congratulations ! please log in',U('Login/login'),3);
 			//print_r($data);

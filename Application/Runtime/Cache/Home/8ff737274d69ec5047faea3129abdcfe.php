@@ -12,58 +12,68 @@
 		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	</head>
 	<body>
-			<!-- nav -->
-			<nav class="navbar navbar-default" role="navigation">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#">菜鸟教程</a>
-				</div>
-				<div>
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">iOS</a></li>
-						<li><a href="#">SVN</a></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								Java
-								<b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a href="#">jmeter</a></li>
-								<li><a href="#">EJB</a></li>
-								<li><a href="#">Jasper Report</a></li>
-								<li class="divider"></li>
-								<li><a href="#">分离的链接</a></li>
-								<li class="divider"></li>
-								<li><a href="#">另一个分离的链接</a></li>
+		<div class="header navbar navbar-inverse ">
+		<!-- BEGIN TOP NAVIGATION BAR -->
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<div class="cus0">
+						<div class="navbar-header">
+							<a class="navbar-brand" href="#">菜鸟教程</a>
+						</div>
+						<div>
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="#">iOS</a></li>
+								<li><a href="#">SVN</a></li>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+										Java
+										<b class="caret"></b>
+									</a>
+									<ul class="dropdown-menu">
+										<li><a href="#">jmeter</a></li>
+										<li><a href="#">EJB</a></li>
+										<li><a href="#">Jasper Report</a></li>
+										<li class="divider"></li>
+										<li><a href="#">分离的链接</a></li>
+										<li class="divider"></li>
+										<li><a href="#">另一个分离的链接</a></li>
+									</ul>
+								</li>
 							</ul>
-						</li>
-					</ul>
-					<!--right-->
-					<?php if(cookie('u_username')): ?><ul class="nav navbar-nav navbar-right">
-							
-							<li>
-								<a href="<?php echo U('Login/login');;?>">My Account</a>
-							</li>
-							<li>
-								<a href="<?php echo U('Login/logout');;?>">Logout</a>
-							</li>
-						</ul>
-					<?php else: ?> 
-						<ul class="nav navbar-nav navbar-right">
-							<li>
-								<a href="<?php echo U('Login/login');;?>">Login</a>
-							</li>
-							<li>
-								<a href="<?php echo U('Login/register');;?>">Register </a>
-							</li>
-							<li>
+							<!--right-->
+							<?php if(cookie('u_username')): ?><ul class="nav navbar-nav navbar-right">
 
-							</li>
-						</ul><?php endif; ?>
+									<li>
+										<a href="<?php echo U('Client/index');;?>">My Account</a>
+									</li>
+									<li>
+										<a href="<?php echo U('Login/logout');;?>">Logout</a>
+									</li>
+								</ul>
+							<?php else: ?> 
+								<ul class="nav navbar-nav navbar-right">
+									<li>
+										<a href="<?php echo U('Login/login');;?>">Login</a>
+									</li>
+									<li>
+										<a href="<?php echo U('Login/register');;?>">Register </a>
+									</li>
+									<li>
+
+									</li>
+								</ul><?php endif; ?>
+
+						</div>
+					</div>
 					
+					
+					
+				<!-- HEADER ELEMENTS GO HERE -->
 				</div>
-			</nav>
-			<!-- nav end-->
-
+			</div>
+		<!-- END TOP NAVIGATION BAR -->
+		</div>
+		<div class="cus0">
 		
 	<div class="container" style="margin-top:10px;margin-left:1%;margin-right:2%;">
 		<div class="row">
@@ -181,12 +191,12 @@
 					<div class="col-md-9">  
 						<div class="form-check">
 						<label class="form-check-label">
-							<input type="radio" class="form-check-input" name="overdue" id="optionsRadios1" value="1" checked>Enable
+							<input type="radio" class="form-check-input" name="overdue" id="optionsRadios1" value="Enable" checked>Enable
 						</label>
 						</div>
 						<div class="form-check">
 							<label class="form-check-label">
-								<input type="radio" class="form-check-input" name="overdue" id="optionsRadios2" value="0">Disable
+								<input type="radio" class="form-check-input" name="overdue" id="optionsRadios2" value="Disable">Disable
 							</label>
 						</div>
 					</div>  
@@ -220,5 +230,6 @@
 		</div>
 	</div>
 
+		</div>
 	</body>
 </html>

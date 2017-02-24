@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 22, 2017 at 07:45 AM
+-- Generation Time: Feb 23, 2017 at 09:52 PM
 -- Server version: 5.5.53-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.20
 
@@ -45,20 +45,20 @@ CREATE TABLE IF NOT EXISTS `db_users` (
   `country` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `phone` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `fax` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `overdue` int(11) NOT NULL DEFAULT '1',
-  `taxexemption` int(11) NOT NULL DEFAULT '0',
+  `overdue` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `taxexemption` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `currency` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
-  `regtime` bigint(20) NOT NULL,
+  `regtime` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `db_users`
 --
 
 INSERT INTO `db_users` (`id`, `username`, `firstname`, `lastname`, `company`, `jobtitle`, `email`, `password`, `question`, `answer`, `address1`, `address2`, `city`, `state`, `postcode`, `country`, `phone`, `fax`, `overdue`, `taxexemption`, `currency`, `status`, `regtime`) VALUES
-(1, 'username', 'Jim', 'Green', 'Google', 'engineer', 'net33ph@yeah.net', '12345', '0', 'US', 'address1', 'address2', 'city', 'state', 123456, 'US', '267-321-2291', '267-321-2291', 1, 0, '0', 1, 1487689646);
+(4, 'test', 'adfa', 'd', 'c', 'jon', 'net33ph@yeah.net', '123456', 'Where is your birthplace?', 'dfa', 'add', 'add2', 'City', 'STATE', 12345, 'UK', '223-523-463', '223-523-463', 'Enable', 'NO', 'EUR', 1, '2017-02-24');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

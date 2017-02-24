@@ -44,7 +44,7 @@
 							<?php if(cookie('u_username')): ?><ul class="nav navbar-nav navbar-right">
 
 									<li>
-										<a href="<?php echo U('Login/login');;?>">My Account</a>
+										<a href="<?php echo U('Client/index');;?>">My Account</a>
 									</li>
 									<li>
 										<a href="<?php echo U('Login/logout');;?>">Logout</a>

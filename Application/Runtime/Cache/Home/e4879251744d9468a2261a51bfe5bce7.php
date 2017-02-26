@@ -80,64 +80,47 @@
 		</div>
 		<div class="cus0">
 		
-	<div class="container" style="margin-top:20px">
-	   <div class="row">
-			<div class="col-md-6">
-				<form action="<?php echo U("Index/search");?>" method="post" >
-				<div class="input-group">
-					<input name="dmname" type="text" class="form-control" placeholder="Search for...">
-					<span class="input-group-btn">
-						<button class="btn btn-default" type="submit">Search</button>
-					</span>
-				</div><!-- /input-group -->
-				</form>
-			</div>
-			<div class="col-md-6"> 
-			</div>
-		</div>
-		<?php if($showindex == 1): ?><h3>Search results</h3>
-		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Domain state
-					</div>
-					<?php if($showflag == 1): ?><div class="panel-body">
-						<table class="table table-hover">
-							<thead>
-								<tr>
-									<th>Domain</th>
-									<th>State</th>
-									<th>Price</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><?php echo ($dm_name); ?></td>
-									<td>Avaliable</td>
-									<td><?php echo ($price); ?> HK$</td>
-									<td><a href="<?php echo U('Index/addshoppingcart?dm='.$dm_name.'&price='.$price.'');;?>">Add to shopping cart</a></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<?php else: ?>
-						<div class="panel-body">
-							<?php echo ($dm_name); ?> has been registered!No avaliable!
-						</div><?php endif; ?>
-				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Whois infomation
-					</div>
-					<div class="panel-body">
-						<?php echo ($whoisinfo); ?>
-					</div>
-				</div>
-			</div>
-			
-		</div><?php endif; ?>
+	<div class="container">
+		<?php if($showcart == 1): ?><table id="cart" class="table table-hover table-condensed">
+			<thead>
+				<tr>
+					<th style="width:30%" class="text-center">Domain</th>
+					<th style="width:32%" class="text-center">Price</th>
+					<th ></th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php if(is_array($res)): foreach($res as $key=>$vo): ?><tr>
+					<td data-th="Product">
+						<div class="row">
+							<div class="col-sm-1 hidden-xs"><h4 class="nomargin text-right"><i class="fa fa-tag" aria-hidden="true"></i></h4></div>
+							<div class="col-sm-11">
+								<h4 class="nomargin text-left text-danger"><?php echo ($vo[0]); ?></h4>
+							</div>
+						</div>
+					</td>
+					<td data-th="Price" ><h4 class="nomargin text-center text-danger"><?php echo ($vo[1]); ?></h4></td>
+					<td class="actions" data-th="">
+						<h4>
+							<a class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></a>
+							<a class="btn btn-danger btn-sm" href="<?php echo U('Index/delshoppingcart?dm='.$vo[0].'&price='.$vo[1].'');;?>"><i class="fa fa-trash-o"></i></a>	
+						</h4>
+					</td>
+				</tr><?php endforeach; endif; ?>
+				
+			</tbody>
+			<tfoot>
+				<tr>
+					<td><a href="<?php echo U('Index/index');?>" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+					<td class="hidden-xs text-center"><strong>Total <?php echo ($total); ?>HK$</strong></td>
+					<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+					<td></td>
+				</tr>
+			</tfoot>
+		</table>
+		<?php else: ?> 
+			<h3 class="nomargin text-center text-danger"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>The shopping cart is empty!</h3>
+			<h3 class="nomargin text-center"><a href="<?php echo U('Index/index');?>" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></h3><?php endif; ?>
 	</div>
 
 		</div>

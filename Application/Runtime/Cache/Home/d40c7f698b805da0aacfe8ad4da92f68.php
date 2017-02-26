@@ -42,7 +42,9 @@
 							</ul>
 							<!--right-->
 							<?php if(cookie('u_username')): ?><ul class="nav navbar-nav navbar-right">
-
+									<li>
+										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Shopping Cart</a>
+									</li>
 									<li>
 										<a href="<?php echo U('Client/index');;?>">My Account</a>
 									</li>
@@ -52,6 +54,9 @@
 								</ul>
 							<?php else: ?> 
 								<ul class="nav navbar-nav navbar-right">
+									<li>
+										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Shopping Cart</a>
+									</li>
 									<li>
 										<a href="<?php echo U('Login/login');;?>">Login</a>
 									</li>

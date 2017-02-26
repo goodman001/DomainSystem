@@ -104,14 +104,49 @@ class ClientController extends Controller {
 		$data_['username'] = cookie('u_username');//get username
 		$Model = M('users');
 		$content = $Model->where($data_)->find();
-		if(!empty($content)){
-			$balance = $content['balance'];
-			$type = $content['currency'];
-		}
+		$balance = $content['balance'];
+		$type = $content['currency'];
+		
+		$Model = M('balance');
+		$monthago= date("Y-m-d H:i:s", strtotime("-1 month")); 
+		$nowtime =date('Y-m-d H:i:s',time());//get nowtime
+		$c1['username'] = $data_['username'];
+		$c1['target'] = 1;
+		$lists = $Model->where($c1)->select();
 		
 		$this->assign('balance',$balance);
 		$this->assign('type',$type);
+		$this->assign('lists',$lists);
+		//print_r($monthago);
 		$this->display(T('client/my_wallet'));
+	}
+	public function addcredit()
+	{
+		$data['username'] = cookie('u_username');//get username
+		$data['amount'] = I('post.amount','','htmlspecialchars');//amount of money
+		//must add range on amount
+		
+		//
+		$data['currency'] = I('post.currency','','htmlspecialchars');//amount of money
+		$data['accounttype'] = I('post.accounttype','','htmlspecialchars');//amount of money
+		$data['accountnumber'] = I('post.accountnumber','','htmlspecialchars');//
+		$data['target'] = 1;//in
+		$data['optime'] =date('Y-m-d H:i:s',time());//get time
+		$Model = M('balance');
+		$Model->data($data)->add();
+		$c1['username'] = $data['username'];
+		$c1['target'] = 1;
+		$b1 = $Model->where($c1)->sum('amount');
+		$c1['target'] = 0;
+		$b2 = $Model->where($c1)->sum('amount');
+		$balance = $b1-$b2;
+		print($balance);
+		$Model = M('users');
+		$c2['username'] = $data['username'];
+		$Model-> where($c2)->setField('balance',$balance);
+		//$this->display(U('Client/mywallet'));
+		R('Client/mywallet');
+		
 	}
 	// 
 	//enter inbox page

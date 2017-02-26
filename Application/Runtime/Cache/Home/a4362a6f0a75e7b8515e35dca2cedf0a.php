@@ -1,0 +1,1 @@
+<?php if (!defined('THINK_PATH')) exit();?>/DomainSystem/index.php/Home/Client/mywallet.html

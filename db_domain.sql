@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 26, 2017 at 08:12 AM
--- Server version: 5.5.53-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.20
+-- Generation Time: Feb 28, 2017 at 11:55 AM
+-- Server version: 5.5.50-0ubuntu0.14.04.1
+-- PHP Version: 5.6.23-1+deprecated+dontuse+deb.sury.org~trusty+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -95,10 +95,10 @@ CREATE TABLE IF NOT EXISTS `db_domainmgr` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `db_invoices`
+-- Table structure for table `db_item`
 --
 
-CREATE TABLE IF NOT EXISTS `db_invoices` (
+CREATE TABLE IF NOT EXISTS `db_item` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `domainname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `orderID` int(11) NOT NULL,
@@ -125,6 +125,7 @@ CREATE TABLE IF NOT EXISTS `db_order` (
   `refundaccount` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `invoicedate` datetime NOT NULL,
   `duedate` datetime NOT NULL,
+  `description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `orderID` (`orderID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;

@@ -36,7 +36,7 @@ class IndexController extends Controller {
             {
                 $duedate = strtotime($content['nextduedate']);
                 $now = time();
-                if($now > $duedate && $content['status'] == 'active')
+                if($now > $duedate && $content['status'] != 'pending')//pending ,renew :continue use
                 {
                     $showflag = 1;
                 }

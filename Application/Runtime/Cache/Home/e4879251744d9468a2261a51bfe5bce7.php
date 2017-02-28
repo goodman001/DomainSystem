@@ -81,6 +81,7 @@
 		<div class="cus0">
 		
 	<div class="container">
+		<h3><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</h3>
 		<?php if($showcart == 1): ?><table id="cart" class="table table-hover table-condensed">
 			<thead>
 				<tr>
@@ -113,7 +114,7 @@
 				<tr>
 					<td><a href="<?php echo U('Index/index');?>" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
 					<td class="hidden-xs text-center"><strong>Total <?php echo ($total); ?>HK$</strong></td>
-					<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+					<td><a href="<?php echo U('Order/index');?>" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
 					<td></td>
 				</tr>
 			</tfoot>

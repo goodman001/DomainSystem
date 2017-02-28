@@ -109,6 +109,7 @@
 									<th>Domain</th>
 									<th>State</th>
 									<th>Price</th>
+									<th>Step</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -116,8 +117,18 @@
 								<tr>
 									<td><?php echo ($dm_name); ?></td>
 									<td>Avaliable</td>
-									<td><?php echo ($price); ?> HK$</td>
-									<td><a href="<?php echo U('Index/addshoppingcart?dm='.$dm_name.'&price='.$price.'');;?>">Add to shopping cart</a></td>
+									<td><?php echo ($price); ?> HK$ per year</td>
+									<form role="form" action="<?php echo U('Index/addshoppingcart?dm='.$dm_name.'&price='.$price.'');;?>" method="post">
+									<td>
+										<select class="form-control" name="step" required>
+											<option value="1">one years </option>
+											<option value="2" >two years </option> 
+											<option value="3">three years</option>
+											<option value="5">five years </option>
+										</select>
+									</td>
+									<td><button type="submit" class="btn btn-primary  btn-large">Add to shopping cart</button> </td>
+									</form>
 								</tr>
 							</tbody>
 						</table>

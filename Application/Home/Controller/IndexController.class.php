@@ -36,10 +36,14 @@ class IndexController extends Controller {
             {
                 $duedate = strtotime($content['nextduedate']);
                 $now = time();
-                if($now > $duedate && $content['status'] != 'pending')//pending ,renew :continue use
+                if($content['status'] != 'suspend')
                 {
-                    $showflag = 1;
+                    if($now > $duedate)// domain : pending(renew) active suspend
+                    {
+                        $showflag = 1;
+                    }
                 }
+                
             }else
             {
                 $showflag = 1;

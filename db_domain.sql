@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 28, 2017 at 11:55 AM
--- Server version: 5.5.50-0ubuntu0.14.04.1
--- PHP Version: 5.6.23-1+deprecated+dontuse+deb.sury.org~trusty+1
+-- Generation Time: Feb 28, 2017 at 08:21 AM
+-- Server version: 5.5.53-0ubuntu0.14.04.1
+-- PHP Version: 5.5.9-1ubuntu4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -105,6 +105,7 @@ CREATE TABLE IF NOT EXISTS `db_item` (
   `registrar` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `IDprotect` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `price` decimal(10,2) NOT NULL,
+  `years` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
@@ -119,13 +120,14 @@ CREATE TABLE IF NOT EXISTS `db_order` (
   `orderID` bigint(20) NOT NULL,
   `username` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `transactionID` bigint(20) NOT NULL,
-  `amount` int(11) NOT NULL DEFAULT '0',
+  `issuedate` datetime NOT NULL,
   `status` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `refund` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `refundaccount` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `invoicedate` datetime NOT NULL,
   `duedate` datetime NOT NULL,
   `description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `paymethod` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `orderID` (`orderID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
@@ -138,8 +140,8 @@ CREATE TABLE IF NOT EXISTS `db_order` (
 
 CREATE TABLE IF NOT EXISTS `db_paymethod` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `typenumber` int(11) NOT NULL,
   `method` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `useable` varchar(2) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
@@ -147,16 +149,16 @@ CREATE TABLE IF NOT EXISTS `db_paymethod` (
 -- Dumping data for table `db_paymethod`
 --
 
-INSERT INTO `db_paymethod` (`id`, `typenumber`, `method`) VALUES
-(1, 0, 'Credit Card'),
-(2, 1, 'PayPal'),
-(3, 2, 'Bank Transfer'),
-(4, 3, 'Cheque'),
-(5, 4, 'E-Banking'),
-(6, 6, 'User Credit '),
-(7, 7, 'Google Checkout '),
-(8, 8, 'Alipay'),
-(9, 9, 'AsiaPay');
+INSERT INTO `db_paymethod` (`id`, `method`, `useable`) VALUES
+(1, 'Credit Card', 'Y'),
+(2, 'PayPal', 'Y'),
+(3, 'Bank Transfer', 'Y'),
+(4, 'Cheque', 'Y'),
+(5, 'E-Banking', 'Y'),
+(6, 'User Credit ', 'Y'),
+(7, 'Google Checkout ', 'Y'),
+(8, 'Alipay', 'Y'),
+(9, 'AsiaPay', 'Y');
 
 -- --------------------------------------------------------
 

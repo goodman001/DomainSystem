@@ -42,7 +42,9 @@
 							</ul>
 							<!--right-->
 							<?php if(cookie('u_username')): ?><ul class="nav navbar-nav navbar-right">
-
+									<li>
+										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Shopping Cart</a>
+									</li>
 									<li>
 										<a href="<?php echo U('Client/index');;?>">My Account</a>
 									</li>
@@ -52,6 +54,9 @@
 								</ul>
 							<?php else: ?> 
 								<ul class="nav navbar-nav navbar-right">
+									<li>
+										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Shopping Cart</a>
+									</li>
 									<li>
 										<a href="<?php echo U('Login/login');;?>">Login</a>
 									</li>
@@ -207,8 +212,8 @@
 						<select class="form-control" name="currency" required>
 							<option value="HKD">HKD</option>
 							<option value="USD" >USD</option> 
-							<option value="EUR">GBP</option>
-							<option value="EUR">CNY</option>
+							<option value="GBP">GBP</option>
+							<option value="CNY">CNY</option>
 						</select>  
 					</div>  
 				</div>	

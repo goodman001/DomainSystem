@@ -87,8 +87,15 @@ class OrderController extends Controller {
 				}
 				$this->assign('res',$res);
 				$this->assign('total',$total);
-				//$this->display(T('reglogin/reg'));
-				print("dot it");
+				$this->assign('amount',count($bigitem));
+				/*get payment method*/
+				$Model = M('paymethod');
+				$condition['useable'] = 'Y';
+				$ct = $Model->field('method')->where($condition)->select();
+				$this->assign('payments',$ct);
+				//print_r($ct);
+				$this->display(T('order/order'));
+				//print(count($bigitem)-1);
 			}
 			
 		}
@@ -126,6 +133,33 @@ class OrderController extends Controller {
 			}
 		}*/
     }
+	/*upload order infomation*/
+	public function upload()
+	{
+		/*get domain registation profile*/
+		$data['email'] = I('post.email','','htmlspecialchars');//get email
+		$data['firstname'] = I('post.firstname','','htmlspecialchars');//get firstname
+		$data['lastname'] = I('post.lastname','','htmlspecialchars');//get firstname
+		$data['company'] = I('post.company','','htmlspecialchars');//get firstname
+		$data['jobtitle'] = I('post.jobtitle','','htmlspecialchars');//get firstname
+		$data['address1'] = I('post.address1','','htmlspecialchars');//get firstname
+		$data['address2'] = I('post.address2','','htmlspecialchars');//get firstname
+		$data['city'] = I('post.city','','htmlspecialchars');//get firstname
+		$data['state'] = I('post.state','','htmlspecialchars');//get firstname
+		$data['postcode'] = I('post.postcode','','htmlspecialchars');//get firstname
+		$data['country'] = I('post.country','','htmlspecialchars');//get firstname
+		$data['phone'] = I('post.phone','','htmlspecialchars');//get firstname
+		$data['fax'] = I('post.fax','','htmlspecialchars');//get firstname
+		$data['ns1'] = I('post.ns1','','htmlspecialchars');//get firstname
+		$data['ns2'] = I('post.ns2','','htmlspecialchars');//get firstname
+		$data['ns3'] = I('post.ns3','','htmlspecialchars');//get firstname
+		$data['ns4'] = I('post.ns4','','htmlspecialchars');//get firstname
+		/*get payment information*/
+		$pay['accounttype'] = I('post.accounttype','','htmlspecialchars');//get firstname
+		$data['accountnumber'] = I('post.accountnumber','','htmlspecialchars');//
+		
+		
+	}
 	
     
 	

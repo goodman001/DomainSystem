@@ -70,13 +70,16 @@ class IndexController extends Controller {
     public function addshoppingcart()
     {
         //cookie formate #dm||price#
-        $dm_name = I('dm');
-        $price = I('price');
-        $cell = $dm_name."||".$price."#";
+        $dm_name = I('get.dm');
+        $price = I('get.price');
+        $years = I('post.years');
+        //print($price);
+        //return 0;
+        $cell = $dm_name."||".$price."||".$years."#";
         $listcart = cookie('shopcart');
         if(empty($listcart)||$listcart=='')
         {
-            cookie('shoptotal',$price,360000);
+            cookie('shoptotal',$price*$years,360000);
             cookie('shopcart',$cell,360000);
         }else
         {
@@ -86,14 +89,14 @@ class IndexController extends Controller {
                 cookie('shopcart',$listcart,360000);
             }else
             {
-                cookie('shoptotal',cookie('shoptotal')+$price,360000);
+                cookie('shoptotal',cookie('shoptotal')+$price*$years,360000);
                 cookie('shopcart',$listcart.$cell,360000);
             }
             
         }
         
         //print(cookie('shopcart')."----".cookie('shoptotal'));
-        $this->success('Add shopping cart successfully!',U('Index/index'),1);
+        $this->success('Add shopping cart successfully!',U('Index/showshoppingcart'),1);
         
     }
     public function showshoppingcart()
@@ -121,11 +124,12 @@ class IndexController extends Controller {
     {
         $dm_name = I('dm');
         $price = I('price');
-        $cell = $dm_name."||".$price."#";
+        $years = I('years');
+        $cell = $dm_name."||".$price."||".$years."#";
         $total = cookie('shoptotal');
         $lists = cookie('shopcart');
         $lists = str_replace($cell,'',$lists);
-        $total = $total - $price;
+        $total = $total - $price*$years;
         if(empty($lists)||$lists =='')
         {
             cookie('shoptotal',0,360000);

@@ -1,5 +1,85 @@
-<extend name="public/base" />
-<block name="mainbody">
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wb="http://open.weibo.com/wb" lang="zh-CN">
+	<head>
+		<title>domain shopping</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="domain shopping">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/DomainSystem/Public/style.css" rel="stylesheet" type="text/css">
+		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="header navbar navbar-inverse ">
+		<!-- BEGIN TOP NAVIGATION BAR -->
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<div class="cus0">
+						<div class="navbar-header">
+							<a class="navbar-brand" href="#">菜鸟教程</a>
+						</div>
+						<div>
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="#">iOS</a></li>
+								<li><a href="#">SVN</a></li>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+										Java
+										<b class="caret"></b>
+									</a>
+									<ul class="dropdown-menu">
+										<li><a href="#">jmeter</a></li>
+										<li><a href="#">EJB</a></li>
+										<li><a href="#">Jasper Report</a></li>
+										<li class="divider"></li>
+										<li><a href="#">分离的链接</a></li>
+										<li class="divider"></li>
+										<li><a href="#">另一个分离的链接</a></li>
+									</ul>
+								</li>
+							</ul>
+							<!--right-->
+							<?php if(cookie('u_username')): ?><ul class="nav navbar-nav navbar-right">
+									<li>
+										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Shopping Cart</a>
+									</li>
+									<li>
+										<a href="<?php echo U('Client/index');;?>">My Account</a>
+									</li>
+									<li>
+										<a href="<?php echo U('Login/logout');;?>">Logout</a>
+									</li>
+								</ul>
+							<?php else: ?> 
+								<ul class="nav navbar-nav navbar-right">
+									<li>
+										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Shopping Cart</a>
+									</li>
+									<li>
+										<a href="<?php echo U('Login/login');;?>">Login</a>
+									</li>
+									<li>
+										<a href="<?php echo U('Login/register');;?>">Register </a>
+									</li>
+									<li>
+
+									</li>
+								</ul><?php endif; ?>
+
+						</div>
+					</div>
+					
+					
+					
+				<!-- HEADER ELEMENTS GO HERE -->
+				</div>
+			</div>
+		<!-- END TOP NAVIGATION BAR -->
+		</div>
+		<div class="cus0">
+		
 	<div class="container">
 		<h3><i class="fa fa-shopping-basket" aria-hidden="true"></i> My Order</h3>
 		<div class="panel panel-default">
@@ -16,34 +96,32 @@
 						</tr>
 					</thead>
 					<tbody>
-						<foreach name="res" item="vo">
-						<tr>
+						<?php if(is_array($res)): foreach($res as $key=>$vo): ?><tr>
 							<td data-th="Product">
 								<div class="row">
 									<div class="col-sm-2 hidden-xs"><h5 class="nomargin text-right"><i class="fa fa-tag" aria-hidden="true"></i></h5></div>
 									<div class="col-sm-10">
-										<h5 class="nomargin text-left text-danger">{$vo[0]}</h5>
+										<h5 class="nomargin text-left text-danger"><?php echo ($vo[0]); ?></h5>
 									</div>
 								</div>
 							</td>
-							<td data-th="Price" ><h5 class="nomargin text-center text-danger">{$vo[1]}</h5></td>
-							<td data-th="Price" ><h5 class="nomargin text-center text-danger">{$vo[2]}</h5></td>
+							<td data-th="Price" ><h5 class="nomargin text-center text-danger"><?php echo ($vo[1]); ?></h5></td>
+							<td data-th="Price" ><h5 class="nomargin text-center text-danger"><?php echo ($vo[2]); ?></h5></td>
 							
-						</tr>
-						</foreach>
+						</tr><?php endforeach; endif; ?>
 
 					</tbody>
 					<tfoot>
 						<tr>
 							<td></td>
 							<td></td>
-							<td><h4 class="text-danger"><strong>Total {$total}HK$</strong></h4></td>
+							<td><h4 class="text-danger"><strong>Total <?php echo ($total); ?>HK$</strong></h4></td>
 						</tr>
 					</tfoot>
 				</table>
 			</div>
 		</div>
-		<form role="form" action="{:U('Order/upload')}" method="post">
+		<form role="form" class="form-horizontal" action="<?php echo U('Login/checkReg');;?>" method="post">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h4> Domain Registration Profile</h4>
@@ -114,11 +192,7 @@
 					<div class="form-group col-lg-4">
 						<label>NameServer3(optional)</label>
 						<input class="form-control" name="ns3" type="text" id="ns3" placeholder="NameServer" value="" required/>
-					</div>
-					<div class="form-group col-lg-4">
-						<label>NameServer4(optional)</label>
-						<input class="form-control" name="ns4" type="text" id="ns4" placeholder="NameServer" value="" required/>
-					</div>	
+					</div>				
 				</div>
 			</div>
 		</div>
@@ -131,9 +205,7 @@
 					<div class="form-group col-lg-12">
 					<label>Select payment method</label>
 					<select class="form-control" name="accounttype" required>
-						<foreach name="payments" item="vo">
-							<option value= "{$vo.method}">{$vo.method}</option>
-						</foreach>
+						<?php if(is_array($payments)): foreach($payments as $key=>$vo): ?><option value= "<?php echo ($vo["method"]); ?>"><?php echo ($vo["method"]); ?></option><?php endforeach; endif; ?>
 					</select>
 					</div>
 					<div class="form-group col-lg-12">
@@ -149,19 +221,22 @@
 		</div>  
 		<div class="col-md-12">
 			<div class="col-lg-4">
-				<h4 class="text-danger"><strong>Total number of goods : {$amount} </strong></h4>
+				<h4 class="text-danger"><strong>Total number of goods : <?php echo ($amount); ?> </strong></h4>
 			</div>
 			<div class="col-lg-3">
-				<h4 class="text-danger"><strong>Total : {$total}HK$</strong></h4>
+				<h4 class="text-danger"><strong>Total : <?php echo ($total); ?>HK$</strong></h4>
 			</div>
 			<div class="col-lg-3 text-right">
-				<button type="submit" class="btn btn-danger btn-lg btn-block"><i class="fa fa-plus" aria-hidden="true"></i> Order</button>
+				<a href="<?php echo U('Order/upload');?>" class="btn btn-danger btn-lg btn-block"><i class="fa fa-plus" aria-hidden="true"></i> Order</a>
 			</div>
 			<div class="col-lg-2 text-right">
-				<a href="{:U('Index/index')}" class="btn btn-success btn-lg btn-block"> Cancle</a>
+				<a href="<?php echo U('Index/index');?>" class="btn btn-success btn-lg btn-block"> Cancle</a>
 			</div>
 		</div>
 		</form>
 		
 	</div>
-</block>
+
+		</div>
+	</body>
+</html>

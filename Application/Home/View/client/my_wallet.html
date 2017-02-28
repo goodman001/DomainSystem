@@ -538,7 +538,7 @@
             <tr>
                 <th><i class="icon-briefcase"></i> Time</th>
                 <th><i class="icon-briefcase"></i> Amount</th>
-                <th><i class="icon-briefcase"></i> Account Number</th>
+                <th><i class="icon-briefcase"></i> Card Number/Account number</th>
                 <th><i class="icon-briefcase"></i> Account Type</th>
             </tr>
             </thead>
@@ -584,8 +584,10 @@
 				<option value="Alipay">Alipay</option>
 				<option value="AsiaPay">AsiaPay</option>
 			</select>
-            <label class="control-label">Amount Number</label>
-            <input type="text" value="" name="accountnumber" id="accountnumber"  placeholder="Amount Number" class="m-wrap span8" required> 	
+            <label class="control-label">Card Number/Account number</label>
+            <input type="text" value="" name="accountnumber" id="accountnumber"  placeholder="Amount Number" class="m-wrap span8" required> 
+            <label class="control-label">One-Time Password</label>
+            <input type="password" value="" name="onepassword" id="onepassword"  placeholder="onepassword" class="m-wrap span8" required> 
             <div class="submit-btn">
                 <button type="submit" class="btn green">Deposit</button>
                 <a href="{:U('Client/mywallet');}" class="btn">Cancel</a>

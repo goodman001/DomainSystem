@@ -85,8 +85,9 @@
 		<?php if($showcart == 1): ?><table id="cart" class="table table-hover table-condensed">
 			<thead>
 				<tr>
-					<th style="width:30%" class="text-center">Domain</th>
-					<th style="width:32%" class="text-center">Price</th>
+					<th style="width:30%" class="text-left"><i class="fa fa-tag" aria-hidden="true"></i> Domain</th>
+					<th style="width:20%" class="text-center">Price</th>
+					<th style="width:20%" class="text-center">Years</th>
 					<th ></th>
 				</tr>
 			</thead>
@@ -101,10 +102,11 @@
 						</div>
 					</td>
 					<td data-th="Price" ><h4 class="nomargin text-center text-danger"><?php echo ($vo[1]); ?></h4></td>
+					<td data-th="Price" ><h4 class="nomargin text-center text-danger"><?php echo ($vo[2]); ?></h4></td>
 					<td class="actions" data-th="">
 						<h4>
 							<a class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></a>
-							<a class="btn btn-danger btn-sm" href="<?php echo U('Index/delshoppingcart?dm='.$vo[0].'&price='.$vo[1].'');;?>"><i class="fa fa-trash-o"></i></a>	
+							<a class="btn btn-danger btn-sm" href="<?php echo U('Index/delshoppingcart?dm='.$vo[0].'&price='.$vo[1].'&years='.$vo[2].'');;?>"><i class="fa fa-trash-o"></i></a>	
 						</h4>
 					</td>
 				</tr><?php endforeach; endif; ?>
@@ -113,7 +115,7 @@
 			<tfoot>
 				<tr>
 					<td><a href="<?php echo U('Index/index');?>" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-					<td class="hidden-xs text-center"><strong>Total <?php echo ($total); ?>HK$</strong></td>
+					<td><h4 class="text-danger"><strong>Total <?php echo ($total); ?>HK$</strong></h4></td>
 					<td><a href="<?php echo U('Order/index');?>" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
 					<td></td>
 				</tr>

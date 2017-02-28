@@ -109,7 +109,7 @@
 									<th>Domain</th>
 									<th>State</th>
 									<th>Price</th>
-									<th>Step</th>
+									<th>Years</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -120,11 +120,12 @@
 									<td><?php echo ($price); ?> HK$ per year</td>
 									<form role="form" action="<?php echo U('Index/addshoppingcart?dm='.$dm_name.'&price='.$price.'');;?>" method="post">
 									<td>
-										<select class="form-control" name="step" required>
+										<select class="form-control" name="years" required>
 											<option value="1">one years </option>
 											<option value="2" >two years </option> 
 											<option value="3">three years</option>
 											<option value="5">five years </option>
+											<option value="10">ten years </option>
 										</select>
 									</td>
 									<td><button type="submit" class="btn btn-primary  btn-large">Add to shopping cart</button> </td>

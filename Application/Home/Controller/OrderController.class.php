@@ -11,49 +11,74 @@ class OrderController extends Controller {
 			$this->error('Sorry!Shopping cart is empty!',U('Index/index'),3);
 			return 0;
 		}
-		$useable = 0;//use
-		$Model = M('domainmgr');
-		$target = "";
-		for($index=0;$index<count($res);$index++)
+		$lists = cookie('shopcart');
+		if(empty($lists)||$lists == '')
 		{
-			//print_r($res[$index]);
-			$content = $Model->field('domainname,nextduedate,status')->where($res[$index][0])->find();
-			$now = time();
-			if(!empty($content))
-            {
-                $duedate = strtotime($content['nextduedate']);
-                $now = time();
-                if($content['status'] != 'suspend')
-                {
-					if($content['status'] != 'pending')
+			$this->error('Sorry!Shopping cart is empty!',U('Index/index'),3);
+			return 0;
+		}else
+		{
+			$bigitem = explode('#',$lists); 
+			$res = array();
+			//print_r($bigitem);
+			for($index=0;$index<count($bigitem)-1;$index++) 
+			{ 
+				$res[$index] = explode('||',$bigitem[$index]); 
+			}
+			$useable = 0;//use
+			$Model = M('domainmgr');
+			$target = "";
+			//print_r($res);
+			for($index=0;$index<count($res);$index++)
+			{
+				//print_r($res[$index]);
+				$condition['domainname'] = $res[$index][0];
+				$content = $Model->field('domainname,nextduedate,status')->where($condition)->find();
+				if(!empty($content))
+				{
+					//print_r($content);
+					$duedate = strtotime($content['nextduedate']);
+					$now = time();
+					
+					if($content['status'] != 'suspend')
 					{
-						if($now <= $duedate)//domain : pending(renew) active suspend
+						if($content['status'] != 'pending')
 						{
-							$useable == 1;
-							$target = $res[$index][0];
+							if($now <= $duedate)//domain : pending(renew) active suspend
+							{
+								$useable = 1;
+								$target = $res[$index][0];
+								break;
+							}
+						}else
+						{
+							$useable = 1;
 							break;
 						}
+
 					}else
 					{
-						$useable == 1;
+						$useable = 2;
+						$target = $res[$index][0];
+						break;
 					}
-                    
-                }else
-				{
-					$useable == 2;
-					$target = $res[$index][0];
-					break;
+
 				}
-                
-            }
+			
+			}
+        
 			
 		}
+		//print($useable);
 		if($useable == 1)
 		{
-			$this->error($target.' have been registered!Please choose a new one!',U('Index/showshoppingcart'),3);
+			
+			$this->error($target.' have been registered!Please re-order!',U('Index/showshoppingcart'),3);
+			return 0;
 		}else if($useable == 2)
 		{
 			$this->error($target.' have been suspend by administrator!Please contact administrator!',U('Index/showshoppingcart'),3);
+			return 0;
 		}
 	}
 	/**
@@ -66,15 +91,8 @@ class OrderController extends Controller {
 		$this->assign('username',$username);
 		$this->assign('nowtime',$nowtime);
     	$this->display(T('client/index'));*/
-		$total = cookie('shoptotal');
-        $lists = cookie('shopcart');
-        $bigitem = explode('#',$lists); 
-        $res = array();
-        #print_r($bigitem);
-        for($index=0;$index<count($bigitem)-1;$index++) 
-        { 
-            $res[$index] = explode('||',$bigitem[$index]); 
-        }
+		//$total = cookie('shoptotal');
+        
 		//print_r($res);
 		//check domain is whether is generating order or not
 		/*$useable = 0;//use
@@ -125,30 +143,24 @@ class OrderController extends Controller {
 			$total = cookie('shoptotal');
 			$lists = cookie('shopcart');
 			$showcart = 1;
-			if(empty($lists)||$lists == '')
-			{
-				$this->error('Sorry!Shopping cart is empty!',U('Index/index'),3);
-			}else
-			{
-				$bigitem = explode('#',$lists); 
-				$res = array();
-				#print_r($bigitem);
-				for($index=0;$index<count($bigitem)-1;$index++) 
-				{ 
-					$res[$index] = explode('||',$bigitem[$index]); 
-				}
-				$this->assign('res',$res);
-				$this->assign('total',$total);
-				$this->assign('amount',count($bigitem));
-				/*get payment method*/
-				$Model = M('paymethod');
-				$condition['useable'] = 'Y';
-				$ct = $Model->field('method')->where($condition)->select();
-				$this->assign('payments',$ct);
-				//print_r($ct);
-				$this->display(T('order/order'));
-				//print(count($bigitem)-1);
+			$bigitem = explode('#',$lists); 
+			$res = array();
+			#print_r($bigitem);
+			for($index=0;$index<count($bigitem)-1;$index++) 
+			{ 
+				$res[$index] = explode('||',$bigitem[$index]); 
 			}
+			$this->assign('res',$res);
+			$this->assign('total',$total);
+			$this->assign('amount',count($bigitem));
+			/*get payment method*/
+			$Model = M('paymethod');
+			$condition['useable'] = 'Y';
+			$ct = $Model->field('method')->where($condition)->select();
+			$this->assign('payments',$ct);
+			//print_r($ct);
+			$this->display(T('order/order'));
+			//print(count($bigitem)-1);
 			
 		}
 		/*if($useable == 0)// add shopping cart to 
@@ -189,7 +201,7 @@ class OrderController extends Controller {
 	public function upload()
 	{
 		$username = cookie('u_username');
-		$transactionID = time();
+		$transactionID = time()+101;
 		$orderID = time();
 		/*get registar*/
 		$Model = M('registrar');
@@ -205,8 +217,10 @@ class OrderController extends Controller {
         $bigitem = explode('#',$lists); 
         $res = array();
 		$item = array();
+		$data = array();
         #print_r($bigitem);
 		$Model = M('item');
+		$DoM = M('domainmgr');
         for($index=0;$index<count($bigitem)-1;$index++) 
         { 
             $res[$index] = explode('||',$bigitem[$index]); 
@@ -216,10 +230,13 @@ class OrderController extends Controller {
 			$item[$index]["registrar"] = $registrar;
 			$item[$index]["price"] = $res[$index][1];
 			$item[$index]["years"] = $res[$index][2];
+			$Model->data($item[$index])->add();
+			//print_r($item[$index]);
 			/*get domain infomation*/
 			$data['domainname'] = $res[$index][0];
 			$data['username'] = $username;
 			$data['registrar'] = $registrar;
+			$data['registrationdate'] = '';
 			$data['expirydate'] = '';
 			$data['nextduedate'] = '';
 			$data['status'] = 'pending';
@@ -247,33 +264,53 @@ class OrderController extends Controller {
 			$data['ns2'] = I('post.ns2','','htmlspecialchars');//get firstname
 			$data['ns3'] = I('post.ns3','','htmlspecialchars');//get firstname
 			$data['ns4'] = I('post.ns4','','htmlspecialchars');//get firstname
-			print_r($item[$index]);
+			$DoM->data($data)->add();
+			//print_r($data);
+			//print_r($item[$index]);
 			
         }
 		
 		//print_r($data);
 		/*get payment information*/
 		$pay['accounttype'] = I('post.accounttype','','htmlspecialchars');//get firstname
-		$pay['accountnumber'] = I('post.accountnumber','','htmlspecialchars');//
 		/*get order infomation*/
+		$orderM = M('order');
 		$order['orderID'] = $orderID;//get order id
-		$order['transactionID'] = $transactionID;//get order id
+		$order['transactionID'] = $transactionID;//get id
 		$order['username'] = $username;
 		$order['issuedate'] = date('Y-m-d H:i:s',time());
 		$order['status'] = 'pending';
 		$order['refundaccount'] = '';
-		$order['invoicedate'] = '';
+		$order['invoicedate'] = date('Y-m-d H:i:s',time());
 		$order['duedate'] = '';
 		$order['description'] = '';
-		$order['paymethod'] = $pay['accounttype'];
+		$orderM->data($order)->add();
+		//print_r($order);
+		//$order['paymethod'] = $pay['accounttype'];
 		/*
 		transaction
 		*/
-		$trans['transactionID']
+		$transM = M('transaction');
+		$trans['transactionID'] = $transactionID;
+		$trans['clientname'] = I('post.clientname','','htmlspecialchars');
+		$trans['orderID'] = $orderID;
+		$trans['invoiceID'] = time();
+		$trans['description'] = 'I use the '.$pay['accounttype'].' to pay for the order';
+		$trans['paydate'] = date('Y-m-d H:i:s',time());
+		$trans['paymethod'] = $pay['accounttype'];
+		$trans['accountnumber'] = I('post.accountnumber','','htmlspecialchars');
+		$trans['settleamount'] = $total;
+		$transM->data($trans)->add();
+		//print_r($trans);
+		$this->assign('items',$item);
+		$this->assign('data',$data);
+		$this->assign('order',$order);
+		$this->assign('trans',$trans);
+		//print_r($ct);
+		$this->display(T('order/orderreport'));
 		
 		
-		
-		
+	
 	}
 	
     

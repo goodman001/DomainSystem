@@ -1,0 +1,73 @@
+<extend name="public/base" />
+<block name="mainbody">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="invoice-title">
+					<h2>Order # {$order.orderID}</h2>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-xs-5">
+						<address>
+						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Order ID</strong>:</div><div class="col-xs-8">963852741963852741{$order.orderID}</div></div>
+						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Order Issue date</strong>: </div><div class="col-xs-8">{$order.issuedate}</div></div>
+						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Username</strong>: </div><div class="col-xs-8">{$order.username}</div></div>
+						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Status</strong>: </div><div class="col-xs-8">{$order.status}</div></div>
+						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Refund</strong>: </div><div class="col-xs-8">{$order.refund}</div></div>
+						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Invoice date</strong>: </div><div class="col-xs-8">{$order.invoicedate}</div></div>
+						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Due date</strong>: </div><div class="col-xs-8">Waiting</div></div>
+						</address>
+					</div>
+					<div class="col-xs-7">
+						<address>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Transaction ID</strong>:</div><div class="col-xs-7">963752741963752741{$trans.transactionID}</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Client Name</strong>: </div><div class="col-xs-7">{$trans.clientname}</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Card Number/Account number</strong>: </div><div class="col-xs-7">{$trans.accountnumber}</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Invoice ID</strong>: </div><div class="col-xs-7">{$trans.invoiceID}</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Payment Date</strong>: </div><div class="col-xs-7">{$trans.paydate}</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Payment Method</strong>: </div><div class="col-xs-7">{$trans.paymethod}</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Settle Amount</strong>: </div><div class="col-xs-7">{$trans.settleamount} HK$</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Description</strong>: </div><div class="col-xs-7">{$trans.description}</div></div>
+						</address>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title"><strong>Order summary</strong></h3>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-condensed">
+								<thead>
+									<tr>
+										<td><strong>Item</strong></td>
+										<td class="text-center"><strong>Price</strong></td>
+										<td class="text-center"><strong>Years</strong></td>
+										<td class="text-right"><strong>Totals</strong></td>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- foreach ($order->lineItems as $line) or some such thing here -->
+									<foreach name="res" item="vo">
+									<tr>
+										<td class="text-center">{$vo.domainname}</td>
+										<td class="text-center">{$vo.price} HK$</td>
+										<td class="text-right">{$vo.years}</td>
+										<td class="text-right">{$vo.years*$vo.price}</td>
+									</tr>
+									</foreach>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</block>

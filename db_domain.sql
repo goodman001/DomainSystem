@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 01, 2017 at 11:53 AM
+-- Generation Time: Mar 01, 2017 at 05:45 PM
 -- Server version: 5.5.50-0ubuntu0.14.04.1
 -- PHP Version: 5.6.23-1+deprecated+dontuse+deb.sury.org~trusty+1
 
@@ -78,9 +78,9 @@ INSERT INTO `db_configure` (`id`, `domainprice`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `db_domainmgr` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `domainname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `usename` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `registrar` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `registrationdate` datetime NOT NULL,
   `expirydate` datetime NOT NULL,
@@ -106,21 +106,18 @@ CREATE TABLE IF NOT EXISTS `db_domainmgr` (
   `ns1` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `ns2` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `ns3` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
-  `ns4` varchar(60) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
+  `ns4` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `domainname` (`domainname`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
--- Table structure for table `db_domainprofile`
+-- Dumping data for table `db_domainmgr`
 --
 
-CREATE TABLE IF NOT EXISTS `db_domainprofile` (
-  `id` int(11) NOT NULL,
-  `domainname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `firstname` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `lastname` varchar(30) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+INSERT INTO `db_domainmgr` (`id`, `domainname`, `username`, `registrar`, `registrationdate`, `expirydate`, `nextduedate`, `status`, `mainforward`, `DNSmgr`, `IDprotect`, `orderID`, `email`, `firstname`, `lastname`, `company`, `jobtitle`, `address1`, `address2`, `city`, `state`, `country`, `postcode`, `phone`, `fax`, `ns1`, `ns2`, `ns3`, `ns4`) VALUES
+(1, 'djdjdjaad3der.cc', 'test', 'ResellerClub', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'pending', '', '', 'N', 1488358652, 'ABC@GMAIL.COM', 'FN', 'LN', 'GOOGLE', 'ENGINEER', 'add1', 'add2', 'CITY', 'STATE', 'UK', 123456, '220-123-234', '220-123-234', '1.1.1.1', '2.1.1.1', '3.1.1.1', '4.1.1.1'),
+(2, 'adfdfdfdf.com', 'test', 'ResellerClub', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'pending', '', '', 'N', 1488358652, 'ABC@GMAIL.COM', 'FN', 'LN', 'GOOGLE', 'ENGINEER', 'add1', 'add2', 'CITY', 'STATE', 'UK', 123456, '220-123-234', '220-123-234', '1.1.1.1', '2.1.1.1', '3.1.1.1', '4.1.1.1');
 
 -- --------------------------------------------------------
 
@@ -137,7 +134,15 @@ CREATE TABLE IF NOT EXISTS `db_item` (
   `price` decimal(10,2) NOT NULL,
   `years` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `db_item`
+--
+
+INSERT INTO `db_item` (`id`, `domainname`, `orderID`, `registrar`, `IDprotect`, `price`, `years`) VALUES
+(1, 'djdjdjaad3der.cc', 1488358652, 'ResellerClub', 'N', 10.00, 1),
+(2, 'adfdfdfdf.com', 1488358652, 'ResellerClub', 'N', 10.00, 2);
 
 -- --------------------------------------------------------
 
@@ -157,10 +162,16 @@ CREATE TABLE IF NOT EXISTS `db_order` (
   `invoicedate` datetime NOT NULL,
   `duedate` datetime NOT NULL,
   `description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `paymethod` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `orderID` (`orderID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `db_order`
+--
+
+INSERT INTO `db_order` (`id`, `orderID`, `username`, `transactionID`, `issuedate`, `status`, `refund`, `refundaccount`, `invoicedate`, `duedate`, `description`) VALUES
+(1, 1488358652, 'test', 1488358753, '2017-03-01 16:57:32', 'pending', 'N', '', '2017-03-01 16:57:32', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -233,17 +244,26 @@ INSERT INTO `db_registrar` (`id`, `registrar`, `status`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `db_transaction` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `transactionID` bigint(20) NOT NULL,
-  `username` int(11) NOT NULL,
+  `clientname` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `orderID` bigint(20) NOT NULL,
-  `InvoiceID` bigint(20) unsigned NOT NULL,
+  `invoiceID` bigint(20) unsigned NOT NULL,
   `description` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `paydate` datetime NOT NULL,
   `paymethod` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `accountnumber` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `settleamount` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `settleamount` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `transactionID` (`transactionID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `db_transaction`
+--
+
+INSERT INTO `db_transaction` (`id`, `transactionID`, `clientname`, `orderID`, `invoiceID`, `description`, `paydate`, `paymethod`, `accountnumber`, `settleamount`) VALUES
+(1, 1488358753, 'jay yang', 1488358652, 1488358652, 'I use the Credit Card to pay for the order', '2017-03-01 16:57:32', 'Credit Card', '9638527418523695', 30.00);
 
 -- --------------------------------------------------------
 

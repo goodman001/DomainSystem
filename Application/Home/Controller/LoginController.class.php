@@ -91,8 +91,8 @@ class LoginController extends Controller {
 				$emailbody="Dear".$content['username']."：<br/>The email is for finding your password verification <br/>your verification code is 9823<br/> "; 
 				if(sendMail($data['email'],"Find password verification",$emailbody) == 1)
 				{
-					cookie('findpwd_email',$data['email'],3600);
-					cookie('findpwd_code',9823,3600);
+					cookie('findpwd_email',$data['email'],36000);
+					cookie('findpwd_code',9823,36000);
 					$this->display(T('reglogin/findpwd'));
 				}else
 				{
@@ -153,7 +153,7 @@ class LoginController extends Controller {
 		{
 			if($content['status'] == 0 || $content['status'] == 1 ){
 				$Model-> where($data)->setField('status',1);
-				cookie('u_username',$data['username'],3600);
+				cookie('u_username',$data['username'],36000);
 				$this->success('Login successfully! welcome ',U('Index/index'));
 			}else
 			{

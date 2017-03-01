@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 01, 2017 at 05:45 PM
--- Server version: 5.5.50-0ubuntu0.14.04.1
--- PHP Version: 5.6.23-1+deprecated+dontuse+deb.sury.org~trusty+1
+-- Generation Time: Mar 01, 2017 at 08:18 AM
+-- Server version: 5.5.53-0ubuntu0.14.04.1
+-- PHP Version: 5.5.9-1ubuntu4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,54 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_domain`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `db_auth_group`
+--
+
+CREATE TABLE IF NOT EXISTS `db_auth_group` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL DEFAULT '',
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `rules` varchar(500) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `db_auth_group_access`
+--
+
+CREATE TABLE IF NOT EXISTS `db_auth_group_access` (
+  `uid` mediumint(8) unsigned NOT NULL,
+  `group_id` mediumint(8) unsigned NOT NULL,
+  UNIQUE KEY `uid_group_id` (`uid`,`group_id`),
+  KEY `uid` (`uid`),
+  KEY `group_id` (`group_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `db_auth_rule`
+--
+
+CREATE TABLE IF NOT EXISTS `db_auth_rule` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `name` char(80) NOT NULL DEFAULT '',
+  `title` char(20) NOT NULL DEFAULT '',
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `condition` char(100) NOT NULL DEFAULT '',
+  `pid` smallint(6) DEFAULT NULL,
+  `level` tinyint(1) DEFAULT NULL,
+  `isnavshow` tinyint(1) DEFAULT NULL,
+  `sort` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
 -- --------------------------------------------------------
 
@@ -109,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `db_domainmgr` (
   `ns4` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `domainname` (`domainname`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `db_domainmgr`
@@ -117,7 +165,9 @@ CREATE TABLE IF NOT EXISTS `db_domainmgr` (
 
 INSERT INTO `db_domainmgr` (`id`, `domainname`, `username`, `registrar`, `registrationdate`, `expirydate`, `nextduedate`, `status`, `mainforward`, `DNSmgr`, `IDprotect`, `orderID`, `email`, `firstname`, `lastname`, `company`, `jobtitle`, `address1`, `address2`, `city`, `state`, `country`, `postcode`, `phone`, `fax`, `ns1`, `ns2`, `ns3`, `ns4`) VALUES
 (1, 'djdjdjaad3der.cc', 'test', 'ResellerClub', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'pending', '', '', 'N', 1488358652, 'ABC@GMAIL.COM', 'FN', 'LN', 'GOOGLE', 'ENGINEER', 'add1', 'add2', 'CITY', 'STATE', 'UK', 123456, '220-123-234', '220-123-234', '1.1.1.1', '2.1.1.1', '3.1.1.1', '4.1.1.1'),
-(2, 'adfdfdfdf.com', 'test', 'ResellerClub', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'pending', '', '', 'N', 1488358652, 'ABC@GMAIL.COM', 'FN', 'LN', 'GOOGLE', 'ENGINEER', 'add1', 'add2', 'CITY', 'STATE', 'UK', 123456, '220-123-234', '220-123-234', '1.1.1.1', '2.1.1.1', '3.1.1.1', '4.1.1.1');
+(2, 'adfdfdfdf.com', 'test', 'ResellerClub', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'pending', '', '', 'N', 1488358652, 'ABC@GMAIL.COM', 'FN', 'LN', 'GOOGLE', 'ENGINEER', 'add1', 'add2', 'CITY', 'STATE', 'UK', 123456, '220-123-234', '220-123-234', '1.1.1.1', '2.1.1.1', '3.1.1.1', '4.1.1.1'),
+(3, 'aaaaaaaaaaa.club', 'test', 'eNom', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'pending', '', '', 'N', 1488371412, 'ggg@yahoo.com', 'yang', 'mu', 'bat', 'it', 'ADDRESS1', 'ADDRESS2', 'wd', 'ca', 'UK', 10098, '223-523-463', '223-523-463', '1.2.2.2', '2.3.3.3', '3.3.3.3', '4.4.4.4'),
+(4, 'bcedad.cc', 'test', 'eNom', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'pending', '', '', 'N', 1488371412, 'ggg@yahoo.com', 'yang', 'mu', 'bat', 'it', 'ADDRESS1', 'ADDRESS2', 'wd', 'ca', 'UK', 10098, '223-523-463', '223-523-463', '1.2.2.2', '2.3.3.3', '3.3.3.3', '4.4.4.4');
 
 -- --------------------------------------------------------
 
@@ -134,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `db_item` (
   `price` decimal(10,2) NOT NULL,
   `years` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `db_item`
@@ -142,7 +192,9 @@ CREATE TABLE IF NOT EXISTS `db_item` (
 
 INSERT INTO `db_item` (`id`, `domainname`, `orderID`, `registrar`, `IDprotect`, `price`, `years`) VALUES
 (1, 'djdjdjaad3der.cc', 1488358652, 'ResellerClub', 'N', 10.00, 1),
-(2, 'adfdfdfdf.com', 1488358652, 'ResellerClub', 'N', 10.00, 2);
+(2, 'adfdfdfdf.com', 1488358652, 'ResellerClub', 'N', 10.00, 2),
+(3, 'aaaaaaaaaaa.club', 1488371412, 'eNom', 'N', 10.00, 2),
+(4, 'bcedad.cc', 1488371412, 'eNom', 'N', 10.00, 10);
 
 -- --------------------------------------------------------
 
@@ -164,14 +216,15 @@ CREATE TABLE IF NOT EXISTS `db_order` (
   `description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `orderID` (`orderID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `db_order`
 --
 
 INSERT INTO `db_order` (`id`, `orderID`, `username`, `transactionID`, `issuedate`, `status`, `refund`, `refundaccount`, `invoicedate`, `duedate`, `description`) VALUES
-(1, 1488358652, 'test', 1488358753, '2017-03-01 16:57:32', 'pending', 'N', '', '2017-03-01 16:57:32', '0000-00-00 00:00:00', '');
+(1, 1488358652, 'test', 1488358753, '2017-03-01 16:57:32', 'pending', 'N', '', '2017-03-01 16:57:32', '0000-00-00 00:00:00', ''),
+(2, 1488371412, 'test', 1488371513, '2017-03-01 20:30:12', 'pending', 'N', '', '2017-03-01 20:30:12', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -256,14 +309,15 @@ CREATE TABLE IF NOT EXISTS `db_transaction` (
   `settleamount` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `transactionID` (`transactionID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `db_transaction`
 --
 
 INSERT INTO `db_transaction` (`id`, `transactionID`, `clientname`, `orderID`, `invoiceID`, `description`, `paydate`, `paymethod`, `accountnumber`, `settleamount`) VALUES
-(1, 1488358753, 'jay yang', 1488358652, 1488358652, 'I use the Credit Card to pay for the order', '2017-03-01 16:57:32', 'Credit Card', '9638527418523695', 30.00);
+(1, 1488358753, 'jay yang', 1488358652, 1488358652, 'I use the Credit Card to pay for the order', '2017-03-01 16:57:32', 'Credit Card', '9638527418523695', 30.00),
+(2, 1488371513, 'WANG', 1488371412, 1488371412, 'I use the Credit Card to pay for the order', '2017-03-01 20:30:12', 'Credit Card', '9638527412635', 120.00);
 
 -- --------------------------------------------------------
 

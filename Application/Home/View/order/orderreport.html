@@ -3,25 +3,33 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
+				<h4 class="text-success"><i class="fa fa-bell-o" aria-hidden="true"></i> Your order has been completed and thank you for shopping! The administrator will verify your payment as soon as possible</h4>
+			</div>
+			<div class="col-xs-12">
+				<div class="col-md-4"></div>
+				<div class="col-md-4"><a href="{:U('Index/index')}" class="btn btn-success btn-lg btn-block"> <i class="fa fa-angle-left"></i> Return</a></div>
+				<div class="col-md-4"></div>
+			</div>
+			<div class="col-xs-12">
 				<div class="invoice-title">
-					<h2>Order # {$order.orderID}</h2>
+					<h2><i class="fa fa-shopping-bag" aria-hidden="true"></i> Order # {$order.orderID}</h2>
 				</div>
 				<hr>
 				<div class="row">
-					<div class="col-xs-5">
+					<div class="col-xs-6">
 						<address>
-						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Order ID</strong>:</div><div class="col-xs-8">963852741963852741{$order.orderID}</div></div>
-						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Order Issue date</strong>: </div><div class="col-xs-8">{$order.issuedate}</div></div>
-						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Username</strong>: </div><div class="col-xs-8">{$order.username}</div></div>
-						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Status</strong>: </div><div class="col-xs-8">{$order.status}</div></div>
-						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Refund</strong>: </div><div class="col-xs-8">{$order.refund}</div></div>
-						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Invoice date</strong>: </div><div class="col-xs-8">{$order.invoicedate}</div></div>
-						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Due date</strong>: </div><div class="col-xs-8">Waiting</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Order ID</strong>:</div><div class="col-xs-7">{$order.orderID}</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Order Issue date</strong>: </div><div class="col-xs-7">{$order.issuedate}</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Username</strong>: </div><div class="col-xs-7">{$order.username}</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Status</strong>: </div><div class="col-xs-7">{$order.status}</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Refund</strong>: </div><div class="col-xs-7">No</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Invoice date</strong>: </div><div class="col-xs-7">{$order.invoicedate}</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Due date</strong>: </div><div class="col-xs-7">Waiting</div></div>
 						</address>
 					</div>
-					<div class="col-xs-7">
+					<div class="col-xs-6">
 						<address>
-						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Transaction ID</strong>:</div><div class="col-xs-7">963752741963752741{$trans.transactionID}</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Transaction ID</strong>:</div><div class="col-xs-7">{$trans.transactionID}</div></div>
 						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Client Name</strong>: </div><div class="col-xs-7">{$trans.clientname}</div></div>
 						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Card Number/Account number</strong>: </div><div class="col-xs-7">{$trans.accountnumber}</div></div>
 						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Invoice ID</strong>: </div><div class="col-xs-7">{$trans.invoiceID}</div></div>
@@ -46,20 +54,20 @@
 							<table class="table table-condensed">
 								<thead>
 									<tr>
-										<td><strong>Item</strong></td>
+										<td class="text-center"><strong>Item</strong></td>
 										<td class="text-center"><strong>Price</strong></td>
 										<td class="text-center"><strong>Years</strong></td>
-										<td class="text-right"><strong>Totals</strong></td>
+										<td class="text-center"><strong>Totals</strong></td>
 									</tr>
 								</thead>
 								<tbody>
 									<!-- foreach ($order->lineItems as $line) or some such thing here -->
-									<foreach name="res" item="vo">
+									<foreach name="items" item="vo">
 									<tr>
 										<td class="text-center">{$vo.domainname}</td>
 										<td class="text-center">{$vo.price} HK$</td>
-										<td class="text-right">{$vo.years}</td>
-										<td class="text-right">{$vo.years*$vo.price}</td>
+										<td class="text-center">{$vo.years}</td>
+										<td class="text-center"><?php echo $vo['years']*$vo['price']; ?> </td>
 									</tr>
 									</foreach>
 								</tbody>
@@ -68,6 +76,7 @@
 					</div>
 				</div>
 			</div>
+			
 		</div>
 	</div>
 </block>

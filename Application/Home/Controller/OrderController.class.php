@@ -12,6 +12,7 @@ class OrderController extends Controller {
 			return 0;
 		}
 		$lists = cookie('shopcart');
+		$target = "";
 		if(empty($lists)||$lists == '')
 		{
 			$this->error('Sorry!Shopping cart is empty!',U('Index/index'),3);
@@ -27,7 +28,6 @@ class OrderController extends Controller {
 			}
 			$useable = 0;//use
 			$Model = M('domainmgr');
-			$target = "";
 			//print_r($res);
 			for($index=0;$index<count($res);$index++)
 			{
@@ -53,6 +53,7 @@ class OrderController extends Controller {
 						}else
 						{
 							$useable = 1;
+							$target = $res[$index][0];
 							break;
 						}
 
@@ -66,20 +67,20 @@ class OrderController extends Controller {
 				}
 			
 			}
+			if($useable == 1)
+			{
+
+				$this->error($target.' have been registered!Please re-order!',U('Index/showshoppingcart'),3);
+				return 0;
+			}else if($useable == 2)
+			{
+				$this->error($target.' have been suspend by administrator!Please contact administrator!',U('Index/showshoppingcart'),3);
+				return 0;
+			}
         
 			
 		}
-		//print($useable);
-		if($useable == 1)
-		{
-			
-			$this->error($target.' have been registered!Please re-order!',U('Index/showshoppingcart'),3);
-			return 0;
-		}else if($useable == 2)
-		{
-			$this->error($target.' have been suspend by administrator!Please contact administrator!',U('Index/showshoppingcart'),3);
-			return 0;
-		}
+		
 	}
 	/**
     *   show client index page
@@ -152,7 +153,7 @@ class OrderController extends Controller {
 			}
 			$this->assign('res',$res);
 			$this->assign('total',$total);
-			$this->assign('amount',count($bigitem));
+			$this->assign('amount',count($bigitem)-1);
 			/*get payment method*/
 			$Model = M('paymethod');
 			$condition['useable'] = 'Y';
@@ -301,9 +302,12 @@ class OrderController extends Controller {
 		$trans['accountnumber'] = I('post.accountnumber','','htmlspecialchars');
 		$trans['settleamount'] = $total;
 		$transM->data($trans)->add();
+		/*clear shop cart*/
+		cookie('shopcart',null);
+		cookie('shoptotal',null);
 		//print_r($trans);
 		$this->assign('items',$item);
-		$this->assign('data',$data);
+		//$this->assign('data',$data);
 		$this->assign('order',$order);
 		$this->assign('trans',$trans);
 		//print_r($ct);

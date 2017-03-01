@@ -6,7 +6,7 @@
 		<meta name="author" content="domain shopping">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href="/DomainSystem/Public/style.css" rel="stylesheet" type="text/css">
 		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -83,8 +83,16 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
+				<h4 class="text-success"><i class="fa fa-bell-o" aria-hidden="true"></i> Your order has been completed and thank you for shopping! The administrator will verify your payment as soon as possible</h4>
+			</div>
+			<div class="col-xs-12">
+				<div class="col-md-4"></div>
+				<div class="col-md-4"><a href="<?php echo U('Index/index');?>" class="btn btn-success btn-lg btn-block"> <i class="fa fa-angle-left"></i> Return</a></div>
+				<div class="col-md-4"></div>
+			</div>
+			<div class="col-xs-12">
 				<div class="invoice-title">
-					<h2>Order # <?php echo ($order["orderID"]); ?></h2>
+					<h2><i class="fa fa-shopping-bag" aria-hidden="true"></i> Order # <?php echo ($order["orderID"]); ?></h2>
 				</div>
 				<hr>
 				<div class="row">
@@ -111,30 +119,6 @@
 						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Description</strong>: </div><div class="col-xs-7"><?php echo ($trans["description"]); ?></div></div>
 						</address>
 					</div>
-					<div class="col-xs-4 text-right">
-						<address>
-						<strong>Shipped To:</strong><br>
-							Jane Smith<br>
-							1234 Main<br>
-							Apt. 4B<br>
-							Springfield, ST 54321
-						</address>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-4">
-						<address>
-							<strong>Payment Method:</strong><br>
-							Visa ending **** 4242<br>
-							jsmith@email.com
-						</address>
-					</div>
-					<div class="col-xs-4 text-right">
-						<address>
-							<strong>Order Date:</strong><br>
-							March 7, 2014<br><br>
-						</address>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -152,54 +136,25 @@
 									<tr>
 										<td><strong>Item</strong></td>
 										<td class="text-center"><strong>Price</strong></td>
-										<td class="text-center"><strong>Quantity</strong></td>
+										<td class="text-center"><strong>Years</strong></td>
 										<td class="text-right"><strong>Totals</strong></td>
 									</tr>
 								</thead>
 								<tbody>
 									<!-- foreach ($order->lineItems as $line) or some such thing here -->
-									<tr>
-										<td>BS-200</td>
-										<td class="text-center">$10.99</td>
-										<td class="text-center">1</td>
-										<td class="text-right">$10.99</td>
-									</tr>
-									<tr>
-										<td>BS-400</td>
-										<td class="text-center">$20.00</td>
-										<td class="text-center">3</td>
-										<td class="text-right">$60.00</td>
-									</tr>
-									<tr>
-										<td>BS-1000</td>
-										<td class="text-center">$600.00</td>
-										<td class="text-center">1</td>
-										<td class="text-right">$600.00</td>
-									</tr>
-									<tr>
-										<td class="thick-line"></td>
-										<td class="thick-line"></td>
-										<td class="thick-line text-center"><strong>Subtotal</strong></td>
-										<td class="thick-line text-right">$670.99</td>
-									</tr>
-									<tr>
-										<td class="no-line"></td>
-										<td class="no-line"></td>
-										<td class="no-line text-center"><strong>Shipping</strong></td>
-										<td class="no-line text-right">$15</td>
-									</tr>
-									<tr>
-										<td class="no-line"></td>
-										<td class="no-line"></td>
-										<td class="no-line text-center"><strong>Total</strong></td>
-										<td class="no-line text-right">$685.99</td>
-									</tr>
+									<?php if(is_array($items)): foreach($items as $key=>$vo): ?><tr>
+										<td class="text-center"><?php echo ($vo["domainname"]); ?></td>
+										<td class="text-center"><?php echo ($vo["price"]); ?> HK$</td>
+										<td class="text-right"><?php echo ($vo["years"]); ?></td>
+										<td class="text-right"><?php echo ($vo["years*$vo"]["price"]); ?></td>
+									</tr><?php endforeach; endif; ?>
 								</tbody>
 							</table>
 						</div>
 					</div>
 				</div>
 			</div>
+			
 		</div>
 	</div>
 

@@ -131,7 +131,7 @@ class ClientController extends Controller {
 		$data['accounttype'] = I('post.accounttype','','htmlspecialchars');//amount of money
 		$data['accountnumber'] = I('post.accountnumber','','htmlspecialchars');//
 		$data['target'] = 1;//in
-		$data['optime'] =date('Y-m-d H:i:s',time());//get time
+		$data['optime'] = date('Y-m-d H:i:s',time());//get time
 		$Model = M('balance');
 		$Model->data($data)->add();
 		$c1['username'] = $data['username'];

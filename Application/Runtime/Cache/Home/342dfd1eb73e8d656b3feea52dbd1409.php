@@ -121,7 +121,7 @@
 				</table>
 			</div>
 		</div>
-		<form role="form" class="form-horizontal" action="<?php echo U('Login/checkReg');;?>" method="post">
+		<form role="form" action="<?php echo U('Order/upload');?>" method="post">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h4> Domain Registration Profile</h4>
@@ -192,7 +192,11 @@
 					<div class="form-group col-lg-4">
 						<label>NameServer3(optional)</label>
 						<input class="form-control" name="ns3" type="text" id="ns3" placeholder="NameServer" value="" required/>
-					</div>				
+					</div>
+					<div class="form-group col-lg-4">
+						<label>NameServer4(optional)</label>
+						<input class="form-control" name="ns4" type="text" id="ns4" placeholder="NameServer" value="" required/>
+					</div>	
 				</div>
 			</div>
 		</div>
@@ -227,7 +231,7 @@
 				<h4 class="text-danger"><strong>Total : <?php echo ($total); ?>HK$</strong></h4>
 			</div>
 			<div class="col-lg-3 text-right">
-				<a href="<?php echo U('Order/upload');?>" class="btn btn-danger btn-lg btn-block"><i class="fa fa-plus" aria-hidden="true"></i> Order</a>
+				<button type="submit" class="btn btn-danger btn-lg btn-block"><i class="fa fa-plus" aria-hidden="true"></i> Order</button>
 			</div>
 			<div class="col-lg-2 text-right">
 				<a href="<?php echo U('Index/index');?>" class="btn btn-success btn-lg btn-block"> Cancle</a>

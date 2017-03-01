@@ -9,6 +9,51 @@ class OrderController extends Controller {
 		}else if(empty(cookie('shopcart'))||cookie('shopcart') == '')
 		{
 			$this->error('Sorry!Shopping cart is empty!',U('Index/index'),3);
+			return 0;
+		}
+		$useable = 0;//use
+		$Model = M('domainmgr');
+		$target = "";
+		for($index=0;$index<count($res);$index++)
+		{
+			//print_r($res[$index]);
+			$content = $Model->field('domainname,nextduedate,status')->where($res[$index][0])->find();
+			$now = time();
+			if(!empty($content))
+            {
+                $duedate = strtotime($content['nextduedate']);
+                $now = time();
+                if($content['status'] != 'suspend')
+                {
+					if($content['status'] != 'pending')
+					{
+						if($now <= $duedate)//domain : pending(renew) active suspend
+						{
+							$useable == 1;
+							$target = $res[$index][0];
+							break;
+						}
+					}else
+					{
+						$useable == 1;
+					}
+                    
+                }else
+				{
+					$useable == 2;
+					$target = $res[$index][0];
+					break;
+				}
+                
+            }
+			
+		}
+		if($useable == 1)
+		{
+			$this->error($target.' have been registered!Please choose a new one!',U('Index/showshoppingcart'),3);
+		}else if($useable == 2)
+		{
+			$this->error($target.' have been suspend by administrator!Please contact administrator!',U('Index/showshoppingcart'),3);
 		}
 	}
 	/**
@@ -32,7 +77,7 @@ class OrderController extends Controller {
         }
 		//print_r($res);
 		//check domain is whether is generating order or not
-		$useable = 0;
+		/*$useable = 0;//use
 		$Model = M('domainmgr');
 		$target = "";
 		for($index=0;$index<count($res);$index++)
@@ -46,12 +91,19 @@ class OrderController extends Controller {
                 $now = time();
                 if($content['status'] != 'suspend')
                 {
-                    if($now <= $duedate)//domain : pending(renew) active suspend
-                    {
-                        $useable == 1;
-						$target = $res[$index][0];
-						break;
-                    }
+					if($content['status'] != 'pending')
+					{
+						if($now <= $duedate)//domain : pending(renew) active suspend
+						{
+							$useable == 1;
+							$target = $res[$index][0];
+							break;
+						}
+					}else
+					{
+						$useable == 1;
+					}
+                    
                 }else
 				{
 					$useable == 2;
@@ -68,7 +120,7 @@ class OrderController extends Controller {
 		}else if($useable == 2)
 		{
 			$this->error($target.' have been suspend by administrator!Please contact administrator!',U('Index/showshoppingcart'),3);
-		}else
+		}else*/
 		{
 			$total = cookie('shoptotal');
 			$lists = cookie('shopcart');
@@ -136,27 +188,90 @@ class OrderController extends Controller {
 	/*upload order infomation*/
 	public function upload()
 	{
-		/*get domain registation profile*/
-		$data['email'] = I('post.email','','htmlspecialchars');//get email
-		$data['firstname'] = I('post.firstname','','htmlspecialchars');//get firstname
-		$data['lastname'] = I('post.lastname','','htmlspecialchars');//get firstname
-		$data['company'] = I('post.company','','htmlspecialchars');//get firstname
-		$data['jobtitle'] = I('post.jobtitle','','htmlspecialchars');//get firstname
-		$data['address1'] = I('post.address1','','htmlspecialchars');//get firstname
-		$data['address2'] = I('post.address2','','htmlspecialchars');//get firstname
-		$data['city'] = I('post.city','','htmlspecialchars');//get firstname
-		$data['state'] = I('post.state','','htmlspecialchars');//get firstname
-		$data['postcode'] = I('post.postcode','','htmlspecialchars');//get firstname
-		$data['country'] = I('post.country','','htmlspecialchars');//get firstname
-		$data['phone'] = I('post.phone','','htmlspecialchars');//get firstname
-		$data['fax'] = I('post.fax','','htmlspecialchars');//get firstname
-		$data['ns1'] = I('post.ns1','','htmlspecialchars');//get firstname
-		$data['ns2'] = I('post.ns2','','htmlspecialchars');//get firstname
-		$data['ns3'] = I('post.ns3','','htmlspecialchars');//get firstname
-		$data['ns4'] = I('post.ns4','','htmlspecialchars');//get firstname
+		$username = cookie('u_username');
+		$transactionID = time();
+		$orderID = time();
+		/*get registar*/
+		$Model = M('registrar');
+		$condition['status'] = 'Y';
+		$ct = $Model->field('registrar')->where($condition)->select();
+		shuffle($ct);
+		//print_r($ct);
+		$registrar = $ct[0]['registrar'];
+		//print($registrar);
+		
+		$total = cookie('shoptotal');
+        $lists = cookie('shopcart');
+        $bigitem = explode('#',$lists); 
+        $res = array();
+		$item = array();
+        #print_r($bigitem);
+		$Model = M('item');
+        for($index=0;$index<count($bigitem)-1;$index++) 
+        { 
+            $res[$index] = explode('||',$bigitem[$index]); 
+			/*get item infomation*/
+			$item[$index]["domainname"] = $res[$index][0];
+			$item[$index]["orderID"] = $orderID;
+			$item[$index]["registrar"] = $registrar;
+			$item[$index]["price"] = $res[$index][1];
+			$item[$index]["years"] = $res[$index][2];
+			/*get domain infomation*/
+			$data['domainname'] = $res[$index][0];
+			$data['username'] = $username;
+			$data['registrar'] = $registrar;
+			$data['expirydate'] = '';
+			$data['nextduedate'] = '';
+			$data['status'] = 'pending';
+			$data['mainforward'] = '';
+			$data['DNSmgr'] = '';
+			$data['orderID'] = $orderID;
+			
+			
+			
+			/*get domain registation profile*/
+			$data['email'] = I('post.email','','htmlspecialchars');//get email
+			$data['firstname'] = I('post.firstname','','htmlspecialchars');//get firstname
+			$data['lastname'] = I('post.lastname','','htmlspecialchars');//get firstname
+			$data['company'] = I('post.company','','htmlspecialchars');//get firstname
+			$data['jobtitle'] = I('post.jobtitle','','htmlspecialchars');//get firstname
+			$data['address1'] = I('post.address1','','htmlspecialchars');//get firstname
+			$data['address2'] = I('post.address2','','htmlspecialchars');//get firstname
+			$data['city'] = I('post.city','','htmlspecialchars');//get firstname
+			$data['state'] = I('post.state','','htmlspecialchars');//get firstname
+			$data['postcode'] = I('post.postcode','','htmlspecialchars');//get firstname
+			$data['country'] = I('post.country','','htmlspecialchars');//get firstname
+			$data['phone'] = I('post.phone','','htmlspecialchars');//get firstname
+			$data['fax'] = I('post.fax','','htmlspecialchars');//get firstname
+			$data['ns1'] = I('post.ns1','','htmlspecialchars');//get firstname
+			$data['ns2'] = I('post.ns2','','htmlspecialchars');//get firstname
+			$data['ns3'] = I('post.ns3','','htmlspecialchars');//get firstname
+			$data['ns4'] = I('post.ns4','','htmlspecialchars');//get firstname
+			print_r($item[$index]);
+			
+        }
+		
+		//print_r($data);
 		/*get payment information*/
 		$pay['accounttype'] = I('post.accounttype','','htmlspecialchars');//get firstname
-		$data['accountnumber'] = I('post.accountnumber','','htmlspecialchars');//
+		$pay['accountnumber'] = I('post.accountnumber','','htmlspecialchars');//
+		/*get order infomation*/
+		$order['orderID'] = $orderID;//get order id
+		$order['transactionID'] = $transactionID;//get order id
+		$order['username'] = $username;
+		$order['issuedate'] = date('Y-m-d H:i:s',time());
+		$order['status'] = 'pending';
+		$order['refundaccount'] = '';
+		$order['invoicedate'] = '';
+		$order['duedate'] = '';
+		$order['description'] = '';
+		$order['paymethod'] = $pay['accounttype'];
+		/*
+		transaction
+		*/
+		$trans['transactionID']
+		
+		
 		
 		
 	}

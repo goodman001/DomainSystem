@@ -38,10 +38,14 @@ class IndexController extends Controller {
                 $now = time();
                 if($content['status'] != 'suspend')
                 {
-                    if($now > $duedate)// domain : pending(renew) active suspend
+                    if($content['status'] != 'pending')
                     {
-                        $showflag = 1;
+                        if($now > $duedate)// domain : pending(renew/wait to check) active suspend
+                        {
+                            $showflag = 1;
+                        }
                     }
+                    
                 }
                 
             }else

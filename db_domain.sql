@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 28, 2017 at 08:21 AM
--- Server version: 5.5.53-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.20
+-- Generation Time: Mar 01, 2017 at 11:53 AM
+-- Server version: 5.5.50-0ubuntu0.14.04.1
+-- PHP Version: 5.6.23-1+deprecated+dontuse+deb.sury.org~trusty+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -88,8 +88,38 @@ CREATE TABLE IF NOT EXISTS `db_domainmgr` (
   `status` varchar(30) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'active',
   `mainforward` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `DNSmgr` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `IDprotect` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `orderID` int(11) NOT NULL
+  `IDprotect` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
+  `orderID` int(11) NOT NULL,
+  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `firstname` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `lastname` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `company` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `jobtitle` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `address1` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `address2` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `city` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `state` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `country` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `postcode` int(11) NOT NULL,
+  `phone` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `fax` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `ns1` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `ns2` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `ns3` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `ns4` varchar(60) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `db_domainprofile`
+--
+
+CREATE TABLE IF NOT EXISTS `db_domainprofile` (
+  `id` int(11) NOT NULL,
+  `domainname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `firstname` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `lastname` varchar(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -103,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `db_item` (
   `domainname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `orderID` int(11) NOT NULL,
   `registrar` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `IDprotect` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `IDprotect` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
   `price` decimal(10,2) NOT NULL,
   `years` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
@@ -122,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `db_order` (
   `transactionID` bigint(20) NOT NULL,
   `issuedate` datetime NOT NULL,
   `status` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `refund` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `refund` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
   `refundaccount` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `invoicedate` datetime NOT NULL,
   `duedate` datetime NOT NULL,
@@ -172,6 +202,48 @@ CREATE TABLE IF NOT EXISTS `db_premiumdomain` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `domainname` (`domainname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `db_registrar`
+--
+
+CREATE TABLE IF NOT EXISTS `db_registrar` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `registrar` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `db_registrar`
+--
+
+INSERT INTO `db_registrar` (`id`, `registrar`, `status`) VALUES
+(1, 'eNom', 'Y'),
+(2, 'GoDaddy', 'Y'),
+(3, 'ResellerClub', 'Y'),
+(4, 'Namecheap', 'Y');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `db_transaction`
+--
+
+CREATE TABLE IF NOT EXISTS `db_transaction` (
+  `id` int(11) NOT NULL,
+  `transactionID` bigint(20) NOT NULL,
+  `username` int(11) NOT NULL,
+  `orderID` bigint(20) NOT NULL,
+  `InvoiceID` bigint(20) unsigned NOT NULL,
+  `description` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `paydate` datetime NOT NULL,
+  `paymethod` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `accountnumber` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `settleamount` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 01, 2017 at 08:18 AM
+-- Generation Time: Mar 02, 2017 at 08:12 AM
 -- Server version: 5.5.53-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.20
 
@@ -19,6 +19,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_domain`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `db_admins`
+--
+
+CREATE TABLE IF NOT EXISTS `db_admins` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `authorityindex` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `role` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `regtime` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `db_admins`
+--
+
+INSERT INTO `db_admins` (`id`, `username`, `password`, `authorityindex`, `role`, `regtime`) VALUES
+(1, 'root', 'root', 'Root/index', 'Super_administrator', '2017-03-02 00:00:00');
 
 -- --------------------------------------------------------
 

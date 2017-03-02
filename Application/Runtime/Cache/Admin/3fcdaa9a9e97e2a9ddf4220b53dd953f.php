@@ -41,10 +41,7 @@
 								</li>
 							</ul>
 							<!--right-->
-							<?php if(cookie('u_username')): ?><ul class="nav navbar-nav navbar-right">
-									<li>
-										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Shopping Cart</a>
-									</li>
+							<?php if(cookie('admin_uid')): ?><ul class="nav navbar-nav navbar-right">
 									<li>
 										<a href="<?php echo U('Client/index');;?>">My Account</a>
 									</li>
@@ -55,13 +52,7 @@
 							<?php else: ?> 
 								<ul class="nav navbar-nav navbar-right">
 									<li>
-										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Shopping Cart</a>
-									</li>
-									<li>
-										<a href="<?php echo U('Login/login');;?>">Login</a>
-									</li>
-									<li>
-										<a href="<?php echo U('Login/register');;?>">Register </a>
+										<a href="<?php echo U('Login/index');;?>">Login</a>
 									</li>
 									<li>
 
@@ -82,7 +73,7 @@
 		
 	<div class="container" style="margin-top:10px;margin-left:1%;margin-right:2%;">
 		<div class="row">
-			<h3><i class="fa fa-user" aria-hidden="true"> User Login</i></h3>
+			<h3><i class="fa fa-user" aria-hidden="true"> Administrator login</i></h3>
 			<div class="row" style="margin-left:5px;margin-right:5px;padding:10px; width:50%;">			          
 				<form role="form" class="form-horizontal" action="<?php echo U('Login/checkLog');;?>" method="post">  
 				<div class="form-group">  

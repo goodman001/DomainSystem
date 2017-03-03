@@ -20,11 +20,5 @@ return array(
 	
 	'URL_CASE_INSENSITIVE' => true, //URL不区分大小写
 	'URL_HTML_SUFFIX' => '', //设置伪静态后缀名
-	'TMPL_PARSE_STRING' =>array(
-	'PAGE_LISTROWS' => 15, //每页显示的记录数，初始显示
-	'VAR_PAGE' => 'pageNum',
-	'DB_LIKE_FIELDS'=>'USERNAME|EMAIL|title|domainname', //支持模糊查询的字段
-	'NOT_M_MODULE' => 'Index,Exit', //无需执行实例化的模块
-	'AUTH_SUPERADMIN' => '9', //Auth权限认证超级管理员
-	),
+	
 );

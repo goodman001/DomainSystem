@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 02, 2017 at 08:12 AM
--- Server version: 5.5.53-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.20
+-- Generation Time: Mar 03, 2017 at 11:49 AM
+-- Server version: 5.5.50-0ubuntu0.14.04.1
+-- PHP Version: 5.6.23-1+deprecated+dontuse+deb.sury.org~trusty+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `db_admins` (
   `authorityindex` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `role` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `regtime` datetime NOT NULL,
+  `description` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
@@ -41,8 +42,8 @@ CREATE TABLE IF NOT EXISTS `db_admins` (
 -- Dumping data for table `db_admins`
 --
 
-INSERT INTO `db_admins` (`id`, `username`, `password`, `authorityindex`, `role`, `regtime`) VALUES
-(1, 'root', 'root', 'Root/index', 'Super_administrator', '2017-03-02 00:00:00');
+INSERT INTO `db_admins` (`id`, `username`, `password`, `authorityindex`, `role`, `regtime`, `description`) VALUES
+(1, 'root', 'root', 'Root', 'Super_administrator', '2017-03-02 00:00:00', 'Have all site management permissions');
 
 -- --------------------------------------------------------
 

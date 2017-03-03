@@ -10,16 +10,19 @@ class LoginController extends Controller {
 		$data['username']= I('post.username','','htmlspecialchars');//get name
 		$data['password'] = I('post.password','','htmlspecialchars');//get name
 		$Model = M('admins');
-		$content = $Model->field('username,regtime,authorityindex')->where($data)->find();
+		$content = $Model->field('id,username,regtime,authorityindex')->where($data)->find();
 		if(!empty($content) )//exist
 		{
-			cookie('admin_uid',$data['username'],36000);
+			cookie('admin_uid',$content['id'],36000);
+            cookie('admin_username',$content['username'],36000);
 			print($content['authorityindex']);
+            $url = $content['authorityindex'].'/index';
+            $this->success(C('LOGIN_SUCCESS'), U($url),3);
 				
 		}else
 		{
 			cookie('admin_uid',null);
-			$this->error('username or password is wrong!', U('Login/index'),3);
+			$this->error(C('LOGIN_ERROR'), U('Login/index'),3);
 		}
 	}
 	public function logout()

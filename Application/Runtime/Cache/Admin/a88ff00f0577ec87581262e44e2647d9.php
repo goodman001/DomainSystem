@@ -185,7 +185,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <li class="start active ">
         <a href="index.html">
             <i class="icon-home"></i>
-            <span class="title">My Information</span>
+            <span class="title">My Profile</span>
             <span class="selected"></span>
         </a>
     </li>
@@ -202,8 +202,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 </a>
             </li>
             <li>
-                <a href="<?php echo U('Client/mywallet');;?>">
-                    Search Customers</a>
+                <a href="<?php echo U('Customer/customeradd');;?>">
+                    Add Customers</a>
             </li>
         </ul>
     </li>
@@ -568,7 +568,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <ul class="breadcrumb">
                 <li>
                     <i class="icon-home"></i>
-                    <a href="<?php echo U('Root/index');;?>">Home</a>
+                    <a href="<?php echo U('Profile/index');;?>">Home</a>
                     <i class="icon-angle-right"></i>
                 </li>
                 <li><a href="#">Welcome</a></li>

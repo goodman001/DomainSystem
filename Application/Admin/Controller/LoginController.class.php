@@ -10,14 +10,12 @@ class LoginController extends Controller {
 		$data['username']= I('post.username','','htmlspecialchars');//get name
 		$data['password'] = I('post.password','','htmlspecialchars');//get name
 		$Model = M('admins');
-		$content = $Model->field('id,username,regtime,authorityindex')->where($data)->find();
+		$content = $Model->field('id,username,regtime')->where($data)->find();
 		if(!empty($content) )//exist
 		{
 			cookie('admin_uid',$content['id'],36000);
             cookie('admin_username',$content['username'],36000);
-			print($content['authorityindex']);
-            $url = $content['authorityindex'].'/index';
-            $this->success(C('LOGIN_SUCCESS'), U($url),3);
+            $this->success(C('LOGIN_SUCCESS'), U("Profile/index"),3);
 				
 		}else
 		{

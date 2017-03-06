@@ -1,7 +1,7 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
-class RootController extends CommonController {
+class ProfileController extends CommonController {
     public function index()
     {
 		$uid = cookie('admin_uid');

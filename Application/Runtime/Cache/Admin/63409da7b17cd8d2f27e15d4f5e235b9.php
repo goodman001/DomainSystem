@@ -1,5 +1,169 @@
-<extend name="public/back" />
-<block name="siderbarmenu">
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 2.3.1
+Version: 1.3
+Author: KeenThemes
+Website: http://www.keenthemes.com/preview/?theme=metronic
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469
+-->
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js">
+<![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js">
+<![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8"/>
+    <title>Metronic | Admin Dashboard Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <!--begin global -->
+    <link href="/DomainSystem/Public/metronic/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="/DomainSystem/Public/metronic/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/chosen.css" rel="stylesheet" type="text/css" />
+<!-- END CORE PLUGINS -->
+    
+    <!-- END begin global -->
+    <!--favicon
+    <link rel="shortcut icon" href="/DomainSystem/Public/metronic/media/image/favicon.ico"/>
+    -->
+</head>
+<!-- BEGIN BODY -->
+<body class="page-header-fixed">
+<!-- BEGIN HEADER -->
+<div class="header navbar navbar-inverse navbar-fixed-top">
+<!-- BEGIN TOP NAVIGATION BAR -->
+<div class="navbar-inner">
+<div class="container-fluid">
+<!-- BEGIN LOGO -->
+    <a class="brand" href="index.html">
+        <img src="/DomainSystem/Public/metronic/media/image/logo.png" alt="logo"/>
+    </a>
+    <!-- END LOGO -->
+    <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+    <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+        <img src="/DomainSystem/Public/metronic/media/image/menu-toggler.png" alt=""/>
+    </a>
+<!-- END RESPONSIVE MENU TOGGLER -->
+<!-- BEGIN TOP NAVIGATION MENU -->
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="#">iOS</a></li>
+        <li><a href="#">SVN</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Java
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="#">jmeter</a></li>
+                <li><a href="#">EJB</a></li>
+                <li><a href="#">Jasper Report</a></li>
+                <li class="divider"></li>
+                <li><a href="#">分离的链接</a></li>
+                <li class="divider"></li>
+                <li><a href="#">另一个分离的链接</a></li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="nav pull-right">
+    <!-- BEGIN INBOX DROPDOWN -->
+    <li class="dropdown" id="header_notification_bar">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="icon-envelope"></i>
+            <span class="badge">5</span>
+        </a>
+        <ul class="dropdown-menu extended inbox">
+            <li>
+                <p>你有12条消??/p>
+            </li>
+            <li>
+                <a href="<?php echo U('Client/inbox');;?>">
+                    <span class="photo"><img src="/DomainSystem/Public/metronic/media/image/avatar2.jpg" alt=""/></span>
+                                    <span class="subject">
+                                    <span class="from">Lisa Wong</span>
+                                    <span class="time">Just Now</span>
+                                    </span>
+                                    <span class="message">
+                                    Vivamus sed auctor nibh congue nibh. auctor nibh
+                                    auctor nibh...
+                                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="inbox.html?a=view">
+                    <span class="photo"><img src=".//DomainSystem/Public/metronic/media/image/avatar3.jpg" alt=""/></span>
+                                    <span class="subject">
+                                    <span class="from">Richard Doe</span>
+                                    <span class="time">16 mins</span>
+                                    </span>
+                                    <span class="message">
+                                    Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh
+                                    auctor nibh...
+                                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="inbox.html?a=view">
+                    <span class="photo"><img src=".//DomainSystem/Public/metronic/media/image/avatar1.jpg" alt=""/></span>
+                                    <span class="subject">
+                                    <span class="from">Bob Nilson</span>
+                                    <span class="time">2 hrs</span>
+                                    </span>
+                                    <span class="message">
+                                    Vivamus sed nibh auctor nibh congue nibh. auctor nibh
+                                    auctor nibh...
+                                    </span>
+                </a>
+            </li>
+            <li class="external">
+                <a href="inbox.html">查看????消息<i class="m-icon-swapright"></i></a>
+            </li>
+        </ul>
+    </li>
+    <!-- END INBOX DROPDOWN -->
+    <!-- BEGIN USER LOGIN DROPDOWN -->
+    <li class="dropdown user">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <img alt="" src="/DomainSystem/Public/metronic/media/image/avatar1_small.jpg"/>
+            <span class="username">Bob Nilson</span>
+            <i class="icon-angle-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="extra_profile.html"><i class="icon-user"></i> My Profile</a></li>
+            <li><a href="page_calendar.html"><i class="icon-calendar"></i> My Calendar</a></li>
+            <li><a href="inbox.html"><i class="icon-envelope"></i> My Inbox(3)</a></li>
+            <li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
+            <li class="divider"></li>
+            <li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a></li>
+            <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+        </ul>
+    </li>
+    <!-- END USER LOGIN DROPDOWN -->
+    </ul>
+    <!-- END TOP NAVIGATION MENU -->
+</div>
+</div>
+<!-- END TOP NAVIGATION BAR -->
+</div>
+<!-- END HEADER -->
+<!-- BEGIN CONTAINER -->
+
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    
+    <!-- BEGIN SIDEBAR MENU -->
+        
 <div class="page-sidebar nav-collapse collapse">
     <ul class="page-sidebar-menu">
     <li>
@@ -19,63 +183,27 @@
         <!-- END RESPONSIVE QUICK SEARCH FORM -->
     </li>
     <li class="start">
-        <a href="index.html">
+        <a href="<?php echo U('Profile/index');;?>">
             <i class="icon-home"></i>
-            <span class="title">Welcome</span>
+            <span class="title">My Profile</span>
             <span class="selected"></span>
         </a>
     </li>
     <li class="active">
         <a href="javascript:;">
             <i class="icon-bookmark-empty"></i>
-            <span class="title">My Infomation</span>
+            <span class="title">Customers manager</span>
             <span class="arrow "></span>
         </a>
         <ul class="sub-menu">
             <li class="active">
-                <a href="{:U('Client/myprofile');}">
-                    My Profile
+                <a href="<?php echo U('Customer/customerlist');;?>">
+                    Customers List
                 </a>
             </li>
             <li>
-                <a href="{:U('Client/mywallet');}">
-                    My Wallet</a>
-            </li>
-            <li>
-                <a href="ui_buttons.html">
-                    Inbox</a>
-            </li>
-            <li>
-                <a href="ui_modals.html">
-                    Enhanced Modals</a>
-            </li>
-            <li>
-                <a href="ui_tabs_accordions.html">
-                    Tabs切换�?手风琴</a>
-            </li>
-            <li>
-                <a href="ui_jqueryui.html">
-                    jQuery UI Components</a>
-            </li>
-            <li>
-                <a href="ui_sliders.html">
-                    滑块Sliders</a>
-            </li>
-            <li>
-                <a href="ui_tiles.html">
-                    标题Tiles</a>
-            </li>
-            <li>
-                <a href="ui_typography.html">
-                    文字排版Typography</a>
-            </li>
-            <li>
-                <a href="ui_tree.html">
-                    树形结构Tree View</a>
-            </li>
-            <li>
-                <a href="ui_nestable.html">
-                    嵌套结构 List</a>
+                <a href="<?php echo U('Customer/customeradd');;?>">
+                    Add Customers</a>
             </li>
         </ul>
     </li>
@@ -191,7 +319,7 @@
             </li>
             <li>
                 <a href="inbox.html">
-                    收件�?/a>
+                    收件�?</a>
             </li>
             <li>
                 <a href="extra_search.html">
@@ -406,8 +534,13 @@
     </li>
     </ul>
 </div>
-</block>
-<block name="container">
+
+    
+    <!-- END SIDEBAR MENU -->
+    
+    <!-- END SIDEBAR -->
+    <!-- BEGIN PAGE -->
+        
 <!-- BEGIN PAGE -->
 <div class="page-content">
 <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
@@ -426,25 +559,22 @@
 <!-- BEGIN PAGE HEADER-->
 <div class="row-fluid">
     <div class="span12">
-        <!-- BEGIN STYLE CUSTOMIZER -->
-       
-        <!-- END BEGIN STYLE CUSTOMIZER -->
-        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-            User Profile
-            <small>user profile sample</small>
+            Customer Manager
+            <small> Customer Manager</small>
         </h3>
         <ul class="breadcrumb">
             <li>
                 <i class="icon-home"></i>
-                <a href="{:U('Client/index');}">Home</a>
+                <a href="<?php echo U('Profile/index');;?>">Home</a>
                 <i class="icon-angle-right"></i>
             </li>
             <li>
-                <a href="#">My Infomation</a>
+                <a href="#">Customer Manager</a>
                 <i class="icon-angle-right"></i>
             </li>
-            <li><a href="#">My Wallet</a></li>
+            <li><a href="<?php echo U('Customer/customerlist');;?>">Customers List</a><i class="icon-angle-right"></i></li>
+			 <li><a href="#">Customers Detail</a></li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -456,299 +586,160 @@
 <!--BEGIN TABS-->
 <div class="tabbable tabbable-custom tabbable-full-width">
 <ul class="nav nav-tabs">
-    <li class="active"><a href="#tab_1_1" data-toggle="tab">Overview</a></li>
-    <li><a href="#tab_1_2" data-toggle="tab">Add credit</a></li>
-    <li><a href="#tab_1_3" data-toggle="tab">Account</a></li>
-    <li><a href="#tab_1_4" data-toggle="tab">Projects</a></li>
-    <li><a href="#tab_1_6" data-toggle="tab">Help</a></li>
+    
+    <li class="active"><a href="#tab_1_1" data-toggle="tab">Profile</a></li>
+	<li><a href="#tab_1_2" data-toggle="tab">Edit Profile</a></li>
+    <li><a href="#tab_1_3" data-toggle="tab">Domain and Profile</a></li>
+    <li><a href="#tab_1_4" data-toggle="tab">Orders</a></li>
 </ul>
 <div class="tab-content">
-<div class="tab-pane row-fluid active" id="tab_1_1">
-<div class="span9">
-<div class="row-fluid">
-    <div class="span6 profile-info">
-        <h3>Current balance </h3>
-        <div class="dashboard-stat yellow">
-            <div class="visual">
-                <i class="icon-bar-chart"></i>
-            </div>
-            <div class="details">
-                <div class="number">{$balance}${$type}</div>
-                <div class="desc">My currency type : {$type}</div>
-            </div>
-        </div>
-        <ul class="unstyled inline">
-            
-        </ul>
-    </div>
-    <!--end span8-->
-</div>
-<!--end row-fluid-->
-<div class="tabbable tabbable-custom tabbable-custom-profile">
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#tab_1_11" data-toggle="tab">Adding credit records</a></li>
-</ul>
-<div class="tab-content">
-<div class="tab-pane active" id="tab_1_11">
-    <div class="portlet-body" style="display: block;">
-        <table class="table table-striped table-bordered table-advance table-hover">
-            <thead>
-            <tr>
-                <th><i class="icon-briefcase"></i> Time</th>
-                <th><i class="icon-briefcase"></i> Amount</th>
-                <th><i class="icon-briefcase"></i> Card Number/Account number</th>
-                <th><i class="icon-briefcase"></i> Account Type</th>
-            </tr>
-            </thead>
-            <tbody>
-                <foreach name="lists" item="vo">
-                    <tr>
-                        <td>{$vo.optime}</td>
-                        <td class="hidden-phone">${$vo.amount}{$vo.currency}</td>
-                        <td>{$vo.accountnumber}</td>
-                        <td>{$vo.accounttype}</td>
-                    </tr>
-                </foreach>
-            
-            </tbody>
-        </table>
-    </div>
-</div>
-<!--tab-pane-->
-<!--tab-pane-->
-</div>
-</div>
-</div>
-<!--end span9-->
-</div>
+
 <!--end tab-pane-->
-<div class="tab-pane profile-classic row-fluid" id="tab_1_2">
-    <div class="span1"></div>
-	<div class="span6">
-    <form role="form" action="{:U('Client/addcredit');}" method="post">  
-            <label class="control-label">Amount</label>
-            <input type="text" value="" name="amount" id="amount" pattern="^[0-9]+([\.,]{0,1}[0-9]*)$" maxlength="15" minlength="1" placeholder="0.0${$type}"  class="m-wrap span8" required> 
-            <label class="control-label">Currency(if you want to modify,please go to my profile)</label>
-            <input type="text" value="{$type}" name="currency" id="currency"  class="m-wrap span8" readonly> 
-			<label class="control-label">Select payment method</label>
-			<select class="form-control" name="accounttype" required>
-				<option value= "Credit Card">Credit Card</option>
-				<option value= "PayPal">PayPal</option>
-				<option value="Bank Transfer">Bank Transfer</option>
-				<option value="Cheque">Cheque</option>
-				<option value="E-Banking">E-Banking</option>
-				<option value="User Credit">User Credit</option>
-				<option value="Google Checkout ">Google Checkout</option>
-				<option value="Alipay">Alipay</option>
-				<option value="AsiaPay">AsiaPay</option>
-			</select>
-            <label class="control-label">Card Number/Account number</label>
-            <input type="text" value="" name="accountnumber" id="accountnumber"  placeholder="Amount Number" class="m-wrap span8" required> 
-            <label class="control-label">One-Time Password</label>
-            <input type="password" value="" name="onepassword" id="onepassword"  placeholder="onepassword" class="m-wrap span8" required> 
-            <div class="submit-btn">
-                <button type="submit" class="btn green">Deposit</button>
-                <a href="{:U('Client/mywallet');}" class="btn">Cancel</a>
-            </div>
-        </form>
+<div class="tab-pane row-fluid active" id="tab_1_1">
+    <div class="span12">
+		<ul class="unstyled span10">
+			<li><span>UserName:</span> <strong> <?php echo ($profiles["username"]); ?></strong></li>
+			<li><span>First Name:</span><strong> <?php echo ($profiles["firstname"]); ?></strong></li>
+			<li><span>Last Name:</span><strong> <?php echo ($profiles["lastname"]); ?></strong></li>
+			<li><span>Company:</span><strong> <?php echo ($profiles["company"]); ?></strong></li>
+			<li><span>Job Title:</span><strong> <?php echo ($profiles["jobtitle"]); ?></strong></li>
+			<li><span>Email:</span><strong> <a href="<?php echo ($profiles["email"]); ?>"><?php echo ($profiles["email"]); ?></a></strong></li>
+			<li><span>Password:</span><strong> <?php echo ($profiles["password"]); ?></strong></li>
+			<li><span>Security Question:</span><strong> <?php echo ($profiles["question"]); ?></strong></li>
+			<li><span>Answer:</span><strong> <?php echo ($profiles["answer"]); ?></strong></li>
+			<li><span>Address1:</span><strong> <?php echo ($profiles["address1"]); ?></strong></li>
+			<li><span>Address2:</span><strong> <?php echo ($profiles["address2"]); ?></strong></li>
+			<li><span>City:</span><strong> <?php echo ($profiles["city"]); ?></strong></li>
+			<li><span>State:</span><strong> <?php echo ($profiles["state"]); ?></strong></li>
+			<li><span>PostCode:</span><strong> <?php echo ($profiles["postcode"]); ?></strong></li>
+			<li><span>Country:</span><strong> <?php echo ($profiles["country"]); ?></strong></li>
+			<li><span>Phone No.:</span><strong> <?php echo ($profiles["phone"]); ?></strong></li>
+			<li><span>Fax:</span><strong> <?php echo ($profiles["fax"]); ?></strong></li>
+			<li><span>Enable/Disable Overdue Notice:</span><strong> <?php echo ($profiles["overdue"]); ?></strong></li>
+			<li><span>Tax Exemption:</span><strong> <?php echo ($profiles["taxexemption"]); ?></strong></li>
+			<li><span>Currency:</span><strong> <?php echo ($profiles["currency"]); ?></strong></li>
+			<li><span>Balance:</span><strong> <?php echo ($profiles["balance"]); ?> HK$</strong></li>
+			<li><span>Register Time:</span><strong> <?php echo ($profiles["regtime"]); ?></strong></li>
+			<li><span>Account Status:</span><strong> <?php echo ($profiles["status"]); ?></strong></li>
+		</ul>
 	</div>
+    
 </div>
 <!--tab_1_2-->
-<div class="tab-pane row-fluid profile-account" id="tab_1_3">
-<div class="row-fluid">
-<div class="span12">
-<div class="span3">
-    <ul class="ver-inline-menu tabbable margin-bottom-10">
-        <li class="active">
-            <a data-toggle="tab" href="#tab_1-1">
-                <i class="icon-cog"></i>
-                Personal info
-            </a>
-            <span class="after"></span>
-        </li>
-        <li class=""><a data-toggle="tab" href="#tab_2-2"><i class="icon-picture"></i> Change Avatar</a></li>
-        <li class=""><a data-toggle="tab" href="#tab_3-3"><i class="icon-lock"></i> Change Password</a></li>
-        <li class=""><a data-toggle="tab" href="#tab_4-4"><i class="icon-eye-open"></i> Privacity Settings</a></li>
-    </ul>
-</div>
-<div class="span9">
-<div class="tab-content">
-<div id="tab_1-1" class="tab-pane active">
-    <div style="height: auto;" id="accordion1-1" class="accordion collapse">
-        <form action="#">
+<div class="tab-pane" id="tab_1_2">
+	<div style="height: auto;" id="accordion1-1" class="accordion collapse">
+        <form role="form" action="<?php echo U('Customer/updateprofile?id='.$cusid.'');;?>" method="post">  
+			<label class="control-label">Username</label>
+            <input name="username" type="text" id="username" placeholder="user name" value="<?php echo ($profiles["username"]); ?>" class="m-wrap span8" readonly/>
             <label class="control-label">First Name</label>
-            <input type="text" placeholder="John" class="m-wrap span8"/>
+            <input name="firstname" type="text" id="firstname" placeholder="first name" value="<?php echo ($profiles["firstname"]); ?>" class="m-wrap span8" required/>
             <label class="control-label">Last Name</label>
-            <input type="text" placeholder="Doe" class="m-wrap span8"/>
-            <label class="control-label">Mobile Number</label>
-            <input type="text" placeholder="+1 646 580 DEMO (6284)" class="m-wrap span8"/>
-            <label class="control-label">Interests</label>
-            <input type="text" placeholder="Design, Web etc." class="m-wrap span8"/>
-            <label class="control-label">Occupation</label>
-            <input type="text" placeholder="Web Developer" class="m-wrap span8"/>
-            <label class="control-label">Counrty</label>
-            <div class="controls">
-                <input type="text" class="span8 m-wrap" style="margin: 0 auto;" data-provide="typeahead" data-items="4"
-                       data-source="[&quot;Alabama&quot;,&quot;Alaska&quot;,&quot;Arizona&quot;,&quot;Arkansas&quot;,&quot;US&quot;,&quot;Colorado&quot;,&quot;Connecticut&quot;,&quot;Delaware&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;,&quot;Iowa&quot;,&quot;Kansas&quot;,&quot;Kentucky&quot;,&quot;Louisiana&quot;,&quot;Maine&quot;,&quot;Maryland&quot;,&quot;Massachusetts&quot;,&quot;Michigan&quot;,&quot;Minnesota&quot;,&quot;Mississippi&quot;,&quot;Missouri&quot;,&quot;Montana&quot;,&quot;Nebraska&quot;,&quot;Nevada&quot;,&quot;New Hampshire&quot;,&quot;New Jersey&quot;,&quot;New Mexico&quot;,&quot;New York&quot;,&quot;North Dakota&quot;,&quot;North Carolina&quot;,&quot;Ohio&quot;,&quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&quot;Wisconsin&quot;,&quot;Wyoming&quot;]"/>
-                <p class="help-block"><span class="muted">Start typing to auto complete!. E.g: US</span></p>
-            </div>
-            <label class="control-label">About</label>
-            <textarea class="span8 m-wrap" rows="3"></textarea>
-            <label class="control-label">Website Url</label>
-            <input type="text" placeholder="http://www.mywebsite.com" class="m-wrap span8"/>
+            <input name="lastname" type="text" id="lastname" placeholder="last name" value="<?php echo ($profiles["lastname"]); ?>"   class="m-wrap span8" required />
+            <label class="control-label">Company</label>
+            <input name="company" type="text" id="company" placeholder="Company" value="<?php echo ($profiles["company"]); ?>" class="m-wrap span8" />
+				
+			<label class="control-label">Job title</label>
+            <input type="text" name="jobtitle" type="text" id="jobtitle" placeholder="Job title" value="<?php echo ($profiles["jobtitle"]); ?>"  class="m-wrap span8" />
+			<label class="control-label">Email</label>
+            <input name="email" type="email" id="email" placeholder="Email" value="<?php echo ($profiles["email"]); ?>"  class="m-wrap span8" required/>
+			<label class="control-label">Password</label>
+			<input type="text" name="password" class="form-control"  placeholder="Password" value="<?php echo ($profiles["password"]); ?>" required>  
+			<label class="control-label">Security Question</label>
+            <select class="form-control" name="question" required>
+				<option value="Where is your birthplace?" >Where is your birthplace?</option> 
+				<option value="What is your favorite sport?">What is your favorite sport?</option>
+				<option value="Who is your first love?">Who is your first love?</option>
+			</select>
+			<label class="control-label">Answer</label>
+            <input name="answer" type="text" id="answer" placeholder="answer" value=""  class="m-wrap span8" required/>	
+			<label class="control-label">Address1</label>
+            <input name="address1" type="text" id="address1" placeholder="Address 1" value="<?php echo ($profiles["address1"]); ?>"  class="m-wrap span8" required/>	
+			<label class="control-label">Address2</label>
+            <input name="address2" type="text" id="address2" placeholder="Address 2" value="<?php echo ($profiles["address2"]); ?>"  class="m-wrap span8" required/>
+			
+			<label class="control-label">City</label>
+            <input name="city" type="text" id="city" placeholder="City" value="<?php echo ($profiles["city"]); ?>"  class="m-wrap span8" required/>
+			<label class="control-label">State</label>
+            <input name="state" type="text" id="state" placeholder="state" value="<?php echo ($profiles["state"]); ?>"  class="m-wrap span8" required/>
+			<label class="control-label">Postcode</label>
+            <input type="number" value="<?php echo ($profiles["postcode"]); ?>" name="postcode" id="postcode" placeholder="Postcode"  class="m-wrap span8" required> 
+			<label class="control-label">Country</label>
+			<input name="country" type="text" id="country" placeholder="Country" value="<?php echo ($profiles["country"]); ?>"  class="m-wrap span8" required/> 
+			<label class="control-label">Phone</label>
+			<input type="tel" value="<?php echo ($profiles["phone"]); ?>" name="phone" id="phone" placeholder="Phone"  class="m-wrap span8" required> 
+			<label class="control-label">Fax</label>
+			<input type="tel" value="<?php echo ($profiles["fax"]); ?>" name="fax" id="fax" placeholder="Fax"  class="m-wrap span8" required> 
+			<label class="control-label">Overdue Notice</label>
+			<div class="controls">
+			<label class="radio">
+				<input type="radio" name="overdue" id="optionsRadios1" value="Enable" checked/>
+				Enable
+			</label>
+			<label class="radio">
+				<input type="radio" name="overdue" id="optionsRadios2" value="Disable" />
+				Disable
+			</label>    
+			</div>
+			<label class="control-label">Currency</label>
+			<select class="form-control" name="currency" required>
+				<option value="HKD">HKD</option>
+				<option value="USD" >USD</option> 
+				<option value="GBP">GBP</option>
+				<option value="CNY">CNY</option>
+			</select> 
+			<label class="control-label">Balance</label>
+            <input type="text" value="<?php echo ($profiles["balance"]); ?>" name="amount" id="amount" pattern="^[0-9]+([\.,]{0,1}[0-9]*)$" maxlength="15" minlength="1"   class="m-wrap span8" required>
+			<label class="control-label">Account Status</label>
+            <select class="form-control" name="status" required>
+				<option value="active">active</option>
+				<option value="pending" >pending</option> 
+				<option value="suspend">suspend</option>
+			</select>
             <div class="submit-btn">
-                <a href="#" class="btn green">Save Changes</a>
-                <a href="#" class="btn">Cancel</a>
+                <button type="submit" class="btn green">Save Changes</button>
+                <a href="<?php echo U('Customer/customerdetail?id='.$cusid.'');;?>" class="btn">Cancel</a>
             </div>
         </form>
     </div>
 </div>
-<div id="tab_2-2" class="tab-pane">
-    <div style="height: auto;" id="accordion2-2" class="accordion collapse">
-        <form action="#">
-            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                eiusmod.</p>
-            <br/>
-            <div class="controls">
-                <div class="thumbnail" style="width: 291px; height: 170px;">
-                    <img src="media/image/AAAAAA&amp;text=no+image" alt=""/>
-                </div>
-            </div>
-            <div class="space10"></div>
-            <div class="fileupload fileupload-new" data-provides="fileupload">
-                <div class="input-append">
-                    <div class="uneditable-input">
-                        <i class="icon-file fileupload-exists"></i>
-                        <span class="fileupload-preview"></span>
-                    </div>
-																		<span class="btn btn-file">
-																		<span class="fileupload-new">Select file</span>
-																		<span class="fileupload-exists">Change</span>
-																		<input type="file" class="default"/>
-																		</span>
-                    <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="controls">
-                <span class="label label-important">NOTE!</span>
-                <span>You can write some information here..</span>
-            </div>
-            <div class="space10"></div>
-            <div class="submit-btn">
-                <a href="#" class="btn green">Submit</a>
-                <a href="#" class="btn">Cancel</a>
-            </div>
-        </form>
-    </div>
+<!-- tab_1_3 -->
+<div class="tab-pane" id="tab_1_3">
+	<div class="row-fluid">
+		<div class="portlet box red">
+			<div class="portlet-title">
+				<div class="caption"><i class="icon-cogs"></i>Orders</div>
+			</div>
+			<div class="portlet-body">
+				<div class="row">
+					<div class="col-xs-6">
+						<address>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Order ID</strong>:</div><div class="col-xs-7">xxx</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Order Issue date</strong>: </div><div class="col-xs-7">xxx</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Username</strong>: </div><div class="col-xs-7">xxx</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Status</strong>: </div><div class="col-xs-7">xxx</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Refund</strong>: </div><div class="col-xs-7">xxx</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Invoice date</strong>: </div><div class="col-xs-7">xxx</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Due date</strong>: </div><div class="col-xs-7">Waiting</div></div>
+						</address>
+					</div>
+					<div class="col-xs-6">
+						<address>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Transaction ID</strong>:</div><div class="col-xs-7">xxx</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Client Name</strong>: </div><div class="col-xs-7">xxx</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Card Number/Account number</strong>: </div><div class="col-xs-7">xxx</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Invoice ID</strong>: </div><div class="col-xs-7">xxx</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Payment Date</strong>: </div><div class="col-xs-7">xxx</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Payment Method</strong>: </div><div class="col-xs-7">xxx</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Settle Amount</strong>: </div><div class="col-xs-7">xxx</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Description</strong>: </div><div class="col-xs-7">xxx</div></div>
+						</address>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-<div id="tab_3-3" class="tab-pane">
-    <div style="height: auto;" id="accordion3-3" class="accordion collapse">
-        <form action="#">
-            <label class="control-label">Current Password</label>
-            <input type="password" class="m-wrap span8"/>
-            <label class="control-label">New Password</label>
-            <input type="password" class="m-wrap span8"/>
-            <label class="control-label">Re-type New Password</label>
-            <input type="password" class="m-wrap span8"/>
-            <div class="submit-btn">
-                <a href="#" class="btn green">Change Password</a>
-                <a href="#" class="btn">Cancel</a>
-            </div>
-        </form>
-    </div>
-</div>
-<div id="tab_4-4" class="tab-pane">
-    <div style="height: auto;" id="accordion4-4" class="accordion collapse">
-        <form action="#">
-            <div class="profile-settings row-fluid">
-                <div class="span9">
-                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus..</p>
-                </div>
-                <div class="control-group span3">
-                    <div class="controls">
-                        <label class="radio">
-                            <input type="radio" name="optionsRadios1" value="option1"/>
-                            Yes
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="optionsRadios1" value="option2" checked/>
-                            No
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <!--end profile-settings-->
-            <div class="profile-settings row-fluid">
-                <div class="span9">
-                    <p>Enim eiusmod high life accusamus terry richardson ad squid wolf moon</p>
-                </div>
-                <div class="control-group span3">
-                    <div class="controls">
-                        <label class="checkbox">
-                            <input type="checkbox" value=""/> All
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" value=""/> Friends
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <!--end profile-settings-->
-            <div class="profile-settings row-fluid">
-                <div class="span9">
-                    <p>Pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson</p>
-                </div>
-                <div class="control-group span3">
-                    <div class="controls">
-                        <label class="checkbox">
-                            <input type="checkbox" value=""/> Yes
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <!--end profile-settings-->
-            <div class="profile-settings row-fluid">
-                <div class="span9">
-                    <p>Cliche reprehenderit enim eiusmod high life accusamus terry</p>
-                </div>
-                <div class="control-group span3">
-                    <div class="controls">
-                        <label class="checkbox">
-                            <input type="checkbox" value=""/> Yes
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <!--end profile-settings-->
-            <div class="profile-settings row-fluid">
-                <div class="span9">
-                    <p>Oiusmod high life accusamus terry richardson ad squid wolf fwopo</p>
-                </div>
-                <div class="control-group span3">
-                    <div class="controls">
-                        <label class="checkbox">
-                            <input type="checkbox" value=""/> Yes
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <!--end profile-settings-->
-            <div class="space5"></div>
-            <div class="submit-btn">
-                <a href="#" class="btn green">Save Changes</a>
-                <a href="#" class="btn">Cancel</a>
-            </div>
-        </form>
-    </div>
-</div>
-</div>
-</div>
-<!--end span9-->
-</div>
-</div>
-</div>
+<!-- tab_1_3 -->
 <!--end tab-pane-->
 <div class="tab-pane" id="tab_1_4">
     <div class="row-fluid add-portfolio">
@@ -1229,19 +1220,77 @@
 <!-- END PAGE CONTAINER-->
 </div>
 <!-- END PAGE -->
-</block>
-<block name="bottomjs">
+
+        
+        
+        
+    <!-- END PAGE -->
+    </div>
+    <!-- END CONTAINER -->
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <div class="footer-inner">
+        2013 &copy; Metronic by keenthemes.
+    </div>
+    <div class="footer-tools">
+			<span class="go-top">
+			<i class="icon-angle-up"></i>
+			</span>
+    </div>
+</div>
+<!-- END FOOTER -->
+<!-- 引入 javascript  -->
+<!-- BEGIN CORE PLUGINS -->
+<!--jquery-->
+<script src="/DomainSystem/Public/metronic/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+<!--兼容1.9 以前的代??-->
+<script src="/DomainSystem/Public/metronic/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<!-- IMPORTANT!   ??引入bootstrap.min.js 前引??jquery-ui-1.10.1.custom.min.js 避免 bootstrap tooltip ??jquery ui tooltip 冲突 -->
+<!--jquery UI js-->
+<script src="/DomainSystem/Public/metronic/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+<script src="/DomainSystem/Public/metronic/media/js/bootstrap.min.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<!-- IE 支持 canvas -->
+<script src="/DomainSystem/Public/metronic/media/js/excanvas.min.js"></script>
+<!--Respond.js 是一个快速??轻量??polyfill，用于为 IE6-8 以及其它不支??CSS3 /DomainSystem/Public/metronic/media Queries 的浏览器提供媒体查询??min-width ??max-width 特??，实现响应式网页设计（Responsive Web Design）??-->
+<script src="/DomainSystem/Public/metronic/media/js/respond.min.js"></script>
+<![endif]-->
+<!--滚动??插件-->
+<script src="/DomainSystem/Public/metronic/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+<!--进行 AJAX 操作时模拟同步传输时锁定浏览器操??->
+<script src="/DomainSystem/Public/metronic/media/js/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="/DomainSystem/Public/metronic/media/js/jquery.cookie.min.js" type="text/javascript"></script>
+<!--美化 form 表单元素-->
+<script src="/DomainSystem/Public/metronic/media/js/jquery.uniform.min.js" type="text/javascript"></script>
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<!--项目config -->
+
+
     <!-- END PAGE LEVEL SCRIPTS -->
-    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/bootstrap-fileupload.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/chosen.jquery.min.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/validator.min.js"></script>
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/bootstrap-fileupload.js"></script>
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/validator.min.js"></script>
     <script>
         jQuery(document).ready(function () {
+
         // initiate layout and plugins
+
         App.init();
+
     });
-   
-});
         
     </script>
-</block>
+
+<script src="/DomainSystem/Public/metronic/media/js/app.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8">  
+	//MyValidator.init();  
+</script>
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

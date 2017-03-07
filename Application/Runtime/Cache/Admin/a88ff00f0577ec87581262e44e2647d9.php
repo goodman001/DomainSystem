@@ -32,7 +32,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <link href="/DomainSystem/Public/metronic/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
     <link href="/DomainSystem/Public/metronic/media/css/chosen.css" rel="stylesheet" type="text/css" />
 <!-- END CORE PLUGINS -->
-    <link href="/DomainSystem/Public/metronic/media/css/profile.css" rel="stylesheet" type="text/css" />
+    
     <!-- END begin global -->
     <!--favicon
     <link rel="shortcut icon" href="/DomainSystem/Public/metronic/media/image/favicon.ico"/>

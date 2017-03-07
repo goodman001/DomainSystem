@@ -63,7 +63,7 @@ class ClientController extends Controller {
 			$data['overdue'] = I('post.overdue','','htmlspecialchars');//get firstname
 			$data['taxexemption'] = 'NO';//get firstname
 			$data['currency'] = I('post.currency','','htmlspecialchars');//get firstname
-			$data['status'] = 1;//get firstname
+			$data['status'] = 'active';//get firstname
 			$Model->where($data_)->save($data);
 			$this->success('Update profile successfully!',U('Client/myprofile'),1);
 		}else

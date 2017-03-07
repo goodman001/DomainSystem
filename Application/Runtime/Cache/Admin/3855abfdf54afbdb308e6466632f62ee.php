@@ -32,7 +32,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <link href="/DomainSystem/Public/metronic/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
     <link href="/DomainSystem/Public/metronic/media/css/chosen.css" rel="stylesheet" type="text/css" />
 <!-- END CORE PLUGINS -->
-    <link href="/DomainSystem/Public/metronic/media/css/profile.css" rel="stylesheet" type="text/css" />
+    
     <!-- END begin global -->
     <!--favicon
     <link rel="shortcut icon" href="/DomainSystem/Public/metronic/media/image/favicon.ico"/>
@@ -183,7 +183,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         <!-- END RESPONSIVE QUICK SEARCH FORM -->
     </li>
     <li class="start">
-        <a href="{U('Profile/index')}">
+        <a href="<?php echo U('Profile/index');;?>">
             <i class="icon-home"></i>
             <span class="title">My Profile</span>
             <span class="selected"></span>
@@ -196,7 +196,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <span class="arrow "></span>
         </a>
         <ul class="sub-menu">
-            <li>
+            <li class="active">
                 <a href="<?php echo U('Customer/customerlist');;?>">
                     Customers List
                 </a>
@@ -319,7 +319,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             </li>
             <li>
                 <a href="inbox.html">
-                    收件�?/a>
+                    收件�?</a>
             </li>
             <li>
                 <a href="extra_search.html">
@@ -573,7 +573,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 <a href="#">Customer Manager</a>
                 <i class="icon-angle-right"></i>
             </li>
-            <li><a href="#">Customers List</a></li>
+            <li><a href="<?php echo U('Customer/customerlist');;?>">Customers List</a></li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -582,7 +582,16 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN PAGE CONTENT-->
 <div class="row-fluid">
     <div class="span12">
-    <table id="zonelist" class="table table-striped">
+        <form role="form" action="<?php echo U('Customer/customerlist');;?>" method="post" class="form-search">
+            <div class="control">
+                <input name = 'search' class="m-wrap" type="text" required><button type="submit" class="btn green" type="button">Search!</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+    <table class="table table-striped table-hover">
        <thead>
         <tr>
             <th>Username</th>
@@ -611,7 +620,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <td><?php echo ($vo["status"]); ?></td>
             <td><?php echo ($vo["regtime"]); ?></td>
             <td>
-                <a href="<?php echo U('Index/showBDcontent?id='.$vo['id'].'');;?>">
+                <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Customer/customerdetail?id='.$vo['id'].'');;?>">
                     view detail		
                 </a>
             </td>
@@ -689,8 +698,6 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         App.init();
 
     });
-   
-});
         
     </script>
 

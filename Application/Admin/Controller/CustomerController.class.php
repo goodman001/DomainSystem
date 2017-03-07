@@ -26,4 +26,8 @@ class CustomerController extends CommonController {
 		
 		
     }
+    public function customerdetail()
+    {
+        
+    }
 }

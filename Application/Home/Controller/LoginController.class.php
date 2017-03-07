@@ -26,12 +26,12 @@ class LoginController extends Controller {
 		$content = $Model->field('username,regtime,status')->where($data)->find();
 		if(!empty($content))//exist username
 		{
-			if($content['status'] == 0 )//Pending = 0
+			if($content['status'] == 'pending' )//Pending = 0
 			{
 				
 				$this->error('Please go to the mail for reset password verification', U('Index/index'),3);
     						
-			}else if($content['status'] == 1 )//active = 1
+			}else if($content['status'] == 'active' )//active = 1
 			{
 				//echo "exsit!";
 				$this->success('The email address has been successfully registered, please log in',U('Login/login'),3);
@@ -61,7 +61,7 @@ class LoginController extends Controller {
 			$data['overdue'] = I('post.overdue','','htmlspecialchars');//get firstname
 			$data['taxexemption'] = 'NO';//get firstname
 			$data['currency'] = I('post.currency','','htmlspecialchars');//get firstname
-			$data['status'] = 1;//get firstname
+			$data['status'] = 'active';//get firstname
 			$data['regtime'] =date('Y-m-d H:i:s',time());//get firstname
 			$Model->data($data)->add();
 			$this->success('Congratulations ! please log in',U('Login/login'),3);
@@ -85,7 +85,7 @@ class LoginController extends Controller {
 		$content = $Model->field('email,username,regtime,status')->where($data)->find();
 		if(!empty($content))//exist email
 		{
-			if($content['status'] == 0 || $content['status'] == 1 )
+			if($content['status'] == 'pending' || $content['status'] == 'active')
 			{
 				$Model-> where($data)->setField('status',0);
 				$emailbody="Dear".$content['username']."：<br/>The email is for finding your password verification <br/>your verification code is 9823<br/> "; 
@@ -121,7 +121,7 @@ class LoginController extends Controller {
 			if($data['code'] == cookie('findpwd_code')){
 				$Model = M('users');
 				$Model-> where($datas)->setField('password',$data['password']);
-				$Model-> where($datas)->setField('status',1);
+				$Model-> where($datas)->setField('status','active');
 				cookie('findpwd_email',null);
 				cookie('findpwd_code',null);
 				$this->success('The password has been successfully found, please log in',U('Login/login'),3);
@@ -151,8 +151,8 @@ class LoginController extends Controller {
 		$content = $Model->field('username,regtime,status')->where($data)->find();
 		if(!empty($content) )//exist email
 		{
-			if($content['status'] == 0 || $content['status'] == 1 ){
-				$Model-> where($data)->setField('status',1);
+			if($content['status'] == 'pending' || $content['status'] == 'active' ){
+				$Model-> where($data)->setField('status','active');
 				cookie('u_username',$data['username'],36000);
 				$this->success('Login successfully! welcome ',U('Index/index'));
 			}else

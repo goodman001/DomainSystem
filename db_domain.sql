@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 03, 2017 at 11:49 AM
+-- Generation Time: Mar 07, 2017 at 03:36 PM
 -- Server version: 5.5.50-0ubuntu0.14.04.1
 -- PHP Version: 5.6.23-1+deprecated+dontuse+deb.sury.org~trusty+1
 
@@ -373,7 +373,7 @@ CREATE TABLE IF NOT EXISTS `db_users` (
   `taxexemption` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `currency` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `balance` decimal(10,2) NOT NULL DEFAULT '0.00',
-  `status` int(11) NOT NULL DEFAULT '0',
+  `status` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `regtime` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
@@ -383,7 +383,7 @@ CREATE TABLE IF NOT EXISTS `db_users` (
 --
 
 INSERT INTO `db_users` (`id`, `username`, `firstname`, `lastname`, `company`, `jobtitle`, `email`, `password`, `question`, `answer`, `address1`, `address2`, `city`, `state`, `postcode`, `country`, `phone`, `fax`, `overdue`, `taxexemption`, `currency`, `balance`, `status`, `regtime`) VALUES
-(4, 'test', 'adfa', 'd', 'c', 'jon', 'net33ph@yeah.net', '1234', 'Where is your birthplace?', 'dfa', 'add', 'add2', 'City', 'STATE', 12345, 'UK', '223-523-463', '223-523-463', 'Enable', 'NO', 'EUR', 10.40, 1, '2017-02-24 00:00:00');
+(4, 'test', 'adfa', 'd', 'c', 'jon', 'net33ph@yeah.net', '1234', 'Where is your birthplace?', 'dfa', 'add', 'add2', 'City', 'STATE', 12345, 'UK', '223-523-463', '223-523-463', 'Enable', 'NO', 'EUR', 10.40, 'active', '2017-02-24 00:00:00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

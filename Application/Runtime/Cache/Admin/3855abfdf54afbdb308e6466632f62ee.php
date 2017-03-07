@@ -586,8 +586,6 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
        <thead>
         <tr>
             <th>Username</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
             <th>Email</th>
             <th>City</th>
             <th>State</th>
@@ -596,15 +594,13 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <th>Currency</th>
             <th>Balance</th>
             <th>Account Status</th>
-            <th>Register time</th>
+            <th>Regist time</th>
             <th></th>
         </tr>
        </thead>
        <tbody>
         <?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
             <td><?php echo ($vo["username"]); ?></td>
-            <td><?php echo ($vo["firstname"]); ?></td>
-            <td><?php echo ($vo["lastname"]); ?></td>
             <td><?php echo ($vo["email"]); ?></td>
             <td><?php echo ($vo["city"]); ?></td>
             <td><?php echo ($vo["state"]); ?></td>

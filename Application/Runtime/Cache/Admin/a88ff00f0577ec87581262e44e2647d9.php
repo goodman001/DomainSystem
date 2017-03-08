@@ -183,7 +183,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         <!-- END RESPONSIVE QUICK SEARCH FORM -->
     </li>
     <li class="start active ">
-        <a href="index.html">
+        <a href="<?php echo U('Profile/index');;?>">
             <i class="icon-home"></i>
             <span class="title">My Profile</span>
             <span class="selected"></span>

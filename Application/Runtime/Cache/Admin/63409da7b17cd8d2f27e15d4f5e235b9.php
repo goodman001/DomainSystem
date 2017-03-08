@@ -704,39 +704,91 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 </div>
 <!-- tab_1_3 -->
 <div class="tab-pane" id="tab_1_3">
-	<div class="row-fluid">
-		<div class="portlet box red">
-			<div class="portlet-title">
-				<div class="caption"><i class="icon-cogs"></i>Orders</div>
-			</div>
-			<div class="portlet-body">
-				<div class="row">
-					<div class="col-xs-6">
-						<address>
-						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Order ID</strong>:</div><div class="col-xs-7">xxx</div></div>
-						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Order Issue date</strong>: </div><div class="col-xs-7">xxx</div></div>
-						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Username</strong>: </div><div class="col-xs-7">xxx</div></div>
-						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Status</strong>: </div><div class="col-xs-7">xxx</div></div>
-						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Refund</strong>: </div><div class="col-xs-7">xxx</div></div>
-						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Invoice date</strong>: </div><div class="col-xs-7">xxx</div></div>
-						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Due date</strong>: </div><div class="col-xs-7">Waiting</div></div>
-						</address>
-					</div>
-					<div class="col-xs-6">
-						<address>
-						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Transaction ID</strong>:</div><div class="col-xs-7">xxx</div></div>
-						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Client Name</strong>: </div><div class="col-xs-7">xxx</div></div>
-						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Card Number/Account number</strong>: </div><div class="col-xs-7">xxx</div></div>
-						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Invoice ID</strong>: </div><div class="col-xs-7">xxx</div></div>
-						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Payment Date</strong>: </div><div class="col-xs-7">xxx</div></div>
-						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Payment Method</strong>: </div><div class="col-xs-7">xxx</div></div>
-						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Settle Amount</strong>: </div><div class="col-xs-7">xxx</div></div>
-						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Description</strong>: </div><div class="col-xs-7">xxx</div></div>
-						</address>
-					</div>
-				</div>
-			</div>
-		</div>
+	<div class="row-fluid">	
+        <div class="span12">
+            <table class="table table-striped table-hover">
+               <thead>
+                <tr>
+                    <th>Domain</th>
+                    <th>Registrar</th>
+                    <th>Email</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Country</th>
+                    <th>Phone</th>
+                    <th>Postcode</th>
+                    <th></th>
+                </tr>
+               </thead>
+               <tbody>
+                <?php if(is_array($domains)): foreach($domains as $key=>$vo): ?><tr>
+                    <td></td>
+                    <td><?php echo ($vo["domainname"]); ?></td>
+                    <td><?php echo ($vo["registrar"]); ?></td>
+                    <td><?php echo ($vo["email"]); ?></td>
+                    <td><?php echo ($vo["firstname"]); ?></td>
+                    <td><?php echo ($vo["lastname"]); ?></td>
+                    <td><?php echo ($vo["city"]); ?></td>
+                    <td><?php echo ($vo["state"]); ?></td>
+                    <td><?php echo ($vo["country"]); ?></td>
+                    <td><?php echo ($vo["phone"]); ?></td>
+                    <td><?php echo ($vo["postcode"]); ?></td>
+                    <td>
+                        <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Customer/customerdetail?id='.$vo['id'].'');;?>">
+                            view detail
+                        </a>
+                    </td>
+                  </tr><?php endforeach; endif; ?>
+               </tbody>
+            </table>
+            <span><div class="page"><?php echo ($page); ?></div></span>
+        </div>
+        
+        
+        
+	</div>
+</div>
+<!-- tab_1_4 -->
+<div class="tab-pane" id="tab_1_4">
+	<div class="row-fluid">	
+        <div class="span12">
+            <table class="table table-striped table-hover">
+               <thead>
+                <tr>
+                    <th>orderID</th>
+                    <th>Username</th>
+                    <th>transactionID</th>
+                    <th>IssueDate</th>
+                    <th>refund</th>
+                    <th>Invoicedate</th>
+                    <th>status</th>
+                    <th></th>
+                </tr>
+               </thead>
+               <tbody>
+                <?php if(is_array($orders)): foreach($orders as $key=>$vo): ?><tr>
+                    <td><?php echo ($vo["orderID"]); ?></td>
+                    <td><?php echo ($vo["username"]); ?></td>
+                    <td><?php echo ($vo["transactionID"]); ?></td>
+                    <td><?php echo ($vo["issuedate"]); ?></td>
+                    <td><?php echo ($vo["refund"]); ?></td>
+                    <td><?php echo ($vo["invoicedate"]); ?></td>
+                    <td><?php echo ($vo["status"]); ?></td>
+                    <td>
+                        <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Order/orderdetail?id='.$vo['id'].'&flag=1');;?>">
+                            view detail		
+                        </a>
+                    </td>
+                  </tr><?php endforeach; endif; ?>
+               </tbody>
+            </table>
+            <span><div class="page"><?php echo ($page); ?></div></span>
+        </div>
+        
+        
+        
 	</div>
 </div>
 <!-- tab_1_3 -->

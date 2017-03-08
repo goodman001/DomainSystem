@@ -180,6 +180,35 @@ class OrderController extends CommonController {
 		$M3->where($ct1)->delete();
 		$this->success('Delete the order successfully!',U('Order/orderlist'),1);
 	}
+	public function delitem()
+	{
+		$itemid = I('get.itemid');
+		$orderid = I('get.orderid');
+		$ct0['orderID'] = $orderid;
+		$Model =  M('item');
+		$itemCount = $Model->where($ct0)->count();
+		
+		
+		$ct00['id'] = $itemid;
+		$ct00['orderID'] = $orderid;
+		$items = $Model->where($ct00)->find();
+		$Model->where($ct00)->delete();//del item
+		$Mdomain = M('domainmgr');
+		$ctd['domainname'] = $items['domainname'];
+		$Mdomain->where($ctd)->delete();//del domain
+		if($itemCount == 1)
+		{		
+			$ct1['orderID'] = $orderid;
+			$M2 = M('order');
+			$M2->where($ct1)->delete();
+			$M3 = M('transaction');
+			$M3->where($ct1)->delete();
+			$this->success('Delete the only item successfully!Order is empty',U('Order/orderlist'),1);
+		}else
+		{
+			$this->success('Delete item successfully!',U('Order/orderdetail?orderid='.$orderid.''),1);
+		}
+	}
 	public function orderaccept()
 	{
 		$orderid = I('get.orderid');
@@ -204,7 +233,7 @@ class OrderController extends CommonController {
 				$Mdomain->where($ctd)->setField('expirydate',date('Y-m-d H:i:s', strtotime('+'.$val['years'].' year', strtotime($nowtime))));//expirydate
 				$Mdomain->where($ctd)->setField('nextduedate',date('Y-m-d H:i:s', strtotime('+'.$val['years'].' year', strtotime($content['issuedate']))));//issuedate
 			}
-			$this->success('Accept the order successfully!',U('Order/orderdetail?orderID='.$orderid.''),1);
+			$this->success('Accept the order successfully!',U('Order/orderdetail?orderid='.$orderid.''),1);
 		}
 		
 	}
@@ -213,7 +242,7 @@ class OrderController extends CommonController {
 		$orderid = I('get.orderid');
 		$data['orderID'] = $orderid;
 		$Mtrans =  M('transaction');
-		$trans = $Mtrans->where($Mtrans)->find();
+		$trans = $Mtrans->where($data)->find();
 		
 		$Model =  M('order');
 		$content = $Model->where($data)->find();
@@ -233,7 +262,7 @@ class OrderController extends CommonController {
 				$Mdomain = M('domainmgr');
 				$Mdomain->where($ctd)->delete();//del domain
 			}
-			$this->success('Refund the order successfully!',U('Order/orderdetail?orderID='.$orderid.''),1);
+			$this->success('Refund the order successfully!',U('Order/orderdetail?orderid='.$orderid.''),1);
 		}
 		
 	}
@@ -257,15 +286,34 @@ class OrderController extends CommonController {
 				$Mdomain = M('domainmgr');
 				$Mdomain->where($ctd)->delete();//del domain
 			}
-			$this->success('Cancle the order successfully!',U('Order/orderdetail?orderID='.$orderid.''),1);
+			$this->success('Cancle the order successfully!',U('Order/orderdetail?orderid='.$orderid.''),1);
 		}
 		
 	}
-	public function orderremove()
+	public function itemedit()
 	{
 		$orderid = I('get.orderid');
+		$itemid = I('get.itemid');
+		$data['price'] = I('post.price');
+		$data['years'] = I('post.years');
+		$map['id'] = $itemid;
+		$ct['orderID'] = $orderid;
+		$Model =  M('item');
+		$Model->where($map)->save($data);
+		$items = $Model->where($ct)->select();
+		$sum = 0.0;
+		foreach($items as &$val)
+		{
+			$price = $val['price'];
+			$years = $val['years'];
+			$sum = $sum + $price * $years;
+			
+		}
+		$cc['settleamount'] = $sum;
+		$M3 = M('transaction');
+		$M3->where($ct)->save($cc);
+		$this->success('Update the order successfully!',U('Order/orderdetail?orderid='.$orderid.''),1);
 	}
-	
 	public function orderadd()
 	{
 		

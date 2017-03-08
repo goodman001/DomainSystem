@@ -648,6 +648,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                             <td class="text-center"><strong>Price</strong></td>
                             <td class="text-center"><strong>Years</strong></td>
                             <td class="text-center"><strong>Totals</strong></td>
+                            <td></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -657,11 +658,15 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                             <td class="text-center"><?php echo ($vo["price"]); ?> HK$</td>
                             <td class="text-center"><?php echo ($vo["years"]); ?></td>
                             <td class="text-center"><?php echo $vo['years']*$vo['price']; ?> </td>
+                            <td class="text-center">
+                                <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Order/delitem?itemid='.$vo['id'].'&orderid='.$order['orderID'].'');;?>">Remove</a>
+                            </td>
                         </tr><?php endforeach; endif; ?>
                     </tbody>
                 </table>
-				<?php if($order["status"] != 'active'): ?><a href="<?php echo U('Order/orderaccept?orderid='.$order['orderID'].'');;?>" class="btn red easy-pie-chart-reload">Accept</a><?php endif; ?>
-				<?php if($order["status"] != 'cancle'): ?><a href="<?php echo U('Order/ordercancle?orderid='.$order['orderID'].'');;?>" class="btn blue easy-pie-chart-reload">Cancle</a><?php endif; ?>
+				
+				<?php if($order["status"] != 'cancle'): if($order["status"] != 'active'): ?><a href="<?php echo U('Order/orderaccept?orderid='.$order['orderID'].'');;?>" class="btn red easy-pie-chart-reload">Accept</a><?php endif; ?>
+					<a href="<?php echo U('Order/ordercancle?orderid='.$order['orderID'].'');;?>" class="btn blue easy-pie-chart-reload">Cancle</a><?php endif; ?>
 				<?php if($order["refund"] == 'N'): ?><a href="<?php echo U('Order/orderRefund?orderid='.$order['orderID'].'');;?>" class="btn green easy-pie-chart-reload">Refund</a><?php endif; ?>
 				<a href="<?php echo U('Order/orderdel?orderid='.$order['orderID'].'');;?>" class="btn yellow easy-pie-chart-reload">Remove</a>
             </div>
@@ -672,6 +677,30 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!--tab_1_2-->
 <div class="tab-pane" id="tab_1_2">
 	<div style="height: auto;" id="accordion1-1" class="accordion collapse">
+        <div class="span12">
+            <?php if(is_array($items)): foreach($items as $key=>$vo): ?><div class="span4">
+                <h5></h5>
+                <form role="form" action="<?php echo U('Order/itemedit?itemid='.$vo['id'].'&orderid='.$order['orderID'].'');;?>" method="post">  
+                    <label class="control-label">Domain name</label>
+                    <input name="domainname" type="text" id="domainname" placeholder="domainname" value="<?php echo ($vo["domainname"]); ?>" class="m-wrap span8" readonly/>
+                    <label class="control-label">Price</label>
+                    <input type="text" value="<?php echo ($vo["price"]); ?>" name="price" id="price" pattern="^[0-9]+([\.,]{0,1}[0-9]*)$" maxlength="15" minlength="1"   class="m-wrap span8" required>
+                    <label class="control-label">Years</label>
+                    <select class="form-control" name="years" required>
+                        <option value="1">one years </option>
+                        <option value="2" >two years </option> 
+                        <option value="3">three years</option>
+                        <option value="5">five years </option>
+                        <option value="10">ten years </option>
+                    </select>   
+                    <div class="submit-btn">
+                        <button type="submit" class="btn green">Save Changes</button>
+                    </div>
+                </form>
+            </div><?php endforeach; endif; ?>
+        </div>
+        
+        
         
     </div>
 </div>

@@ -438,7 +438,9 @@
 <ul class="nav nav-tabs">
     
     <li class="active"><a href="#tab_1_1" data-toggle="tab">Order Detail</a></li>
-	<li><a href="#tab_1_2" data-toggle="tab">Edit Order</a></li>
+	<if condition="$order.status eq 'pending'">
+        <li><a href="#tab_1_2" data-toggle="tab">Edit Order</a></li>
+    </if>
 </ul>
 <div class="tab-content">
 
@@ -481,6 +483,7 @@
                             <td class="text-center"><strong>Price</strong></td>
                             <td class="text-center"><strong>Years</strong></td>
                             <td class="text-center"><strong>Totals</strong></td>
+                            <td></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -491,6 +494,9 @@
                             <td class="text-center">{$vo.price} HK$</td>
                             <td class="text-center">{$vo.years}</td>
                             <td class="text-center"><?php echo $vo['years']*$vo['price']; ?> </td>
+                            <td class="text-center">
+                                <a class="btn yellow easy-pie-chart-reload" href="{:U('Order/delitem?itemid='.$vo['id'].'&orderid='.$order['orderID'].'');}">Remove</a>
+                            </td>
                         </tr>
                         </foreach>
                     </tbody>
@@ -514,6 +520,32 @@
 <!--tab_1_2-->
 <div class="tab-pane" id="tab_1_2">
 	<div style="height: auto;" id="accordion1-1" class="accordion collapse">
+        <div class="span12">
+            <foreach name="items" item="vo">
+            <div class="span4">
+                <h5></h5>
+                <form role="form" action="{:U('Order/itemedit?itemid='.$vo['id'].'&orderid='.$order['orderID'].'');}" method="post">  
+                    <label class="control-label">Domain name</label>
+                    <input name="domainname" type="text" id="domainname" placeholder="domainname" value="{$vo.domainname}" class="m-wrap span8" readonly/>
+                    <label class="control-label">Price</label>
+                    <input type="text" value="{$vo.price}" name="price" id="price" pattern="^[0-9]+([\.,]{0,1}[0-9]*)$" maxlength="15" minlength="1"   class="m-wrap span8" required>
+                    <label class="control-label">Years</label>
+                    <select class="form-control" name="years" required>
+                        <option value="1">one years </option>
+                        <option value="2" >two years </option> 
+                        <option value="3">three years</option>
+                        <option value="5">five years </option>
+                        <option value="10">ten years </option>
+                    </select>   
+                    <div class="submit-btn">
+                        <button type="submit" class="btn green">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+            </foreach>
+        </div>
+        
+        
         
     </div>
 </div>

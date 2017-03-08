@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 07, 2017 at 03:36 PM
+-- Generation Time: Mar 08, 2017 at 10:01 PM
 -- Server version: 5.5.50-0ubuntu0.14.04.1
 -- PHP Version: 5.6.23-1+deprecated+dontuse+deb.sury.org~trusty+1
 
@@ -189,10 +189,8 @@ CREATE TABLE IF NOT EXISTS `db_domainmgr` (
 --
 
 INSERT INTO `db_domainmgr` (`id`, `domainname`, `username`, `registrar`, `registrationdate`, `expirydate`, `nextduedate`, `status`, `mainforward`, `DNSmgr`, `IDprotect`, `orderID`, `email`, `firstname`, `lastname`, `company`, `jobtitle`, `address1`, `address2`, `city`, `state`, `country`, `postcode`, `phone`, `fax`, `ns1`, `ns2`, `ns3`, `ns4`) VALUES
-(1, 'djdjdjaad3der.cc', 'test', 'ResellerClub', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'pending', '', '', 'N', 1488358652, 'ABC@GMAIL.COM', 'FN', 'LN', 'GOOGLE', 'ENGINEER', 'add1', 'add2', 'CITY', 'STATE', 'UK', 123456, '220-123-234', '220-123-234', '1.1.1.1', '2.1.1.1', '3.1.1.1', '4.1.1.1'),
-(2, 'adfdfdfdf.com', 'test', 'ResellerClub', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'pending', '', '', 'N', 1488358652, 'ABC@GMAIL.COM', 'FN', 'LN', 'GOOGLE', 'ENGINEER', 'add1', 'add2', 'CITY', 'STATE', 'UK', 123456, '220-123-234', '220-123-234', '1.1.1.1', '2.1.1.1', '3.1.1.1', '4.1.1.1'),
-(3, 'aaaaaaaaaaa.club', 'test', 'eNom', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'pending', '', '', 'N', 1488371412, 'ggg@yahoo.com', 'yang', 'mu', 'bat', 'it', 'ADDRESS1', 'ADDRESS2', 'wd', 'ca', 'UK', 10098, '223-523-463', '223-523-463', '1.2.2.2', '2.3.3.3', '3.3.3.3', '4.4.4.4'),
-(4, 'bcedad.cc', 'test', 'eNom', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'pending', '', '', 'N', 1488371412, 'ggg@yahoo.com', 'yang', 'mu', 'bat', 'it', 'ADDRESS1', 'ADDRESS2', 'wd', 'ca', 'UK', 10098, '223-523-463', '223-523-463', '1.2.2.2', '2.3.3.3', '3.3.3.3', '4.4.4.4');
+(1, 'djdjdjaad3der.cc', 'test', 'ResellerClub', '2017-03-08 21:35:25', '2018-03-08 21:35:25', '2018-03-01 16:57:32', 'active', '', '', 'N', 1488358652, 'ABC@GMAIL.COM', 'FN', 'LN', 'GOOGLE', 'ENGINEER', 'add1', 'add2', 'CITY', 'STATE', 'UK', 123456, '220-123-234', '220-123-234', '1.1.1.1', '2.1.1.1', '3.1.1.1', '4.1.1.1'),
+(2, 'adfdfdfdf.com', 'test', 'ResellerClub', '2017-03-08 21:35:25', '2019-03-08 21:35:25', '2019-03-01 16:57:32', 'active', '', '', 'N', 1488358652, 'ABC@GMAIL.COM', 'FN', 'LN', 'GOOGLE', 'ENGINEER', 'add1', 'add2', 'CITY', 'STATE', 'UK', 123456, '220-123-234', '220-123-234', '1.1.1.1', '2.1.1.1', '3.1.1.1', '4.1.1.1');
 
 -- --------------------------------------------------------
 
@@ -217,9 +215,7 @@ CREATE TABLE IF NOT EXISTS `db_item` (
 
 INSERT INTO `db_item` (`id`, `domainname`, `orderID`, `registrar`, `IDprotect`, `price`, `years`) VALUES
 (1, 'djdjdjaad3der.cc', 1488358652, 'ResellerClub', 'N', 10.00, 1),
-(2, 'adfdfdfdf.com', 1488358652, 'ResellerClub', 'N', 10.00, 2),
-(3, 'aaaaaaaaaaa.club', 1488371412, 'eNom', 'N', 10.00, 2),
-(4, 'bcedad.cc', 1488371412, 'eNom', 'N', 10.00, 10);
+(2, 'adfdfdfdf.com', 1488358652, 'ResellerClub', 'N', 10.00, 2);
 
 -- --------------------------------------------------------
 
@@ -235,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `db_order` (
   `issuedate` datetime NOT NULL,
   `status` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `refund` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
-  `refundaccount` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `refundamount` decimal(10,2) NOT NULL DEFAULT '0.00',
   `invoicedate` datetime NOT NULL,
   `duedate` datetime NOT NULL,
   `description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -247,9 +243,8 @@ CREATE TABLE IF NOT EXISTS `db_order` (
 -- Dumping data for table `db_order`
 --
 
-INSERT INTO `db_order` (`id`, `orderID`, `username`, `transactionID`, `issuedate`, `status`, `refund`, `refundaccount`, `invoicedate`, `duedate`, `description`) VALUES
-(1, 1488358652, 'test', 1488358753, '2017-03-01 16:57:32', 'pending', 'N', '', '2017-03-01 16:57:32', '0000-00-00 00:00:00', ''),
-(2, 1488371412, 'test', 1488371513, '2017-03-01 20:30:12', 'pending', 'N', '', '2017-03-01 20:30:12', '0000-00-00 00:00:00', '');
+INSERT INTO `db_order` (`id`, `orderID`, `username`, `transactionID`, `issuedate`, `status`, `refund`, `refundamount`, `invoicedate`, `duedate`, `description`) VALUES
+(1, 1488358652, 'test', 1488358753, '2017-03-01 16:57:32', 'active', 'N', 0.00, '2017-03-01 16:57:32', '2017-03-08 21:35:25', '');
 
 -- --------------------------------------------------------
 
@@ -341,8 +336,7 @@ CREATE TABLE IF NOT EXISTS `db_transaction` (
 --
 
 INSERT INTO `db_transaction` (`id`, `transactionID`, `clientname`, `orderID`, `invoiceID`, `description`, `paydate`, `paymethod`, `accountnumber`, `settleamount`) VALUES
-(1, 1488358753, 'jay yang', 1488358652, 1488358652, 'I use the Credit Card to pay for the order', '2017-03-01 16:57:32', 'Credit Card', '9638527418523695', 30.00),
-(2, 1488371513, 'WANG', 1488371412, 1488371412, 'I use the Credit Card to pay for the order', '2017-03-01 20:30:12', 'Credit Card', '9638527412635', 120.00);
+(1, 1488358753, 'jay yang', 1488358652, 1488358652, 'I use the Credit Card to pay for the order', '2017-03-01 16:57:32', 'Credit Card', '9638527418523695', 30.00);
 
 -- --------------------------------------------------------
 

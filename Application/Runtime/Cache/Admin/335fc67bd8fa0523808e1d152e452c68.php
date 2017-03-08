@@ -601,7 +601,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <div class="portlet-title">
                 <div class="caption"><i class="icon-coffee"></i>Order</div>
                 <div class="tools">
-                    <a href="<?php echo U('Order/customerdelorder?cusid='.$cusid.'&orderid='.$order['orderID'].'');;?>" class="remove">Delete</a>
+                    
                 </div>
             </div>
             <div class="portlet-body">
@@ -641,16 +641,14 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                             <td class="text-center"><?php echo ($vo["years"]); ?></td>
                             <td class="text-center"><?php echo $vo['years']*$vo['price']; ?> </td>
                             <td class="text-center">
-                                <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Order/customerdelitem?itemid='.$vo['id'].'&cusid='.$cusid.'&orderid='.$order['orderID'].'&oid='.$order['id'].'');;?>">Delete</a>
+                                <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Order/customerdelitem?itemid='.$vo['id'].'&cusid='.$cusid.'&orderid='.$order['orderID'].'&oid='.$order['id'].'');;?>">Remove</a>
                             </td>
                         </tr><?php endforeach; endif; ?>
                     </tbody>
                 </table>
+                <a href="<?php echo U('Order/customerdelorder?cusid='.$cusid.'&orderid='.$order['orderID'].'');;?>" class="btn yellow easy-pie-chart-reload">Remove</a>
             </div>
-        </div>
-        
-        
-        
+        </div>      
 	</div>
     
 </div>

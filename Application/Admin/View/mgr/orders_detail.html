@@ -25,14 +25,14 @@
             <span class="selected"></span>
         </a>
     </li>
-    <li class="active">
+    <li class="">
         <a href="javascript:;">
             <i class="icon-bookmark-empty"></i>
             <span class="title">Customers manager</span>
             <span class="arrow "></span>
         </a>
         <ul class="sub-menu">
-            <li class="active">
+            <li >
                 <a href="{:U('Customer/customerlist');}">
                     Customers List
                 </a>
@@ -40,6 +40,24 @@
             <li>
                 <a href="{:U('Customer/customeradd');}">
                     Add Customers</a>
+            </li>
+        </ul>
+    </li>
+	<li class="active">
+        <a href="javascript:;">
+            <i class="icon-bookmark-empty"></i>
+            <span class="title">Order manager</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="active">
+                <a href="{:U('Order/orderlist');}">
+                    Order List
+                </a>
+            </li>
+            <li>
+                <a href="{:U('Order/orderadd');}">
+                    Add Order</a>
             </li>
         </ul>
     </li>
@@ -401,27 +419,26 @@
                 <i class="icon-angle-right"></i>
             </li>
             <li>
-                <a href="#">Customer Manager</a>
+                <a href="#">Order Manager</a>
                 <i class="icon-angle-right"></i>
             </li>
-            <li><a href="{:U('Customer/customerlist');}">Customers List</a><i class="icon-angle-right"></i></li>
-			<li><a href="{:U('Customer/customerdetail?id='.$cusid.'');}">Customers Detail</a><i class="icon-angle-right"></i></li>
-            <li><a href="#">Order Detail</a></li>
+            <li><a href="{:U('Order/orderlist');}">Order List</a><i class="icon-angle-right"></i></li>
+			 <li><a href="{:U('Order/orderdetail?orderid='.$orderid.'');}">Order Detail</a></li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
 </div>
 <!-- END PAGE HEADER-->
 <!-- BEGIN PAGE CONTENT-->
-<div class="row-fluid profile">
-<div class="span12">
-<!--BEGIN TABS-->
+<div class="row-fluid">
+    <div class="span12">
+
+		<!--BEGIN TABS-->
 <div class="tabbable tabbable-custom tabbable-full-width">
 <ul class="nav nav-tabs">
     
     <li class="active"><a href="#tab_1_1" data-toggle="tab">Order Detail</a></li>
 	<li><a href="#tab_1_2" data-toggle="tab">Edit Order</a></li>
-    <li><a href="#tab_1_3" data-toggle="tab">Add Order</a></li>
 </ul>
 <div class="tab-content">
 
@@ -444,7 +461,7 @@
                     </div>
                     <div class="span4">
                         <h5><strong>Refund :</strong>{$order.refund}</h5>
-                        <h5><strong>Refund Amount:</strong>{$order.refundamount}</h5>
+						<h5><strong>Refund Amount:</strong>{$order.refundamount}</h5>
                         <if condition="$order.status eq 'pending'"> 
                             <h5><strong>Due date :</strong>NULL</h5>
                         <else />
@@ -452,7 +469,7 @@
                         </if>
                     </div>
                     <div class="span4">
-                        <h5><strong>Invoice date :</strong>{$order.invoicedate}</h5>
+						<h5><strong>Invoice date :</strong>{$order.invoicedate}</h5>
                         <h5><strong>Transaction ID :</strong>{$trans.transactionID}</h5>
                         <h5><strong>Amount :</strong>{$trans.settleamount} HK$</h5>
                     </div>
@@ -464,7 +481,6 @@
                             <td class="text-center"><strong>Price</strong></td>
                             <td class="text-center"><strong>Years</strong></td>
                             <td class="text-center"><strong>Totals</strong></td>
-                            <td class="text-center"></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -475,14 +491,21 @@
                             <td class="text-center">{$vo.price} HK$</td>
                             <td class="text-center">{$vo.years}</td>
                             <td class="text-center"><?php echo $vo['years']*$vo['price']; ?> </td>
-                            <td class="text-center">
-                                <a class="btn yellow easy-pie-chart-reload" href="{:U('Order/customerdelitem?itemid='.$vo['id'].'&cusid='.$cusid.'&orderid='.$order['orderID'].'&oid='.$order['id'].'');}">Remove</a>
-                            </td>
                         </tr>
                         </foreach>
                     </tbody>
                 </table>
-                <a href="{:U('Order/customerdelorder?cusid='.$cusid.'&orderid='.$order['orderID'].'');}" class="btn yellow easy-pie-chart-reload">Remove</a>
+				
+				<if condition="$order.status neq 'cancle'">
+					<if condition="$order.status neq 'active'"> 
+						<a href="{:U('Order/orderaccept?orderid='.$order['orderID'].'');}" class="btn red easy-pie-chart-reload">Accept</a>
+					</if>
+					<a href="{:U('Order/ordercancle?orderid='.$order['orderID'].'');}" class="btn blue easy-pie-chart-reload">Cancle</a>
+				</if>
+				<if condition="$order.refund eq 'N'">
+					<a href="{:U('Order/orderRefund?orderid='.$order['orderID'].'');}" class="btn green easy-pie-chart-reload">Refund</a>
+				</if>
+				<a href="{:U('Order/orderdel?orderid='.$order['orderID'].'');}" class="btn yellow easy-pie-chart-reload">Remove</a>
             </div>
         </div>      
 	</div>
@@ -508,98 +531,6 @@
 
 <!-- tab_1_3 -->
 <!--end tab-pane-->
-<div class="tab-pane" id="tab_1_4">
-    <div class="row-fluid add-portfolio">
-        <div class="pull-left">
-            <span>502 Items sold this week</span>
-        </div>
-        <div class="pull-left">
-            <a href="#" class="btn icn-only green">Add a new Project <i class="m-icon-swapright m-icon-white"></i></a>
-        </div>
-    </div>
-    <!--end add-portfolio-->
-    <div class="row-fluid portfolio-block">
-        <div class="span5 portfolio-text">
-            <img src="media/image/logo_metronic.jpg" alt=""/>
-            <div class="portfolio-text-info">
-                <h4>Metronic - Responsive Template</h4>
-                <p>Lorem ipsum dolor sit consectetuer adipiscing elit.</p>
-            </div>
-        </div>
-        <div class="span5" style="overflow:hidden;">
-            <div class="portfolio-info">
-                Today Sold
-                <span>187</span>
-            </div>
-            <div class="portfolio-info">
-                Total Sold
-                <span>1789</span>
-            </div>
-            <div class="portfolio-info">
-                Earns
-                <span>$37.240</span>
-            </div>
-        </div>
-        <div class="span2 portfolio-btn">
-            <a href="#" class="btn bigicn-only"><span>Manage</span></a>
-        </div>
-    </div>
-    <!--end row-fluid-->
-    <div class="row-fluid portfolio-block">
-        <div class="span5 portfolio-text">
-            <img src="media/image/logo_azteca.jpg" alt=""/>
-            <div class="portfolio-text-info">
-                <h4>Metronic - Responsive Template</h4>
-                <p>Lorem ipsum dolor sit consectetuer adipiscing elit.</p>
-            </div>
-        </div>
-        <div class="span5">
-            <div class="portfolio-info">
-                Today Sold
-                <span>24</span>
-            </div>
-            <div class="portfolio-info">
-                Total Sold
-                <span>660</span>
-            </div>
-            <div class="portfolio-info">
-                Earns
-                <span>$7.060</span>
-            </div>
-        </div>
-        <div class="span2 portfolio-btn">
-            <a href="#" class="btn bigicn-only"><span>Manage</span></a>
-        </div>
-    </div>
-    <!--end row-fluid-->
-    <div class="row-fluid portfolio-block">
-        <div class="span5 portfolio-text">
-            <img src="media/image/logo_conquer.jpg" alt=""/>
-            <div class="portfolio-text-info">
-                <h4>Metronic - Responsive Template</h4>
-                <p>Lorem ipsum dolor sit consectetuer adipiscing elit.</p>
-            </div>
-        </div>
-        <div class="span5" style="overflow:hidden;">
-            <div class="portfolio-info">
-                Today Sold
-                <span>24</span>
-            </div>
-            <div class="portfolio-info">
-                Total Sold
-                <span>975</span>
-            </div>
-            <div class="portfolio-info">
-                Earns
-                <span>$21.700</span>
-            </div>
-        </div>
-        <div class="span2 portfolio-btn">
-            <a href="#" class="btn bigicn-only"><span>Manage</span></a>
-        </div>
-    </div>
-    <!--end row-fluid-->
-</div>
 <!--end tab-pane-->
 <div class="tab-pane row-fluid" id="tab_1_6">
 <div class="row-fluid">
@@ -980,7 +911,12 @@
 </div>
 </div>
 <!--END TABS-->
-</div>
+		
+		
+		
+		
+		
+    </div>
 </div>
 <!-- END PAGE CONTENT-->
 </div>

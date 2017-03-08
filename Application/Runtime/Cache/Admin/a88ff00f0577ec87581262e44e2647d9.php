@@ -209,6 +209,24 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     </li>
     <li class="">
         <a href="javascript:;">
+            <i class="icon-bookmark-empty"></i>
+            <span class="title">Order manager</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="<?php echo U('Order/orderlist');;?>">
+                    Order List
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo U('Order/orderadd');;?>">
+                    Add Order</a>
+            </li>
+        </ul>
+    </li>
+    <li class="">
+        <a href="javascript:;">
             <i class="icon-table"></i>
             <span class="title">表单系列</span>
             <span class="arrow "></span>

@@ -1,5 +1,169 @@
-<extend name="public/back" />
-<block name="siderbarmenu">
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 2.3.1
+Version: 1.3
+Author: KeenThemes
+Website: http://www.keenthemes.com/preview/?theme=metronic
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469
+-->
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js">
+<![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js">
+<![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8"/>
+    <title>Metronic | Admin Dashboard Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <!--begin global -->
+    <link href="/DomainSystem/Public/metronic/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="/DomainSystem/Public/metronic/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/chosen.css" rel="stylesheet" type="text/css" />
+<!-- END CORE PLUGINS -->
+    
+    <!-- END begin global -->
+    <!--favicon
+    <link rel="shortcut icon" href="/DomainSystem/Public/metronic/media/image/favicon.ico"/>
+    -->
+</head>
+<!-- BEGIN BODY -->
+<body class="page-header-fixed">
+<!-- BEGIN HEADER -->
+<div class="header navbar navbar-inverse navbar-fixed-top">
+<!-- BEGIN TOP NAVIGATION BAR -->
+<div class="navbar-inner">
+<div class="container-fluid">
+<!-- BEGIN LOGO -->
+    <a class="brand" href="index.html">
+        <img src="/DomainSystem/Public/metronic/media/image/logo.png" alt="logo"/>
+    </a>
+    <!-- END LOGO -->
+    <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+    <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+        <img src="/DomainSystem/Public/metronic/media/image/menu-toggler.png" alt=""/>
+    </a>
+<!-- END RESPONSIVE MENU TOGGLER -->
+<!-- BEGIN TOP NAVIGATION MENU -->
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="#">iOS</a></li>
+        <li><a href="#">SVN</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Java
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="#">jmeter</a></li>
+                <li><a href="#">EJB</a></li>
+                <li><a href="#">Jasper Report</a></li>
+                <li class="divider"></li>
+                <li><a href="#">分离的链接</a></li>
+                <li class="divider"></li>
+                <li><a href="#">另一个分离的链接</a></li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="nav pull-right">
+    <!-- BEGIN INBOX DROPDOWN -->
+    <li class="dropdown" id="header_notification_bar">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="icon-envelope"></i>
+            <span class="badge">5</span>
+        </a>
+        <ul class="dropdown-menu extended inbox">
+            <li>
+                <p>你有12条消??/p>
+            </li>
+            <li>
+                <a href="<?php echo U('Client/inbox');;?>">
+                    <span class="photo"><img src="/DomainSystem/Public/metronic/media/image/avatar2.jpg" alt=""/></span>
+                                    <span class="subject">
+                                    <span class="from">Lisa Wong</span>
+                                    <span class="time">Just Now</span>
+                                    </span>
+                                    <span class="message">
+                                    Vivamus sed auctor nibh congue nibh. auctor nibh
+                                    auctor nibh...
+                                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="inbox.html?a=view">
+                    <span class="photo"><img src=".//DomainSystem/Public/metronic/media/image/avatar3.jpg" alt=""/></span>
+                                    <span class="subject">
+                                    <span class="from">Richard Doe</span>
+                                    <span class="time">16 mins</span>
+                                    </span>
+                                    <span class="message">
+                                    Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh
+                                    auctor nibh...
+                                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="inbox.html?a=view">
+                    <span class="photo"><img src=".//DomainSystem/Public/metronic/media/image/avatar1.jpg" alt=""/></span>
+                                    <span class="subject">
+                                    <span class="from">Bob Nilson</span>
+                                    <span class="time">2 hrs</span>
+                                    </span>
+                                    <span class="message">
+                                    Vivamus sed nibh auctor nibh congue nibh. auctor nibh
+                                    auctor nibh...
+                                    </span>
+                </a>
+            </li>
+            <li class="external">
+                <a href="inbox.html">查看????消息<i class="m-icon-swapright"></i></a>
+            </li>
+        </ul>
+    </li>
+    <!-- END INBOX DROPDOWN -->
+    <!-- BEGIN USER LOGIN DROPDOWN -->
+    <li class="dropdown user">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <img alt="" src="/DomainSystem/Public/metronic/media/image/avatar1_small.jpg"/>
+            <span class="username">Bob Nilson</span>
+            <i class="icon-angle-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="extra_profile.html"><i class="icon-user"></i> My Profile</a></li>
+            <li><a href="page_calendar.html"><i class="icon-calendar"></i> My Calendar</a></li>
+            <li><a href="inbox.html"><i class="icon-envelope"></i> My Inbox(3)</a></li>
+            <li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
+            <li class="divider"></li>
+            <li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a></li>
+            <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+        </ul>
+    </li>
+    <!-- END USER LOGIN DROPDOWN -->
+    </ul>
+    <!-- END TOP NAVIGATION MENU -->
+</div>
+</div>
+<!-- END TOP NAVIGATION BAR -->
+</div>
+<!-- END HEADER -->
+<!-- BEGIN CONTAINER -->
+
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    
+    <!-- BEGIN SIDEBAR MENU -->
+        
 <div class="page-sidebar nav-collapse collapse">
     <ul class="page-sidebar-menu">
     <li>
@@ -19,27 +183,45 @@
         <!-- END RESPONSIVE QUICK SEARCH FORM -->
     </li>
     <li class="start">
-        <a href="{:U('Profile/index');}">
+        <a href="<?php echo U('Profile/index');;?>">
             <i class="icon-home"></i>
             <span class="title">My Profile</span>
             <span class="selected"></span>
         </a>
     </li>
-    <li class="active">
+    <li class="">
         <a href="javascript:;">
             <i class="icon-bookmark-empty"></i>
             <span class="title">Customers manager</span>
             <span class="arrow "></span>
         </a>
         <ul class="sub-menu">
-            <li class="active">
-                <a href="{:U('Customer/customerlist');}">
+            <li >
+                <a href="<?php echo U('Customer/customerlist');;?>">
                     Customers List
                 </a>
             </li>
             <li>
-                <a href="{:U('Customer/customeradd');}">
+                <a href="<?php echo U('Customer/customeradd');;?>">
                     Add Customers</a>
+            </li>
+        </ul>
+    </li>
+	<li class="active">
+        <a href="javascript:;">
+            <i class="icon-bookmark-empty"></i>
+            <span class="title">Order manager</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="active">
+                <a href="<?php echo U('Order/orderlist');;?>">
+                    Order List
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo U('Order/orderadd');;?>">
+                    Add Order</a>
             </li>
         </ul>
     </li>
@@ -370,8 +552,13 @@
     </li>
     </ul>
 </div>
-</block>
-<block name="container">
+
+    
+    <!-- END SIDEBAR MENU -->
+    
+    <!-- END SIDEBAR -->
+    <!-- BEGIN PAGE -->
+        
 <!-- BEGIN PAGE -->
 <div class="page-content">
 <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
@@ -397,31 +584,30 @@
         <ul class="breadcrumb">
             <li>
                 <i class="icon-home"></i>
-                <a href="{:U('Profile/index');}">Home</a>
+                <a href="<?php echo U('Profile/index');;?>">Home</a>
                 <i class="icon-angle-right"></i>
             </li>
             <li>
-                <a href="#">Customer Manager</a>
+                <a href="#">Order Manager</a>
                 <i class="icon-angle-right"></i>
             </li>
-            <li><a href="{:U('Customer/customerlist');}">Customers List</a><i class="icon-angle-right"></i></li>
-			<li><a href="{:U('Customer/customerdetail?id='.$cusid.'');}">Customers Detail</a><i class="icon-angle-right"></i></li>
-            <li><a href="#">Order Detail</a></li>
+            <li><a href="<?php echo U('Order/orderlist');;?>">Order List</a><i class="icon-angle-right"></i></li>
+			 <li><a href="<?php echo U('Order/orderdetail?orderid='.$orderid.'');;?>">Order Detail</a></li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
 </div>
 <!-- END PAGE HEADER-->
 <!-- BEGIN PAGE CONTENT-->
-<div class="row-fluid profile">
-<div class="span12">
-<!--BEGIN TABS-->
+<div class="row-fluid">
+    <div class="span12">
+
+		<!--BEGIN TABS-->
 <div class="tabbable tabbable-custom tabbable-full-width">
 <ul class="nav nav-tabs">
     
     <li class="active"><a href="#tab_1_1" data-toggle="tab">Order Detail</a></li>
 	<li><a href="#tab_1_2" data-toggle="tab">Edit Order</a></li>
-    <li><a href="#tab_1_3" data-toggle="tab">Add Order</a></li>
 </ul>
 <div class="tab-content">
 
@@ -438,23 +624,21 @@
             <div class="portlet-body">
                 <div class="span12">
                     <div class="span4">
-                        <h5><strong>OrderID :</strong>{$order.orderID}</h5>
-                        <h5><strong>Issue date :</strong>{$order.issuedate}</h5>
-                        <h5><strong>Status :</strong><span class="label label-info">{$order.status}</span></h5>
+                        <h5><strong>OrderID :</strong><?php echo ($order["orderID"]); ?></h5>
+                        <h5><strong>Issue date :</strong><?php echo ($order["issuedate"]); ?></h5>
+                        <h5><strong>Status :</strong><span class="label label-info"><?php echo ($order["status"]); ?></span></h5>
                     </div>
                     <div class="span4">
-                        <h5><strong>Refund :</strong>{$order.refund}</h5>
-                        <h5><strong>Refund Amount:</strong>{$order.refundamount}</h5>
-                        <if condition="$order.status eq 'pending'"> 
-                            <h5><strong>Due date :</strong>NULL</h5>
-                        <else />
-                            <h5><strong>Due date :</strong>{$order.invoicedate}</h5>
-                        </if>
+                        <h5><strong>Refund :</strong><?php echo ($order["refund"]); ?></h5>
+						<h5><strong>Refund Amount:</strong><?php echo ($order["refundamount"]); ?></h5>
+                        <?php if($order["status"] == 'pending'): ?><h5><strong>Due date :</strong>NULL</h5>
+                        <?php else: ?>
+                            <h5><strong>Due date :</strong><?php echo ($order["invoicedate"]); ?></h5><?php endif; ?>
                     </div>
                     <div class="span4">
-                        <h5><strong>Invoice date :</strong>{$order.invoicedate}</h5>
-                        <h5><strong>Transaction ID :</strong>{$trans.transactionID}</h5>
-                        <h5><strong>Amount :</strong>{$trans.settleamount} HK$</h5>
+						<h5><strong>Invoice date :</strong><?php echo ($order["invoicedate"]); ?></h5>
+                        <h5><strong>Transaction ID :</strong><?php echo ($trans["transactionID"]); ?></h5>
+                        <h5><strong>Amount :</strong><?php echo ($trans["settleamount"]); ?> HK$</h5>
                     </div>
                 </div>
                 <table class="table table-bordered table-hover">
@@ -464,25 +648,22 @@
                             <td class="text-center"><strong>Price</strong></td>
                             <td class="text-center"><strong>Years</strong></td>
                             <td class="text-center"><strong>Totals</strong></td>
-                            <td class="text-center"></td>
                         </tr>
                     </thead>
                     <tbody>
                         <!-- foreach ($order->lineItems as $line) or some such thing here -->
-                        <foreach name="items" item="vo">
-                        <tr>
-                            <td class="text-center">{$vo.domainname}</td>
-                            <td class="text-center">{$vo.price} HK$</td>
-                            <td class="text-center">{$vo.years}</td>
+                        <?php if(is_array($items)): foreach($items as $key=>$vo): ?><tr>
+                            <td class="text-center"><?php echo ($vo["domainname"]); ?></td>
+                            <td class="text-center"><?php echo ($vo["price"]); ?> HK$</td>
+                            <td class="text-center"><?php echo ($vo["years"]); ?></td>
                             <td class="text-center"><?php echo $vo['years']*$vo['price']; ?> </td>
-                            <td class="text-center">
-                                <a class="btn yellow easy-pie-chart-reload" href="{:U('Order/customerdelitem?itemid='.$vo['id'].'&cusid='.$cusid.'&orderid='.$order['orderID'].'&oid='.$order['id'].'');}">Remove</a>
-                            </td>
-                        </tr>
-                        </foreach>
+                        </tr><?php endforeach; endif; ?>
                     </tbody>
                 </table>
-                <a href="{:U('Order/customerdelorder?cusid='.$cusid.'&orderid='.$order['orderID'].'');}" class="btn yellow easy-pie-chart-reload">Remove</a>
+				<?php if($order["status"] != 'active'): ?><a href="<?php echo U('Order/orderaccept?orderid='.$order['orderID'].'');;?>" class="btn red easy-pie-chart-reload">Accept</a><?php endif; ?>
+				<?php if($order["status"] != 'cancle'): ?><a href="<?php echo U('Order/ordercancle?orderid='.$order['orderID'].'');;?>" class="btn blue easy-pie-chart-reload">Cancle</a><?php endif; ?>
+				<?php if($order["refund"] == 'N'): ?><a href="<?php echo U('Order/orderRefund?orderid='.$order['orderID'].'');;?>" class="btn green easy-pie-chart-reload">Refund</a><?php endif; ?>
+				<a href="<?php echo U('Order/orderdel?orderid='.$order['orderID'].'');;?>" class="btn yellow easy-pie-chart-reload">Remove</a>
             </div>
         </div>      
 	</div>
@@ -508,98 +689,6 @@
 
 <!-- tab_1_3 -->
 <!--end tab-pane-->
-<div class="tab-pane" id="tab_1_4">
-    <div class="row-fluid add-portfolio">
-        <div class="pull-left">
-            <span>502 Items sold this week</span>
-        </div>
-        <div class="pull-left">
-            <a href="#" class="btn icn-only green">Add a new Project <i class="m-icon-swapright m-icon-white"></i></a>
-        </div>
-    </div>
-    <!--end add-portfolio-->
-    <div class="row-fluid portfolio-block">
-        <div class="span5 portfolio-text">
-            <img src="media/image/logo_metronic.jpg" alt=""/>
-            <div class="portfolio-text-info">
-                <h4>Metronic - Responsive Template</h4>
-                <p>Lorem ipsum dolor sit consectetuer adipiscing elit.</p>
-            </div>
-        </div>
-        <div class="span5" style="overflow:hidden;">
-            <div class="portfolio-info">
-                Today Sold
-                <span>187</span>
-            </div>
-            <div class="portfolio-info">
-                Total Sold
-                <span>1789</span>
-            </div>
-            <div class="portfolio-info">
-                Earns
-                <span>$37.240</span>
-            </div>
-        </div>
-        <div class="span2 portfolio-btn">
-            <a href="#" class="btn bigicn-only"><span>Manage</span></a>
-        </div>
-    </div>
-    <!--end row-fluid-->
-    <div class="row-fluid portfolio-block">
-        <div class="span5 portfolio-text">
-            <img src="media/image/logo_azteca.jpg" alt=""/>
-            <div class="portfolio-text-info">
-                <h4>Metronic - Responsive Template</h4>
-                <p>Lorem ipsum dolor sit consectetuer adipiscing elit.</p>
-            </div>
-        </div>
-        <div class="span5">
-            <div class="portfolio-info">
-                Today Sold
-                <span>24</span>
-            </div>
-            <div class="portfolio-info">
-                Total Sold
-                <span>660</span>
-            </div>
-            <div class="portfolio-info">
-                Earns
-                <span>$7.060</span>
-            </div>
-        </div>
-        <div class="span2 portfolio-btn">
-            <a href="#" class="btn bigicn-only"><span>Manage</span></a>
-        </div>
-    </div>
-    <!--end row-fluid-->
-    <div class="row-fluid portfolio-block">
-        <div class="span5 portfolio-text">
-            <img src="media/image/logo_conquer.jpg" alt=""/>
-            <div class="portfolio-text-info">
-                <h4>Metronic - Responsive Template</h4>
-                <p>Lorem ipsum dolor sit consectetuer adipiscing elit.</p>
-            </div>
-        </div>
-        <div class="span5" style="overflow:hidden;">
-            <div class="portfolio-info">
-                Today Sold
-                <span>24</span>
-            </div>
-            <div class="portfolio-info">
-                Total Sold
-                <span>975</span>
-            </div>
-            <div class="portfolio-info">
-                Earns
-                <span>$21.700</span>
-            </div>
-        </div>
-        <div class="span2 portfolio-btn">
-            <a href="#" class="btn bigicn-only"><span>Manage</span></a>
-        </div>
-    </div>
-    <!--end row-fluid-->
-</div>
 <!--end tab-pane-->
 <div class="tab-pane row-fluid" id="tab_1_6">
 <div class="row-fluid">
@@ -980,19 +1069,73 @@
 </div>
 </div>
 <!--END TABS-->
-</div>
+		
+		
+		
+		
+		
+    </div>
 </div>
 <!-- END PAGE CONTENT-->
 </div>
 <!-- END PAGE CONTAINER-->
 </div>
 <!-- END PAGE -->
-</block>
-<block name="bottomjs">
+
+        
+        
+        
+    <!-- END PAGE -->
+    </div>
+    <!-- END CONTAINER -->
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <div class="footer-inner">
+        2013 &copy; Metronic by keenthemes.
+    </div>
+    <div class="footer-tools">
+			<span class="go-top">
+			<i class="icon-angle-up"></i>
+			</span>
+    </div>
+</div>
+<!-- END FOOTER -->
+<!-- 引入 javascript  -->
+<!-- BEGIN CORE PLUGINS -->
+<!--jquery-->
+<script src="/DomainSystem/Public/metronic/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+<!--兼容1.9 以前的代??-->
+<script src="/DomainSystem/Public/metronic/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<!-- IMPORTANT!   ??引入bootstrap.min.js 前引??jquery-ui-1.10.1.custom.min.js 避免 bootstrap tooltip ??jquery ui tooltip 冲突 -->
+<!--jquery UI js-->
+<script src="/DomainSystem/Public/metronic/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+<script src="/DomainSystem/Public/metronic/media/js/bootstrap.min.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<!-- IE 支持 canvas -->
+<script src="/DomainSystem/Public/metronic/media/js/excanvas.min.js"></script>
+<!--Respond.js 是一个快速??轻量??polyfill，用于为 IE6-8 以及其它不支??CSS3 /DomainSystem/Public/metronic/media Queries 的浏览器提供媒体查询??min-width ??max-width 特??，实现响应式网页设计（Responsive Web Design）??-->
+<script src="/DomainSystem/Public/metronic/media/js/respond.min.js"></script>
+<![endif]-->
+<!--滚动??插件-->
+<script src="/DomainSystem/Public/metronic/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+<!--进行 AJAX 操作时模拟同步传输时锁定浏览器操??->
+<script src="/DomainSystem/Public/metronic/media/js/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="/DomainSystem/Public/metronic/media/js/jquery.cookie.min.js" type="text/javascript"></script>
+<!--美化 form 表单元素-->
+<script src="/DomainSystem/Public/metronic/media/js/jquery.uniform.min.js" type="text/javascript"></script>
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<!--项目config -->
+
+
     <!-- END PAGE LEVEL SCRIPTS -->
-    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/bootstrap-fileupload.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/chosen.jquery.min.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/validator.min.js"></script>
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/bootstrap-fileupload.js"></script>
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/validator.min.js"></script>
     <script>
         jQuery(document).ready(function () {
 
@@ -1003,4 +1146,12 @@
     });
         
     </script>
-</block>
+
+<script src="/DomainSystem/Public/metronic/media/js/app.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8">  
+	//MyValidator.init();  
+</script>
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

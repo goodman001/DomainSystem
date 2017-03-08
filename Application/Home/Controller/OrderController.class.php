@@ -281,7 +281,7 @@ class OrderController extends Controller {
 		$order['username'] = $username;
 		$order['issuedate'] = date('Y-m-d H:i:s',time());
 		$order['status'] = 'pending';
-		$order['refundaccount'] = '';
+		$order['refundamount'] = 0.0;
 		$order['invoicedate'] = date('Y-m-d H:i:s',time());
 		$order['duedate'] = '';
 		$order['description'] = '';

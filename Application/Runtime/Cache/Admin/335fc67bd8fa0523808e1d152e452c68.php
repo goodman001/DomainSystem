@@ -1,5 +1,169 @@
-<extend name="public/back" />
-<block name="siderbarmenu">
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 2.3.1
+Version: 1.3
+Author: KeenThemes
+Website: http://www.keenthemes.com/preview/?theme=metronic
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469
+-->
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js">
+<![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js">
+<![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8"/>
+    <title>Metronic | Admin Dashboard Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <!--begin global -->
+    <link href="/DomainSystem/Public/metronic/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="/DomainSystem/Public/metronic/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <link href="/DomainSystem/Public/metronic/media/css/chosen.css" rel="stylesheet" type="text/css" />
+<!-- END CORE PLUGINS -->
+    
+    <!-- END begin global -->
+    <!--favicon
+    <link rel="shortcut icon" href="/DomainSystem/Public/metronic/media/image/favicon.ico"/>
+    -->
+</head>
+<!-- BEGIN BODY -->
+<body class="page-header-fixed">
+<!-- BEGIN HEADER -->
+<div class="header navbar navbar-inverse navbar-fixed-top">
+<!-- BEGIN TOP NAVIGATION BAR -->
+<div class="navbar-inner">
+<div class="container-fluid">
+<!-- BEGIN LOGO -->
+    <a class="brand" href="index.html">
+        <img src="/DomainSystem/Public/metronic/media/image/logo.png" alt="logo"/>
+    </a>
+    <!-- END LOGO -->
+    <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+    <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+        <img src="/DomainSystem/Public/metronic/media/image/menu-toggler.png" alt=""/>
+    </a>
+<!-- END RESPONSIVE MENU TOGGLER -->
+<!-- BEGIN TOP NAVIGATION MENU -->
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="#">iOS</a></li>
+        <li><a href="#">SVN</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Java
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="#">jmeter</a></li>
+                <li><a href="#">EJB</a></li>
+                <li><a href="#">Jasper Report</a></li>
+                <li class="divider"></li>
+                <li><a href="#">分离的链接</a></li>
+                <li class="divider"></li>
+                <li><a href="#">另一个分离的链接</a></li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="nav pull-right">
+    <!-- BEGIN INBOX DROPDOWN -->
+    <li class="dropdown" id="header_notification_bar">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="icon-envelope"></i>
+            <span class="badge">5</span>
+        </a>
+        <ul class="dropdown-menu extended inbox">
+            <li>
+                <p>你有12条消??/p>
+            </li>
+            <li>
+                <a href="<?php echo U('Client/inbox');;?>">
+                    <span class="photo"><img src="/DomainSystem/Public/metronic/media/image/avatar2.jpg" alt=""/></span>
+                                    <span class="subject">
+                                    <span class="from">Lisa Wong</span>
+                                    <span class="time">Just Now</span>
+                                    </span>
+                                    <span class="message">
+                                    Vivamus sed auctor nibh congue nibh. auctor nibh
+                                    auctor nibh...
+                                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="inbox.html?a=view">
+                    <span class="photo"><img src=".//DomainSystem/Public/metronic/media/image/avatar3.jpg" alt=""/></span>
+                                    <span class="subject">
+                                    <span class="from">Richard Doe</span>
+                                    <span class="time">16 mins</span>
+                                    </span>
+                                    <span class="message">
+                                    Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh
+                                    auctor nibh...
+                                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="inbox.html?a=view">
+                    <span class="photo"><img src=".//DomainSystem/Public/metronic/media/image/avatar1.jpg" alt=""/></span>
+                                    <span class="subject">
+                                    <span class="from">Bob Nilson</span>
+                                    <span class="time">2 hrs</span>
+                                    </span>
+                                    <span class="message">
+                                    Vivamus sed nibh auctor nibh congue nibh. auctor nibh
+                                    auctor nibh...
+                                    </span>
+                </a>
+            </li>
+            <li class="external">
+                <a href="inbox.html">查看????消息<i class="m-icon-swapright"></i></a>
+            </li>
+        </ul>
+    </li>
+    <!-- END INBOX DROPDOWN -->
+    <!-- BEGIN USER LOGIN DROPDOWN -->
+    <li class="dropdown user">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <img alt="" src="/DomainSystem/Public/metronic/media/image/avatar1_small.jpg"/>
+            <span class="username">Bob Nilson</span>
+            <i class="icon-angle-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="extra_profile.html"><i class="icon-user"></i> My Profile</a></li>
+            <li><a href="page_calendar.html"><i class="icon-calendar"></i> My Calendar</a></li>
+            <li><a href="inbox.html"><i class="icon-envelope"></i> My Inbox(3)</a></li>
+            <li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
+            <li class="divider"></li>
+            <li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a></li>
+            <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+        </ul>
+    </li>
+    <!-- END USER LOGIN DROPDOWN -->
+    </ul>
+    <!-- END TOP NAVIGATION MENU -->
+</div>
+</div>
+<!-- END TOP NAVIGATION BAR -->
+</div>
+<!-- END HEADER -->
+<!-- BEGIN CONTAINER -->
+
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    
+    <!-- BEGIN SIDEBAR MENU -->
+        
 <div class="page-sidebar nav-collapse collapse">
     <ul class="page-sidebar-menu">
     <li>
@@ -19,7 +183,7 @@
         <!-- END RESPONSIVE QUICK SEARCH FORM -->
     </li>
     <li class="start">
-        <a href="{:U('Profile/index');}">
+        <a href="<?php echo U('Profile/index');;?>">
             <i class="icon-home"></i>
             <span class="title">My Profile</span>
             <span class="selected"></span>
@@ -33,12 +197,12 @@
         </a>
         <ul class="sub-menu">
             <li class="active">
-                <a href="{:U('Customer/customerlist');}">
+                <a href="<?php echo U('Customer/customerlist');;?>">
                     Customers List
                 </a>
             </li>
             <li>
-                <a href="{:U('Customer/customeradd');}">
+                <a href="<?php echo U('Customer/customeradd');;?>">
                     Add Customers</a>
             </li>
         </ul>
@@ -370,8 +534,13 @@
     </li>
     </ul>
 </div>
-</block>
-<block name="container">
+
+    
+    <!-- END SIDEBAR MENU -->
+    
+    <!-- END SIDEBAR -->
+    <!-- BEGIN PAGE -->
+        
 <!-- BEGIN PAGE -->
 <div class="page-content">
 <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
@@ -397,15 +566,16 @@
         <ul class="breadcrumb">
             <li>
                 <i class="icon-home"></i>
-                <a href="{:U('Profile/index');}">Home</a>
+                <a href="<?php echo U('Profile/index');;?>">Home</a>
                 <i class="icon-angle-right"></i>
             </li>
             <li>
                 <a href="#">Customer Manager</a>
                 <i class="icon-angle-right"></i>
             </li>
-            <li><a href="{:U('Customer/customerlist');}">Customers List</a><i class="icon-angle-right"></i></li>
-			 <li><a href="#">Customers Detail</a></li>
+            <li><a href="<?php echo U('Customer/customerlist');;?>">Customers List</a><i class="icon-angle-right"></i></li>
+			<li><a href="<?php echo U('Customer/customerdetail?id='.$cusid.'');;?>">Customers Detail</a><i class="icon-angle-right"></i></li>
+            <li><a href="#">Order Detail</a></li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -418,214 +588,90 @@
 <div class="tabbable tabbable-custom tabbable-full-width">
 <ul class="nav nav-tabs">
     
-    <li class="active"><a href="#tab_1_1" data-toggle="tab">Profile</a></li>
-	<li><a href="#tab_1_2" data-toggle="tab">Edit Profile</a></li>
-    <li><a href="#tab_1_3" data-toggle="tab">Domain and Profile</a></li>
-    <li><a href="#tab_1_4" data-toggle="tab">Orders</a></li>
+    <li class="active"><a href="#tab_1_1" data-toggle="tab">Order Detail</a></li>
+	<li><a href="#tab_1_2" data-toggle="tab">Edit Order</a></li>
+    <li><a href="#tab_1_3" data-toggle="tab">Add Order</a></li>
 </ul>
 <div class="tab-content">
 
 <!--end tab-pane-->
 <div class="tab-pane row-fluid active" id="tab_1_1">
     <div class="span12">
-		<ul class="unstyled span10">
-			<li><span>UserName:</span> <strong> {$profiles.username}</strong></li>
-			<li><span>First Name:</span><strong> {$profiles.firstname}</strong></li>
-			<li><span>Last Name:</span><strong> {$profiles.lastname}</strong></li>
-			<li><span>Company:</span><strong> {$profiles.company}</strong></li>
-			<li><span>Job Title:</span><strong> {$profiles.jobtitle}</strong></li>
-			<li><span>Email:</span><strong> <a href="{$profiles.email}">{$profiles.email}</a></strong></li>
-			<li><span>Password:</span><strong> {$profiles.password}</strong></li>
-			<li><span>Security Question:</span><strong> {$profiles.question}</strong></li>
-			<li><span>Answer:</span><strong> {$profiles.answer}</strong></li>
-			<li><span>Address1:</span><strong> {$profiles.address1}</strong></li>
-			<li><span>Address2:</span><strong> {$profiles.address2}</strong></li>
-			<li><span>City:</span><strong> {$profiles.city}</strong></li>
-			<li><span>State:</span><strong> {$profiles.state}</strong></li>
-			<li><span>PostCode:</span><strong> {$profiles.postcode}</strong></li>
-			<li><span>Country:</span><strong> {$profiles.country}</strong></li>
-			<li><span>Phone No.:</span><strong> {$profiles.phone}</strong></li>
-			<li><span>Fax:</span><strong> {$profiles.fax}</strong></li>
-			<li><span>Enable/Disable Overdue Notice:</span><strong> {$profiles.overdue}</strong></li>
-			<li><span>Tax Exemption:</span><strong> {$profiles.taxexemption}</strong></li>
-			<li><span>Currency:</span><strong> {$profiles.currency}</strong></li>
-			<li><span>Balance:</span><strong> {$profiles.balance} HK$</strong></li>
-			<li><span>Register Time:</span><strong> {$profiles.regtime}</strong></li>
-			<li><span>Account Status:</span><strong> {$profiles.status}</strong></li>
-		</ul>
+        <div class="portlet box yellow">
+            <div class="portlet-title">
+                <div class="caption"><i class="icon-coffee"></i>Order</div>
+                <div class="tools">
+                    <a href="<?php echo U('Order/customerdelorder?cusid='.$cusid.'&orderid='.$order['orderID'].'');;?>" class="remove">Delete</a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="span12">
+                    <div class="span4">
+                        <h5><strong>OrderID :</strong><?php echo ($order["orderID"]); ?></h5>
+                        <h5><strong>Issue date :</strong><?php echo ($order["issuedate"]); ?></h5>
+                        <h5><strong>Status :</strong><span class="label label-info"><?php echo ($order["status"]); ?></span></h5>
+                    </div>
+                    <div class="span4">
+                        <h5><strong>Refund :</strong><?php echo ($order["refund"]); ?></h5>
+                        <h5><strong>Invoice date :</strong><?php echo ($order["invoicedate"]); ?></h5>
+                        <?php if($order["status"] == 'pending'): ?><h5><strong>Due date :</strong>NULL</h5>
+                        <?php else: ?>
+                            <h5><strong>Due date :</strong><?php echo ($order["invoicedate"]); ?></h5><?php endif; ?>
+                    </div>
+                    <div class="span4">
+                        <h5><strong>Transaction ID :</strong><?php echo ($trans["transactionID"]); ?></h5>
+                        <h5><strong>Amount :</strong><?php echo ($trans["settleamount"]); ?> HK$</h5>
+                    </div>
+                </div>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td class="text-center"><strong>Item</strong></td>
+                            <td class="text-center"><strong>Price</strong></td>
+                            <td class="text-center"><strong>Years</strong></td>
+                            <td class="text-center"><strong>Totals</strong></td>
+                            <td class="text-center"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                        <?php if(is_array($items)): foreach($items as $key=>$vo): ?><tr>
+                            <td class="text-center"><?php echo ($vo["domainname"]); ?></td>
+                            <td class="text-center"><?php echo ($vo["price"]); ?> HK$</td>
+                            <td class="text-center"><?php echo ($vo["years"]); ?></td>
+                            <td class="text-center"><?php echo $vo['years']*$vo['price']; ?> </td>
+                            <td class="text-center">
+                                <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Order/customerdelitem?itemid='.$vo['id'].'&cusid='.$cusid.'&orderid='.$order['orderID'].'&oid='.$order['id'].'');;?>">Delete</a>
+                            </td>
+                        </tr><?php endforeach; endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        
+        
 	</div>
     
 </div>
 <!--tab_1_2-->
 <div class="tab-pane" id="tab_1_2">
 	<div style="height: auto;" id="accordion1-1" class="accordion collapse">
-        <form role="form" action="{:U('Customer/updateprofile?id='.$cusid.'');}" method="post">  
-			<label class="control-label">Username</label>
-            <input name="username" type="text" id="username" placeholder="user name" value="{$profiles.username}" class="m-wrap span8" readonly/>
-            <label class="control-label">First Name</label>
-            <input name="firstname" type="text" id="firstname" placeholder="first name" value="{$profiles.firstname}" class="m-wrap span8" required/>
-            <label class="control-label">Last Name</label>
-            <input name="lastname" type="text" id="lastname" placeholder="last name" value="{$profiles.lastname}"   class="m-wrap span8" required />
-            <label class="control-label">Company</label>
-            <input name="company" type="text" id="company" placeholder="Company" value="{$profiles.company}" class="m-wrap span8" />
-				
-			<label class="control-label">Job title</label>
-            <input type="text" name="jobtitle" type="text" id="jobtitle" placeholder="Job title" value="{$profiles.jobtitle}"  class="m-wrap span8" />
-			<label class="control-label">Email</label>
-            <input name="email" type="email" id="email" placeholder="Email" value="{$profiles.email}"  class="m-wrap span8" required/>
-			<label class="control-label">Password</label>
-			<input type="text" name="password" class="form-control"  placeholder="Password" value="{$profiles.password}" required>  
-			<label class="control-label">Security Question</label>
-            <select class="form-control" name="question" required>
-				<option value="Where is your birthplace?" >Where is your birthplace?</option> 
-				<option value="What is your favorite sport?">What is your favorite sport?</option>
-				<option value="Who is your first love?">Who is your first love?</option>
-			</select>
-			<label class="control-label">Answer</label>
-            <input name="answer" type="text" id="answer" placeholder="answer" value=""  class="m-wrap span8" required/>	
-			<label class="control-label">Address1</label>
-            <input name="address1" type="text" id="address1" placeholder="Address 1" value="{$profiles.address1}"  class="m-wrap span8" required/>	
-			<label class="control-label">Address2</label>
-            <input name="address2" type="text" id="address2" placeholder="Address 2" value="{$profiles.address2}"  class="m-wrap span8" required/>
-			
-			<label class="control-label">City</label>
-            <input name="city" type="text" id="city" placeholder="City" value="{$profiles.city}"  class="m-wrap span8" required/>
-			<label class="control-label">State</label>
-            <input name="state" type="text" id="state" placeholder="state" value="{$profiles.state}"  class="m-wrap span8" required/>
-			<label class="control-label">Postcode</label>
-            <input type="number" value="{$profiles.postcode}" name="postcode" id="postcode" placeholder="Postcode"  class="m-wrap span8" required> 
-			<label class="control-label">Country</label>
-			<input name="country" type="text" id="country" placeholder="Country" value="{$profiles.country}"  class="m-wrap span8" required/> 
-			<label class="control-label">Phone</label>
-			<input type="tel" value="{$profiles.phone}" name="phone" id="phone" placeholder="Phone"  class="m-wrap span8" required> 
-			<label class="control-label">Fax</label>
-			<input type="tel" value="{$profiles.fax}" name="fax" id="fax" placeholder="Fax"  class="m-wrap span8" required> 
-			<label class="control-label">Overdue Notice</label>
-			<div class="controls">
-			<label class="radio">
-				<input type="radio" name="overdue" id="optionsRadios1" value="Enable" checked/>
-				Enable
-			</label>
-			<label class="radio">
-				<input type="radio" name="overdue" id="optionsRadios2" value="Disable" />
-				Disable
-			</label>    
-			</div>
-			<label class="control-label">Currency</label>
-			<select class="form-control" name="currency" required>
-				<option value="HKD">HKD</option>
-				<option value="USD" >USD</option> 
-				<option value="GBP">GBP</option>
-				<option value="CNY">CNY</option>
-			</select> 
-			<label class="control-label">Balance</label>
-            <input type="text" value="{$profiles.balance}" name="amount" id="amount" pattern="^[0-9]+([\.,]{0,1}[0-9]*)$" maxlength="15" minlength="1"   class="m-wrap span8" required>
-			<label class="control-label">Account Status</label>
-            <select class="form-control" name="status" required>
-				<option value="active">active</option>
-				<option value="pending" >pending</option> 
-				<option value="suspend">suspend</option>
-			</select>
-            <div class="submit-btn">
-                <button type="submit" class="btn green">Save Changes</button>
-                <a href="{:U('Customer/customerdetail?id='.$cusid.'');}" class="btn">Cancel</a>
-            </div>
-        </form>
+        
     </div>
 </div>
 <!-- tab_1_3 -->
 <div class="tab-pane" id="tab_1_3">
 	<div class="row-fluid">	
         <div class="span12">
-            <table class="table table-striped table-hover">
-               <thead>
-                <tr>
-                    <th>Domain</th>
-                    <th>Registrar</th>
-                    <th>Email</th>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>Country</th>
-                    <th>Phone</th>
-                    <th>Postcode</th>
-                    <th></th>
-                </tr>
-               </thead>
-               <tbody>
-                <foreach name="domains" item="vo">
-                  <tr>
-                    <td></td>
-                    <td>{$vo.domainname}</td>
-                    <td>{$vo.registrar}</td>
-                    <td>{$vo.email}</td>
-                    <td>{$vo.firstname}</td>
-                    <td>{$vo.lastname}</td>
-                    <td>{$vo.city}</td>
-                    <td>{$vo.state}</td>
-                    <td>{$vo.country}</td>
-                    <td>{$vo.phone}</td>
-                    <td>{$vo.postcode}</td>
-                    <td>
-                        <a class="btn yellow easy-pie-chart-reload" href="#">
-                            view detail
-                        </a>
-                    </td>
-                  </tr>
-                </foreach>
-               </tbody>
-            </table>
-            <span><div class="page">{$page}</div></span>
+           
         </div>
         
         
         
 	</div>
 </div>
-<!-- tab_1_4 -->
-<div class="tab-pane" id="tab_1_4">
-	<div class="row-fluid">	
-        <div class="span12">
-            <table class="table table-striped table-hover">
-               <thead>
-                <tr>
-                    <th>orderID</th>
-                    <th>Username</th>
-                    <th>transactionID</th>
-                    <th>IssueDate</th>
-                    <th>refund</th>
-                    <th>Invoicedate</th>
-                    <th>status</th>
-                    <th></th>
-                </tr>
-               </thead>
-               <tbody>
-                <foreach name="orders" item="vo">
-                  <tr>
-                    <td>{$vo.orderID}</td>
-                    <td>{$vo.username}</td>
-                    <td>{$vo.transactionID}</td>
-                    <td>{$vo.issuedate}</td>
-                    <td>{$vo.refund}</td>
-                    <td>{$vo.invoicedate}</td>
-                    <td>{$vo.status}</td>
-                    <td>
-                        <a class="btn yellow easy-pie-chart-reload" href="{:U('Order/customerorderdetail?id='.$vo['id'].'&cusid='.$cusid.'');}">
-                            view detail		
-                        </a>
-                    </td>
-                  </tr>
-                </foreach>
-               </tbody>
-            </table>
-            <span><div class="page">{$page}</div></span>
-        </div>
-        
-        
-        
-	</div>
-</div>
+
 <!-- tab_1_3 -->
 <!--end tab-pane-->
 <div class="tab-pane" id="tab_1_4">
@@ -1107,12 +1153,61 @@
 <!-- END PAGE CONTAINER-->
 </div>
 <!-- END PAGE -->
-</block>
-<block name="bottomjs">
+
+        
+        
+        
+    <!-- END PAGE -->
+    </div>
+    <!-- END CONTAINER -->
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <div class="footer-inner">
+        2013 &copy; Metronic by keenthemes.
+    </div>
+    <div class="footer-tools">
+			<span class="go-top">
+			<i class="icon-angle-up"></i>
+			</span>
+    </div>
+</div>
+<!-- END FOOTER -->
+<!-- 引入 javascript  -->
+<!-- BEGIN CORE PLUGINS -->
+<!--jquery-->
+<script src="/DomainSystem/Public/metronic/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+<!--兼容1.9 以前的代??-->
+<script src="/DomainSystem/Public/metronic/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<!-- IMPORTANT!   ??引入bootstrap.min.js 前引??jquery-ui-1.10.1.custom.min.js 避免 bootstrap tooltip ??jquery ui tooltip 冲突 -->
+<!--jquery UI js-->
+<script src="/DomainSystem/Public/metronic/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+<script src="/DomainSystem/Public/metronic/media/js/bootstrap.min.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<!-- IE 支持 canvas -->
+<script src="/DomainSystem/Public/metronic/media/js/excanvas.min.js"></script>
+<!--Respond.js 是一个快速??轻量??polyfill，用于为 IE6-8 以及其它不支??CSS3 /DomainSystem/Public/metronic/media Queries 的浏览器提供媒体查询??min-width ??max-width 特??，实现响应式网页设计（Responsive Web Design）??-->
+<script src="/DomainSystem/Public/metronic/media/js/respond.min.js"></script>
+<![endif]-->
+<!--滚动??插件-->
+<script src="/DomainSystem/Public/metronic/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+<!--进行 AJAX 操作时模拟同步传输时锁定浏览器操??->
+<script src="/DomainSystem/Public/metronic/media/js/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="/DomainSystem/Public/metronic/media/js/jquery.cookie.min.js" type="text/javascript"></script>
+<!--美化 form 表单元素-->
+<script src="/DomainSystem/Public/metronic/media/js/jquery.uniform.min.js" type="text/javascript"></script>
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<!--项目config -->
+
+
     <!-- END PAGE LEVEL SCRIPTS -->
-    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/bootstrap-fileupload.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/chosen.jquery.min.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/validator.min.js"></script>
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/bootstrap-fileupload.js"></script>
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/validator.min.js"></script>
     <script>
         jQuery(document).ready(function () {
 
@@ -1123,4 +1218,12 @@
     });
         
     </script>
-</block>
+
+<script src="/DomainSystem/Public/metronic/media/js/app.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8">  
+	//MyValidator.init();  
+</script>
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

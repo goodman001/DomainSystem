@@ -736,7 +736,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                     <td><?php echo ($vo["phone"]); ?></td>
                     <td><?php echo ($vo["postcode"]); ?></td>
                     <td>
-                        <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Customer/customerdetail?id='.$vo['id'].'');;?>">
+                        <a class="btn yellow easy-pie-chart-reload" href="#">
                             view detail
                         </a>
                     </td>
@@ -777,7 +777,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                     <td><?php echo ($vo["invoicedate"]); ?></td>
                     <td><?php echo ($vo["status"]); ?></td>
                     <td>
-                        <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Order/orderdetail?id='.$vo['id'].'&flag=1');;?>">
+                        <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Order/customerorderdetail?id='.$vo['id'].'&cusid='.$cusid.'');;?>">
                             view detail		
                         </a>
                     </td>

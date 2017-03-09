@@ -24,7 +24,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <!--begin global -->
     <link href="/DomainSystem/Public/metronic/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="/DomainSystem/Public/metronic/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/DomainSystem/Public/metronic/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/DomainSystem/Public/metronic/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
     <link href="/DomainSystem/Public/metronic/media/css/style.css" rel="stylesheet" type="text/css"/>
     <link href="/DomainSystem/Public/metronic/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
@@ -222,6 +222,20 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <li>
                 <a href="<?php echo U('Order/orderadd');;?>">
                     Add Order</a>
+            </li>
+        </ul>
+    </li>
+    <li class="">
+        <a href="javascript:;">
+            <i class="icon-bookmark-empty"></i>
+            <span class="title">Transaction manager</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="<?php echo U('Transaction/translist');;?>">
+                    Transaction List
+                </a>
             </li>
         </ul>
     </li>
@@ -585,9 +599,9 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             </h3>
             <ul class="breadcrumb">
                 <li>
-                    <i class="icon-home"></i>
+                    <i class="fa fa-home" aria-hidden="true"></i>
                     <a href="<?php echo U('Profile/index');;?>">Home</a>
-                    <i class="icon-angle-right"></i>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
                 </li>
                 <li><a href="#">Welcome</a></li>
                 <li class="pull-right no-text-shadow">

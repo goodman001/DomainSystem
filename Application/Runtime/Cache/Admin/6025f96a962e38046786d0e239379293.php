@@ -189,14 +189,14 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <span class="selected"></span>
         </a>
     </li>
-    <li class="active">
+    <li class="">
         <a href="javascript:;">
             <i class="icon-bookmark-empty"></i>
             <span class="title">Customers manager</span>
             <span class="arrow "></span>
         </a>
         <ul class="sub-menu">
-            <li class="active">
+            <li >
                 <a href="<?php echo U('Customer/customerlist');;?>">
                     Customers List
                 </a>
@@ -204,6 +204,38 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <li>
                 <a href="<?php echo U('Customer/customeradd');;?>">
                     Add Customers</a>
+            </li>
+        </ul>
+    </li>
+	<li >
+        <a href="javascript:;">
+            <i class="icon-bookmark-empty"></i>
+            <span class="title">Order manager</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="active">
+                <a href="<?php echo U('Order/orderlist');;?>">
+                    Order List
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo U('Order/orderadd');;?>">
+                    Add Order</a>
+            </li>
+        </ul>
+    </li>
+	<li class="active">
+        <a href="javascript:;">
+            <i class="icon-bookmark-empty"></i>
+            <span class="title">Transaction manager</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="active">
+                <a href="<?php echo U('Transaction/translist');;?>">
+                    Transaction List
+                </a>
             </li>
         </ul>
     </li>
@@ -565,15 +597,15 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         </h3>
         <ul class="breadcrumb">
             <li>
-                <i class="icon-home"></i>
+                <i class="fa fa-home" aria-hidden="true"></i>
                 <a href="<?php echo U('Profile/index');;?>">Home</a>
-                <i class="icon-angle-right"></i>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
             <li>
-                <a href="#">Customer Manager</a>
-                <i class="icon-angle-right"></i>
+                <a href="<?php echo U('Transaction/translist');;?>">Transaction Manager</a>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
-            <li><a href="<?php echo U('Customer/customerlist');;?>">Customers List</a></li>
+            <li><a href="<?php echo U('Transaction/translist');;?>">Transaction List</a></li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -582,7 +614,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN PAGE CONTENT-->
 <div class="row-fluid">
     <div class="span12">
-        <form role="form" action="<?php echo U('Customer/customerlist');;?>" method="post" class="form-search">
+        <form role="form" action="<?php echo U('Transaction/translist');;?>" method="post" class="form-search">
             <div class="control">
                 <input name = 'search' class="m-wrap" type="text" required><button type="submit" class="btn green" type="button">Search!</button>
             </div>
@@ -594,33 +626,27 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <table class="table table-striped table-hover">
        <thead>
         <tr>
-            <th>Username</th>
-            <th>Email</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Country</th>
-            <th>Phone</th>
-            <th>Currency</th>
-            <th>Balance</th>
-            <th>Account Status</th>
-            <th>Regist time</th>
+			<th>transactionID</th>
+            <th>OrderID</th>
+			<th>Client Name</th>
+            <th>Invoice ID</th>
+            <th>Settle date</th>
+            <th>Settle amount</th>
+            <th>Account/Card number</th>
             <th></th>
         </tr>
        </thead>
        <tbody>
         <?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
-            <td><?php echo ($vo["username"]); ?></td>
-            <td><?php echo ($vo["email"]); ?></td>
-            <td><?php echo ($vo["city"]); ?></td>
-            <td><?php echo ($vo["state"]); ?></td>
-            <td><?php echo ($vo["country"]); ?></td>
-            <td><?php echo ($vo["phone"]); ?></td>
-            <td><?php echo ($vo["currency"]); ?></td>
-            <td><?php echo ($vo["balance"]); ?></td>
-            <td><?php echo ($vo["status"]); ?></td>
-            <td><?php echo ($vo["regtime"]); ?></td>
+            <td><?php echo ($vo["transactionID"]); ?></td>
+            <td><?php echo ($vo["orderID"]); ?></td>
+            <td><?php echo ($vo["clientname"]); ?></td>
+            <td><?php echo ($vo["invoiceID"]); ?></td>
+            <td><?php echo ($vo["paydate"]); ?></td>
+            <td><?php echo ($vo["settleamount"]); ?></td>
+            <td><?php echo ($vo["accountnumber"]); ?></td>
             <td>
-                <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Customer/customerdetail?id='.$vo['id'].'');;?>">
+                <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Transaction/transdetail?transid='.$vo['transactionID'].'');;?>">
                     view detail		
                 </a>
             </td>

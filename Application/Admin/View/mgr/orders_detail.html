@@ -450,9 +450,6 @@
         <div class="portlet box yellow">
             <div class="portlet-title">
                 <div class="caption"><i class="icon-coffee"></i>Order</div>
-                <div class="tools">
-                    
-                </div>
             </div>
             <div class="portlet-body">
                 <div class="span12">
@@ -460,19 +457,22 @@
                         <h5><strong>OrderID :</strong>{$order.orderID}</h5>
                         <h5><strong>Issue date :</strong>{$order.issuedate}</h5>
                         <h5><strong>Status :</strong><span class="label label-info">{$order.status}</span></h5>
+                        
                     </div>
                     <div class="span4">
                         <h5><strong>Refund :</strong>{$order.refund}</h5>
-						<h5><strong>Refund Amount:</strong>{$order.refundamount}</h5>
+                        <h5><strong>Refund Amount:</strong>{$order.refundamount}</h5>
                         <if condition="$order.status eq 'pending'"> 
                             <h5><strong>Due date :</strong>NULL</h5>
                         <else />
                             <h5><strong>Due date :</strong>{$order.invoicedate}</h5>
                         </if>
+                        <h5><strong>Invoice date :</strong>{$order.invoicedate}</h5>
                     </div>
                     <div class="span4">
-						<h5><strong>Invoice date :</strong>{$order.invoicedate}</h5>
                         <h5><strong>Transaction ID :</strong>{$trans.transactionID}</h5>
+                        <h5><strong>Paymethod :</strong>{$trans.paymethod}</h5>
+                        <h5><strong>Settle Date :</strong>{$trans.paydate}</h5>
                         <h5><strong>Amount :</strong>{$trans.settleamount} HK$</h5>
                     </div>
                 </div>
@@ -512,6 +512,7 @@
 					<a href="{:U('Order/orderRefund?orderid='.$order['orderID'].'');}" class="btn green easy-pie-chart-reload">Refund</a>
 				</if>
 				<a href="{:U('Order/orderdel?orderid='.$order['orderID'].'');}" class="btn yellow easy-pie-chart-reload">Remove</a>
+                <a href="" class="btn yellow easy-pie-chart-reload">View Transaction</a>
             </div>
         </div>      
 	</div>
@@ -521,9 +522,9 @@
 <div class="tab-pane" id="tab_1_2">
 	<div style="height: auto;" id="accordion1-1" class="accordion collapse">
         <div class="span12">
+            <h4><i class="fa fa-cog" aria-hidden="true"></i> Items Manager</h4>
             <foreach name="items" item="vo">
             <div class="span4">
-                <h5></h5>
                 <form role="form" action="{:U('Order/itemedit?itemid='.$vo['id'].'&orderid='.$order['orderID'].'');}" method="post">  
                     <label class="control-label">Domain name</label>
                     <input name="domainname" type="text" id="domainname" placeholder="domainname" value="{$vo.domainname}" class="m-wrap span8" readonly/>
@@ -543,10 +544,7 @@
                 </form>
             </div>
             </foreach>
-        </div>
-        
-        
-        
+        </div>       
     </div>
 </div>
 <!-- tab_1_3 -->

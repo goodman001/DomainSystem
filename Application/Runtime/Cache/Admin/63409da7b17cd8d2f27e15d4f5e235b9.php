@@ -24,7 +24,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <!--begin global -->
     <link href="/DomainSystem/Public/metronic/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="/DomainSystem/Public/metronic/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/DomainSystem/Public/metronic/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/DomainSystem/Public/metronic/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
     <link href="/DomainSystem/Public/metronic/media/css/style.css" rel="stylesheet" type="text/css"/>
     <link href="/DomainSystem/Public/metronic/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
@@ -724,7 +724,6 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                </thead>
                <tbody>
                 <?php if(is_array($domains)): foreach($domains as $key=>$vo): ?><tr>
-                    <td></td>
                     <td><?php echo ($vo["domainname"]); ?></td>
                     <td><?php echo ($vo["registrar"]); ?></td>
                     <td><?php echo ($vo["email"]); ?></td>

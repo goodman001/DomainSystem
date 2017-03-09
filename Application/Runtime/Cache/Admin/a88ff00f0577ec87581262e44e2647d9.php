@@ -239,6 +239,25 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             </li>
         </ul>
     </li>
+    <li >
+        <a href="javascript:;">
+            <i class="icon-bookmark-empty"></i>
+            <span class="title">Domains manager</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="<?php echo U('Domain/domainlist');;?>">
+                    Domain List
+                </a>
+            </li>
+			<li>
+                <a href="<?php echo U('Domain/premiumlist');;?>">
+                    Premium List
+                </a>
+            </li>
+        </ul>
+    </li>
     <li class="">
         <a href="javascript:;">
             <i class="icon-table"></i>

@@ -452,10 +452,10 @@
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
             <li>
-                <a href="{:U('Transaction/translist');}">Transaction Manager</a>
+                <a href="{:U('Domain/domainlist');}">Domain Manager</a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
-            <li><a href="{:U('Transaction/translist');}">Transaction List</a></li>
+            <li><a href="{:U('Domain/domainlist');}">Domain List</a></li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -492,7 +492,7 @@
 	   <tbody>
 		<foreach name="list" item="vo">
 		  <tr>
-			<td>{$vo.domainname}</td>
+			<td><a href="{:U('Domain/domaindetail?domainid='.$vo['id'].'');}">{$vo.domainname}</a></td>
 			<td>{$vo.registrar}</td>
 			<td>{$vo.email}</td>
 			<td>{$vo.firstname}</td>

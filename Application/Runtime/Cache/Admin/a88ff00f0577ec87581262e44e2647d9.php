@@ -258,6 +258,86 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             </li>
         </ul>
     </li>
+    <li >
+        <a href="javascript:;">
+            <i class="icon-bookmark-empty"></i>
+            <span class="title">Support</span>
+            <span class="arrow "></span>
+        </a>
+        <!--
+        <ul class="sub-menu">
+            <li>
+                <a href="<?php echo U('Domain/domainlist');;?>">
+                    Domain List
+                </a>
+            </li>
+			<li>
+                <a href="<?php echo U('Domain/premiumlist');;?>">
+                    Premium List
+                </a>
+            </li>
+        </ul>
+        -->
+    </li>
+    <li >
+        <a href="javascript:;">
+            <i class="icon-bookmark-empty"></i>
+            <span class="title">Report Module</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a> Monthly Active TLDs</a>
+            </li>
+			<li>
+                 <a> Active Accounts Per TLDs</a>
+            </li>
+            <li>
+                 <a> New Customer</a>
+            </li>
+            <li>
+                 <a> Monthly Transactions</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a class="active" href="javascript:;">
+            <i class="icon-sitemap"></i>
+            <span class="title">Configuration</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="javascript:;">
+                    General
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="#">Web Setting</a></li>
+                    <li><a href="#">Language</a></li>
+                    <li><a href="#">Domains</a></li>
+                    <li><a href="#">Mail</a></li>
+                    <li><a href="#">Credit</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                     一级目录2
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="#">二级目录1</a></li>
+                    <li><a href="#">二级目录2</a></li>
+                    <li><a href="#">二级目录3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    �?��目录3
+                </a>
+            </li>
+        </ul>
+    </li>
     <li class="">
         <a href="javascript:;">
             <i class="icon-table"></i>

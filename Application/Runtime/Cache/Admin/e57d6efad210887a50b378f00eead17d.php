@@ -621,10 +621,10 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
             <li>
-                <a href="<?php echo U('Transaction/translist');;?>">Transaction Manager</a>
+                <a href="<?php echo U('Domain/domainlist');;?>">Domain Manager</a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
-            <li><a href="<?php echo U('Transaction/translist');;?>">Transaction List</a></li>
+            <li><a href="<?php echo U('Domain/domainlist');;?>">Domain List</a></li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -660,7 +660,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 	   </thead>
 	   <tbody>
 		<?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
-			<td><?php echo ($vo["domainname"]); ?></td>
+			<td><a href="<?php echo U('Domain/domaindetail?domainid='.$vo['id'].'');;?>"><?php echo ($vo["domainname"]); ?></a></td>
 			<td><?php echo ($vo["registrar"]); ?></td>
 			<td><?php echo ($vo["email"]); ?></td>
 			<td><?php echo ($vo["firstname"]); ?></td>

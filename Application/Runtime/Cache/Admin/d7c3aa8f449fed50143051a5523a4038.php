@@ -207,14 +207,14 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             </li>
         </ul>
     </li>
-	<li>
+	<li >
         <a href="javascript:;">
             <i class="icon-bookmark-empty"></i>
             <span class="title">Order manager</span>
             <span class="arrow "></span>
         </a>
         <ul class="sub-menu">
-            <li>
+            <li class="active">
                 <a href="<?php echo U('Order/orderlist');;?>">
                     Order List
                 </a>
@@ -246,12 +246,12 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <span class="arrow "></span>
         </a>
         <ul class="sub-menu">
-            <li class="active">
+            <li>
                 <a href="<?php echo U('Domain/domainlist');;?>">
                     Domain List
                 </a>
             </li>
-			<li>
+			<li class="active">
                 <a href="<?php echo U('Domain/premiumlist');;?>">
                     Premium List
                 </a>
@@ -617,15 +617,14 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         <ul class="breadcrumb">
             <li>
                 <i class="fa fa-home" aria-hidden="true"></i>
-                <a href="<?php echo U('Profile/index');;?>"> Home</a>
+                <a href="<?php echo U('Profile/index');;?>">Home</a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
             <li>
-                <a href="<?php echo U('Transaction/translist');;?>"> Transaction Manager</a>
+                <a href="<?php echo U('Domain/domainlist');;?>">Domain manager</a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
-            <li><a href="<?php echo U('Transaction/translist');;?>"> Transaction List</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-			<li><a href="<?php echo U('Transaction/transdetail?transid='.$transid.'');;?>"> Transaction Detail</a></li>
+            <li><a href="<?php echo U('Domain/premiumlist');;?>">Premium List</a></li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -634,98 +633,66 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN PAGE CONTENT-->
 <div class="row-fluid">
     <div class="span12">
+        <form role="form" action="<?php echo U('Transaction/translist');;?>" method="post" class="form-search">
+            <div class="control">
+                <input name = 'search' class="m-wrap" type="text" required><button type="submit" class="btn green" type="button">Search!</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12">
 
 		<!--BEGIN TABS-->
 <div class="tabbable tabbable-custom tabbable-full-width">
-<ul class="nav nav-tabs">   
-    <li class="active"><a href="#tab_1_1" data-toggle="tab">Domain Detail</a></li>
-	<li><a href="#tab_1_2" data-toggle="tab">Update </a></li>
-	<li><a href="#tab_1_3" data-toggle="tab">Registration Profile Update </a></li>
-	<li><a href="#tab_1_4" data-toggle="tab">Domain tools </a></li>
+<ul class="nav nav-tabs">
+    
+    <li class="active"><a href="#tab_1_1" data-toggle="tab">Premium Domain</a></li>
+	<li><a href="#tab_1_2" data-toggle="tab">Add premium</a></li>
 </ul>
 <div class="tab-content">
 
 <!--end tab-pane-->
 <div class="tab-pane row-fluid active" id="tab_1_1">
     <div class="span12">
-        <div class="portlet box yellow">
-            <div class="portlet-title">
-                <div class="caption"><i class="icon-coffee"></i>Domain Detail</div>
-            </div>
-            <div class="portlet-body">
-				<div class = "row-fluid">
-					<div class="span12">
-						<div class="span6">
-							<h5><strong>Domain name :</strong> <?php echo ($domain["domainname"]); ?></h5>
-							<h5><strong>Username :</strong> <?php echo ($domain["username"]); ?></h5>
-							<h5><strong>Registrar :</strong><span class="label label-info"> <?php echo ($domain["registrar"]); ?></span></h5>
-							<h5><strong>Registrar date :</strong> <?php echo ($domain["registrationdate"]); ?></h5>
-
-						</div>
-						<div class="span6">
-							<h5><strong>Expiry date:</strong> <?php echo ($domain["expirydate"]); ?></h5>
-							<h5><strong>Next due date:</strong> <?php echo ($domain["nextduedate"]); ?></h5>
-							<h5><strong>Status:</strong> <?php echo ($domain["status"]); ?></h5>
-						</div>
-					</div>
-					<a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Order/orderdetail?orderid='.$orderid.'');;?>">
-					View Order		
-					</a>
-					<a class="btn green easy-pie-chart-reload" href="<?php echo U('Domain/domainsendemail?domainid='.$domainid.'');;?>">
-					Send Email		
-					</a>
-					<a class="btn red easy-pie-chart-reload" href="<?php echo U('Domain/domainremove?domainid='.$domainid.'');;?>">
-					Remove		
-					</a>
-				</div>
-				
-            </div>
-        </div> 
-		<div class="portlet box green">
-            <div class="portlet-title">
-                <div class="caption"><i class="icon-coffee"></i>Domain Whois</div>
-            </div>
-            <div class="portlet-body">
-				<div class = "row-fluid">
-					<div class="span12">
-						<?php echo ($whois); ?>
-					</div>	
-				</div>
-				
-            </div>
-        </div>
-	</div>
+    <table class="table table-striped table-hover">
+	   <thead>
+		<tr>
+			<th>ID</th>
+			<th>Domain Name</th>
+			<th></th>
+		</tr>
+	   </thead>
+	   <tbody>
+		<?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
+			<td><?php echo ($vo["id"]); ?></td>
+			<td><?php echo ($vo["domainname"]); ?></td>
+			<td>
+				<a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Domain/premiumdel?domainid='.$vo['id'].'');;?>">
+					Delete
+				</a>
+			</td>
+		  </tr><?php endforeach; endif; ?>
+	   </tbody>
+	</table>
+	<span><div class="page"><?php echo ($page); ?></div></span>
+    </div>
     
 </div>
 <!--tab_1_2-->
 <div class="tab-pane" id="tab_1_2">
 	<div style="height: auto;" id="accordion1-1" class="accordion collapse">
         <div class="span12">
-            <h4><i class="fa fa-cog" aria-hidden="true"></i> Update domain</h4>
-                <form role="form" action="<?php echo U('Domain/domainupdate?domainid='.$domainid.'');;?>" method="post">  
-                    <label class="control-label">Domain Name</label>
-					<input name="domainname" type="text" id="domainname" value="<?php echo ($domain["domainname"]); ?>" class="m-wrap span8" readonly/>
-					<label class="control-label">Expired Date</label>
-                    <input name="expirydate" type="text" id="expirydate" placeholder="Expiry date" value="<?php echo ($domain["expirydate"]); ?>" class="m-wrap span8" required/>
-					<label class="control-label">Next due date</label>
-                    <input name="nextduedate" type="text" id="nextduedate" placeholder="Next due date" value="<?php echo ($domain["nextduedate"]); ?>" class="m-wrap span8" required/>
-					<label>Status</label>
-					<select class="m-wrap span8" name="status" required>
-						<option value= "pending">pending</option>
-						<option value= "active">active</option>
-						<option value= "suspend">suspend</option>
-					</select>
-					<label>Auto renew</label>
-					<select class="m-wrap span8" name="autorenew" required>
-						<option value= "N">N</option>
-						<option value= "Y">Y</option>
-					</select>
-					
-					
+            <h4><i class="fa fa-cog" aria-hidden="true"></i> Add Preminum Domain</h4>
+            <div class="span4">
+                <form role="form" action="<?php echo U('Domain/premiumadd');;?>" method="post">  
+                    <label class="control-label">Domain name</label>
+                    <input name="domainname" type="text" id="domainname" placeholder="domainname" value="" class="m-wrap span8" required/>
                     <div class="submit-btn">
                         <button type="submit" class="btn green">Save Changes</button>
                     </div>
                 </form>
+            </div>
         </div>       
     </div>
 </div>
@@ -733,72 +700,15 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div class="tab-pane" id="tab_1_3">
 	<div class="row-fluid">	
         <div class="span12">
-			<h4><i class="fa fa-cog" aria-hidden="true"></i> Domain Registration Profile</h4>
-			<form role="form" action="<?php echo U('Domain/domainprofileupdate?domainid='.$domainid.'');;?>" method="post">  
-				<label class="control-label">First Name</label>
-				<input class="m-wrap span8"  name="firstname" type="text" id="firstname" placeholder="first name" value="<?php echo ($domain["firstname"]); ?>" required/>  
-				<label>Last Name</label>
-				<input class="m-wrap span8" name="lastname" type="text" id="lastname" placeholder="last name" value="<?php echo ($domain["lastname"]); ?>" required/> 
-				<label>Company Name</label>
-				<input class="m-wrap span8" name="company" type="text" id="company" placeholder="Company" value="<?php echo ($domain["company"]); ?>" /> 
-				<label>Job Title</label>
-				<input class="m-wrap span8" name="jobtitle" type="text" id="jobtitle" placeholder="Job title" value="<?php echo ($domain["jobtitle"]); ?>" /> 
-				<label>Email</label>
-				<input class="m-wrap span8" name="email" type="email" id="email" placeholder="Email" value="<?php echo ($domain["email"]); ?>" required/> 
-				<label>City</label>
-				<input  name="city" type="text" id="city" placeholder="City" value="<?php echo ($domain["city"]); ?>" required/> 
-				<label>State</label>
-				<input class="m-wrap span8" name="state" type="text" id="state" placeholder="State" value="<?php echo ($domain["state"]); ?>" required/> 
-				<label>Postcode</label>
-				<input class="m-wrap span8" type="number" value="<?php echo ($domain["postcode"]); ?>" name="postcode" id="postcode" placeholder="Postcode" required> 
-				<label>Country</label>
-				<input class="m-wrap span8" name="country" type="text" id="country" placeholder="Country" value="<?php echo ($domain["country"]); ?>" required/>
-				<label>Phone</label>
-				<input class="m-wrap span8" type="tel" value="<?php echo ($domain["phone"]); ?>" name="phone" id="phone" placeholder="Phone" required> 
-				<label>FAX</label>
-				<input class="m-wrap span8" type="tel" value="<?php echo ($domain["fax"]); ?>" name="fax" id="fax" placeholder="Fax" required> 
-				<label>Address1</label>
-				<input class="m-wrap span8" name="address1" type="text" id="address1" placeholder="Address 1" value="<?php echo ($domain["address1"]); ?>" required/> 
-				<label>Address2</label>
-				<input class="m-wrap span8" name="address2" type="text" id="address2" placeholder="Address 2" value="<?php echo ($domain["address2"]); ?>" required/>
-				<label>NameServer1(require)</label>
-				<input class="m-wrap span8" name="ns1" type="text" id="ns1" placeholder="NameServer" value="<?php echo ($domain["ns1"]); ?>" required/>
-				<label>NameServer2(optional)</label>
-				<input class="m-wrap span8" name="ns2" type="text" id="ns2" placeholder="NameServer" value="<?php echo ($domain["ns2"]); ?>" required/>
-				<label>NameServer3(optional)</label>
-				<input class="m-wrap span8" name="ns3" type="text" id="ns3" placeholder="NameServer" value="<?php echo ($domain["ns3"]); ?>" required/>
-				<label>NameServer4(optional)</label>
-				<input class="m-wrap span8" name="ns4" type="text" id="ns4" placeholder="NameServer" value="<?php echo ($domain["ns4"]); ?>" required/>
-				<div class="submit-btn">
-					<button type="submit" class="btn green">Save Changes</button>
-				</div>
-			</form>	
-        </div>     
+           
+        </div>
+        
+        
+        
 	</div>
 </div>
 
-<!-- tab_1_4 -->
-<div class="tab-pane" id="tab_1_4">
-	<div class="row-fluid">	
-        <div class="span12">
-			<h4>Domain tools</h4>
-			<form role="form" action="<?php echo U('Domain/domaintools?domainid='.$domainid.'');;?>" method="post"> 
-				<label class="control-label">Email forwarding</label>
-				<input name="mainforward" type="email" id="mainforward" placeholder="mainforward" value="<?php echo ($domain["mainforward"]); ?>" class="m-wrap span8" />
-				<label class="control-label">DNS</label>
-				<input name="DNSmgr" type="text" id="DNSmgr" placeholder="DNS" value = "<?php echo ($domain["DNSmgr"]); ?>" class="m-wrap span8" />
-				<label class="control-label">ID protect</label>
-				<select class="m-wrap span8" name="IDprotect" required>
-					<option value= "Y">Y</option>
-					<option value= "N">N</option>
-				</select>
-				<div class="submit-btn">
-					<button type="submit" class="btn green">Save Changes</button>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
+<!-- tab_1_3 -->
 <!--end tab-pane-->
 <!--end tab-pane-->
 <div class="tab-pane row-fluid" id="tab_1_6">

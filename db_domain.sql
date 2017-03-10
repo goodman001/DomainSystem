@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 08, 2017 at 10:01 PM
+-- Generation Time: Mar 10, 2017 at 03:32 PM
 -- Server version: 5.5.50-0ubuntu0.14.04.1
 -- PHP Version: 5.6.23-1+deprecated+dontuse+deb.sury.org~trusty+1
 
@@ -23,6 +23,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `db_adminrole`
+--
+
+CREATE TABLE IF NOT EXISTS `db_adminrole` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `role` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `db_adminrole`
+--
+
+INSERT INTO `db_adminrole` (`id`, `role`, `description`) VALUES
+(1, 'super', 'Have all site management permissions');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `db_admins`
 --
 
@@ -30,10 +50,12 @@ CREATE TABLE IF NOT EXISTS `db_admins` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `authorityindex` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `role` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `firstname` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `lastname` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `language` varchar(30) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'EN',
+  `roleid` int(11) NOT NULL,
   `regtime` datetime NOT NULL,
-  `description` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
@@ -42,8 +64,8 @@ CREATE TABLE IF NOT EXISTS `db_admins` (
 -- Dumping data for table `db_admins`
 --
 
-INSERT INTO `db_admins` (`id`, `username`, `password`, `authorityindex`, `role`, `regtime`, `description`) VALUES
-(1, 'root', 'root', 'Root', 'Super_administrator', '2017-03-02 00:00:00', 'Have all site management permissions');
+INSERT INTO `db_admins` (`id`, `username`, `password`, `email`, `firstname`, `lastname`, `language`, `roleid`, `regtime`) VALUES
+(1, 'root', 'root', '', '', '', 'EN', 1, '2017-03-02 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -134,6 +156,7 @@ INSERT INTO `db_balance` (`id`, `username`, `amount`, `accountnumber`, `accountt
 CREATE TABLE IF NOT EXISTS `db_configure` (
   `id` int(11) NOT NULL DEFAULT '0',
   `domainprice` decimal(10,2) NOT NULL,
+  `securitytimes` int(11) NOT NULL DEFAULT '15',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -141,8 +164,8 @@ CREATE TABLE IF NOT EXISTS `db_configure` (
 -- Dumping data for table `db_configure`
 --
 
-INSERT INTO `db_configure` (`id`, `domainprice`) VALUES
-(1, 10.00);
+INSERT INTO `db_configure` (`id`, `domainprice`, `securitytimes`) VALUES
+(1, 10.00, 12);
 
 -- --------------------------------------------------------
 
@@ -182,15 +205,15 @@ CREATE TABLE IF NOT EXISTS `db_domainmgr` (
   `ns4` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `domainname` (`domainname`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `db_domainmgr`
 --
 
 INSERT INTO `db_domainmgr` (`id`, `domainname`, `username`, `registrar`, `registrationdate`, `expirydate`, `nextduedate`, `status`, `mainforward`, `DNSmgr`, `IDprotect`, `orderID`, `email`, `firstname`, `lastname`, `company`, `jobtitle`, `address1`, `address2`, `city`, `state`, `country`, `postcode`, `phone`, `fax`, `ns1`, `ns2`, `ns3`, `ns4`) VALUES
-(1, 'djdjdjaad3der.cc', 'test', 'ResellerClub', '2017-03-08 21:35:25', '2018-03-08 21:35:25', '2018-03-01 16:57:32', 'active', '', '', 'N', 1488358652, 'ABC@GMAIL.COM', 'FN', 'LN', 'GOOGLE', 'ENGINEER', 'add1', 'add2', 'CITY', 'STATE', 'UK', 123456, '220-123-234', '220-123-234', '1.1.1.1', '2.1.1.1', '3.1.1.1', '4.1.1.1'),
-(2, 'adfdfdfdf.com', 'test', 'ResellerClub', '2017-03-08 21:35:25', '2019-03-08 21:35:25', '2019-03-01 16:57:32', 'active', '', '', 'N', 1488358652, 'ABC@GMAIL.COM', 'FN', 'LN', 'GOOGLE', 'ENGINEER', 'add1', 'add2', 'CITY', 'STATE', 'UK', 123456, '220-123-234', '220-123-234', '1.1.1.1', '2.1.1.1', '3.1.1.1', '4.1.1.1');
+(1, 'djdjdjaad3der.cc', 'test', 'ResellerClub', '2017-03-08 21:35:25', '2018-03-08 21:35:25', '2018-03-01 16:57:32', 'pending', '', '', 'N', 1488358652, 'ABC@GMAIL.COM', 'FN', 'LN', 'GOOGLE', 'ENGINEER', 'add1', 'add2', 'CITY', 'STATE', 'UK', 123456, '220-123-234', '220-123-234', '1.1.1.1', '2.1.1.1', '3.1.1.1', '4.1.1.1'),
+(2, 'adfdfdfdf.com', 'test', 'ResellerClub', '2017-03-08 21:35:25', '2019-03-08 21:35:25', '2019-03-01 16:57:32', 'pending', 'abc@gmail.com', '', 'Y', 1488358652, 'ABC@GMAIL.COM', 'FN', 'LN', 'GOOGLE', 'ENGINEER', 'add1', 'add2', 'CITY', 'STATE', 'UK', 123456, '220-123-234', '220-123-234', '1.1.1.1', '2.1.1.6', '3.1.1.1', '4.1.1.1');
 
 -- --------------------------------------------------------
 
@@ -207,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `db_item` (
   `price` decimal(10,2) NOT NULL,
   `years` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `db_item`
@@ -237,14 +260,14 @@ CREATE TABLE IF NOT EXISTS `db_order` (
   `description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `orderID` (`orderID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `db_order`
 --
 
 INSERT INTO `db_order` (`id`, `orderID`, `username`, `transactionID`, `issuedate`, `status`, `refund`, `refundamount`, `invoicedate`, `duedate`, `description`) VALUES
-(1, 1488358652, 'test', 1488358753, '2017-03-01 16:57:32', 'active', 'N', 0.00, '2017-03-01 16:57:32', '2017-03-08 21:35:25', '');
+(1, 1488358652, 'test', 1488358753, '2017-03-01 16:57:32', 'pending', 'N', 0.00, '2017-03-01 16:57:32', '2017-03-08 21:35:25', '');
 
 -- --------------------------------------------------------
 
@@ -329,14 +352,14 @@ CREATE TABLE IF NOT EXISTS `db_transaction` (
   `settleamount` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `transactionID` (`transactionID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `db_transaction`
 --
 
 INSERT INTO `db_transaction` (`id`, `transactionID`, `clientname`, `orderID`, `invoiceID`, `description`, `paydate`, `paymethod`, `accountnumber`, `settleamount`) VALUES
-(1, 1488358753, 'jay yang', 1488358652, 1488358652, 'I use the Credit Card to pay for the order', '2017-03-01 16:57:32', 'Credit Card', '9638527418523695', 30.00);
+(1, 1488358753, 'jay yang', 1488358652, 14883586523, 'I use the Credit Card to pay for the order', '2017-03-01 16:57:32', 'Credit Card', '9638527418523695', 31.00);
 
 -- --------------------------------------------------------
 

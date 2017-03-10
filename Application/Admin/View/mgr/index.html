@@ -149,15 +149,15 @@
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="#">Web Setting</a></li>
-                    <li><a href="#">Language</a></li>
-                    <li><a href="#">Domains</a></li>
-                    <li><a href="#">Mail</a></li>
-                    <li><a href="#">Credit</a></li>
+                    <li><a href="{:U('Configure/general_web');}">Web Setting</a></li>
+                    <li><a href="{:U('Configure/general_language');}">Language</a></li>
+                    <li><a href="{:U('Configure/general_domain');}">Domains</a></li>
+                    <li><a href="{:U('Configure/general_mail');}">Mail</a></li>
+                    <li><a href="{:U('Configure/general_credit');}">Credit</a></li>
                 </ul>
             </li>
             <li>
-                <a href="">
+                <a href="{:U('Configure/security');}">
                      Security
                 </a>
             </li>
@@ -172,11 +172,21 @@
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="#">Users manager</a></li>
+                    <li><a href="{:U('Configure/adminlist');}">Users manager</a></li>
                     <li><a href="#">Add Roles</a></li>
                     <li><a href="#">Support Operator</a></li>
                     <li><a href="#">Template Edit</a></li>
-                    <li><a href="#">Credit</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    Domain Price
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="#">Price setting</a></li>
+                    <li><a href="#">Tools Manager</a></li>
+                    <li><a href="#">Premium Cost</a></li>
                 </ul>
             </li>
         </ul>

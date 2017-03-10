@@ -239,7 +239,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             </li>
         </ul>
     </li>
-	<li class="active">
+	<li >
         <a href="javascript:;">
             <i class="icon-bookmark-empty"></i>
             <span class="title">Domains manager</span>
@@ -251,10 +251,107 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                     Domain List
                 </a>
             </li>
-			<li class="active">
+			<li>
                 <a href="<?php echo U('Domain/premiumlist');;?>">
                     Premium List
                 </a>
+            </li>
+        </ul>
+    </li>
+	<li>
+        <a href="javascript:;">
+            <i class="icon-bookmark-empty"></i>
+            <span class="title">Support</span>
+            <span class="arrow "></span>
+        </a>
+        <!--
+        <ul class="sub-menu">
+            <li>
+                <a href="<?php echo U('Domain/domainlist');;?>">
+                    Domain List
+                </a>
+            </li>
+			<li>
+                <a href="<?php echo U('Domain/premiumlist');;?>">
+                    Premium List
+                </a>
+            </li>
+        </ul>
+        -->
+    </li>
+    <li >
+        <a href="javascript:;">
+            <i class="icon-bookmark-empty"></i>
+            <span class="title">Report Module</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a> Monthly Active TLDs</a>
+            </li>
+			<li>
+                 <a> Active Accounts Per TLDs</a>
+            </li>
+            <li>
+                 <a> New Customer</a>
+            </li>
+            <li>
+                 <a> Monthly Transactions</a>
+            </li>
+        </ul>
+    </li>
+    <li class="active">
+        <a class="active" href="javascript:;">
+            <i class="icon-sitemap"></i>
+            <span class="title">Configuration</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="javascript:;">
+                    General
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="<?php echo U('Configure/general_web');;?>">Web Setting</a></li>
+                    <li><a href="<?php echo U('Configure/general_language');;?>">Language</a></li>
+                    <li><a href="<?php echo U('Configure/general_domain');;?>">Domains</a></li>
+                    <li><a href="<?php echo U('Configure/general_mail');;?>">Mail</a></li>
+                    <li><a href="<?php echo U('Configure/general_credit');;?>">Credit</a></li>
+                </ul>
+            </li>
+            <li class="active">
+                <a href="<?php echo U('Configure/security');;?>">
+                     Security
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Email Template
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    Administrators
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="#">Users manager</a></li>
+                    <li><a href="#">Add Roles</a></li>
+                    <li><a href="#">Support Operator</a></li>
+                    <li><a href="#">Template Edit</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    Domain Price
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="#">Price setting</a></li>
+                    <li><a href="#">Tools Manager</a></li>
+                    <li><a href="#">Premium Cost</a></li>
+                </ul>
             </li>
         </ul>
     </li>
@@ -611,8 +708,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div class="row-fluid">
     <div class="span12">
         <h3 class="page-title">
-            Customer Manager
-            <small> Customer Manager</small>
+            Web Setting
+            <small> Web Setting</small>
         </h3>
         <ul class="breadcrumb">
             <li>
@@ -621,10 +718,10 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
             <li>
-                <a href="<?php echo U('Domain/domainlist');;?>">Domain manager</a>
+                <a href="#">Configuration</a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
-            <li><a href="<?php echo U('Domain/premiumlist');;?>">Premium List</a></li>
+            <li><a href="#">Security</a></li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -633,468 +730,16 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN PAGE CONTENT-->
 <div class="row-fluid">
     <div class="span12">
-        <form role="form" action="<?php echo U('Transaction/translist');;?>" method="post" class="form-search">
-            <div class="control">
-                <input name = 'search' class="m-wrap" type="text" required><button type="submit" class="btn green" type="button">Search!</button>
-            </div>
-        </form>
-    </div>
-</div>
-<div class="row-fluid">
-    <div class="span12">
-
-		<!--BEGIN TABS-->
-<div class="tabbable tabbable-custom tabbable-full-width">
-<ul class="nav nav-tabs">
-    
-    <li class="active"><a href="#tab_1_1" data-toggle="tab">Premium Domain</a></li>
-	<li><a href="#tab_1_2" data-toggle="tab">Add premium</a></li>
-</ul>
-<div class="tab-content">
-
-<!--end tab-pane-->
-<div class="tab-pane row-fluid active" id="tab_1_1">
-    <div class="span12">
-    <table class="table table-striped table-hover">
-	   <thead>
-		<tr>
-			<th>ID</th>
-			<th>Domain Name</th>
-			<th></th>
-		</tr>
-	   </thead>
-	   <tbody>
-		<?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
-			<td><?php echo ($vo["id"]); ?></td>
-			<td><?php echo ($vo["domainname"]); ?></td>
-			<td>
-				<a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Domain/premiumdel?domainid='.$vo['id'].'');;?>">
-					Delete
-				</a>
-			</td>
-		  </tr><?php endforeach; endif; ?>
-	   </tbody>
-	</table>
-	<span><div class="page"><?php echo ($page); ?></div></span>
-    </div>
-    
-</div>
-<!--tab_1_2-->
-<div class="tab-pane" id="tab_1_2">
-	<div style="height: auto;" id="accordion1-1" class="accordion collapse">
-        <div class="span12">
-            <h4><i class="fa fa-cog" aria-hidden="true"></i> Add Preminum Domain</h4>
-            <div class="span4">
-                <form role="form" action="<?php echo U('Domain/premiumadd');;?>" method="post">  
-                    <label class="control-label">Domain name</label>
-                    <input name="domainname" type="text" id="domainname" placeholder="domainname" value="" class="m-wrap span8" required/>
-                    <div class="submit-btn">
-                        <button type="submit" class="btn green">Save Changes</button>
-                    </div>
-                </form>
-            </div>
-        </div>       
-    </div>
-</div>
-<!-- tab_1_3 -->
-<div class="tab-pane" id="tab_1_3">
-	<div class="row-fluid">	
-        <div class="span12">
-           
-        </div>
-        
-        
-        
-	</div>
-</div>
-
-<!-- tab_1_3 -->
-<!--end tab-pane-->
-<!--end tab-pane-->
-<div class="tab-pane row-fluid" id="tab_1_6">
-<div class="row-fluid">
-<div class="span12">
-<div class="span3">
-    <ul class="ver-inline-menu tabbable margin-bottom-10">
-        <li class="active">
-            <a data-toggle="tab" href="#tab_1">
-                <i class="icon-briefcase"></i>
-                General Questions
-            </a>
-            <span class="after"></span>
-        </li>
-        <li><a data-toggle="tab" href="#tab_2"><i class="icon-group"></i> Membership</a></li>
-        <li><a data-toggle="tab" href="#tab_3"><i class="icon-leaf"></i> Terms Of Service</a></li>
-        <li><a data-toggle="tab" href="#tab_1"><i class="icon-info-sign"></i> License Terms</a></li>
-        <li><a data-toggle="tab" href="#tab_2"><i class="icon-tint"></i> Payment Rules</a></li>
-        <li><a data-toggle="tab" href="#tab_3"><i class="icon-plus"></i> Other Questions</a></li>
-    </ul>
-</div>
-<div class="span9">
-<div class="tab-content">
-<div id="tab_1" class="tab-pane active">
-    <div style="height: auto;" id="accordion1" class="accordion collapse">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a href="#collapse_1" data-parent="#accordion1" data-toggle="collapse"
-                   class="accordion-toggle collapsed">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry ?
-                </a>
-            </div>
-            <div class="accordion-body collapse in" id="collapse_1">
-                <div class="accordion-inner">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod.
-                </div>
-            </div>
-        </div>
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a href="#collapse_2" data-parent="#accordion1" data-toggle="collapse"
-                   class="accordion-toggle collapsed">
-                    Pariatur cliche reprehenderit enim eiusmod highr brunch ?
-                </a>
-            </div>
-            <div class="accordion-body collapse" id="collapse_2">
-                <div class="accordion-inner">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor.
-                </div>
-            </div>
-        </div>
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a href="#collapse_3" data-parent="#accordion1" data-toggle="collapse"
-                   class="accordion-toggle collapsed">
-                    Food truck quinoa nesciunt laborum eiusmod nim eiusmod high life accusamus ?
-                </a>
-            </div>
-            <div class="accordion-body collapse" id="collapse_3">
-                <div class="accordion-inner">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor.
-                </div>
-            </div>
-        </div>
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a href="#collapse_4" data-parent="#accordion1" data-toggle="collapse"
-                   class="accordion-toggle collapsed">
-                    High life accusamus terry richardson ad ?
-                </a>
-            </div>
-            <div class="accordion-body collapse" id="collapse_4">
-                <div class="accordion-inner">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor.
-                </div>
-            </div>
-        </div>
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a href="#collapse_5" data-parent="#accordion1" data-toggle="collapse"
-                   class="accordion-toggle collapsed">
-                    Reprehenderit enim eiusmod high life accusamus terry quinoa nesciunt laborum eiusmod ?
-                </a>
-            </div>
-            <div class="accordion-body collapse" id="collapse_5">
-                <div class="accordion-inner">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor.
-                </div>
-            </div>
-        </div>
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a href="#collapse_6" data-parent="#accordion1" data-toggle="collapse"
-                   class="accordion-toggle collapsed">
-                    Wolf moon officia aute non cupidatat skateboard dolor brunch ?
-                </a>
-            </div>
-            <div class="accordion-body collapse" id="collapse_6">
-                <div class="accordion-inner">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor.
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="tab_2" class="tab-pane">
-    <div style="height: auto;" id="accordion2" class="accordion collapse">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a href="#collapse_2_1" data-parent="#accordion2" data-toggle="collapse"
-                   class="accordion-toggle collapsed">
-                    Cliche reprehenderit, enim eiusmod high life accusamus enim eiusmod ?
-                </a>
-            </div>
-            <div class="accordion-body collapse in" id="collapse_2_1">
-                <div class="accordion-inner">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod.
-                </div>
-            </div>
-        </div>
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a href="#collapse_2_2" data-parent="#accordion2" data-toggle="collapse"
-                   class="accordion-toggle collapsed">
-                    Pariatur cliche reprehenderit enim eiusmod high life non cupidatat skateboard dolor brunch ?
-                </a>
-            </div>
-            <div class="accordion-body collapse" id="collapse_2_2">
-                <div class="accordion-inner">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor.
-                </div>
-            </div>
-        </div>
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a href="#collapse_2_3" data-parent="#accordion2" data-toggle="collapse"
-                   class="accordion-toggle collapsed">
-                    Food truck quinoa nesciunt laborum eiusmod ?
-                </a>
-            </div>
-            <div class="accordion-body collapse" id="collapse_2_3">
-                <div class="accordion-inner">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor.
-                </div>
-            </div>
-        </div>
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a href="#collapse_2_4" data-parent="#accordion2" data-toggle="collapse"
-                   class="accordion-toggle collapsed">
-                    High life accusamus terry richardson ad squid enim eiusmod high ?
-                </a>
-            </div>
-            <div class="accordion-body collapse" id="collapse_2_4">
-                <div class="accordion-inner">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor.
-                </div>
-            </div>
-        </div>
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a href="#collapse_2_5" data-parent="#accordion2" data-toggle="collapse"
-                   class="accordion-toggle collapsed">
-                    Reprehenderit enim eiusmod high life accusamus terry quinoa nesciunt laborum eiusmod ?
-                </a>
-            </div>
-            <div class="accordion-body collapse" id="collapse_2_5">
-                <div class="accordion-inner">
-                    <p>
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                        laborum eiusmod. Brunch 3 wolf moon tempor.
-                    </p>
-                    <p>
-                        moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                        eiusmodBrunch 3 wolf moon tempor
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a href="#collapse_2_6" data-parent="#accordion2" data-toggle="collapse"
-                   class="accordion-toggle collapsed">
-                    Wolf moon officia aute non cupidatat skateboard dolor brunch ?
-                </a>
-            </div>
-            <div class="accordion-body collapse" id="collapse_2_6">
-                <div class="accordion-inner">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor.
-                </div>
-            </div>
-        </div>
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a href="#collapse_2_7" data-parent="#accordion2" data-toggle="collapse"
-                   class="accordion-toggle collapsed">
-                    Reprehenderit enim eiusmod high life accusamus terry quinoa nesciunt laborum eiusmod ?
-                </a>
-            </div>
-            <div class="accordion-body collapse" id="collapse_2_7">
-                <div class="accordion-inner">
-                    <p>
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                        laborum eiusmod. Brunch 3 wolf moon tempor.
-                    </p>
-                    <p>
-                        moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                        eiusmodBrunch 3 wolf moon tempor
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="tab_3" class="tab-pane">
-<div style="height: auto;" id="accordion3" class="accordion collapse">
-<div class="accordion-group">
-    <div class="accordion-heading">
-        <a href="#collapse_3_1" data-parent="#accordion3" data-toggle="collapse" class="accordion-toggle collapsed">
-            Cliche reprehenderit, enim eiusmod ?
-        </a>
-    </div>
-    <div class="accordion-body collapse in" id="collapse_3_1">
-        <div class="accordion-inner">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-            officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-        </div>
-    </div>
-</div>
-<div class="accordion-group">
-    <div class="accordion-heading">
-        <a href="#collapse_3_2" data-parent="#accordion3" data-toggle="collapse" class="accordion-toggle collapsed">
-            Pariatur skateboard dolor brunch ?
-        </a>
-    </div>
-    <div class="accordion-body collapse" id="collapse_3_2">
-        <div class="accordion-inner">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-            officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
-            wolf moon tempor.
-        </div>
-    </div>
-</div>
-<div class="accordion-group">
-    <div class="accordion-heading">
-        <a href="#collapse_3_3" data-parent="#accordion3" data-toggle="collapse" class="accordion-toggle collapsed">
-            Food truck quinoa nesciunt laborum eiusmod ?
-        </a>
-    </div>
-    <div class="accordion-body collapse" id="collapse_3_3">
-        <div class="accordion-inner">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-            officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
-            wolf moon tempor.
-        </div>
-    </div>
-</div>
-<div class="accordion-group">
-    <div class="accordion-heading">
-        <a href="#collapse_3_4" data-parent="#accordion3" data-toggle="collapse" class="accordion-toggle collapsed">
-            High life accusamus terry richardson ad squid enim eiusmod high ?
-        </a>
-    </div>
-    <div class="accordion-body collapse" id="collapse_3_4">
-        <div class="accordion-inner">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-            officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
-            wolf moon tempor.
-        </div>
-    </div>
-</div>
-<div class="accordion-group">
-    <div class="accordion-heading">
-        <a href="#collapse_3_5" data-parent="#accordion3" data-toggle="collapse" class="accordion-toggle collapsed">
-            Reprehenderit enim eiusmod high eiusmod ?
-        </a>
-    </div>
-    <div class="accordion-body collapse" id="collapse_3_5">
-        <div class="accordion-inner">
-            <p>
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                Brunch 3 wolf moon tempor.
-            </p>
-            <p>
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                eiusmodBrunch 3 wolf moon tempor
-            </p>
-        </div>
-    </div>
-</div>
-<div class="accordion-group">
-    <div class="accordion-heading">
-        <a href="#collapse_3_6" data-parent="#accordion3" data-toggle="collapse" class="accordion-toggle collapsed">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry ?
-        </a>
-    </div>
-    <div class="accordion-body collapse" id="collapse_3_6">
-        <div class="accordion-inner">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-            officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
-            wolf moon tempor.
-        </div>
-    </div>
-</div>
-<div class="accordion-group">
-    <div class="accordion-heading">
-        <a href="#collapse_3_7" data-parent="#accordion3" data-toggle="collapse" class="accordion-toggle collapsed">
-            Reprehenderit enim eiusmod high life accusamus aborum eiusmod ?
-        </a>
-    </div>
-    <div class="accordion-body collapse" id="collapse_3_7">
-        <div class="accordion-inner">
-            <p>
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                Brunch 3 wolf moon tempor.
-            </p>
-            <p>
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                eiusmodBrunch 3 wolf moon tempor
-            </p>
-        </div>
-    </div>
-</div>
-<div class="accordion-group">
-    <div class="accordion-heading">
-        <a href="#collapse_3_8" data-parent="#accordion3" data-toggle="collapse" class="accordion-toggle collapsed">
-            Reprehenderit enim eiusmod high life accusamus terry quinoa nesciunt laborum eiusmod ?
-        </a>
-    </div>
-    <div class="accordion-body collapse" id="collapse_3_8">
-        <div class="accordion-inner">
-            <p>
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                Brunch 3 wolf moon tempor.
-            </p>
-            <p>
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                eiusmodBrunch 3 wolf moon tempor
-            </p>
-        </div>
-    </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!--end span9-->
-</div>
-</div>
-</div>
-<!--end tab-pane-->
-</div>
-</div>
+<!--BEGIN TABS-->
+	<h4>Security setting</h4>
+	<form role="form" action="<?php echo U('Configure/security');;?>" method="post"> 
+		<label class="control-label">Fail login ban times</label>
+		<input name="securitytimes" type="text" placeholder="Fail login ban times" value="<?php echo ($times); ?>" class="m-wrap span8" />
+		<div class="submit-btn">
+			<button type="submit" class="btn green">Save Changes</button>
+		</div>
+	</form>
 <!--END TABS-->
-		
-		
-		
-		
-		
     </div>
 </div>
 <!-- END PAGE CONTENT-->

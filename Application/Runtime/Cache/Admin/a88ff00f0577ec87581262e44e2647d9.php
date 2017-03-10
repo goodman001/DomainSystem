@@ -313,28 +313,45 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="#">Web Setting</a></li>
-                    <li><a href="#">Language</a></li>
-                    <li><a href="#">Domains</a></li>
-                    <li><a href="#">Mail</a></li>
-                    <li><a href="#">Credit</a></li>
+                    <li><a href="<?php echo U('Configure/general_web');;?>">Web Setting</a></li>
+                    <li><a href="<?php echo U('Configure/general_language');;?>">Language</a></li>
+                    <li><a href="<?php echo U('Configure/general_domain');;?>">Domains</a></li>
+                    <li><a href="<?php echo U('Configure/general_mail');;?>">Mail</a></li>
+                    <li><a href="<?php echo U('Configure/general_credit');;?>">Credit</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="<?php echo U('Configure/security');;?>">
+                     Security
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Email Template
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    Administrators
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="<?php echo U('Configure/adminlist');;?>">Users manager</a></li>
+                    <li><a href="#">Add Roles</a></li>
+                    <li><a href="#">Support Operator</a></li>
+                    <li><a href="#">Template Edit</a></li>
                 </ul>
             </li>
             <li>
                 <a href="javascript:;">
-                     一级目录2
+                    Domain Price
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="#">二级目录1</a></li>
-                    <li><a href="#">二级目录2</a></li>
-                    <li><a href="#">二级目录3</a></li>
+                    <li><a href="#">Price setting</a></li>
+                    <li><a href="#">Tools Manager</a></li>
+                    <li><a href="#">Premium Cost</a></li>
                 </ul>
-            </li>
-            <li>
-                <a href="#">
-                    �?��目录3
-                </a>
             </li>
         </ul>
     </li>

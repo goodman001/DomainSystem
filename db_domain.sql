@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 10, 2017 at 03:32 PM
--- Server version: 5.5.50-0ubuntu0.14.04.1
--- PHP Version: 5.6.23-1+deprecated+dontuse+deb.sury.org~trusty+1
+-- Generation Time: Mar 12, 2017 at 09:18 AM
+-- Server version: 5.5.53-0ubuntu0.14.04.1
+-- PHP Version: 5.5.9-1ubuntu4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -31,14 +31,15 @@ CREATE TABLE IF NOT EXISTS `db_adminrole` (
   `role` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `db_adminrole`
 --
 
 INSERT INTO `db_adminrole` (`id`, `role`, `description`) VALUES
-(1, 'super', 'Have all site management permissions');
+(1, 'super', 'Have all site management permissions'),
+(2, 'SalesOne', 'Enable Client information ');
 
 -- --------------------------------------------------------
 
@@ -47,7 +48,7 @@ INSERT INTO `db_adminrole` (`id`, `role`, `description`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `db_admins` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
@@ -56,16 +57,17 @@ CREATE TABLE IF NOT EXISTS `db_admins` (
   `language` varchar(30) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'EN',
   `roleid` int(11) NOT NULL,
   `regtime` datetime NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`uid`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `db_admins`
 --
 
-INSERT INTO `db_admins` (`id`, `username`, `password`, `email`, `firstname`, `lastname`, `language`, `roleid`, `regtime`) VALUES
-(1, 'root', 'root', '', '', '', 'EN', 1, '2017-03-02 00:00:00');
+INSERT INTO `db_admins` (`uid`, `username`, `password`, `email`, `firstname`, `lastname`, `language`, `roleid`, `regtime`) VALUES
+(1, 'root', 'root', 'admin@admin.com', 'firstname', 'lastname', 'EN', 5, '2017-03-02 00:00:00'),
+(2, 'sale1', '123456', 'sale1@gamil.com', 'Fn', 'LN', 'EN', 3, '2017-03-01 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -75,11 +77,25 @@ INSERT INTO `db_admins` (`id`, `username`, `password`, `email`, `firstname`, `la
 
 CREATE TABLE IF NOT EXISTS `db_auth_group` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL DEFAULT '',
+  `title` char(100) NOT NULL DEFAULT '',
   `status` tinyint(1) NOT NULL DEFAULT '1',
-  `rules` varchar(500) NOT NULL DEFAULT '',
+  `rules` char(80) NOT NULL DEFAULT '',
+  `description` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `db_auth_group`
+--
+
+INSERT INTO `db_auth_group` (`id`, `title`, `status`, `rules`, `description`) VALUES
+(1, 'super-administrator', 1, '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29', 'Have all site management permissions'),
+(2, 'Sales-Client_information', 1, '1,2,3,4,5,6', 'Have the permissions on client information'),
+(3, 'Sales-Order_Management', 1, '1,7,8,9,10,11,12,13,14,15', 'Have the permissions on order managerment'),
+(4, 'Sales-Domain_Management', 1, '1,20,21,22,23,24,25,26,27,28,29', 'Have the permissions on domain managerment'),
+(5, 'Sales-Transaction_Management', 1, '1,16,17,18,19', 'Have the permissions on transaction managerment'),
+(6, 'SupportOperator', 1, '1', 'Have the permissions on support opertation'),
+(7, 'TemplateEdit', 1, '1', 'Have the permissions on template edit');
 
 -- --------------------------------------------------------
 
@@ -95,6 +111,14 @@ CREATE TABLE IF NOT EXISTS `db_auth_group_access` (
   KEY `group_id` (`group_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `db_auth_group_access`
+--
+
+INSERT INTO `db_auth_group_access` (`uid`, `group_id`) VALUES
+(1, 1),
+(2, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -107,13 +131,46 @@ CREATE TABLE IF NOT EXISTS `db_auth_rule` (
   `title` char(20) NOT NULL DEFAULT '',
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `condition` char(100) NOT NULL DEFAULT '',
-  `pid` smallint(6) DEFAULT NULL,
-  `level` tinyint(1) DEFAULT NULL,
-  `isnavshow` tinyint(1) DEFAULT NULL,
-  `sort` smallint(6) DEFAULT NULL,
+  `type` int(11) NOT NULL DEFAULT '1',
+  `description` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
+
+--
+-- Dumping data for table `db_auth_rule`
+--
+
+INSERT INTO `db_auth_rule` (`id`, `name`, `title`, `status`, `condition`, `type`, `description`) VALUES
+(1, 'Admin-Profile-index', 'Profile', 1, '', 1, 'admin-homepage'),
+(2, 'Admin-Customer-customerlist', 'customerlist', 1, '', 1, 'Customer'),
+(3, 'Admin-Customer-customeradd', 'customeradd', 1, '', 1, 'Customer'),
+(4, 'Admin-Customer-customerdetail', 'customerdetail', 1, '', 1, 'Customer'),
+(5, 'Admin-Customer-updateprofile', 'updateprofile', 1, '', 1, 'Customer'),
+(6, 'Admin-Customer-customernew', 'customernew', 1, '', 1, 'Customer'),
+(7, 'Admin-Order-orderlist', 'orderlist', 1, '', 1, 'Order'),
+(8, 'Admin-Order-orderdetail', 'orderdetail', 1, '', 1, 'Order'),
+(9, 'Admin-Order-orderdel', 'orderdel', 1, '', 1, 'Order'),
+(10, 'Admin-Order-delitem', 'delitem', 1, '', 1, 'Order'),
+(11, 'Admin-Order-orderaccept', 'orderaccept', 1, '', 1, 'Order'),
+(12, 'Admin-Order-orderrefund', 'orderrefund', 1, '', 1, 'Order'),
+(13, 'Admin-Order-ordercancle', 'ordercancle', 1, '', 1, 'Order'),
+(14, 'Admin-Order-itemedit', 'itemedit', 1, '', 1, 'Order'),
+(15, 'Admin-Order-itemadd', 'itemadd', 1, '', 1, 'Order'),
+(16, 'Admin-Transaction-translist', 'translist', 1, '', 1, 'Transaction'),
+(17, 'Admin-Transaction-transdetail', 'transdetail', 1, '', 1, 'Transaction'),
+(18, 'Admin-Transaction-transupdate', 'transupdate', 1, '', 1, 'Transaction'),
+(19, 'Admin-Transaction-transdel', 'transdel', 1, '', 1, 'Transaction'),
+(20, 'Admin-Domain-domainlist', 'domainlist', 1, '', 1, 'Domain'),
+(21, 'Admin-Domain-premiumlist', 'premiumlist', 1, '', 1, 'Domain'),
+(22, 'Admin-Domain-premiumadd', 'premiumadd', 1, '', 1, 'Domain'),
+(23, 'Admin-Domain-premiumdel', 'premiumdel', 1, '', 1, 'Domain'),
+(24, 'Admin-Domain-domaindetail', 'domaindetail', 1, '', 1, 'Domain'),
+(25, 'Admin-Domain-domainupdate', 'domainupdate', 1, '', 1, 'Domain'),
+(26, 'Admin-Domain-domainprofileupdate', 'domainprofileupdate', 1, '', 1, 'Domain'),
+(27, 'Admin-Domain-domaintools', 'domaintools', 1, '', 1, 'Domain'),
+(28, 'Admin-Domain-domainsendemail', 'domainsendemail', 1, '', 1, 'Domain'),
+(29, 'Admin-Domain-domainremove', 'domainremove', 1, '', 1, 'Domain');
 
 -- --------------------------------------------------------
 
@@ -230,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `db_item` (
   `price` decimal(10,2) NOT NULL,
   `years` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `db_item`
@@ -238,7 +295,8 @@ CREATE TABLE IF NOT EXISTS `db_item` (
 
 INSERT INTO `db_item` (`id`, `domainname`, `orderID`, `registrar`, `IDprotect`, `price`, `years`) VALUES
 (1, 'djdjdjaad3der.cc', 1488358652, 'ResellerClub', 'N', 10.00, 1),
-(2, 'adfdfdfdf.com', 1488358652, 'ResellerClub', 'N', 10.00, 2);
+(2, 'adfdfdfdf.com', 1488358652, 'ResellerClub', 'N', 10.00, 2),
+(3, 'kikdfejcjid.club', 1488358652, 'Namecheap', 'N', 10.00, 2);
 
 -- --------------------------------------------------------
 
@@ -359,7 +417,7 @@ CREATE TABLE IF NOT EXISTS `db_transaction` (
 --
 
 INSERT INTO `db_transaction` (`id`, `transactionID`, `clientname`, `orderID`, `invoiceID`, `description`, `paydate`, `paymethod`, `accountnumber`, `settleamount`) VALUES
-(1, 1488358753, 'jay yang', 1488358652, 14883586523, 'I use the Credit Card to pay for the order', '2017-03-01 16:57:32', 'Credit Card', '9638527418523695', 31.00);
+(1, 1488358753, 'jay yang', 1488358652, 14883586523, 'I use the Credit Card to pay for the order', '2017-03-01 16:57:32', 'Credit Card', '9638527418523695', 50.00);
 
 -- --------------------------------------------------------
 

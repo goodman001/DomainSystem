@@ -315,7 +315,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 <ul class="sub-menu">
                     <li class="active"><a href="<?php echo U('Configure/general_web');;?>">Web Setting</a></li>
                     <li><a href="<?php echo U('Configure/general_language');;?>">Language</a></li>
-                    <li><a href="#">Domains</a></li>
+                    <li><a href="<?php echo U('Configure/general_domain');;?>">Domains</a></li>
                     <li><a href="#">Mail</a></li>
                     <li><a href="#">Credit</a></li>
                 </ul>

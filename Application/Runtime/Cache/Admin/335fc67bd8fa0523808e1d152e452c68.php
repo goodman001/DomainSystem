@@ -24,7 +24,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <!--begin global -->
     <link href="/DomainSystem/Public/metronic/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="/DomainSystem/Public/metronic/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/DomainSystem/Public/metronic/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/DomainSystem/Public/metronic/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
     <link href="/DomainSystem/Public/metronic/media/css/style.css" rel="stylesheet" type="text/css"/>
     <link href="/DomainSystem/Public/metronic/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
@@ -613,12 +613,13 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                     </div>
                     <div class="span4">
                         <h5><strong>Refund :</strong><?php echo ($order["refund"]); ?></h5>
-                        <h5><strong>Invoice date :</strong><?php echo ($order["invoicedate"]); ?></h5>
+                        <h5><strong>Refund Amount:</strong><?php echo ($order["refundamount"]); ?></h5>
                         <?php if($order["status"] == 'pending'): ?><h5><strong>Due date :</strong>NULL</h5>
                         <?php else: ?>
                             <h5><strong>Due date :</strong><?php echo ($order["invoicedate"]); ?></h5><?php endif; ?>
                     </div>
                     <div class="span4">
+                        <h5><strong>Invoice date :</strong><?php echo ($order["invoicedate"]); ?></h5>
                         <h5><strong>Transaction ID :</strong><?php echo ($trans["transactionID"]); ?></h5>
                         <h5><strong>Amount :</strong><?php echo ($trans["settleamount"]); ?> HK$</h5>
                     </div>

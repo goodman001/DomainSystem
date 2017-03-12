@@ -708,20 +708,20 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div class="row-fluid">
     <div class="span12">
         <h3 class="page-title">
-            Customer Manager
-            <small> Customer Manager</small>
+            Administrators Manager
+            <small> Administrators Manager</small>
         </h3>
         <ul class="breadcrumb">
             <li>
-                <i class="icon-home"></i>
+                <i class="fa fa-home" aria-hidden="true"></i>
                 <a href="<?php echo U('Profile/index');;?>">Home</a>
-                <i class="icon-angle-right"></i>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
             <li>
-                <a href="#">Customer Manager</a>
-                <i class="icon-angle-right"></i>
+                <a href="#">Administrators Manager</a>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
-            <li><a href="<?php echo U('Customer/customerlist');;?>">Customers List</a></li>
+            <li><a href="<?php echo U('Configure/adminlist');;?>">Users Manager</a></li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -734,10 +734,14 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
        <thead>
         <tr>
             <th>Username</th>
-            <th>password</th>
-            <th>role</th>
-            <th>regtime</th>
-            <th>description</th>
+            <th>Password</th>
+            <th>Email</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Language</th>
+            <th>Role</th>
+            <th>Regtime</th>
+            <th>Description</th>
             <th></th>
         </tr>
        </thead>
@@ -745,7 +749,11 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         <?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
             <td><?php echo ($vo["username"]); ?></td>
             <td><?php echo ($vo["password"]); ?></td>
-            <td><?php echo ($vo["role"]); ?></td>
+            <td><?php echo ($vo["email"]); ?></td>
+            <td><?php echo ($vo["firstname"]); ?></td>
+            <td><?php echo ($vo["lastname"]); ?></td>
+            <td><?php echo ($vo["language"]); ?></td>
+            <td><?php echo ($vo["title"]); ?></td>
             <td><?php echo ($vo["regtime"]); ?></td>
             <td><?php echo ($vo["description"]); ?></td>
             <td>

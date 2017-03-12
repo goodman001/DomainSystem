@@ -314,8 +314,82 @@ class OrderController extends CommonController {
 		$M3->where($ct)->save($cc);
 		$this->success('Update the order successfully!',U('Order/orderdetail?orderid='.$orderid.''),1);
 	}
-	public function orderadd()
+	public function itemadd()
 	{
+		$orderid = I('get.orderid');
+		$data['domainname'] = I('post.domainname');
+		$data['orderID'] = $orderid;
+		/*get registar*/
+		$Mr = M('registrar');
+		$condition['status'] = 'Y';
+		$crs = $Mr->field('registrar')->where($condition)->select();
+		shuffle($crs);
+		//print_r($ct);
+		$registrar = $crs[0]['registrar'];
+		$data['registrar'] = $registrar;	
+		$data['price'] = I('post.price');
+		$data['years'] = I('post.years');
+		
+		/*check domain available*/
+		//check item
+		$Model =  M('item');
+		$ct['domainname'] = $data['domainname'];
+		$ct['orderID'] = $data['orderID'];
+		$itemnum = $Model->where($ct)->count();
+		
+	    $msg = getWhois($data['domainname']);
+        $flag =  $msg[1];
+		#print($flag);
+		$showflag = 0;
+		if($flag == "Y"){
+			$map["domainname"] = $data['domainname'];
+			$Md = M('domainmgr');
+			$content = $Md->field('domainname,nextduedate,status')->where($map)->find();
+			if(!empty($content))
+			{
+				$duedate = strtotime($content['nextduedate']);
+				$now = time();
+				if($content['status'] != 'suspend')
+				{
+					if($content['status'] != 'pending')
+					{
+						if($now > $duedate)// domain : pending(renew/wait to check) active suspend
+						{
+							$showflag = 1;
+						}
+					}
+
+				}
+
+			}else
+			{
+				$showflag = 1;
+			}
+		}
+		#print($showflag);
+		#print($itemnum);
+		if($showflag ==1 && $itemnum == 0)
+		{
+			
+			$Model->data($data)->add();
+			$ct1['orderID'] = $orderid;
+			$items = $Model->where($ct1)->select();
+			$sum = 0.0;
+			foreach($items as &$val)
+			{
+				$price = $val['price'];
+				$years = $val['years'];
+				$sum = $sum + $price * $years;
+
+			}
+			$cc['settleamount'] = $sum;
+			$M3 = M('transaction');
+			$M3->where($ct1)->save($cc);
+			$this->success('Add new item into the order successfully!',U('Order/orderdetail?orderid='.$orderid.''),1);
+		}else
+		{
+			$this->error('Add new item into the order failure!',U('Order/orderdetail?orderid='.$orderid.''),1);
+		}
 		
 	}
 	

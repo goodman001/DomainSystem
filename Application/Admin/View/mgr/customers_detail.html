@@ -567,7 +567,7 @@
                     <td>{$vo.phone}</td>
                     <td>{$vo.postcode}</td>
                     <td>
-                        <a class="btn yellow easy-pie-chart-reload" href="#">
+                        <a class="btn yellow easy-pie-chart-reload" href="{:U('Domain/domaindetail?domainid='.$vo['id'].'');}">
                             view detail
                         </a>
                     </td>
@@ -610,7 +610,7 @@
                     <td>{$vo.invoicedate}</td>
                     <td>{$vo.status}</td>
                     <td>
-                        <a class="btn yellow easy-pie-chart-reload" href="{:U('Order/customerorderdetail?id='.$vo['id'].'&cusid='.$cusid.'');}">
+                        <a class="btn yellow easy-pie-chart-reload" href="{:U('Order/orderdetail?orderid='.$vo['orderID'].'');}">
                             view detail		
                         </a>
                     </td>

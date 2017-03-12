@@ -47,9 +47,9 @@ class ConfigureController extends CommonController {
 	{
         $Model = M('admins');
 
-		$list = $Model->join('db_adminrole ON db_adminrole.id = db_admins.roleid')->order('regtime desc')->page(I('get.p').',42')->select();
-		//print_r($list);
-		$count = $Model->join('db_adminrole ON db_adminrole.id = db_admins.roleid')->count();// get count of records
+		$list = $Model->join('db_auth_group ON db_auth_group.id = db_admins.roleid')->order('regtime desc')->page(I('get.p').',42')->select();
+		print_r($list);
+		$count = $Model->join('db_auth_group ON db_auth_group.id = db_admins.roleid')->count();// get count of records
 		$Page = new \Think\Page($count,42);// page object
 		$Page->setConfig('prev','prev');
 		$Page->setConfig('next','next');
@@ -63,13 +63,21 @@ class ConfigureController extends CommonController {
 	}
 	public function admindetail()
 	{
-		$data['id'] = I('get.adminid');
+		$data['uid'] = I('get.adminid');
         $Model = M('admins');
 		$content = $Model->where($data)->find();
 		if(!empty($content))//exist email
 		{
-			$this->assign('admin',$content);//
-			$this->assign('adminid',$data['id']);//
+			$Mrole = M('auth_group');
+			$map['id'] = $content['roleid'];
+			$roleinfo = $Mrole->where($map)->find();
+			/*get role list*/
+			$rolelist = $Mrole->where('id>=2')->select();
+			
+			$this->assign('profiles',$content);
+			$this->assign('roleinfo',$roleinfo);//
+			$this->assign('rolelist',$rolelist);//
+			$this->assign('adminid',$data['uid']);//
 			$this->display(T('mgr/configure_admins_detail'));
             
 			
@@ -77,6 +85,30 @@ class ConfigureController extends CommonController {
         {
             R('Configure/adminlist');
         }
+	}
+	public function adminupdate()
+	{
+		$adminid = I('get.adminid');
+		/*roles assignment*/
+		$Maccess = M('auth_group_access');
+		$mac['uid'] = $adminid;
+		$mupdate['group_id'] = I('post.role');
+		$accessinfo = $Maccess->where($mac)->save($mupdate);
+		
+		
+		$data['username'] = I('post.username');
+		$data['firstname'] = I('post.firstname');
+		$data['lastname'] = I('post.lastname');
+		$data['email'] = I('post.email');
+		$data['password'] = I('post.password');
+		$data['language'] = I('post.language');
+		$data['roleid'] = $mupdate['group_id'];
+		$M3 = M('admins');
+		$map['uid'] = $adminid;
+		$M3->where($map)->save($data);
+		
+		$this->assign('adminid',$adminid);//
+		$this->success('Update administrator infomation successfully!',U('Configure/admindetail?adminid='.$adminid.''),1);
 	}
 	/*customer*/
 	public function customerorderdetail()

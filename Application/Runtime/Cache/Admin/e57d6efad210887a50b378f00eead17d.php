@@ -611,8 +611,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div class="row-fluid">
     <div class="span12">
         <h3 class="page-title">
-            Customer Manager
-            <small> Customer Manager</small>
+            Domain Manager
+            <small> Domain Manager</small>
         </h3>
         <ul class="breadcrumb">
             <li>

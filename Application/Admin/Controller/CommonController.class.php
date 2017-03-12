@@ -17,8 +17,8 @@ class CommonController extends Controller
 		}else if(!in_array(cookie('admin_uid'),explode(',',C('AUTH_SUPERADMIN'))))//whether is superadmin or not		
 		{
 			//import('ORG.Util.Auth');//加载类库
-			print(cookie('admin_uid'));
-			print(C('AUTH_SUPERADMIN'));
+			//print(cookie('admin_uid'));
+			//print(C('AUTH_SUPERADMIN'));
 			$auth =new Auth();
 			if(!$auth->check(strtolower(MODULE_NAME.'-'.CONTROLLER_NAME.'-'.ACTION_NAME),cookie('admin_uid')))
 			{

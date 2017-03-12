@@ -13,9 +13,12 @@ class ProfileController extends CommonController {
 		if(!empty($content) )//exist
 		{
 			$nowtime = date('Y-m-d H:i:s',time());
+			$Mrole = M('auth_group');
+			$map['id'] = $content['roleid'];
+			$roleinfo = $Mrole->where($map)->find();
 			$this->assign('username',$username);
-			$this->assign('role',$content['role']);
-			$this->assign('description',$content['description']);
+			$this->assign('role',$roleinfo['title']);
+			$this->assign('description',$roleinfo['description']);
 			$this->assign('nowtime',$nowtime);
 			$this->display(T('mgr/index'));	
 		}else

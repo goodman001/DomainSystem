@@ -713,15 +713,18 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         </h3>
         <ul class="breadcrumb">
             <li>
-                <i class="icon-home"></i>
+                <i class="fa fa-home" aria-hidden="true"></i>
                 <a href="<?php echo U('Profile/index');;?>">Home</a>
-                <i class="icon-angle-right"></i>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
             <li>
-                <a href="#">Customer Manager</a>
-                <i class="icon-angle-right"></i>
+                <a href="#">Administrators Manager</a>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
-            <li><a href="<?php echo U('Customer/customerlist');;?>">Customers List</a></li>
+            <li><a href="<?php echo U('Configure/adminlist');;?>">Users Manager</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+             <li>
+                <a href="<?php echo U('Configure/admindetail?adminid='.$adminid.'');;?>">Administrators Detail</a>
+            </li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -737,8 +740,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 
 		<li class="active"><a href="#tab_1_1" data-toggle="tab">Profile</a></li>
 		<li><a href="#tab_1_2" data-toggle="tab">Update</a></li>
-		<li><a href="#tab_1_3" data-toggle="tab">Change Password</a></li>
-		<li><a href="#tab_1_4" data-toggle="tab">Assign Role</a></li>
+        <li><a href="#tab_1_3" data-toggle="tab">Add new administrator</a></li>
 	</ul>
 	<div class="tab-content">
 
@@ -749,26 +751,11 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 				<li><span>UserName:</span> <strong> <?php echo ($profiles["username"]); ?></strong></li>
 				<li><span>First Name:</span><strong> <?php echo ($profiles["firstname"]); ?></strong></li>
 				<li><span>Last Name:</span><strong> <?php echo ($profiles["lastname"]); ?></strong></li>
-				<li><span>Company:</span><strong> <?php echo ($profiles["company"]); ?></strong></li>
-				<li><span>Job Title:</span><strong> <?php echo ($profiles["jobtitle"]); ?></strong></li>
 				<li><span>Email:</span><strong> <a href="<?php echo ($profiles["email"]); ?>"><?php echo ($profiles["email"]); ?></a></strong></li>
 				<li><span>Password:</span><strong> <?php echo ($profiles["password"]); ?></strong></li>
-				<li><span>Security Question:</span><strong> <?php echo ($profiles["question"]); ?></strong></li>
-				<li><span>Answer:</span><strong> <?php echo ($profiles["answer"]); ?></strong></li>
-				<li><span>Address1:</span><strong> <?php echo ($profiles["address1"]); ?></strong></li>
-				<li><span>Address2:</span><strong> <?php echo ($profiles["address2"]); ?></strong></li>
-				<li><span>City:</span><strong> <?php echo ($profiles["city"]); ?></strong></li>
-				<li><span>State:</span><strong> <?php echo ($profiles["state"]); ?></strong></li>
-				<li><span>PostCode:</span><strong> <?php echo ($profiles["postcode"]); ?></strong></li>
-				<li><span>Country:</span><strong> <?php echo ($profiles["country"]); ?></strong></li>
-				<li><span>Phone No.:</span><strong> <?php echo ($profiles["phone"]); ?></strong></li>
-				<li><span>Fax:</span><strong> <?php echo ($profiles["fax"]); ?></strong></li>
-				<li><span>Enable/Disable Overdue Notice:</span><strong> <?php echo ($profiles["overdue"]); ?></strong></li>
-				<li><span>Tax Exemption:</span><strong> <?php echo ($profiles["taxexemption"]); ?></strong></li>
-				<li><span>Currency:</span><strong> <?php echo ($profiles["currency"]); ?></strong></li>
-				<li><span>Balance:</span><strong> <?php echo ($profiles["balance"]); ?> HK$</strong></li>
-				<li><span>Register Time:</span><strong> <?php echo ($profiles["regtime"]); ?></strong></li>
-				<li><span>Account Status:</span><strong> <?php echo ($profiles["status"]); ?></strong></li>
+                <li><span>Language:</span><strong> <?php echo ($profiles["language"]); ?></strong></li>
+                <li><span>role:</span><strong> <?php echo ($roleinfo["title"]); ?></strong></li>
+                <li><span>Description:</span><strong> <?php echo ($roleinfo["description"]); ?></strong></li>
 			</ul>
 		</div>
 
@@ -776,76 +763,35 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 	<!--tab_1_2-->
 	<div class="tab-pane" id="tab_1_2">
 		<div style="height: auto;" id="accordion1-1" class="accordion collapse">
-			<form role="form" action="<?php echo U('Customer/updateprofile?id='.$cusid.'');;?>" method="post">  
+			<form role="form" action="<?php echo U('Configure/adminupdate?adminid='.$adminid.'');;?>" method="post">  
 				<label class="control-label">Username</label>
-				<input name="username" type="text" id="username" placeholder="user name" value="<?php echo ($profiles["username"]); ?>" class="m-wrap span8" readonly/>
+				<input name="username" type="text" id="username" placeholder="user name" value="<?php echo ($profiles["username"]); ?>" class="m-wrap span8" required/>
 				<label class="control-label">First Name</label>
 				<input name="firstname" type="text" id="firstname" placeholder="first name" value="<?php echo ($profiles["firstname"]); ?>" class="m-wrap span8" required/>
 				<label class="control-label">Last Name</label>
 				<input name="lastname" type="text" id="lastname" placeholder="last name" value="<?php echo ($profiles["lastname"]); ?>"   class="m-wrap span8" required />
-				<label class="control-label">Company</label>
-				<input name="company" type="text" id="company" placeholder="Company" value="<?php echo ($profiles["company"]); ?>" class="m-wrap span8" />
-
-				<label class="control-label">Job title</label>
-				<input type="text" name="jobtitle" type="text" id="jobtitle" placeholder="Job title" value="<?php echo ($profiles["jobtitle"]); ?>"  class="m-wrap span8" />
 				<label class="control-label">Email</label>
 				<input name="email" type="email" id="email" placeholder="Email" value="<?php echo ($profiles["email"]); ?>"  class="m-wrap span8" required/>
 				<label class="control-label">Password</label>
 				<input type="text" name="password" class="form-control"  placeholder="Password" value="<?php echo ($profiles["password"]); ?>" required>  
-				<label class="control-label">Security Question</label>
-				<select class="form-control" name="question" required>
-					<option value="Where is your birthplace?" >Where is your birthplace?</option> 
-					<option value="What is your favorite sport?">What is your favorite sport?</option>
-					<option value="Who is your first love?">Who is your first love?</option>
+                <label class="control-label">Language</label>
+                <select class="form-control" name="language" required>
+					<option value="EN" >EN</option> 
 				</select>
-				<label class="control-label">Answer</label>
-				<input name="answer" type="text" id="answer" placeholder="answer" value=""  class="m-wrap span8" required/>	
-				<label class="control-label">Address1</label>
-				<input name="address1" type="text" id="address1" placeholder="Address 1" value="<?php echo ($profiles["address1"]); ?>"  class="m-wrap span8" required/>	
-				<label class="control-label">Address2</label>
-				<input name="address2" type="text" id="address2" placeholder="Address 2" value="<?php echo ($profiles["address2"]); ?>"  class="m-wrap span8" required/>
-
-				<label class="control-label">City</label>
-				<input name="city" type="text" id="city" placeholder="City" value="<?php echo ($profiles["city"]); ?>"  class="m-wrap span8" required/>
-				<label class="control-label">State</label>
-				<input name="state" type="text" id="state" placeholder="state" value="<?php echo ($profiles["state"]); ?>"  class="m-wrap span8" required/>
-				<label class="control-label">Postcode</label>
-				<input type="number" value="<?php echo ($profiles["postcode"]); ?>" name="postcode" id="postcode" placeholder="Postcode"  class="m-wrap span8" required> 
-				<label class="control-label">Country</label>
-				<input name="country" type="text" id="country" placeholder="Country" value="<?php echo ($profiles["country"]); ?>"  class="m-wrap span8" required/> 
-				<label class="control-label">Phone</label>
-				<input type="tel" value="<?php echo ($profiles["phone"]); ?>" name="phone" id="phone" placeholder="Phone"  class="m-wrap span8" required> 
-				<label class="control-label">Fax</label>
-				<input type="tel" value="<?php echo ($profiles["fax"]); ?>" name="fax" id="fax" placeholder="Fax"  class="m-wrap span8" required> 
-				<label class="control-label">Overdue Notice</label>
-				<div class="controls">
-				<label class="radio">
-					<input type="radio" name="overdue" id="optionsRadios1" value="Enable" checked/>
-					Enable
-				</label>
-				<label class="radio">
-					<input type="radio" name="overdue" id="optionsRadios2" value="Disable" />
-					Disable
-				</label>    
-				</div>
-				<label class="control-label">Currency</label>
-				<select class="form-control" name="currency" required>
-					<option value="HKD">HKD</option>
-					<option value="USD" >USD</option> 
-					<option value="GBP">GBP</option>
-					<option value="CNY">CNY</option>
-				</select> 
-				<label class="control-label">Balance</label>
-				<input type="text" value="<?php echo ($profiles["balance"]); ?>" name="amount" id="amount" pattern="^[0-9]+([\.,]{0,1}[0-9]*)$" maxlength="15" minlength="1"   class="m-wrap span8" required>
-				<label class="control-label">Account Status</label>
-				<select class="form-control" name="status" required>
-					<option value="active">active</option>
-					<option value="pending" >pending</option> 
-					<option value="suspend">suspend</option>
+                <!--role -->
+                <label class="control-label">Role</label>
+                <?php if(($profiles["id"] == 1)): ?><select class="form-control" name="role" required>
+                    <option value="1" >Super administrator</option>
 				</select>
+                <?php else: ?>
+                    <select class="form-control" name="role" required>
+                        <?php if(is_array($rolelist)): foreach($rolelist as $key=>$vo): ?><option value="<?php echo ($vo["id"]); ?>" ><?php echo ($vo["title"]); ?></option><?php endforeach; endif; ?>
+                    </select><?php endif; ?>
+                
+                
 				<div class="submit-btn">
 					<button type="submit" class="btn green">Save Changes</button>
-					<a href="<?php echo U('Customer/customerdetail?id='.$cusid.'');;?>" class="btn">Cancel</a>
+					<a href="<?php echo U('Configure/admindetail?adminid='.$adminid.'');;?>" class="btn">Cancel</a>
 				</div>
 			</form>
 		</div>

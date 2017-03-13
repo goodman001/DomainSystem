@@ -43,12 +43,13 @@ class ConfigureController extends CommonController {
 		}
 		$this->display(T('mgr/configure_security'));
 	}
+	/*admin*/
 	public function adminlist()
 	{
         $Model = M('admins');
 
-		$list = $Model->join('db_auth_group ON db_auth_group.id = db_admins.roleid')->order('regtime desc')->page(I('get.p').',42')->select();
-		print_r($list);
+		$list = $Model->join('db_auth_group ON db_auth_group.id = db_admins.roleid')->order('regtime asc')->page(I('get.p').',42')->select();
+		//print_r($list);
 		$count = $Model->join('db_auth_group ON db_auth_group.id = db_admins.roleid')->count();// get count of records
 		$Page = new \Think\Page($count,42);// page object
 		$Page->setConfig('prev','prev');
@@ -59,6 +60,11 @@ class ConfigureController extends CommonController {
 		$show = $Page->show();// page output
 		$this->assign('page',$show);// 
 		$this->assign('list',$list);
+		/*role id list*/
+		$Mrole = M('auth_group');
+		$rolelist = $Mrole->where('id>=2')->select();
+		$this->assign('rolelist',$rolelist);//
+		
         $this->display(T('mgr/configure_admins_list'));
 	}
 	public function admindetail()
@@ -110,6 +116,95 @@ class ConfigureController extends CommonController {
 		$this->assign('adminid',$adminid);//
 		$this->success('Update administrator infomation successfully!',U('Configure/admindetail?adminid='.$adminid.''),1);
 	}
+	public function adminadd()
+	{
+		$roleid = I('post.role');
+		/* assignment*/
+		$Model = M('admins');
+		$data['username'] = I('post.username');
+		$data['firstname'] = I('post.firstname');
+		$data['lastname'] = I('post.lastname');
+		$data['email'] = I('post.email');
+		$data['password'] = I('post.password');
+		$data['language'] = I('post.language');
+		$data['roleid'] = $roleid;
+		$data['regtime'] = date('Y-m-d H:i:s',time());
+		
+		$ct['username'] = $data['username'];
+		$usermsg = $Model->where($ct)->find();
+		if(!empty($usermsg))
+		{
+			$this->error('The username already exists,add new administrator failed!',U('Configure/adminlist'),1);
+		}else
+		{
+			$Model->data($data)->add();
+			$map['username'] = $data['username'];
+			$userinfo = $Model->where($map)->find();
+			if(!empty($userinfo))
+			{
+				$adminid = $userinfo['uid'];
+				/*roles assignment*/
+				$Maccess = M('auth_group_access');
+				$mac['uid'] = $adminid;
+				$userinfo1 = $Maccess->where($mac)->find();
+				if(!empty($userinfo1))
+				{
+					$mupdate['group_id'] = $roleid;
+					$Maccess->where($mac)->save($mupdate);
+				}else
+				{
+					$mac['group_id'] = $roleid;
+					$Maccess->data($mac)->add();
+				}
+				$this->success('Add new administrator successfully!',U('Configure/adminlist'),1);		
+
+			}else
+			{
+				R('Configure/adminlist');
+			}
+		}
+		
+		
+	}
+	/*adminrole*/
+	public function adminrolelist()
+	{
+		$Mrole = M('auth_group');
+		$rolelist = $Mrole->where('id>=1')->select();
+		$Mrule = M('auth_rule');
+		$rulelist = $Mrule->select();
+		
+		$this->assign('list',$rolelist);//
+		$this->assign('ruleslist',$rulelist);//
+		$this->display(T('mgr/configure_admins_rolelist'));
+		
+	} 
+	public function adminroleadd()
+	{
+		/*Get rules list*/
+		$Mrule = M('auth_rule');
+		$rulelist = $Mrule->select();
+		$rulecontent = "";
+		foreach($rulelist as &$val)
+		{
+			if(!empty(I('post.rule'.$val['id'])))
+			{
+				$rulecontent = $rulecontent.I('post.rule'.$val['id']).',';
+				
+			}
+		}
+		//print($rulecontent);
+		/* Add group */
+		$Mgroup = M('auth_group');
+		$data['title'] = I('post.rolename');
+		$data['description'] = I('post.description');
+		$data['rules'] = $rulecontent;
+		$Mgroup->data($data)->add();
+		$this->success('Add new role successfully!',U('Configure/adminrolelist'),2);
+		//print($data['title']);
+	}
+	
+	
 	/*customer*/
 	public function customerorderdetail()
 	{

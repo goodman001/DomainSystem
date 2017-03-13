@@ -337,8 +337,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 </a>
                 <ul class="sub-menu">
                     <li><a href="<?php echo U('Configure/adminlist');;?>">Users manager</a></li>
-                    <li><a href="#">Add Roles</a></li>
-                    <li><a href="#">Support Operator</a></li>
+                    <li><a href="<?php echo U('Configure/adminrolelist');;?>">Roles Manager</a></li>
+                    <li><a href="<?php echo U('Configure/adminsupport');;?>">Support Operator</a></li>
                     <li><a href="#">Template Edit</a></li>
                 </ul>
             </li>

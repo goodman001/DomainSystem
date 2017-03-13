@@ -337,7 +337,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 </a>
                 <ul class="sub-menu">
                     <li class="active"><a href="<?php echo U('Configure/adminlist');;?>">Users manager</a></li>
-                    <li><a href="#">Add Roles</a></li>
+                    <li><a href="#">Roles Manager</a></li>
                     <li><a href="#">Support Operator</a></li>
                     <li><a href="#">Template Edit</a></li>
                 </ul>
@@ -730,41 +730,95 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN PAGE CONTENT-->
 <div class="row-fluid">
     <div class="span12">
-    <table class="table table-striped table-hover">
-       <thead>
-        <tr>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Email</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Language</th>
-            <th>Role</th>
-            <th>Regtime</th>
-            <th>Description</th>
-            <th></th>
-        </tr>
-       </thead>
-       <tbody>
-        <?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
-            <td><?php echo ($vo["username"]); ?></td>
-            <td><?php echo ($vo["password"]); ?></td>
-            <td><?php echo ($vo["email"]); ?></td>
-            <td><?php echo ($vo["firstname"]); ?></td>
-            <td><?php echo ($vo["lastname"]); ?></td>
-            <td><?php echo ($vo["language"]); ?></td>
-            <td><?php echo ($vo["title"]); ?></td>
-            <td><?php echo ($vo["regtime"]); ?></td>
-            <td><?php echo ($vo["description"]); ?></td>
-            <td>
-                <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Configure/admindetail?adminid='.$vo['id'].'');;?>">
-                    view detail		
-                </a>
-            </td>
-          </tr><?php endforeach; endif; ?>
-       </tbody>
-    </table>
-    <span><div class="page"><?php echo ($page); ?></div></span>
+        <!-- start tab -->
+        <div class="tabbable tabbable-custom tabbable-full-width">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab_1_1" data-toggle="tab">User list</a></li>
+                <li><a href="#tab_1_2" data-toggle="tab">Add new administrator</a></li>
+            </ul>
+            <div class="tab-content">
+                <!-- tab_1_1-->
+                <div class="tab-pane row-fluid active" id="tab_1_1">
+                    <div class="span12"> 
+                        <table class="table table-striped table-hover">
+                           <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Regtime</th>
+                                <th>Description</th>
+                                <th></th>
+                            </tr>
+                           </thead>
+                           <tbody>
+                            <?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
+                                <td><?php echo ($vo["username"]); ?></td>
+                                <td><?php echo ($vo["password"]); ?></td>
+                                <td><?php echo ($vo["email"]); ?></td>
+                                <td><?php echo ($vo["title"]); ?></td>
+                                <td><?php echo ($vo["regtime"]); ?></td>
+                                <td><?php echo ($vo["description"]); ?></td>
+                                <td>
+                                    <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Configure/admindetail?adminid='.$vo['uid'].'');;?>">
+                                        view detail		
+                                    </a>
+                                </td>
+                              </tr><?php endforeach; endif; ?>
+                           </tbody>
+                        </table>
+                        <span><div class="page"><?php echo ($page); ?></div></span>
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+                <!-- tab_1_1 end -->
+                <!-- tab_1-2 -->
+                <div class="tab-pane row-fluid" id="tab_1_2">
+                    <div class="span12"> 
+                        <form role="form" action="<?php echo U('Configure/adminadd');;?>" method="post">  
+                            <label class="control-label">Username</label>
+                            <input name="username" type="text" id="username" placeholder="user name" value="" class="m-wrap span8" required/>
+                            <label class="control-label">First Name</label>
+                            <input name="firstname" type="text" id="firstname" placeholder="first name" value="" class="m-wrap span8" required/>
+                            <label class="control-label">Last Name</label>
+                            <input name="lastname" type="text" id="lastname" placeholder="last name" value=""   class="m-wrap span8" required />
+                            <label class="control-label">Email</label>
+                            <input name="email" type="email" id="email" placeholder="Email" value=""  class="m-wrap span8" required/>
+                            <label class="control-label">Password</label>
+                            <input type="password" name="password" class="form-control"  placeholder="Password" value="" required>  
+                            <label class="control-label">Language</label>
+                            <select class="form-control" name="language" required>
+                                <option value="EN" >EN</option> 
+                            </select>
+                            <!--role -->
+                            <label class="control-label">Role</label>
+                            <select class="form-control" name="role" required>
+                                <?php if(is_array($rolelist)): foreach($rolelist as $key=>$vo): ?><option value="<?php echo ($vo["id"]); ?>" ><?php echo ($vo["title"]); ?></option><?php endforeach; endif; ?>
+                            </select>
+                            <div class="submit-btn">
+                                <button type="submit" class="btn green">Save Changes</button>
+                                <a href="<?php echo U('Configure/admindetail?adminid='.$adminid.'');;?>" class="btn">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--tab 1_2 end -->
+            </div>
+            
+            
+            
+            
+        </div>
+        <!-- end tab -->
+        
+        
+        
+    
     </div>
 </div>
 <!-- END PAGE CONTENT-->

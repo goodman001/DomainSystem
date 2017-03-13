@@ -7,7 +7,7 @@ class ProfileController extends CommonController {
 		$uid = cookie('admin_uid');
 		$username = cookie('admin_username');
 		
-		$data['id'] = $uid;
+		$data['uid'] = $uid;
 		$Model = M('admins');
 		$content = $Model->where($data)->find();
 		if(!empty($content) )//exist

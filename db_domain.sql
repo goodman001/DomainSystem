@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 12, 2017 at 09:18 AM
+-- Generation Time: Mar 13, 2017 at 09:24 AM
 -- Server version: 5.5.53-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.20
 
@@ -19,27 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_domain`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `db_adminrole`
---
-
-CREATE TABLE IF NOT EXISTS `db_adminrole` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `role` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `db_adminrole`
---
-
-INSERT INTO `db_adminrole` (`id`, `role`, `description`) VALUES
-(1, 'super', 'Have all site management permissions'),
-(2, 'SalesOne', 'Enable Client information ');
 
 -- --------------------------------------------------------
 
@@ -222,7 +201,7 @@ CREATE TABLE IF NOT EXISTS `db_configure` (
 --
 
 INSERT INTO `db_configure` (`id`, `domainprice`, `securitytimes`) VALUES
-(1, 10.00, 12);
+(1, 10.10, 12);
 
 -- --------------------------------------------------------
 
@@ -364,9 +343,10 @@ INSERT INTO `db_paymethod` (`id`, `method`, `useable`) VALUES
 CREATE TABLE IF NOT EXISTS `db_premiumdomain` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `domainname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `price` decimal(10,2) NOT NULL DEFAULT '0.00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `domainname` (`domainname`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 

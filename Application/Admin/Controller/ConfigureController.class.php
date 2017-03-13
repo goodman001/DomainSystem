@@ -80,10 +80,17 @@ class ConfigureController extends CommonController {
 			/*get role list*/
 			$rolelist = $Mrole->where('id>=2')->select();
 			
+			/*group infomation*/
+			$Maccess = M('auth_group_access');
+			$ct['uid'] = $data['uid'];
+			$groupinfo = $Maccess->where($ct)->find();
+			
+			
 			$this->assign('profiles',$content);
 			$this->assign('roleinfo',$roleinfo);//
 			$this->assign('rolelist',$rolelist);//
-			$this->assign('adminid',$data['uid']);//
+			$this->assign('rolelist',$rolelist);//
+			$this->assign('groupid',$groupinfo['group_id']);//
 			$this->display(T('mgr/configure_admins_detail'));
             
 			
@@ -91,6 +98,25 @@ class ConfigureController extends CommonController {
         {
             R('Configure/adminlist');
         }
+	}
+	public function admindelete()
+	{
+		$adminid = I('get.adminid');
+		/* auth_group_access*/
+		$Maccess = M('auth_group_access');
+		$ct['uid'] = $adminid;
+		$info = $Maccess->where($ct)->find();
+		if(!empty($info) && $info['group_id'] == 1) //super administrator do not delete
+		{
+			$this->error('Do not delete the super administrators!',U('Configure/adminlist'),1);
+		}else{
+			$Maccess->where($ct)->delete();//del user 
+			/* admins */
+			$Model = M('admins');
+			$map['uid'] = $adminid;
+			$Model->where($map)->delete();//del user 
+			$this->success('Delete the administrator successfully!',U('Configure/adminlist'),1);
+		}
 	}
 	public function adminupdate()
 	{
@@ -204,6 +230,82 @@ class ConfigureController extends CommonController {
 		//print($data['title']);
 	}
 	
+	/*domain price*/
+	public function pricesetting()
+	{
+		$M = M('configure');
+		$info = $M->where('id = 1')->find();
+		$this->assign('domainprice',$info['domainprice']);//
+		$this->display(T('mgr/configure_domainprice_setting'));
+	}
+	public function priceupdate()
+	{
+		$data['domainprice'] = I('post.domainprice');
+		$M = M('configure');
+		$M->where('id = 1')->save($data);
+		$this->success('Modify the price successfully!',U('Configure/pricesetting'),2);
+	}
+	public function pricetools()
+	{
+		$this->display(T('mgr/configure_domainprice_tools'));
+	}
+	
+	
+	public function premiumlist()
+	{
+		$search =I('post.search');
+        $Model = M('premiumdomain');
+        if(!empty($search))
+        {
+            $condition['domainname'] = array('like','%'.$search.'%');
+            $list = $Model->where($condition)->order('id desc')->page(I('get.p').',42')->select();
+		    $count = $Model->where($condition)->count();// get count of records
+        }else
+        {
+            $list = $Model->where("id>=0")->order('id desc')->page(I('get.p').',42')->select();
+		    $count = $Model->where("id>=0")->count();// get count of records
+        }
+        
+		
+		//print_r($list);
+		/**
+		* pages
+		**/
+		
+		$Page = new \Think\Page($count,42);// page object
+		$Page->setConfig('prev','prev');
+		$Page->setConfig('next','next');
+		$Page->setConfig('first','first page');
+		$Page->setConfig('last','last page');
+		$Page->setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% %HEADER% ');
+		$show = $Page->show();// page output
+		$this->assign('page',$show);// 
+		$this->assign('list',$list);
+        $this->display(T('mgr/configure_domainprice_premium'));
+		
+	}
+	public function premiumadd()
+	{
+		$where['domainname'] =I('post.domainname');
+		$Model = M('premiumdomain');
+		$count = $Model->where($where)->count();
+		if($count > 0 )
+		{
+			$this->error('The domain has already existed!',U('Configure/premiumlist'),2);
+		}else
+		{
+			$where['price'] = I('post.price');
+			$Model->data($where)->add();
+			$this->success('The domain has already add successfully!',U('Configure/premiumlist'),2);
+		}
+	}
+	public function premiumdel()
+	{
+		$where['id'] =I('get.domainid');
+		$Model = M('premiumdomain');
+		$Model->where($where)->delete();
+		$this->success('The domain has already delete successfully!',U('Configure/premiumlist'),2);
+	}
 	
 	/*customer*/
 	public function customerorderdetail()

@@ -337,7 +337,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 </a>
                 <ul class="sub-menu">
                     <li class="active"><a href="<?php echo U('Configure/adminlist');;?>">Users manager</a></li>
-                    <li><a href="#">Add Roles</a></li>
+                    <li><a href="#">Roles Manager</a></li>
                     <li><a href="#">Support Operator</a></li>
                     <li><a href="#">Template Edit</a></li>
                 </ul>
@@ -779,9 +779,9 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 				</select>
                 <!--role -->
                 <label class="control-label">Role</label>
-                <?php if(($profiles["uid"] == 1)): ?><select class="form-control" name="role" required>
-                    <option value="1" >Super administrator</option>
-				</select>
+                <?php if(($groupid == 1)): ?><select class="form-control" name="role" required>
+                        <option value="1" >Super administrator</option>
+				    </select>
                 <?php else: ?>
                     <select class="form-control" name="role" required>
                         <?php if(is_array($rolelist)): foreach($rolelist as $key=>$vo): ?><option value="<?php echo ($vo["id"]); ?>" ><?php echo ($vo["title"]); ?></option><?php endforeach; endif; ?>

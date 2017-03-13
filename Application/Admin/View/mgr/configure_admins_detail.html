@@ -610,10 +610,10 @@
 				</select>
                 <!--role -->
                 <label class="control-label">Role</label>
-                <if condition="($profiles.uid eq 1)">
+                <if condition="($groupid eq 1)">
                     <select class="form-control" name="role" required>
-                    <option value="1" >Super administrator</option>
-				</select>
+                        <option value="1" >Super administrator</option>
+				    </select>
                 <else />
                     <select class="form-control" name="role" required>
                         <foreach name="rolelist" item="vo">

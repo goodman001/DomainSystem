@@ -41,60 +41,8 @@ class DomainController extends CommonController {
 		
 	}
 	
-	public function premiumlist()
-	{
-		$search =I('post.search');
-        $Model = M('premiumdomain');
-        if(!empty($search))
-        {
-            $condition['domainname'] = array('like','%'.$search.'%');
-            $list = $Model->where($condition)->order('id desc')->page(I('get.p').',42')->select();
-		    $count = $Model->where($condition)->count();// get count of records
-        }else
-        {
-            $list = $Model->where("id>=0")->order('id desc')->page(I('get.p').',42')->select();
-		    $count = $Model->where("id>=0")->count();// get count of records
-        }
-        
-		
-		//print_r($list);
-		/**
-		* pages
-		**/
-		
-		$Page = new \Think\Page($count,42);// page object
-		$Page->setConfig('prev','prev');
-		$Page->setConfig('next','next');
-		$Page->setConfig('first','first page');
-		$Page->setConfig('last','last page');
-		$Page->setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% %HEADER% ');
-		$show = $Page->show();// page output
-		$this->assign('page',$show);// 
-		$this->assign('list',$list);
-        $this->display(T('mgr/domains_premium'));
-		
-	}
-	public function premiumadd()
-	{
-		$where['domainname'] =I('post.domainname');
-		$Model = M('premiumdomain');
-		$count = $Model->where($where)->count();
-		if($count > 0 )
-		{
-			$this->error('The domain has already existed!',U('Domain/premiumlist'),2);
-		}else
-		{
-			$Model->data($where)->add();
-			$this->success('The domain has already add successfully!',U('Domain/premiumlist'),2);
-		}
-	}
-	public function premiumdel()
-	{
-		$where['id'] =I('get.domainid');
-		$Model = M('premiumdomain');
-		$Model->where($where)->delete();
-		$this->success('The domain has already delete successfully!',U('Domain/premiumlist'),2);
-	}
+	
+	
 	public function domaindetail()
 	{
 		$domainid = I('get.domainid');

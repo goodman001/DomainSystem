@@ -337,9 +337,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 </a>
                 <ul class="sub-menu">
                     <li><a href="<?php echo U('Configure/adminlist');;?>">Users manager</a></li>
-                    <li class="active"><a href="#">Roles Manager</a></li>
-                    <li><a href="#">Support Operator</a></li>
-                    <li><a href="#">Template Edit</a></li>
+                    <li class="active"><a href="<?php echo U('Configure/adminrolelist');;?>">Roles Manager</a></li>
                 </ul>
             </li>
             <li>
@@ -734,7 +732,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         <div class="tabbable tabbable-custom tabbable-full-width">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#tab_1_1" data-toggle="tab">Role list</a></li>
-                <li><a href="#tab_1_2" data-toggle="tab">Add new role</a></li>
+                <li><a href="#tab_1_2" data-toggle="tab">Add new Role</a></li>
             </ul>
             <div class="tab-content">
                 <!-- tab_1_1-->
@@ -743,8 +741,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                         <table class="table table-striped table-hover">
                            <thead>
                             <tr>
-								<th>RoleID</th>
-                                <th>RoleName</th>
+                                <th>Role ID</th>
+                                <th>Role Name</th>
                                 <th>Description</th>
                             </tr>
                            </thead>
@@ -755,30 +753,29 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                                 <td><?php echo ($vo["description"]); ?></td>
                               </tr><?php endforeach; endif; ?>
                            </tbody>
-                        </table>                       
+                        </table>                      
                     </div>
                 </div>
                 <!-- tab_1_1 end -->
                 <!-- tab_1-2 -->
                 <div class="tab-pane row-fluid" id="tab_1_2">
-                    <div class="span8"> 
+                    <div class="span12"> 
                         <form role="form" action="<?php echo U('Configure/adminroleadd');;?>" method="post">  
-							<div class="span12">
+                            <div class="span12"> 
 								<label class="control-label">RoleName</label>
-								<input name="rolename" type="text" placeholder="Role name" value="" class="m-wrap span6" required/>
-								<label class="control-label">Descritpion</label>
-								<input name="description" type="text" placeholder="description" value="" class="m-wrap span6" required/>
-								<!--role -->
-								<label class="control-label"> Permissions </label>
+                            	<input name="rolename" type="text" placeholder="Role name" value="" class="m-wrap span8" required/>
+                            	<label class="control-label">Description</label>
+                            	<input name="description" type="text" placeholder="Description" value="" class="m-wrap span8" required/>
+								<label class="control-label">Rules</label>
 							</div>
 							<div class="span12">
 								<label class="control-label"></label>
-								<?php if(is_array($ruleslist)): foreach($ruleslist as $key=>$vo): ?><div class="span4"><input type="checkbox" name="rule<?php echo ($vo["id"]); ?>" value="<?php echo ($vo["id"]); ?>"><?php echo ($vo["title"]); ?></div><?php endforeach; endif; ?>
+								<?php if(is_array($ruleslist)): foreach($ruleslist as $key=>$vo): ?><div class="span3"><input type="checkbox" name="rule<?php echo ($vo["id"]); ?>" value="<?php echo ($vo["id"]); ?>"><?php echo ($vo["title"]); ?></div><?php endforeach; endif; ?>	
 							</div>
 							<div class="span12">
 								<div class="submit-btn">
 									<button type="submit" class="btn green">Save Changes</button>
-									<a href="<?php echo U('Configure/adminrolelist');;?>" class="btn">Cancel</a>
+									<a href="<?php echo U('Configure/adminlist');;?>" class="btn">Cancel</a>
 								</div>
 							</div>
                         </form>

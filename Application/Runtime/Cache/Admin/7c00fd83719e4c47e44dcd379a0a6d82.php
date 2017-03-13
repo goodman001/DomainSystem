@@ -337,9 +337,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 </a>
                 <ul class="sub-menu">
                     <li class="active"><a href="<?php echo U('Configure/adminlist');;?>">Users manager</a></li>
-                    <li><a href="#">Roles Manager</a></li>
-                    <li><a href="#">Support Operator</a></li>
-                    <li><a href="#">Template Edit</a></li>
+                    <li><a href="<?php echo U('Configure/adminrolelist');;?>">Roles Manager</a></li>
                 </ul>
             </li>
             <li>
@@ -763,6 +761,9 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                                 <td>
                                     <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Configure/admindetail?adminid='.$vo['uid'].'');;?>">
                                         view detail		
+                                    </a>
+                                    <a class="btn red easy-pie-chart-reload" href="<?php echo U('Configure/admindelete?adminid='.$vo['uid'].'');;?>">
+                                        Delete	
                                     </a>
                                 </td>
                               </tr><?php endforeach; endif; ?>

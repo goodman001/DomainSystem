@@ -337,7 +337,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                     <li><a href="#">Template Edit</a></li>
                 </ul>
             </li>
-            <li class="active">
+            <li >
                 <a href="javascript:;">
                     Domain Price
                     <span class="arrow"></span>
@@ -345,21 +345,21 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 <ul class="sub-menu">
                     <li><a href="<?php echo U('Configure/pricesetting');;?>">Price setting</a></li>
                     <li><a href="<?php echo U('Configure/pricetools');;?>">Tools Manager</a></li>
-                    <li class="active"><a href="<?php echo U('Configure/premiumlist');;?>">Premium Manager</a></li>
+                    <li><a href="<?php echo U('Configure/premiumlist');;?>">Premium Manager</a></li>
                 </ul>
             </li>
-            <li>
-				<a href="<?php echo U('Configure/paymentlist');;?>">
-					<span class="title">Payment</span>
-					<span class="arrow"></span>
-				</a>
-			</li>
-			<li>
-				<a href="<?php echo U('Configure/currencies');;?>">
-					<span class="title">Currencies</span>
-					<span class="arrow"></span>
-				</a>
-			</li>
+			<li class='active'>
+                <a href="javascript:;">
+                    Payment
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class='active'><a href="<?php echo U('Configure/paymentlist');;?>">Payment method</a></li>
+                    <li><a href="<?php echo U('Configure/currencies');;?>">Currencies</a></li>
+                    <li><a href="<?php echo U('Configure/taxrules');;?>">Tax Rules</a></li>
+                    <li><a href="<?php echo U('Configure/promotion');;?>">Promotion</a></li>
+                </ul>
+            </li>
         </ul>
     </li>
     <li class="">
@@ -728,10 +728,10 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 <a href="#">Configuration</a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
-            <li><a href="#">Domain Price</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-             <li>
-                <a href="<?php echo U('Configure/premiumlist');;?>">Premium manager</a>
+            <li>
+                <a href="<?php echo U('Configure/paymentlist');;?>">Payment</a>
             </li>
+             
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -740,89 +740,26 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN PAGE CONTENT-->
 <div class="row-fluid">
     <div class="span12">
-        <form role="form" action="<?php echo U('Configure/premiumlist');;?>" method="post" class="form-search">
-            <div class="control">
-                <input name = 'search' class="m-wrap" type="text" required><button type="submit" class="btn green" type="button">Search!</button>
-            </div>
-        </form>
-    </div>
-</div>
-<div class="row-fluid">
-    <div class="span12">
-
-		<!--BEGIN TABS-->
-<div class="tabbable tabbable-custom tabbable-full-width">
-<ul class="nav nav-tabs">
-    
-    <li class="active"><a href="#tab_1_1" data-toggle="tab">Premium Domain</a></li>
-	<li><a href="#tab_1_2" data-toggle="tab">Add premium</a></li>
-</ul>
-<div class="tab-content">
-
-<!--end tab-pane-->
-<div class="tab-pane row-fluid active" id="tab_1_1">
-    <div class="span12">
     <table class="table table-striped table-hover">
 	   <thead>
 		<tr>
 			<th>ID</th>
-			<th>Domain Name</th>
-            <th>Price</th>
+			<th>Payment method</th>
+            <th>status</th>
 			<th></th>
 		</tr>
 	   </thead>
 	   <tbody>
 		<?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
 			<td><?php echo ($vo["id"]); ?></td>
-			<td><?php echo ($vo["domainname"]); ?></td>
-            <td><?php echo ($vo["price"]); ?></td>
+			<td><?php echo ($vo["method"]); ?></td>
+            <td><?php echo ($vo["useable"]); ?></td>
 			<td>
-				<a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Configure/premiumdel?domainid='.$vo['id'].'');;?>">
-					Delete
-				</a>
 			</td>
 		  </tr><?php endforeach; endif; ?>
 	   </tbody>
 	</table>
 	<span><div class="page"><?php echo ($page); ?></div></span>
-    </div>
-    
-</div>
-<!--tab_1_2-->
-<div class="tab-pane" id="tab_1_2">
-	<div style="height: auto;" id="accordion1-1" class="accordion collapse">
-        <div class="span12">
-            <h4><i class="fa fa-cog" aria-hidden="true"></i> Add Preminum Domain</h4>
-            <div class="span4">
-                <form role="form" action="<?php echo U('Configure/premiumadd');;?>" method="post">  
-                    <label class="control-label">Domain name</label>
-                    <input name="domainname" type="text" id="domainname" placeholder="domainname" value="" class="m-wrap span8" required/>
-                    <label class="control-label">Domain price</label>
-                    <input name="price" type="text" placeholder="domain price" pattern="^[0-9]+([\.,]{0,1}[0-9]*)$" maxlength="15" minlength="1" value="0.0" class="m-wrap span8" required/>
-                    <div class="submit-btn">
-                        <button type="submit" class="btn green">Save Changes</button>
-                    </div>
-                </form>
-            </div>
-        </div>       
-    </div>
-</div>
-<!-- tab_1_3 -->
-
-
-<!-- tab_1_3 -->
-<!--end tab-pane-->
-<!--end tab-pane-->
-
-<!--end tab-pane-->
-</div>
-</div>
-<!--END TABS-->
-		
-		
-		
-		
-		
     </div>
 </div>
 <!-- END PAGE CONTENT-->

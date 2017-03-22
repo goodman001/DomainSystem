@@ -337,7 +337,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                     <li><a href="#">Template Edit</a></li>
                 </ul>
             </li>
-            <li class="active">
+            <li>
                 <a href="javascript:;">
                     Domain Price
                     <span class="arrow"></span>
@@ -345,21 +345,21 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 <ul class="sub-menu">
                     <li><a href="<?php echo U('Configure/pricesetting');;?>">Price setting</a></li>
                     <li><a href="<?php echo U('Configure/pricetools');;?>">Tools Manager</a></li>
-                    <li class="active"><a href="<?php echo U('Configure/premiumlist');;?>">Premium Manager</a></li>
+                    <li><a href="<?php echo U('Configure/premiumlist');;?>">Premium Manager</a></li>
                 </ul>
             </li>
-            <li>
-				<a href="<?php echo U('Configure/paymentlist');;?>">
-					<span class="title">Payment</span>
-					<span class="arrow"></span>
-				</a>
-			</li>
-			<li>
-				<a href="<?php echo U('Configure/currencies');;?>">
-					<span class="title">Currencies</span>
-					<span class="arrow"></span>
-				</a>
-			</li>
+			<li class='active'>
+                <a href="javascript:;">
+                    Payment
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="<?php echo U('Configure/paymentlist');;?>">Payment method</a></li>
+                    <li><a href="<?php echo U('Configure/currencies');;?>">Currencies</a></li>
+                    <li><a href="<?php echo U('Configure/taxrules');;?>">Tax Rules</a></li>
+                    <li class='active'><a href="<?php echo U('Configure/promotion');;?>">Promotion</a></li>
+                </ul>
+            </li>
         </ul>
     </li>
     <li class="">
@@ -728,10 +728,9 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 <a href="#">Configuration</a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
-            <li><a href="#">Domain Price</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-             <li>
-                <a href="<?php echo U('Configure/premiumlist');;?>">Premium manager</a>
-            </li>
+			<li>
+				<a href="<?php echo U('Configure/promotion');;?>">Promotion</a>
+			</li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -740,22 +739,12 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN PAGE CONTENT-->
 <div class="row-fluid">
     <div class="span12">
-        <form role="form" action="<?php echo U('Configure/premiumlist');;?>" method="post" class="form-search">
-            <div class="control">
-                <input name = 'search' class="m-wrap" type="text" required><button type="submit" class="btn green" type="button">Search!</button>
-            </div>
-        </form>
-    </div>
-</div>
-<div class="row-fluid">
-    <div class="span12">
 
 		<!--BEGIN TABS-->
 <div class="tabbable tabbable-custom tabbable-full-width">
 <ul class="nav nav-tabs">
-    
-    <li class="active"><a href="#tab_1_1" data-toggle="tab">Premium Domain</a></li>
-	<li><a href="#tab_1_2" data-toggle="tab">Add premium</a></li>
+	<li class="active"><a href="#tab_1_1" data-toggle="tab">List all promotion</a></li>
+	<li><a href="#tab_1_2" data-toggle="tab">Add new promotion</a></li>
 </ul>
 <div class="tab-content">
 
@@ -766,25 +755,32 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 	   <thead>
 		<tr>
 			<th>ID</th>
-			<th>Domain Name</th>
-            <th>Price</th>
-			<th></th>
+			<th>Promotion Code</th>
+            <th>Type</th>
+			<th>Value</th>
+			<th>Start Date</th>
+			<th>Expiry Date</th>
 		</tr>
 	   </thead>
 	   <tbody>
-		<?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
-			<td><?php echo ($vo["id"]); ?></td>
-			<td><?php echo ($vo["domainname"]); ?></td>
-            <td><?php echo ($vo["price"]); ?></td>
-			<td>
-				<a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Configure/premiumdel?domainid='.$vo['id'].'');;?>">
-					Delete
-				</a>
-			</td>
-		  </tr><?php endforeach; endif; ?>
+		  <tr>
+			<td>1</td>
+			<td>10001</td>
+            <td>Percentage</td>
+			<td>10</td>
+			<td>2016/10/11</td>
+			<td>2017/10/11</td>
+		  </tr>
+		  <tr>
+			<td>1</td>
+			<td>10002</td>
+            <td>Free Setup</td>
+			<td>9</td>
+			<td>2016/12/12</td>
+			<td>2017/12/12</td>
+		  </tr>
 	   </tbody>
 	</table>
-	<span><div class="page"><?php echo ($page); ?></div></span>
     </div>
     
 </div>
@@ -792,13 +788,43 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div class="tab-pane" id="tab_1_2">
 	<div style="height: auto;" id="accordion1-1" class="accordion collapse">
         <div class="span12">
-            <h4><i class="fa fa-cog" aria-hidden="true"></i> Add Preminum Domain</h4>
+            <h4><i class="fa fa-cog" aria-hidden="true"></i> Add new Pomotion</h4>
             <div class="span4">
-                <form role="form" action="<?php echo U('Configure/premiumadd');;?>" method="post">  
-                    <label class="control-label">Domain name</label>
-                    <input name="domainname" type="text" id="domainname" placeholder="domainname" value="" class="m-wrap span8" required/>
-                    <label class="control-label">Domain price</label>
-                    <input name="price" type="text" placeholder="domain price" pattern="^[0-9]+([\.,]{0,1}[0-9]*)$" maxlength="15" minlength="1" value="0.0" class="m-wrap span8" required/>
+                <form role="form" action="" method="post">  
+					<label class="control-label">Promotion code</label>
+                    <input name="promotionCode" type="text" placeholder="Promotion code" value="" class="m-wrap span8" required/>
+					<label class="control-label">Type</label>
+					<select class="form-control" name="type" required>
+						<option value="1">Percentage</option>
+						<option value="2" >Fixed Account</option> 
+						<option value="3" >Free Setup</option> 
+					</select>  
+					<label class="control-label">Value</label>
+                    <input name="value" type="text" placeholder="value" value="" class="m-wrap span8" required/>
+                    <label class="control-label">Appley to the service</label>
+					<select class="form-control" name="level" required>
+						<option value="1">Domain Registration</option>
+						<option value="2" >Domain Renewal</option> 
+						<option value="2" >Domain Transfer</option> 
+					</select>  
+					<label class="control-label">Require to domain (TLDs)</label>
+                    <input name="name" type="text" placeholder="Require to domain (TLDs)" value="" class="m-wrap span8" required/>
+					<label class="control-label">Years</label>
+                    <input name="name" type="text" placeholder="Years 1-10" value="" class="m-wrap span8" required/>
+					
+					<label class="control-label">Apply Once per client</label>
+					<a href="" class="btn red mini active">Enable</a>
+					<a href="" class="btn red mini">Disable</a>
+					<label class="control-label">New Client</label>
+					<a href="" class="btn red mini active">Enable</a>
+					<a href="" class="btn red mini">Disable</a>
+					
+					<label class="control-label">Maximum</label>
+                    <input name="name" type="text" placeholder="Maximum" value="" class="m-wrap span8" required/>
+					<label class="control-label">Start Date</label>
+                    <input name="name" type="text" placeholder="Start Date" value="" class="m-wrap span8" required/>
+					<label class="control-label">Expiry Date</label>
+                    <input name="name" type="text" placeholder="Expiry Date" value="" class="m-wrap span8" required/>
                     <div class="submit-btn">
                         <button type="submit" class="btn green">Save Changes</button>
                     </div>

@@ -346,8 +346,26 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                     <li><a href="<?php echo U('Configure/premiumlist');;?>">Premium Manager</a></li>
                 </ul>
             </li>
+            <li>
+                <a href="javascript:;">
+                    Payment
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="<?php echo U('Configure/paymentlist');;?>">Payment method</a></li>
+                    <li><a href="<?php echo U('Configure/currencies');;?>">Currencies</a></li>
+                    <li><a href="<?php echo U('Configure/taxrules');;?>">Tax Rules</a></li>
+                    <li><a href="<?php echo U('Configure/promotion');;?>">Promotion</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="<?php echo U('Configure/domainregistrar');;?>">
+                    <span class="title">Domain Registrar</span>
+                </a>
+            </li>
         </ul>
     </li>
+    
     <li class="">
         <a href="javascript:;">
             <i class="icon-table"></i>

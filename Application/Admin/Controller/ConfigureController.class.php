@@ -306,7 +306,34 @@ class ConfigureController extends CommonController {
 		$Model->where($where)->delete();
 		$this->success('The domain has already delete successfully!',U('Configure/premiumlist'),2);
 	}
-	
+	/*payment setting*/
+	public function paymentlist(){
+		/*get payment method*/
+		$Model = M('paymethod');
+		//$condition['useable'] = 'Y';
+		$ct = $Model->select();
+		$this->assign('list',$ct);// 
+		$this->display(T('mgr/configure_payment'));
+	}
+	/*currency setting*/
+	public function currencies(){
+		$this->display(T('mgr/configure_currencies'));
+	}
+	public function taxrules(){
+		$this->display(T('mgr/configure_taxrules'));
+	}
+	public function promotion(){
+		$this->display(T('mgr/configure_promotion'));
+	}
+	public function domainregistrar(){
+		/*get payment method*/
+		$Model = M('registrar');
+		//$condition['useable'] = 'Y';
+		$ct = $Model->select();
+		$this->assign('list',$ct);// 
+		$this->display(T('mgr/configure_domainregistrar'));
+	}
+	/*############################*/
 	/*customer*/
 	public function customerorderdetail()
 	{

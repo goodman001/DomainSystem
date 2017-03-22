@@ -251,11 +251,6 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                     Domain List
                 </a>
             </li>
-			<li>
-                <a href="<?php echo U('Domain/premiumlist');;?>">
-                    Premium List
-                </a>
-            </li>
         </ul>
     </li>
 	<li>
@@ -350,7 +345,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 <ul class="sub-menu">
                     <li><a href="<?php echo U('Configure/pricesetting');;?>">Price setting</a></li>
                     <li class="active"><a href="<?php echo U('Configure/pricetools');;?>">Tools Manager</a></li>
-                    <li><a href="#">Premium Cost</a></li>
+                    <li><a href="#">Premium Manager</a></li>
                 </ul>
             </li>
         </ul>

@@ -718,7 +718,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
             <li>
-                <a href="#">Administrators Manager</a>
+                <a href="#">Configuration</a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
             <li><a href="#">Domain Price</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>

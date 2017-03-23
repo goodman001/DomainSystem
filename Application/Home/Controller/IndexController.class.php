@@ -19,10 +19,18 @@ class IndexController extends Controller {
             return 0;
         }
         //get price configure
-        $Model = M('configure');
-        $re = $Model->field('domainprice')->where('id=1')->find();
-        $price = $re['domainprice'];
-        
+        $Model = M('premiumdomain');
+        $dcp["domainname"] = $dm_name;
+        $content2 = $Model->where($dcp)->find();
+        if(!empty($content2))
+        {
+            $price = $content2['price'];//increase 20%
+        }else
+        {
+            $Model = M('configure');
+            $re = $Model->field('domainprice')->where('id=1')->find();
+            $price = $re['domainprice'];
+        }
         $showflag = 0;//
         $msg = getWhois($dm_name);
         $flag =  $msg[1];
@@ -51,12 +59,6 @@ class IndexController extends Controller {
             }else
             {
                 $showflag = 1;
-                $Model = M('premiumdomain');
-                $content2 = $Model->where($data)->find();
-                if(!empty($content2))
-                {
-                    $price = $price*1.2;//increase 20%
-                }
             }
             
         }
@@ -74,8 +76,8 @@ class IndexController extends Controller {
     public function addshoppingcart()
     {
         //cookie formate #dm||price#
-        $dm_name = I('get.dm');
-        $price = I('get.price');
+        $dm_name = I('post.dm');
+        $price = I('post.price');
         $years = I('post.years');
         //print($price);
         //return 0;

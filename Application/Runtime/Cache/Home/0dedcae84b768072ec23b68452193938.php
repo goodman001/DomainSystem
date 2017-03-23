@@ -96,20 +96,20 @@
 				</div>
 				<hr>
 				<div class="row">
-					<div class="col-xs-5">
+					<div class="col-xs-6">
 						<address>
-						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Order ID</strong>:</div><div class="col-xs-8">963852741963852741<?php echo ($order["orderID"]); ?></div></div>
-						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Order Issue date</strong>: </div><div class="col-xs-8"><?php echo ($order["issuedate"]); ?></div></div>
-						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Username</strong>: </div><div class="col-xs-8"><?php echo ($order["username"]); ?></div></div>
-						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Status</strong>: </div><div class="col-xs-8"><?php echo ($order["status"]); ?></div></div>
-						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Refund</strong>: </div><div class="col-xs-8"><?php echo ($order["refund"]); ?></div></div>
-						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Invoice date</strong>: </div><div class="col-xs-8"><?php echo ($order["invoicedate"]); ?></div></div>
-						<div class="col-xs-12"><div class="col-xs-4 text-right"><strong>Due date</strong>: </div><div class="col-xs-8">Waiting</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Order ID</strong>:</div><div class="col-xs-7"><?php echo ($order["orderID"]); ?></div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Order Issue date</strong>: </div><div class="col-xs-7"><?php echo ($order["issuedate"]); ?></div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Username</strong>: </div><div class="col-xs-7"><?php echo ($order["username"]); ?></div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Status</strong>: </div><div class="col-xs-7"><?php echo ($order["status"]); ?></div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Refund</strong>: </div><div class="col-xs-7">No</div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Invoice date</strong>: </div><div class="col-xs-7"><?php echo ($order["invoicedate"]); ?></div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Due date</strong>: </div><div class="col-xs-7"><?php echo ($order["duedate"]); ?></div></div>
 						</address>
 					</div>
-					<div class="col-xs-7">
+					<div class="col-xs-6">
 						<address>
-						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Transaction ID</strong>:</div><div class="col-xs-7">963752741963752741<?php echo ($trans["transactionID"]); ?></div></div>
+						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Transaction ID</strong>:</div><div class="col-xs-7"><?php echo ($trans["transactionID"]); ?></div></div>
 						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Client Name</strong>: </div><div class="col-xs-7"><?php echo ($trans["clientname"]); ?></div></div>
 						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Card Number/Account number</strong>: </div><div class="col-xs-7"><?php echo ($trans["accountnumber"]); ?></div></div>
 						<div class="col-xs-12"><div class="col-xs-5 text-right"><strong>Invoice ID</strong>: </div><div class="col-xs-7"><?php echo ($trans["invoiceID"]); ?></div></div>
@@ -134,10 +134,10 @@
 							<table class="table table-condensed">
 								<thead>
 									<tr>
-										<td><strong>Item</strong></td>
+										<td class="text-center"><strong>Item</strong></td>
 										<td class="text-center"><strong>Price</strong></td>
 										<td class="text-center"><strong>Years</strong></td>
-										<td class="text-right"><strong>Totals</strong></td>
+										<td class="text-center"><strong>Totals</strong></td>
 									</tr>
 								</thead>
 								<tbody>
@@ -145,8 +145,8 @@
 									<?php if(is_array($items)): foreach($items as $key=>$vo): ?><tr>
 										<td class="text-center"><?php echo ($vo["domainname"]); ?></td>
 										<td class="text-center"><?php echo ($vo["price"]); ?> HK$</td>
-										<td class="text-right"><?php echo ($vo["years"]); ?></td>
-										<td class="text-right"><?php echo ($vo["years*$vo"]["price"]); ?></td>
+										<td class="text-center"><?php echo ($vo["years"]); ?></td>
+										<td class="text-center"><?php echo $vo['years']*$vo['price']; ?> </td>
 									</tr><?php endforeach; endif; ?>
 								</tbody>
 							</table>

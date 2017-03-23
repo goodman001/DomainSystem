@@ -224,6 +224,8 @@ class OrderController extends Controller {
 		$DoM = M('domainmgr');
         for($index=0;$index<count($bigitem)-1;$index++) 
         { 
+			
+			$nowtime = date('Y-m-d H:i:s',time());
             $res[$index] = explode('||',$bigitem[$index]); 
 			/*get item infomation*/
 			$item[$index]["domainname"] = $res[$index][0];
@@ -233,14 +235,31 @@ class OrderController extends Controller {
 			$item[$index]["years"] = $res[$index][2];
 			$Model->data($item[$index])->add();
 			//print_r($item[$index]);
+			
+			/*paypal*/
+			$pay['accounttype'] = I('post.accounttype','','htmlspecialchars');//get firstname
+			if($pay['accounttype'] == 'PayPal'){
+				$paystatus = 'active';
+				$expiry_db = date('Y-m-d H:i:s', strtotime('+'.$res[$index][2].' year', strtotime($nowtime)));
+				$nextdue_db = date('Y-m-d H:i:s', strtotime('+'.$res[$index][2].' year', strtotime($nowtime)));
+				$registrationdate = $nowtime;
+				$dudate_order = $nextdue_db;
+			}else
+			{
+				$paystatus = 'pending';
+				$expiry_db = '';
+				$nextdue_db = '';
+				$registrationdate = '';
+				$dudate_order = '';
+			}
 			/*get domain infomation*/
 			$data['domainname'] = $res[$index][0];
 			$data['username'] = $username;
 			$data['registrar'] = $registrar;
-			$data['registrationdate'] = '';
-			$data['expirydate'] = '';
-			$data['nextduedate'] = '';
-			$data['status'] = 'pending';
+			$data['registrationdate'] = $registrationdate;
+			$data['expirydate'] = $expiry_db;
+			$data['nextduedate'] = $nextdue_db;
+			$data['status'] = $paystatus;
 			$data['mainforward'] = '';
 			$data['DNSmgr'] = '';
 			$data['orderID'] = $orderID;
@@ -273,17 +292,17 @@ class OrderController extends Controller {
 		
 		//print_r($data);
 		/*get payment information*/
-		$pay['accounttype'] = I('post.accounttype','','htmlspecialchars');//get firstname
+		
 		/*get order infomation*/
 		$orderM = M('order');
 		$order['orderID'] = $orderID;//get order id
 		$order['transactionID'] = $transactionID;//get id
 		$order['username'] = $username;
 		$order['issuedate'] = date('Y-m-d H:i:s',time());
-		$order['status'] = 'pending';
+		$order['status'] = $paystatus;
 		$order['refundamount'] = 0.0;
 		$order['invoicedate'] = date('Y-m-d H:i:s',time());
-		$order['duedate'] = '';
+		$order['duedate'] = $dudate_order;
 		$order['description'] = '';
 		$orderM->data($order)->add();
 		//print_r($order);

@@ -118,7 +118,9 @@
 									<td><?php echo ($dm_name); ?></td>
 									<td>Avaliable</td>
 									<td><?php echo ($price); ?> HK$ per year</td>
-									<form role="form" action="<?php echo U('Index/addshoppingcart?dm='.$dm_name.'&price='.$price.'');;?>" method="post">
+									<form role="form" action="<?php echo U('Index/addshoppingcart');;?>" method="post">
+									<input name="dm" type="hidden" value="<?php echo ($dm_name); ?>" />
+									<input name="price" type="hidden" value="<?php echo ($price); ?>" />
 									<td>
 										<select class="form-control" name="years" required>
 											<option value="1">one years </option>

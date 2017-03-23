@@ -40,7 +40,9 @@
 									<td>{$dm_name}</td>
 									<td>Avaliable</td>
 									<td>{$price} HK$ per year</td>
-									<form role="form" action="{:U('Index/addshoppingcart?dm='.$dm_name.'&price='.$price.'');}" method="post">
+									<form role="form" action="{:U('Index/addshoppingcart');}" method="post">
+									<input name="dm" type="hidden" value="{$dm_name}" />
+									<input name="price" type="hidden" value="{$price}" />
 									<td>
 										<select class="form-control" name="years" required>
 											<option value="1">one years </option>

@@ -182,7 +182,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         </form>
         <!-- END RESPONSIVE QUICK SEARCH FORM -->
     </li>
-    <li class="start active ">
+    <li class="start">
         <a href="<?php echo U('Client/index');;?>">
             <i class="icon-home"></i>
             <span class="title">Welcome</span>
@@ -207,17 +207,10 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             </li>
         </ul>
     </li>
-    <li>
+    <li class='active'>
         <a href="<?php echo U('Client/orderlist');;?>">
             <i class="icon-bookmark-empty"></i>
             <span class="title">My Orders</span>
-            <span class="selected"></span>
-        </a>
-    </li>
-    <li>
-        <a href="<?php echo U('Client/domainlist');;?>">
-            <i class="icon-bookmark-empty"></i>
-            <span class="title">My Domains</span>
             <span class="selected"></span>
         </a>
     </li>
@@ -230,77 +223,139 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <!-- END SIDEBAR -->
     <!-- BEGIN PAGE -->
         
-    <div class="page-content">
-    <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-    <div id="portlet-config" class="modal hide">
-        <div class="modal-header">
-            <button data-dismiss="modal" class="close" type="button"></button>
-            <h3>Widget Settings</h3>
-        </div>
-        <div class="modal-body">
-            Widget settings form goes here
-        </div>
+<!-- BEGIN PAGE -->
+<div class="page-content">
+<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+<div id="portlet-config" class="modal hide">
+    <div class="modal-header">
+        <button data-dismiss="modal" class="close" type="button"></button>
+        <h3>portlet Settings</h3>
     </div>
-    <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-    <!-- BEGIN PAGE CONTAINER-->
-    <div class="container-fluid">
-    <!-- BEGIN PAGE HEADER-->
-    <div class="row-fluid">
-        <div class="span12">
-            <!-- BEGIN STYLE CUSTOMIZER -->
-            <!-- END BEGIN STYLE CUSTOMIZER -->
-            <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-            <h3 class="page-title">
-                Welcome page
-                <small>Welcome to website</small>
-            </h3>
-            <ul class="breadcrumb">
-                <li>
-                    <i class="fa fa-home" aria-hidden="true"></i>
-                    <a href="<?php echo U('Client/index');;?>">Home</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-                <li><a href="#">Welcome</a></li>
-                <li class="pull-right no-text-shadow">
-                    <div id="dashboard-report-range"
-                         class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive" data-tablet=""
-                         data-desktop="tooltips" data-placement="top" data-original-title="Change dashboard date range">
-                        <i class="icon-calendar"></i>
-                        <span></span>
-                        <i class="icon-angle-down"></i>
-                    </div>
-                </li>
-            </ul>
-            <!-- END PAGE TITLE & BREADCRUMB-->
-        </div>
+    <div class="modal-body">
+        <p>Here will be a configuration form</p>
     </div>
-    <!-- END PAGE HEADER-->
-    <div id="dashboard">
-    <!-- BEGIN DASHBOARD STATS -->
-    <div class="row-fluid">
-        <div class="span12">
-            <!-- BEGIN ALERTS PORTLET-->
-            <div class="portlet ">
-                <div class="portlet-title">
-                    <div class="caption"><i class="icon-cogs"></i>Dear <?php echo ($username); ?></div>
-                    
-                </div>
-                <div class="portlet-body">
-                    <div class="alert alert-error">
-                        <strong>Now time is</strong> <?php echo ($nowtime); ?>
-                    </div>
-                </div>
-            </div>
-            <!-- END ALERTS PORTLET-->
-        </div>
-        
+</div>
+<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+<!-- BEGIN PAGE CONTAINER-->
+<div class="container-fluid">
+<!-- BEGIN PAGE HEADER-->
+<div class="row-fluid">
+    <div class="span12">
+        <h3 class="page-title">
+            My orders
+            <small> My orders</small>
+        </h3>
+        <ul class="breadcrumb">
+            <li>
+				<i class="fa fa-home" aria-hidden="true"></i>
+				<a href="<?php echo U('Client/index');;?>">Home</a>
+				<i class="fa fa-angle-right" aria-hidden="true"></i>
+			</li>
+            <li>
+                <a href="#">My Orders</a>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </li>
+            <li><a href="<?php echo U('Client/orderlist');;?>">Order List</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+			<li><a href="<?php echo U('Client/orderdetail');;?>">Order Detail</a></li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
-    <!-- END DASHBOARD STATS -->
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row-fluid">
+    <div class="span12">
+
+		<!--BEGIN TABS-->
+<div class="tabbable tabbable-custom tabbable-full-width">
+<ul class="nav nav-tabs">
     
+    <li class="active"><a href="#tab_1_1" data-toggle="tab">Order Detail</a></li>
+</ul>
+<div class="tab-content">
+
+<!--end tab-pane-->
+<div class="tab-pane row-fluid active" id="tab_1_1">
+    <div class="span12">
+        <div class="portlet box yellow">
+            <div class="portlet-title">
+                <div class="caption"><i class="icon-coffee"></i>Order</div>
+            </div>
+            <div class="portlet-body">
+                <div class="span12">
+                    <div class="span4">
+                        <h5><strong>OrderID :</strong><?php echo ($order["orderID"]); ?></h5>
+                        <h5><strong>Issue date :</strong><?php echo ($order["issuedate"]); ?></h5>
+                        <h5><strong>Status :</strong><span class="label label-info"><?php echo ($order["status"]); ?></span></h5>
+                        
+                    </div>
+                    <div class="span4">
+                        <h5><strong>Refund :</strong><?php echo ($order["refund"]); ?></h5>
+                        <h5><strong>Refund Amount:</strong><?php echo ($order["refundamount"]); ?></h5>
+                        <?php if($order["status"] == 'pending'): ?><h5><strong>Due date :</strong>NULL</h5>
+                        <?php else: ?>
+                            <h5><strong>Due date :</strong><?php echo ($order["invoicedate"]); ?></h5><?php endif; ?>
+                        <h5><strong>Invoice date :</strong><?php echo ($order["invoicedate"]); ?></h5>
+                    </div>
+                    <div class="span4">
+                        <h5><strong>Transaction ID :</strong><?php echo ($trans["transactionID"]); ?></h5>
+                        <h5><strong>Paymethod :</strong><?php echo ($trans["paymethod"]); ?></h5>
+                        <h5><strong>Settle Date :</strong><?php echo ($trans["paydate"]); ?></h5>
+                        <h5><strong>Amount :</strong><?php echo ($trans["settleamount"]); ?> HK$</h5>
+                    </div>
+                </div>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td class="text-center"><strong>Item</strong></td>
+                            <td class="text-center"><strong>Price</strong></td>
+                            <td class="text-center"><strong>Years</strong></td>
+                            <td class="text-center"><strong>Totals</strong></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                        <?php if(is_array($items)): foreach($items as $key=>$vo): ?><tr>
+                            <td class="text-center"><?php echo ($vo["domainname"]); ?></td>
+                            <td class="text-center"><?php echo ($vo["price"]); ?> HK$</td>
+                            <td class="text-center"><?php echo ($vo["years"]); ?></td>
+                            <td class="text-center"><?php echo $vo['years']*$vo['price']; ?> </td>
+                            <!--<td class="text-center">
+                                <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Order/delitem?itemid='.$vo['id'].'&orderid='.$order['orderID'].'');;?>">Remove</a>
+                            </td>-->
+                        </tr><?php endforeach; endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>      
+	</div>
+    
+</div>
+<!--tab_1_2-->
+
+<!-- tab_1_3 -->
+
+
+<!-- tab_1_3 -->
+<!--end tab-pane-->
+<!--end tab-pane-->
+
+<!--end tab-pane-->
+</div>
+</div>
+<!--END TABS-->
+		
+		
+		
+		
+		
     </div>
-    </div>
-    <!-- END PAGE CONTAINER-->
-    </div>
+</div>
+<!-- END PAGE CONTENT-->
+</div>
+<!-- END PAGE CONTAINER-->
+</div>
+<!-- END PAGE -->
 
         
         
@@ -352,20 +407,19 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!--项目config -->
 
 
-    <script src="/DomainSystem/Public/metronic/media/js/index.js" type="text/javascript"></script>
     <!-- END PAGE LEVEL SCRIPTS -->
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/bootstrap-fileupload.js"></script>
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/validator.min.js"></script>
     <script>
         jQuery(document).ready(function () {
-            App.init(); // initlayout and core plugins
-            Index.init();
-            Index.initJQVMAP(); // init index page's custom scripts
-            Index.initCalendar(); // init index page's custom scripts
-            Index.initCharts(); // init index page's custom scripts
-            Index.initChat();
-            Index.initMiniCharts();
-            Index.initDashboardDaterange();
-            Index.initIntro();
-        });
+
+        // initiate layout and plugins
+
+        App.init();
+
+    });
+        
     </script>
 
 <script src="/DomainSystem/Public/metronic/media/js/app.js" type="text/javascript"></script>

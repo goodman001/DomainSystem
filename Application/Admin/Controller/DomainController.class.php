@@ -71,6 +71,7 @@ class DomainController extends CommonController {
 		$data['expirydate'] = I('post.expirydate');
 		$data['nextduedate'] = I('post.nextduedate');
 		$data['status'] = I('post.status');
+		$data['autorenew'] = I('post.autorenew');
 		$Model = M('domainmgr');
 		$Model->where($where)->save($data);
 		$this->success('Update the domain successfully!',U('Domain/domaindetail?domainid='.$where['id'].''),1);

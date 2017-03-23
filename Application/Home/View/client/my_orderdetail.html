@@ -19,31 +19,37 @@
         <!-- END RESPONSIVE QUICK SEARCH FORM -->
     </li>
     <li class="start">
-        <a href="{:U('Profile/index');}">
+        <a href="{:U('Client/index');}">
             <i class="icon-home"></i>
-            <span class="title">My Profile</span>
+            <span class="title">Welcome</span>
             <span class="selected"></span>
         </a>
     </li>
-    <li class="active">
+    <li class="">
         <a href="javascript:;">
             <i class="icon-bookmark-empty"></i>
-            <span class="title">Customers manager</span>
+            <span class="title">My Infomation</span>
             <span class="arrow "></span>
         </a>
         <ul class="sub-menu">
-            <li class="active">
-                <a href="{:U('Customer/customerlist');}">
-                    Customers List
+            <li>
+                <a href="{:U('Client/myprofile');}">
+                    My Profile
                 </a>
             </li>
             <li>
-                <a href="{:U('Customer/customeradd');}">
-                    Add Customers</a>
+                <a href="{:U('Client/mywallet');}">
+                    My Wallet</a>
             </li>
         </ul>
     </li>
-    
+    <li class='active'>
+        <a href="{:U('Client/orderlist');}">
+            <i class="icon-bookmark-empty"></i>
+            <span class="title">My Orders</span>
+            <span class="selected"></span>
+        </a>
+    </li>
     </ul>
 </div>
 </block>
@@ -67,37 +73,35 @@
 <div class="row-fluid">
     <div class="span12">
         <h3 class="page-title">
-            Customer Manager
-            <small> Customer Manager</small>
+            My orders
+            <small> My orders</small>
         </h3>
         <ul class="breadcrumb">
             <li>
-                <i class="icon-home"></i>
-                <a href="{:U('Profile/index');}">Home</a>
-                <i class="icon-angle-right"></i>
-            </li>
+				<i class="fa fa-home" aria-hidden="true"></i>
+				<a href="{:U('Client/index');}">Home</a>
+				<i class="fa fa-angle-right" aria-hidden="true"></i>
+			</li>
             <li>
-                <a href="#">Customer Manager</a>
-                <i class="icon-angle-right"></i>
+                <a href="#">My Orders</a>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
-            <li><a href="{:U('Customer/customerlist');}">Customers List</a><i class="icon-angle-right"></i></li>
-			<li><a href="{:U('Customer/customerdetail?id='.$cusid.'');}">Customers Detail</a><i class="icon-angle-right"></i></li>
-            <li><a href="#">Order Detail</a></li>
+            <li><a href="{:U('Client/orderlist');}">Order List</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+			<li><a href="{:U('Client/orderdetail');}">Order Detail</a></li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
 </div>
 <!-- END PAGE HEADER-->
 <!-- BEGIN PAGE CONTENT-->
-<div class="row-fluid profile">
-<div class="span12">
-<!--BEGIN TABS-->
+<div class="row-fluid">
+    <div class="span12">
+
+		<!--BEGIN TABS-->
 <div class="tabbable tabbable-custom tabbable-full-width">
 <ul class="nav nav-tabs">
     
     <li class="active"><a href="#tab_1_1" data-toggle="tab">Order Detail</a></li>
-	<li><a href="#tab_1_2" data-toggle="tab">Edit Order</a></li>
-    <li><a href="#tab_1_3" data-toggle="tab">Add Order</a></li>
 </ul>
 <div class="tab-content">
 
@@ -107,9 +111,6 @@
         <div class="portlet box yellow">
             <div class="portlet-title">
                 <div class="caption"><i class="icon-coffee"></i>Order</div>
-                <div class="tools">
-                    
-                </div>
             </div>
             <div class="portlet-body">
                 <div class="span12">
@@ -117,6 +118,7 @@
                         <h5><strong>OrderID :</strong>{$order.orderID}</h5>
                         <h5><strong>Issue date :</strong>{$order.issuedate}</h5>
                         <h5><strong>Status :</strong><span class="label label-info">{$order.status}</span></h5>
+                        
                     </div>
                     <div class="span4">
                         <h5><strong>Refund :</strong>{$order.refund}</h5>
@@ -126,10 +128,12 @@
                         <else />
                             <h5><strong>Due date :</strong>{$order.invoicedate}</h5>
                         </if>
+                        <h5><strong>Invoice date :</strong>{$order.invoicedate}</h5>
                     </div>
                     <div class="span4">
-                        <h5><strong>Invoice date :</strong>{$order.invoicedate}</h5>
                         <h5><strong>Transaction ID :</strong>{$trans.transactionID}</h5>
+                        <h5><strong>Paymethod :</strong>{$trans.paymethod}</h5>
+                        <h5><strong>Settle Date :</strong>{$trans.paydate}</h5>
                         <h5><strong>Amount :</strong>{$trans.settleamount} HK$</h5>
                     </div>
                 </div>
@@ -140,7 +144,6 @@
                             <td class="text-center"><strong>Price</strong></td>
                             <td class="text-center"><strong>Years</strong></td>
                             <td class="text-center"><strong>Totals</strong></td>
-                            <td class="text-center"></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -151,73 +154,37 @@
                             <td class="text-center">{$vo.price} HK$</td>
                             <td class="text-center">{$vo.years}</td>
                             <td class="text-center"><?php echo $vo['years']*$vo['price']; ?> </td>
-                            <td class="text-center">
-                                <a class="btn yellow easy-pie-chart-reload" href="{:U('Order/customerdelitem?itemid='.$vo['id'].'&cusid='.$cusid.'&orderid='.$order['orderID'].'&oid='.$order['id'].'');}">Remove</a>
-                            </td>
+                            <!--<td class="text-center">
+                                <a class="btn yellow easy-pie-chart-reload" href="{:U('Order/delitem?itemid='.$vo['id'].'&orderid='.$order['orderID'].'');}">Remove</a>
+                            </td>-->
                         </tr>
                         </foreach>
                     </tbody>
                 </table>
-                <a href="{:U('Order/customerdelorder?cusid='.$cusid.'&orderid='.$order['orderID'].'');}" class="btn yellow easy-pie-chart-reload">Remove</a>
             </div>
         </div>      
 	</div>
     
 </div>
 <!--tab_1_2-->
-<div class="tab-pane" id="tab_1_2">
-	<div style="height: auto;" id="accordion1-1" class="accordion collapse">
-        
-        
-    </div>
-</div>
+
 <!-- tab_1_3 -->
-<div class="tab-pane" id="tab_1_3">
-	<div class="row-fluid">	
-        <div class="span12">
-           
-        </div>
-        
-        
-        
-	</div>
-</div>
+
 
 <!-- tab_1_3 -->
 <!--end tab-pane-->
-
 <!--end tab-pane-->
-<div class="tab-pane row-fluid" id="tab_1_6">
-<div class="row-fluid">
-<div class="span12">
-<div class="span3">
-    <ul class="ver-inline-menu tabbable margin-bottom-10">
-        <li class="active">
-            <a data-toggle="tab" href="#tab_1">
-                <i class="icon-briefcase"></i>
-                General Questions
-            </a>
-            <span class="after"></span>
-        </li>
-        <li><a data-toggle="tab" href="#tab_2"><i class="icon-group"></i> Membership</a></li>
-        <li><a data-toggle="tab" href="#tab_3"><i class="icon-leaf"></i> Terms Of Service</a></li>
-        <li><a data-toggle="tab" href="#tab_1"><i class="icon-info-sign"></i> License Terms</a></li>
-        <li><a data-toggle="tab" href="#tab_2"><i class="icon-tint"></i> Payment Rules</a></li>
-        <li><a data-toggle="tab" href="#tab_3"><i class="icon-plus"></i> Other Questions</a></li>
-    </ul>
-</div>
-<div class="span9">
 
-</div>
-<!--end span9-->
-</div>
-</div>
-</div>
 <!--end tab-pane-->
 </div>
 </div>
 <!--END TABS-->
-</div>
+		
+		
+		
+		
+		
+    </div>
 </div>
 <!-- END PAGE CONTENT-->
 </div>

@@ -182,7 +182,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         </form>
         <!-- END RESPONSIVE QUICK SEARCH FORM -->
     </li>
-    <li class="start active ">
+    <li>
         <a href="<?php echo U('Client/index');;?>">
             <i class="icon-home"></i>
             <span class="title">Welcome</span>
@@ -214,7 +214,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <span class="selected"></span>
         </a>
     </li>
-    <li>
+    <li class='active'>
         <a href="<?php echo U('Client/domainlist');;?>">
             <i class="icon-bookmark-empty"></i>
             <span class="title">My Domains</span>
@@ -230,77 +230,91 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <!-- END SIDEBAR -->
     <!-- BEGIN PAGE -->
         
-    <div class="page-content">
-    <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-    <div id="portlet-config" class="modal hide">
-        <div class="modal-header">
-            <button data-dismiss="modal" class="close" type="button"></button>
-            <h3>Widget Settings</h3>
-        </div>
-        <div class="modal-body">
-            Widget settings form goes here
-        </div>
+<!-- BEGIN PAGE -->
+<div class="page-content">
+<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+<div id="portlet-config" class="modal hide">
+    <div class="modal-header">
+        <button data-dismiss="modal" class="close" type="button"></button>
+        <h3>portlet Settings</h3>
     </div>
-    <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-    <!-- BEGIN PAGE CONTAINER-->
-    <div class="container-fluid">
-    <!-- BEGIN PAGE HEADER-->
-    <div class="row-fluid">
-        <div class="span12">
-            <!-- BEGIN STYLE CUSTOMIZER -->
-            <!-- END BEGIN STYLE CUSTOMIZER -->
-            <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-            <h3 class="page-title">
-                Welcome page
-                <small>Welcome to website</small>
-            </h3>
-            <ul class="breadcrumb">
-                <li>
-                    <i class="fa fa-home" aria-hidden="true"></i>
-                    <a href="<?php echo U('Client/index');;?>">Home</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-                <li><a href="#">Welcome</a></li>
-                <li class="pull-right no-text-shadow">
-                    <div id="dashboard-report-range"
-                         class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive" data-tablet=""
-                         data-desktop="tooltips" data-placement="top" data-original-title="Change dashboard date range">
-                        <i class="icon-calendar"></i>
-                        <span></span>
-                        <i class="icon-angle-down"></i>
-                    </div>
-                </li>
-            </ul>
-            <!-- END PAGE TITLE & BREADCRUMB-->
-        </div>
+    <div class="modal-body">
+        <p>Here will be a configuration form</p>
     </div>
-    <!-- END PAGE HEADER-->
-    <div id="dashboard">
-    <!-- BEGIN DASHBOARD STATS -->
-    <div class="row-fluid">
-        <div class="span12">
-            <!-- BEGIN ALERTS PORTLET-->
-            <div class="portlet ">
-                <div class="portlet-title">
-                    <div class="caption"><i class="icon-cogs"></i>Dear <?php echo ($username); ?></div>
-                    
-                </div>
-                <div class="portlet-body">
-                    <div class="alert alert-error">
-                        <strong>Now time is</strong> <?php echo ($nowtime); ?>
-                    </div>
-                </div>
-            </div>
-            <!-- END ALERTS PORTLET-->
-        </div>
-        
+</div>
+<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+<!-- BEGIN PAGE CONTAINER-->
+<div class="container-fluid">
+<!-- BEGIN PAGE HEADER-->
+<div class="row-fluid">
+    <div class="span12">
+        <h3 class="page-title">
+            My Domains
+            <small> Domain Manager</small>
+        </h3>
+        <ul class="breadcrumb">
+            <li>
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <a href="<?php echo U('Client/index');;?>">Home</a>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </li>
+            <li>
+                <a href="<?php echo U('Client/domainlist');;?>">My Domains</a>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </li>
+            <li><a href="#">Domain List</a></li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
-    <!-- END DASHBOARD STATS -->
-    
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row-fluid">
+    <div class="span12">
+    <table class="table table-striped table-hover">
+	   <thead>
+		<tr>
+			<th>Domain</th>
+			<th>Registrar</th>
+			<th>Email</th>
+			<th>Firstname</th>
+			<th>Lastname</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Country</th>
+			<th>Phone</th>
+			<th>Postcode</th>
+			<th></th>
+		</tr>
+	   </thead>
+	   <tbody>
+		<?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
+			<td><a href="<?php echo U('Client/domaindetail?domainid='.$vo['id'].'');;?>"><?php echo ($vo["domainname"]); ?></a></td>
+			<td><?php echo ($vo["registrar"]); ?></td>
+			<td><?php echo ($vo["email"]); ?></td>
+			<td><?php echo ($vo["firstname"]); ?></td>
+			<td><?php echo ($vo["lastname"]); ?></td>
+			<td><?php echo ($vo["city"]); ?></td>
+			<td><?php echo ($vo["state"]); ?></td>
+			<td><?php echo ($vo["country"]); ?></td>
+			<td><?php echo ($vo["phone"]); ?></td>
+			<td><?php echo ($vo["postcode"]); ?></td>
+			<td>
+				<a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Client/domaindetail?domainid='.$vo['id'].'');;?>">
+					view detail
+				</a>
+			</td>
+		  </tr><?php endforeach; endif; ?>
+	   </tbody>
+	</table>
+	<span><div class="page"><?php echo ($page); ?></div></span>
     </div>
-    </div>
-    <!-- END PAGE CONTAINER-->
-    </div>
+</div>
+<!-- END PAGE CONTENT-->
+</div>
+<!-- END PAGE CONTAINER-->
+</div>
+<!-- END PAGE -->
 
         
         
@@ -352,20 +366,19 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!--项目config -->
 
 
-    <script src="/DomainSystem/Public/metronic/media/js/index.js" type="text/javascript"></script>
     <!-- END PAGE LEVEL SCRIPTS -->
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/bootstrap-fileupload.js"></script>
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/validator.min.js"></script>
     <script>
         jQuery(document).ready(function () {
-            App.init(); // initlayout and core plugins
-            Index.init();
-            Index.initJQVMAP(); // init index page's custom scripts
-            Index.initCalendar(); // init index page's custom scripts
-            Index.initCharts(); // init index page's custom scripts
-            Index.initChat();
-            Index.initMiniCharts();
-            Index.initDashboardDaterange();
-            Index.initIntro();
-        });
+
+        // initiate layout and plugins
+
+        App.init();
+
+    });
+        
     </script>
 
 <script src="/DomainSystem/Public/metronic/media/js/app.js" type="text/javascript"></script>

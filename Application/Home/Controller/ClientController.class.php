@@ -210,6 +210,7 @@ class ClientController extends Controller {
         $Model = M('domainmgr');
 		$condition['username'] = $username;
 		$condition['status'] = 'active';
+		
         $list = $Model->where($condition)->order('id desc')->page(I('get.p').',42')->select();
 		$count = $Model->where($condition)->count();// get count of records
         
@@ -300,17 +301,34 @@ class ClientController extends Controller {
 		$years = I('post.years');
 		$nowtime = date('Y-m-d H:i:s',time());
 		
+		
 		$username = cookie('u_username');
 		$transactionID = time()+101;
 		$orderID = time();
 		$expiry_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($nowtime)));
 		$nextdue_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($nowtime)));
 		//print($registrar);
-		/*get price*/
-		$price = 0;
 		/*get domain infomation*/
 		$DoM = M('domainmgr');
 		$domaininfo = $DoM->where($where)->find();
+		/*get price*/
+		$price = 0;
+		$Mpice = M('premiumdomain');
+        $dcp["domainname"] = $domaininfo['domainname'];
+        $content2 = $Mpice->where($dcp)->find();
+        if(!empty($content2))
+        {
+            $price = $content2['price'];//increase 20%
+        }else
+        {
+            $Mpice  = M('configure');
+            $re = $Mpice->field('domainprice')->where('id=1')->find();
+            $price = $re['domainprice'];
+        }
+		
+		
+		
+		
 		
 		$Model = M('item');
 		$item["domainname"] = $domaininfo['domainname'];
@@ -318,8 +336,8 @@ class ClientController extends Controller {
 		$item["registrar"] = $domaininfo['registrar'];
 		$item["price"] = $price;
 		$item["years"] = $years;
-		$Model->data($item[$index])->add();
-		
+		$Model->data($item)->add();
+		$iteminfo =$Model->where('orderID='.$orderID)->select();
 		/*order*/
 		$orderM = M('order');
 		$order['orderID'] = $orderID;//get order id
@@ -330,119 +348,49 @@ class ClientController extends Controller {
 		$order['refundamount'] = 0.0;
 		$order['invoicedate'] = date('Y-m-d H:i:s',time());
 		$order['duedate'] = $nextdue_db;
-		$order['description'] = 'Renew domain order';
+		$order['description'] = 'Renew domain '.$domaininfo['domainname'];
 		$orderM->data($order)->add();
-		
+		$orderinfo = $orderM->where('orderID = '.$orderID)->find();
+		//print_r($orderinfo);
 		/*update domain*/
-		
-		
-		
-		/**/
-		$total = 1;
-        $res = array();
-		$item = array();
-		$data = array();
-        #print_r($bigitem);
-		
-		$DoM = M('domainmgr');
-        $nowtime = date('Y-m-d H:i:s',time());
-		$res[$index] = explode('||',$bigitem[$index]); 
-		/*get item infomation*/
-		
-		//print_r($item[$index]);
-
-		/*paypal*/
-		$pay['accounttype'] = I('post.accounttype','','htmlspecialchars');//get firstname
-		$paystatus = 'active';
-		$expiry_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($nowtime)));
-		$nextdue_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($nowtime)));
-		$registrationdate = $nowtime;
-		$dudate_order = $nextdue_db;
-		
-		$Model = M('item');
-		$item["domainname"] = $res[$index][0];
-		$item["orderID"] = $orderID;
-		$item["registrar"] = $registrar;
-		$item["price"] = $price;
-		$item["years"] = $years;
-		$Model->data($item[$index])->add();
-		
-		
-		
-		
-		/*get domain infomation*/
-		$data['domainname'] = $res[$index][0];
-		$data['username'] = $username;
-		$data['registrar'] = $registrar;
-		$data['registrationdate'] = $registrationdate;
 		$data['expirydate'] = $expiry_db;
 		$data['nextduedate'] = $nextdue_db;
-		$data['status'] = $paystatus;
-		$data['mainforward'] = '';
-		$data['DNSmgr'] = '';
+		$data['status'] = 'active';
 		$data['orderID'] = $orderID;
-
-
-
-		/*get domain registation profile*/
-		$data['email'] = I('post.email','','htmlspecialchars');//get email
-		$data['firstname'] = I('post.firstname','','htmlspecialchars');//get firstname
-		$data['lastname'] = I('post.lastname','','htmlspecialchars');//get firstname
-		$data['company'] = I('post.company','','htmlspecialchars');//get firstname
-		$data['jobtitle'] = I('post.jobtitle','','htmlspecialchars');//get firstname
-		$data['address1'] = I('post.address1','','htmlspecialchars');//get firstname
-		$data['address2'] = I('post.address2','','htmlspecialchars');//get firstname
-		$data['city'] = I('post.city','','htmlspecialchars');//get firstname
-		$data['state'] = I('post.state','','htmlspecialchars');//get firstname
-		$data['postcode'] = I('post.postcode','','htmlspecialchars');//get firstname
-		$data['country'] = I('post.country','','htmlspecialchars');//get firstname
-		$data['phone'] = I('post.phone','','htmlspecialchars');//get firstname
-		$data['fax'] = I('post.fax','','htmlspecialchars');//get firstname
-		$data['ns1'] = I('post.ns1','','htmlspecialchars');//get firstname
-		$data['ns2'] = I('post.ns2','','htmlspecialchars');//get firstname
-		$data['ns3'] = I('post.ns3','','htmlspecialchars');//get firstname
-		$data['ns4'] = I('post.ns4','','htmlspecialchars');//get firstname
-		$DoM->data($data)->add();
+		$DoM->where($where)->save();
+		$domainnew = $DoM->where($where)->find();
+		//$domainnew = $DoM->where($where)->find();
+		/*pay*/
+		$transM = M('transaction');
 		
-		//print_r($data);
-		/*get payment information*/
+		$cto['orderID'] = $domaininfo['orderID'];
+		$gettrans = $transM->where($cto)->find();
+		$paymethod = $gettrans['paymethod'];
 		
-		/*get order infomation*/
-		$orderM = M('order');
-		$order['orderID'] = $orderID;//get order id
-		$order['transactionID'] = $transactionID;//get id
-		$order['username'] = $username;
-		$order['issuedate'] = date('Y-m-d H:i:s',time());
-		$order['status'] = $paystatus;
-		$order['refundamount'] = 0.0;
-		$order['invoicedate'] = date('Y-m-d H:i:s',time());
-		$order['duedate'] = $dudate_order;
-		$order['description'] = '';
-		$orderM->data($order)->add();
-		//print_r($order);
-		//$order['paymethod'] = $pay['accounttype'];
 		/*
 		transaction
 		*/
-		$transM = M('transaction');
+		
 		$trans['transactionID'] = $transactionID;
-		$trans['clientname'] = I('post.clientname','','htmlspecialchars');
+		$trans['clientname'] = $gettrans['clientname'];
 		$trans['orderID'] = $orderID;
 		$trans['invoiceID'] = time();
-		$trans['description'] = 'I use the '.$pay['accounttype'].' to pay for the order';
+		$trans['description'] = 'Renew the domain '.$domaininfo['domainname'];
 		$trans['paydate'] = date('Y-m-d H:i:s',time());
-		$trans['paymethod'] = $pay['accounttype'];
-		$trans['accountnumber'] = I('post.accountnumber','','htmlspecialchars');
-		$trans['settleamount'] = $total;
+		$trans['paymethod'] = $paymethod;
+		$trans['accountnumber'] = $gettrans['accountnumber'];
+		$trans['settleamount'] = $price * $years;
 		$transM->data($trans)->add();
-		/*clear shop cart*/
-		cookie('shopcart',null);
-		cookie('shoptotal',null);
+		$transinfo = $transM->where('transactionID ='.$transactionID)->find();
+		//print_r($transinfo);
+		/**/
+		
 		//print_r($trans);
-		$this->assign('items',$item);
-		//$this->assign('data',$data);
-		$this->assign('order',$order);
-		$this->assign('trans',$trans);
+		
+		
+		$this->assign('items',$iteminfo);
+		$this->assign('order',$orderinfo);
+		$this->assign('trans',$transinfo);
 		//print_r($ct);
 		$this->display(T('order/orderreport'));
 	}

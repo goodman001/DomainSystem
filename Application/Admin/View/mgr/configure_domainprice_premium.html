@@ -597,8 +597,9 @@
 	   <thead>
 		<tr>
 			<th>ID</th>
-			<th>Domain Name</th>
+			<th>Domain Category</th>
             <th>Price</th>
+            <th>Price Rate</th>
 			<th></th>
 		</tr>
 	   </thead>
@@ -608,6 +609,7 @@
 			<td>{$vo.id}</td>
 			<td>{$vo.domainname}</td>
             <td>{$vo.price}</td>
+            <td>{$vo.rate}</td>
 			<td>
 				<a class="btn yellow easy-pie-chart-reload" href="{:U('Configure/premiumdel?domainid='.$vo['id'].'');}">
 					Delete
@@ -632,6 +634,8 @@
                     <input name="domainname" type="text" id="domainname" placeholder="domainname" value="" class="m-wrap span8" required/>
                     <label class="control-label">Domain price</label>
                     <input name="price" type="text" placeholder="domain price" pattern="^[0-9]+([\.,]{0,1}[0-9]*)$" maxlength="15" minlength="1" value="0.0" class="m-wrap span8" required/>
+                    <label class="control-label">Domain rating</label>
+                    <input name="rate" type="text" placeholder="domain rate" pattern="^[0-9]+([\.,]{0,1}[0-9]*)$" maxlength="15" minlength="1" value="0.0" class="m-wrap span8" required/>
                     <div class="submit-btn">
                         <button type="submit" class="btn green">Save Changes</button>
                     </div>

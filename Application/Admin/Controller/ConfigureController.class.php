@@ -254,7 +254,7 @@ class ConfigureController extends CommonController {
 	public function premiumlist()
 	{
 		$search =I('post.search');
-        $Model = M('premiumdomain');
+        $Model = M('premium');
         if(!empty($search))
         {
             $condition['domainname'] = array('like','%'.$search.'%');
@@ -287,7 +287,7 @@ class ConfigureController extends CommonController {
 	public function premiumadd()
 	{
 		$where['domainname'] =I('post.domainname');
-		$Model = M('premiumdomain');
+		$Model = M('premium');
 		$count = $Model->where($where)->count();
 		if($count > 0 )
 		{
@@ -295,6 +295,7 @@ class ConfigureController extends CommonController {
 		}else
 		{
 			$where['price'] = I('post.price');
+			$where['rate'] = I('post.rate');
 			$Model->data($where)->add();
 			$this->success('The domain has already add successfully!',U('Configure/premiumlist'),2);
 		}
@@ -302,7 +303,7 @@ class ConfigureController extends CommonController {
 	public function premiumdel()
 	{
 		$where['id'] =I('get.domainid');
-		$Model = M('premiumdomain');
+		$Model = M('premium');
 		$Model->where($where)->delete();
 		$this->success('The domain has already delete successfully!',U('Configure/premiumlist'),2);
 	}

@@ -19,12 +19,14 @@ class IndexController extends Controller {
             return 0;
         }
         //get price configure
-        $Model = M('premiumdomain');
-        $dcp["domainname"] = $dm_name;
+        $pieces = explode(".", $dm_name);
+        
+        $Model = M('premium');
+        $dcp["domainname"] = array('like','%.'.$pieces[count($pieces)-1]);
         $content2 = $Model->where($dcp)->find();
         if(!empty($content2))
         {
-            $price = $content2['price'];//increase 20%
+            $price = $content2['price']*($content2['rate']+1);//increase 20%
         }else
         {
             $Model = M('configure');

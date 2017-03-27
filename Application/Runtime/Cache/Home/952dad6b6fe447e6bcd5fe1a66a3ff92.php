@@ -287,7 +287,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                         <h5><strong>OrderID :</strong><?php echo ($order["orderID"]); ?></h5>
                         <h5><strong>Issue date :</strong><?php echo ($order["issuedate"]); ?></h5>
                         <h5><strong>Status :</strong><span class="label label-info"><?php echo ($order["status"]); ?></span></h5>
-                        
+                        <h5><strong>Description :</strong><span class="label label-warning"><?php echo ($order["description"]); ?></span></h5>
                     </div>
                     <div class="span4">
                         <h5><strong>Refund :</strong><?php echo ($order["refund"]); ?></h5>

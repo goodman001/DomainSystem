@@ -298,6 +298,8 @@ class ClientController extends Controller {
 	public function domainrenew()
 	{
 		$where['id'] = I('get.domainid');
+		
+		
 		$years = I('post.years');
 		$nowtime = date('Y-m-d H:i:s',time());
 		
@@ -308,17 +310,18 @@ class ClientController extends Controller {
 		$expiry_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($nowtime)));
 		$nextdue_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($nowtime)));
 		//print($registrar);
-		/*get domain infomation*/
+		//get domain infomation
 		$DoM = M('domainmgr');
 		$domaininfo = $DoM->where($where)->find();
-		/*get price*/
+		///get price
 		$price = 0;
-		$Mpice = M('premiumdomain');
-        $dcp["domainname"] = $domaininfo['domainname'];
+		$pieces = explode(".", $domaininfo['domainname']);     
+        $Mpice = M('premium');
+        $dcp["domainname"] = array('like','%'.$pieces[count($pieces)-1].'%');
         $content2 = $Mpice->where($dcp)->find();
         if(!empty($content2))
         {
-            $price = $content2['price'];//increase 20%
+            $price = $content2['price']*($content2['rate']+1);//increase 20%
         }else
         {
             $Mpice  = M('configure');
@@ -338,7 +341,7 @@ class ClientController extends Controller {
 		$item["years"] = $years;
 		$Model->data($item)->add();
 		$iteminfo =$Model->where('orderID='.$orderID)->select();
-		/*order*/
+		//order
 		$orderM = M('order');
 		$order['orderID'] = $orderID;//get order id
 		$order['transactionID'] = $transactionID;//get id
@@ -352,7 +355,7 @@ class ClientController extends Controller {
 		$orderM->data($order)->add();
 		$orderinfo = $orderM->where('orderID = '.$orderID)->find();
 		//print_r($orderinfo);
-		/*update domain*/
+		//update domain
 		$data['expirydate'] = $expiry_db;
 		$data['nextduedate'] = $nextdue_db;
 		$data['status'] = 'active';
@@ -360,16 +363,14 @@ class ClientController extends Controller {
 		$DoM->where($where)->save();
 		$domainnew = $DoM->where($where)->find();
 		//$domainnew = $DoM->where($where)->find();
-		/*pay*/
+		// pay
 		$transM = M('transaction');
 		
 		$cto['orderID'] = $domaininfo['orderID'];
 		$gettrans = $transM->where($cto)->find();
 		$paymethod = $gettrans['paymethod'];
 		
-		/*
-		transaction
-		*/
+		//	transaction
 		
 		$trans['transactionID'] = $transactionID;
 		$trans['clientname'] = $gettrans['clientname'];
@@ -382,17 +383,16 @@ class ClientController extends Controller {
 		$trans['settleamount'] = $price * $years;
 		$transM->data($trans)->add();
 		$transinfo = $transM->where('transactionID ='.$transactionID)->find();
-		//print_r($transinfo);
-		/**/
-		
+		//print_r($transinfo);		
 		//print_r($trans);
 		
 		
 		$this->assign('items',$iteminfo);
 		$this->assign('order',$orderinfo);
 		$this->assign('trans',$transinfo);
+		
 		//print_r($ct);
-		$this->display(T('order/orderreport'));
+		$this->success('Renew the domain successfully!',U('Client/domaindetail?domainid='.$where['id'].''),1);
 	}
 	//enter inbox page
 	public function inbox(){

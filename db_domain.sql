@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 24, 2017 at 05:03 PM
+-- Generation Time: Mar 27, 2017 at 06:52 PM
 -- Server version: 5.5.50-0ubuntu0.14.04.1
 -- PHP Version: 5.6.23-1+deprecated+dontuse+deb.sury.org~trusty+1
 
@@ -169,20 +169,6 @@ CREATE TABLE IF NOT EXISTS `db_balance` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=18 ;
 
---
--- Dumping data for table `db_balance`
---
-
-INSERT INTO `db_balance` (`id`, `username`, `amount`, `accountnumber`, `accounttype`, `optime`, `currency`, `target`) VALUES
-(2, 'test1', 3.00, '6325648563546', 'Credit Card', '2017-02-24 00:00:00', 'EUR', 1),
-(4, 'test', 2.00, '6325648563546', 'Credit Card', '2017-02-24 00:00:00', 'EUR', 0),
-(12, 'test', 3.50, '6325648563546', 'Credit Card', '2017-02-24 00:00:00', 'EUR', 1),
-(13, 'test', 1.10, '6325648563546', 'Credit Card', '2017-02-24 00:00:00', 'EUR', 1),
-(14, 'test', 1.20, '9638527412635', 'Credit Card', '2017-02-25 00:00:00', 'EUR', 1),
-(15, 'test', 1.20, '9638527412635', 'Credit Card', '2017-02-25 00:00:00', 'EUR', 1),
-(16, 'test', 1.20, '9638527412635', 'Credit Card', '2017-02-25 00:00:00', 'EUR', 1),
-(17, 'test', 1.20, '9638527412635', 'Credit Card', '2017-02-25 00:00:00', 'EUR', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -242,15 +228,14 @@ CREATE TABLE IF NOT EXISTS `db_domainmgr` (
   `ns4` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `domainname` (`domainname`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `db_domainmgr`
 --
 
 INSERT INTO `db_domainmgr` (`id`, `domainname`, `username`, `registrar`, `registrationdate`, `expirydate`, `nextduedate`, `status`, `autorenew`, `mainforward`, `DNSmgr`, `IDprotect`, `orderID`, `email`, `firstname`, `lastname`, `company`, `jobtitle`, `address1`, `address2`, `city`, `state`, `country`, `postcode`, `phone`, `fax`, `ns1`, `ns2`, `ns3`, `ns4`) VALUES
-(4, 'ckdfefefe.club', 'test', 'GoDaddy', '2017-03-23 11:48:16', '2019-03-23 11:48:16', '2019-03-23 11:48:16', 'active', 'Y', '', '', 'N', 1490240896, 'ABC@GMAIL.COM', 'c', 'c', 'c', 'c', 'addr1', 'add12', 'c', 'c', 'us', 123456, '220-123-234', '220-123-234', '1.1.1.1', '2.1.1.1', '3.1.1.1', '4.1.1.1'),
-(5, 'abddd111.club', 'test', 'Namecheap', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'pending', 'N', '123@gmail.com', '123', 'Y', 1490241118, '12@xxx.com', 'adfa', 'adfa', 'dfa', 'afa', 'add1', 'add2', 'ad', 'adf', 'adf', 123456, '220-123-234', '220-123-234', '1.1.1.1', '2.1.1.1', '3.1.1.1', '4.1.1.1');
+(6, 'acdddfefe.club', 'test', 'eNom', '2017-03-27 11:46:21', '2019-03-27 11:46:21', '2019-03-27 11:44:51', 'active', 'N', '', '', 'N', 1490586291, 'ccc@126.com', 'adfa', 'df', 'dfa', 'dfa', 'add1', 'add2', '1', 'd', 'us', 10285, '220-123-234', '220-123-234', '1.1.1.1', '2.1.1.1', '3.1.1.1', '4.1.1.1');
 
 -- --------------------------------------------------------
 
@@ -267,7 +252,7 @@ CREATE TABLE IF NOT EXISTS `db_item` (
   `price` decimal(10,2) NOT NULL,
   `years` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `db_item`
@@ -275,7 +260,10 @@ CREATE TABLE IF NOT EXISTS `db_item` (
 
 INSERT INTO `db_item` (`id`, `domainname`, `orderID`, `registrar`, `IDprotect`, `price`, `years`) VALUES
 (5, 'ckdfefefe.club', 1490240896, 'GoDaddy', 'N', 31.50, 2),
-(6, 'abddd111.club', 1490241118, 'Namecheap', 'N', 10.10, 5);
+(6, 'abddd111.club', 1490241118, 'Namecheap', 'N', 10.10, 5),
+(19, 'acdddfefe.club', 1490586291, 'eNom', 'N', 33.60, 2),
+(20, 'acdddfefe.club', 1490586454, 'eNom', 'N', 33.60, 3),
+(21, 'acdddfefe.club', 1490586482, 'eNom', 'N', 33.60, 10);
 
 -- --------------------------------------------------------
 
@@ -297,15 +285,7 @@ CREATE TABLE IF NOT EXISTS `db_order` (
   `description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `orderID` (`orderID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
-
---
--- Dumping data for table `db_order`
---
-
-INSERT INTO `db_order` (`id`, `orderID`, `username`, `transactionID`, `issuedate`, `status`, `refund`, `refundamount`, `invoicedate`, `duedate`, `description`) VALUES
-(3, 1490240896, 'test', 1490240997, '2017-03-23 11:48:16', 'active', 'N', 0.00, '2017-03-23 11:48:16', '2019-03-23 11:48:16', ''),
-(4, 1490241118, 'test', 1490241219, '2017-03-23 11:51:58', 'pending', 'N', 0.00, '2017-03-23 11:51:58', '0000-00-00 00:00:00', '');
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=20 ;
 
 -- --------------------------------------------------------
 
@@ -338,23 +318,24 @@ INSERT INTO `db_paymethod` (`id`, `method`, `useable`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `db_premiumdomain`
+-- Table structure for table `db_premium`
 --
 
-CREATE TABLE IF NOT EXISTS `db_premiumdomain` (
+CREATE TABLE IF NOT EXISTS `db_premium` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `domainname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `price` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `rate` decimal(10,2) NOT NULL DEFAULT '0.00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `domainname` (`domainname`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `db_premiumdomain`
+-- Dumping data for table `db_premium`
 --
 
-INSERT INTO `db_premiumdomain` (`id`, `domainname`, `price`) VALUES
-(1, 'ckdfefefe.club', 31.50);
+INSERT INTO `db_premium` (`id`, `domainname`, `price`, `rate`) VALUES
+(1, '.club', 30.00, 0.12);
 
 -- --------------------------------------------------------
 
@@ -398,17 +379,16 @@ CREATE TABLE IF NOT EXISTS `db_transaction` (
   `settleamount` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `transactionID` (`transactionID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `db_transaction`
 --
 
 INSERT INTO `db_transaction` (`id`, `transactionID`, `clientname`, `orderID`, `invoiceID`, `description`, `paydate`, `paymethod`, `accountnumber`, `settleamount`) VALUES
-(3, 1490240997, 'uy', 1490240896, 1490240896, 'I use the PayPal to pay for the order', '2017-03-23 11:48:16', 'PayPal', '632587441236547899', 63.00),
-(4, 1490241219, 'io', 1490241118, 1490241118, 'I use the Credit Card to pay for the order', '2017-03-23 11:51:58', 'Credit Card', '96385484457', 50.50),
-(5, 1490328122, 'uy', 1490328021, 1490328021, 'Renew the domain ckdfefefe.club', '2017-03-24 12:00:21', 'PayPal', '632587441236547899', 10.10),
-(6, 1490328215, 'uy', 1490328114, 1490328114, 'Renew the domain ckdfefefe.club', '2017-03-24 12:01:54', 'PayPal', '632587441236547899', 31.50);
+(7, 1490586392, 'ddfdfe', 1490586291, 1490586291, 'I use the Credit Card to pay for the order', '2017-03-27 11:44:51', 'Credit Card', '632587441236547899', 67.20),
+(8, 1490586555, 'ddfdfe', 1490586454, 1490586454, 'Renew the domain acdddfefe.club', '2017-03-27 11:47:34', 'Credit Card', '632587441236547899', 100.80),
+(9, 1490586583, 'ddfdfe', 1490586482, 1490586482, 'Renew the domain acdddfefe.club', '2017-03-27 11:48:02', 'Credit Card', '632587441236547899', 336.00);
 
 -- --------------------------------------------------------
 

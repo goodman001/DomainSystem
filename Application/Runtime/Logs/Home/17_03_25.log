@@ -1,0 +1,1394 @@
+[ 2017-03-25T12:03:14+08:00 ] 127.0.0.1 /DomainSystem/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009965s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001341s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001392s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000023s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000058s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.048427s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.048463s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000777s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000802s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001317s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001358s ]
+
+[ 2017-03-25T12:03:18+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000199s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000045s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000023s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000059s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017268s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017304s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000031s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000046s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000024s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000039s ]
+
+[ 2017-03-25T12:03:25+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Login/checkLog
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000086s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000031s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000054s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_users` [ RunTime:0.000802s ]
+SQL: SELECT `username`,`regtime`,`status` FROM `db_users` WHERE `username` = 'test' AND `password` = '1234' LIMIT 1   [ RunTime:0.000285s ]
+SQL: UPDATE `db_users` SET `status`='active' WHERE `username` = 'test' AND `password` = '1234' [ RunTime:0.031967s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000022s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000052s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002017s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.002053s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000029s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000044s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000030s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000047s ]
+
+[ 2017-03-25T12:03:26+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000083s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000035s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000073s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000307s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000457s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020970s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021057s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000096s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000156s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000084s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000156s ]
+
+[ 2017-03-25T12:03:28+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000055s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000022s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000042s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000060s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000102s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022385s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022520s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000039s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000057s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000028s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000050s ]
+
+[ 2017-03-25T12:03:31+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domainlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000054s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000020s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000039s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000395s ]
+NOTIC: [8] Undefined index: limit /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db.class.php 第 788 行.
+SQL: SELECT * FROM `db_domainmgr` WHERE `username` = 'test' AND `status` = 'active' ORDER BY id desc LIMIT 0,20   [ RunTime:0.000173s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `db_domainmgr` WHERE `username` = 'test' AND `status` = 'active' LIMIT 1   [ RunTime:0.000350s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000049s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000092s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007472s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007511s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000031s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000046s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000030s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000053s ]
+
+[ 2017-03-25T12:03:34+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domaindetail/domainid/4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000051s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000047s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000583s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000251s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000401s ]
+SQL: SELECT * FROM `db_item` WHERE `domainname` = 'ckdfefefe.club' LIMIT 1   [ RunTime:0.000120s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000300s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000384s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033607s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033694s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000097s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000136s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000146s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000364s ]
+
+[ 2017-03-25T12:03:37+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/orderdetail/orderid/1490240896
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000055s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000022s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000042s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000511s ]
+SQL: SELECT * FROM `db_order` WHERE `orderID` = '1490240896' LIMIT 1   [ RunTime:0.000275s ]
+SQL: SHOW COLUMNS FROM `db_transaction` [ RunTime:0.000319s ]
+SQL: SELECT * FROM `db_transaction` WHERE `orderID` = '1490240896' LIMIT 1   [ RunTime:0.000247s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000213s ]
+SQL: SELECT * FROM `db_item` WHERE `orderID` = 1490240896  [ RunTime:0.000097s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000126s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000249s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013026s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013059s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000042s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000034s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000058s ]
+
+[ 2017-03-25T12:04:28+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domainrenew/domainid/4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000064s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000034s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000059s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000472s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000183s ]
+SQL: SHOW COLUMNS FROM `db_premiumdomain` [ RunTime:0.000732s ]
+SQL: SELECT * FROM `db_premiumdomain` WHERE `domainname` = 'ckdfefefe.club' LIMIT 1   [ RunTime:0.000187s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.003081s ]
+SQL: INSERT INTO `db_item` (`domainname`,`orderID`,`registrar`,`price`,`years`) VALUES ('ckdfefefe.club',1490414668,'GoDaddy','31.50',1) [ RunTime:0.001757s ]
+SQL: SELECT * FROM `db_item` WHERE ( orderID=1490414668 )  [ RunTime:0.000133s ]
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000347s ]
+SQL: INSERT INTO `db_order` (`orderID`,`transactionID`,`username`,`issuedate`,`status`,`refundamount`,`invoicedate`,`duedate`,`description`) VALUES (1490414668,1490414769,'test','2017-03-25 12:04:28','active',0,'2017-03-25 12:04:28','2018-03-25 12:04:28','Renew domain ckdfefefe.club') [ RunTime:0.001677s ]
+SQL: SELECT * FROM `db_order` WHERE ( orderID = 1490414668 ) LIMIT 1   [ RunTime:0.000131s ]
+SQL: UPDATE `db_domainmgr` SET `id`=4,`domainname`='ckdfefefe.club',`username`='test',`registrar`='GoDaddy',`registrationdate`='2017-03-23 11:48:16',`expirydate`='2019-03-23 11:48:16',`nextduedate`='2019-03-23 11:48:16',`status`='active',`autorenew`='Y',`mainforward`='',`DNSmgr`='',`IDprotect`='N',`orderID`=1490240896,`email`='ABC@GMAIL.COM',`firstname`='c',`lastname`='c',`company`='c',`jobtitle`='c',`address1`='addr1',`address2`='add12',`city`='c',`state`='c',`country`='us',`postcode`=123456,`phone`='220-123-234',`fax`='220-123-234',`ns1`='1.1.1.1',`ns2`='2.1.1.1',`ns3`='3.1.1.1',`ns4`='4.1.1.1' WHERE `id` = 4 [ RunTime:0.001767s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000041s ]
+SQL: SHOW COLUMNS FROM `db_transaction` [ RunTime:0.000264s ]
+SQL: SELECT * FROM `db_transaction` WHERE `orderID` = '1490240896' LIMIT 1   [ RunTime:0.000035s ]
+SQL: INSERT INTO `db_transaction` (`transactionID`,`clientname`,`orderID`,`invoiceID`,`description`,`paydate`,`paymethod`,`accountnumber`,`settleamount`) VALUES (1490414769,'uy',1490414668,1490414668,'Renew the domain ckdfefefe.club','2017-03-25 12:04:28','PayPal','632587441236547899',31.5) [ RunTime:0.000591s ]
+SQL: SELECT * FROM `db_transaction` WHERE ( transactionID =1490414769 ) LIMIT 1   [ RunTime:0.000112s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000028s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000053s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007456s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007488s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000788s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000814s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000045s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000067s ]
+
+[ 2017-03-25T12:04:46+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000044s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000022s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000046s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003078s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003103s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000028s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000043s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000022s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000037s ]
+
+[ 2017-03-25T12:04:48+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000109s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000021s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000043s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000045s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000080s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009071s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009100s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000048s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000076s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000099s ]
+
+[ 2017-03-25T12:04:50+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/orderlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000060s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000028s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000052s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000403s ]
+NOTIC: [8] Undefined index: limit /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db.class.php 第 788 行.
+SQL: SELECT * FROM `db_order` WHERE `username` = 'test' ORDER BY issuedate desc LIMIT 0,20   [ RunTime:0.000202s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `db_order` WHERE `username` = 'test' LIMIT 1   [ RunTime:0.000302s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000044s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000075s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011365s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011402s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000043s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000061s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000042s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000067s ]
+
+[ 2017-03-25T12:05:16+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/orderdetail/orderid/1490240896
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000076s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000034s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000057s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000605s ]
+SQL: SELECT * FROM `db_order` WHERE `orderID` = '1490240896' LIMIT 1   [ RunTime:0.000163s ]
+SQL: SHOW COLUMNS FROM `db_transaction` [ RunTime:0.000241s ]
+SQL: SELECT * FROM `db_transaction` WHERE `orderID` = '1490240896' LIMIT 1   [ RunTime:0.000114s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000899s ]
+SQL: SELECT * FROM `db_item` WHERE `orderID` = 1490240896  [ RunTime:0.000118s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000052s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000085s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011793s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011823s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000041s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000057s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000041s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000061s ]
+
+[ 2017-03-25T12:05:31+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000061s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000033s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000055s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000043s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000074s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008604s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008629s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000033s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000048s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000063s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000099s ]
+
+[ 2017-03-25T12:05:33+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domainlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000053s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000023s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000046s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000556s ]
+NOTIC: [8] Undefined index: limit /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db.class.php 第 788 行.
+SQL: SELECT * FROM `db_domainmgr` WHERE `username` = 'test' AND `status` = 'active' ORDER BY id desc LIMIT 0,20   [ RunTime:0.000113s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `db_domainmgr` WHERE `username` = 'test' AND `status` = 'active' LIMIT 1   [ RunTime:0.000033s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000098s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000135s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010551s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010585s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000095s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001380s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000048s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000130s ]
+
+[ 2017-03-25T12:05:45+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domaindetail/domainid/4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000027s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000046s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000533s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000049s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000236s ]
+SQL: SELECT * FROM `db_item` WHERE `domainname` = 'ckdfefefe.club' LIMIT 1   [ RunTime:0.000257s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000160s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000338s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.050150s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.050236s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000202s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000240s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000085s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000135s ]
+
+[ 2017-03-25T12:06:04+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Order/orderlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000062s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000035s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000058s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000018s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000043s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.001553s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.001579s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000030s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000044s ]
+
+[ 2017-03-25T12:06:07+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000097s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000047s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000085s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000037s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000087s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010742s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010871s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000037s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000053s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000037s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000055s ]
+
+[ 2017-03-25T12:06:12+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Profile/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000169s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000046s ]
+ERR: Controler can't be loaded:Profile
+
+[ 2017-03-25T12:06:20+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Domain/domainlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000061s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000027s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000049s ]
+ERR: Controler can't be loaded:Domain
+
+[ 2017-03-25T12:06:36+08:00 ] 127.0.0.1 /DomainSystem/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000081s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000029s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000050s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000025s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000059s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003867s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003913s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000029s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000044s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000031s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000048s ]
+
+[ 2017-03-25T12:06:39+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000056s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000023s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000043s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000047s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000072s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008559s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008595s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000037s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000053s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000028s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000050s ]
+
+[ 2017-03-25T12:06:41+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domainlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000053s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000028s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000051s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000759s ]
+NOTIC: [8] Undefined index: limit /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db.class.php 第 788 行.
+SQL: SELECT * FROM `db_domainmgr` WHERE `username` = 'test' AND `status` = 'active' ORDER BY id desc LIMIT 0,20   [ RunTime:0.000052s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `db_domainmgr` WHERE `username` = 'test' AND `status` = 'active' LIMIT 1   [ RunTime:0.000036s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000046s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000081s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009331s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009362s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000029s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000044s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000031s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000057s ]
+
+[ 2017-03-25T12:06:46+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/orderlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000054s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000022s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000041s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000395s ]
+NOTIC: [8] Undefined index: limit /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db.class.php 第 788 行.
+SQL: SELECT * FROM `db_order` WHERE `username` = 'test' ORDER BY issuedate desc LIMIT 0,20   [ RunTime:0.000046s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `db_order` WHERE `username` = 'test' LIMIT 1   [ RunTime:0.000030s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000052s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000082s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013078s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013127s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000056s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000182s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000065s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000253s ]
+
+[ 2017-03-25T12:07:10+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/orderdetail/orderid/1490414668
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000052s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000023s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000043s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000442s ]
+SQL: SELECT * FROM `db_order` WHERE `orderID` = '1490414668' LIMIT 1   [ RunTime:0.000155s ]
+SQL: SHOW COLUMNS FROM `db_transaction` [ RunTime:0.000294s ]
+SQL: SELECT * FROM `db_transaction` WHERE `orderID` = '1490414668' LIMIT 1   [ RunTime:0.000106s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000215s ]
+SQL: SELECT * FROM `db_item` WHERE `orderID` = 1490414668  [ RunTime:0.000103s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000108s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000147s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010363s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010393s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000038s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000053s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000027s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000046s ]
+
+[ 2017-03-25T12:17:34+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000045s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.002745s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002837s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013231s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013265s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000041s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000144s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000111s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000151s ]
+
+[ 2017-03-25T12:17:37+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domainlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000064s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000048s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000556s ]
+NOTIC: [8] Undefined index: limit /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db.class.php 第 788 行.
+SQL: SELECT * FROM `db_domainmgr` WHERE `username` = 'test' AND `status` = 'active' ORDER BY id desc LIMIT 0,20   [ RunTime:0.000052s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `db_domainmgr` WHERE `username` = 'test' AND `status` = 'active' LIMIT 1   [ RunTime:0.000031s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000044s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000080s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009513s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009541s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000036s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000051s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000116s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001423s ]
+
+[ 2017-03-25T12:17:41+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domaindetail/domainid/4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000052s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000020s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000039s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000383s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000050s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000376s ]
+SQL: SELECT * FROM `db_item` WHERE `domainname` = 'ckdfefefe.club' LIMIT 1   [ RunTime:0.000035s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000081s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000209s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019005s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019045s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000092s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000109s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000035s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000056s ]
+
+[ 2017-03-25T12:17:49+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domainrenew/domainid/4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000027s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000048s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000463s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000052s ]
+SQL: SHOW COLUMNS FROM `db_premiumdomain` [ RunTime:0.000291s ]
+SQL: SELECT * FROM `db_premiumdomain` WHERE `domainname` = 'ckdfefefe.club' LIMIT 1   [ RunTime:0.000427s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000380s ]
+SQL: INSERT INTO `db_item` (`domainname`,`orderID`,`registrar`,`price`,`years`) VALUES ('ckdfefefe.club',1490415469,'GoDaddy','31.50',10) [ RunTime:0.001812s ]
+SQL: SELECT * FROM `db_item` WHERE ( orderID=1490415469 )  [ RunTime:0.000214s ]
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000262s ]
+SQL: INSERT INTO `db_order` (`orderID`,`transactionID`,`username`,`issuedate`,`status`,`refundamount`,`invoicedate`,`duedate`,`description`) VALUES (1490415469,1490415570,'test','2017-03-25 12:17:49','active',0,'2017-03-25 12:17:49','2017-03-25 12:17:49','Renew domain ckdfefefe.club') [ RunTime:0.001607s ]
+SQL: SELECT * FROM `db_order` WHERE ( orderID = 1490415469 ) LIMIT 1   [ RunTime:0.000117s ]
+SQL: UPDATE `db_domainmgr` SET `id`=4,`domainname`='ckdfefefe.club',`username`='test',`registrar`='GoDaddy',`registrationdate`='2017-03-23 11:48:16',`expirydate`='2019-03-23 11:48:16',`nextduedate`='2019-03-23 11:48:16',`status`='active',`autorenew`='Y',`mainforward`='',`DNSmgr`='',`IDprotect`='N',`orderID`=1490240896,`email`='ABC@GMAIL.COM',`firstname`='c',`lastname`='c',`company`='c',`jobtitle`='c',`address1`='addr1',`address2`='add12',`city`='c',`state`='c',`country`='us',`postcode`=123456,`phone`='220-123-234',`fax`='220-123-234',`ns1`='1.1.1.1',`ns2`='2.1.1.1',`ns3`='3.1.1.1',`ns4`='4.1.1.1' WHERE `id` = 4 [ RunTime:0.000936s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000097s ]
+SQL: SHOW COLUMNS FROM `db_transaction` [ RunTime:0.000337s ]
+SQL: SELECT * FROM `db_transaction` WHERE `orderID` = '1490240896' LIMIT 1   [ RunTime:0.000100s ]
+SQL: INSERT INTO `db_transaction` (`transactionID`,`clientname`,`orderID`,`invoiceID`,`description`,`paydate`,`paymethod`,`accountnumber`,`settleamount`) VALUES (1490415570,'uy',1490415469,1490415469,'Renew the domain ckdfefefe.club','2017-03-25 12:17:49','PayPal','632587441236547899',315) [ RunTime:0.000627s ]
+SQL: SELECT * FROM `db_transaction` WHERE ( transactionID =1490415570 ) LIMIT 1   [ RunTime:0.000119s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000026s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000051s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008270s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008300s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000040s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000055s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000027s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000044s ]
+
+[ 2017-03-25T12:17:54+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000049s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000021s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000045s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003286s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003331s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000047s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000066s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000033s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000051s ]
+
+[ 2017-03-25T12:17:55+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000052s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000019s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000037s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000040s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000068s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008855s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008890s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000089s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000110s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000031s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000054s ]
+
+[ 2017-03-25T12:17:57+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domainlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000028s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000050s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000474s ]
+NOTIC: [8] Undefined index: limit /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db.class.php 第 788 行.
+SQL: SELECT * FROM `db_domainmgr` WHERE `username` = 'test' AND `status` = 'active' ORDER BY id desc LIMIT 0,20   [ RunTime:0.000050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `db_domainmgr` WHERE `username` = 'test' AND `status` = 'active' LIMIT 1   [ RunTime:0.000031s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000043s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000071s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005908s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005934s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000031s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000046s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000047s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000085s ]
+
+[ 2017-03-25T12:18:09+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domaindetail/domainid/4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000044s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000477s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000050s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000277s ]
+SQL: SELECT * FROM `db_item` WHERE `domainname` = 'ckdfefefe.club' LIMIT 1   [ RunTime:0.000136s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000142s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000303s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.043397s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.043480s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000077s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000106s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000072s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000212s ]
+
+[ 2017-03-25T12:21:13+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domainrenew/domainid/4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000063s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000022s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000041s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000624s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000049s ]
+SQL: SHOW COLUMNS FROM `db_premiumdomain` [ RunTime:0.000377s ]
+SQL: SELECT * FROM `db_premiumdomain` WHERE `domainname` = 'ckdfefefe.club' LIMIT 1   [ RunTime:0.000034s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000209s ]
+SQL: INSERT INTO `db_item` (`domainname`,`orderID`,`registrar`,`price`,`years`) VALUES ('ckdfefefe.club',1490415673,'GoDaddy','31.50',3) [ RunTime:0.001947s ]
+SQL: SELECT * FROM `db_item` WHERE ( orderID=1490415673 )  [ RunTime:0.000213s ]
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000295s ]
+SQL: INSERT INTO `db_order` (`orderID`,`transactionID`,`username`,`issuedate`,`status`,`refundamount`,`invoicedate`,`duedate`,`description`) VALUES (1490415673,1490415774,'test','2017-03-25 12:21:13','active',0,'2017-03-25 12:21:13','2017-03-25 12:21:13','Renew domain ckdfefefe.club') [ RunTime:0.000607s ]
+SQL: SELECT * FROM `db_order` WHERE ( orderID = 1490415673 ) LIMIT 1   [ RunTime:0.000110s ]
+SQL: UPDATE `db_domainmgr` SET `id`=4,`domainname`='ckdfefefe.club',`username`='test',`registrar`='GoDaddy',`registrationdate`='2017-03-23 11:48:16',`expirydate`='2019-03-23 11:48:16',`nextduedate`='2019-03-23 11:48:16',`status`='active',`autorenew`='Y',`mainforward`='',`DNSmgr`='',`IDprotect`='N',`orderID`=1490240896,`email`='ABC@GMAIL.COM',`firstname`='c',`lastname`='c',`company`='c',`jobtitle`='c',`address1`='addr1',`address2`='add12',`city`='c',`state`='c',`country`='us',`postcode`=123456,`phone`='220-123-234',`fax`='220-123-234',`ns1`='1.1.1.1',`ns2`='2.1.1.1',`ns3`='3.1.1.1',`ns4`='4.1.1.1' WHERE `id` = 4 [ RunTime:0.001556s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000043s ]
+SQL: SHOW COLUMNS FROM `db_transaction` [ RunTime:0.000251s ]
+SQL: SELECT * FROM `db_transaction` WHERE `orderID` = '1490240896' LIMIT 1   [ RunTime:0.000104s ]
+SQL: INSERT INTO `db_transaction` (`transactionID`,`clientname`,`orderID`,`invoiceID`,`description`,`paydate`,`paymethod`,`accountnumber`,`settleamount`) VALUES (1490415774,'uy',1490415673,1490415673,'Renew the domain ckdfefefe.club','2017-03-25 12:21:13','PayPal','632587441236547899',94.5) [ RunTime:0.000558s ]
+SQL: SELECT * FROM `db_transaction` WHERE ( transactionID =1490415774 ) LIMIT 1   [ RunTime:0.000102s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000038s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000063s ]
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 95 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 101 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 102 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 103 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 104 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 106 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 107 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 112 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 113 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 114 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 115 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 116 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 117 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 118 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 119 行.
+NOTIC: [8] Undefined variable: items /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 145 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007079s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007106s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000034s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000048s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000031s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000196s ]
+
+[ 2017-03-25T12:22:27+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domainrenew/domainid/4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000188s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000030s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000054s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000582s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000048s ]
+SQL: SHOW COLUMNS FROM `db_premiumdomain` [ RunTime:0.000213s ]
+SQL: SELECT * FROM `db_premiumdomain` WHERE `domainname` = 'ckdfefefe.club' LIMIT 1   [ RunTime:0.000032s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000210s ]
+SQL: INSERT INTO `db_item` (`domainname`,`orderID`,`registrar`,`price`,`years`) VALUES ('ckdfefefe.club',1490415747,'GoDaddy','31.50',3) [ RunTime:0.001865s ]
+SQL: SELECT * FROM `db_item` WHERE ( orderID=1490415747 )  [ RunTime:0.000125s ]
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000237s ]
+SQL: INSERT INTO `db_order` (`orderID`,`transactionID`,`username`,`issuedate`,`status`,`refundamount`,`invoicedate`,`duedate`,`description`) VALUES (1490415747,1490415848,'test','2017-03-25 12:22:27','active',0,'2017-03-25 12:22:27','2017-03-25 12:22:27','Renew domain ckdfefefe.club') [ RunTime:0.000647s ]
+SQL: SELECT * FROM `db_order` WHERE ( orderID = 1490415747 ) LIMIT 1   [ RunTime:0.000112s ]
+SQL: UPDATE `db_domainmgr` SET `expirydate`='2022-03-23 11:48:16',`nextduedate`='2022-03-23 11:48:16',`status`='active',`orderID`=1490415747 WHERE `id` = 4 [ RunTime:0.001571s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000113s ]
+SQL: SHOW COLUMNS FROM `db_transaction` [ RunTime:0.000230s ]
+SQL: SELECT * FROM `db_transaction` WHERE `orderID` = '1490240896' LIMIT 1   [ RunTime:0.000104s ]
+SQL: INSERT INTO `db_transaction` (`transactionID`,`clientname`,`orderID`,`invoiceID`,`description`,`paydate`,`paymethod`,`accountnumber`,`settleamount`) VALUES (1490415848,'uy',1490415747,1490415747,'Renew the domain ckdfefefe.club','2017-03-25 12:22:27','PayPal','632587441236547899',94.5) [ RunTime:0.000518s ]
+SQL: SELECT * FROM `db_transaction` WHERE ( transactionID =1490415848 ) LIMIT 1   [ RunTime:0.000148s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000062s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000189s ]
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 95 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 101 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 102 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 103 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 104 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 106 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 107 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 112 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 113 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 114 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 115 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 116 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 117 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 118 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 119 行.
+NOTIC: [8] Undefined variable: items /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 145 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009805s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009832s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000043s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000061s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000037s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000053s ]
+
+[ 2017-03-25T12:22:48+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domaindetail/domainid/4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000093s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000102s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000129s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000397s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000211s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000230s ]
+SQL: SELECT * FROM `db_item` WHERE `domainname` = 'ckdfefefe.club' LIMIT 1   [ RunTime:0.000157s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000227s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000290s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034104s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000076s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000104s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000108s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000172s ]
+
+[ 2017-03-25T12:22:53+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domainrenew/domainid/4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000053s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000020s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000041s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000514s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000053s ]
+SQL: SHOW COLUMNS FROM `db_premiumdomain` [ RunTime:0.000239s ]
+SQL: SELECT * FROM `db_premiumdomain` WHERE `domainname` = 'ckdfefefe.club' LIMIT 1   [ RunTime:0.000037s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000224s ]
+SQL: INSERT INTO `db_item` (`domainname`,`orderID`,`registrar`,`price`,`years`) VALUES ('ckdfefefe.club',1490415772,'GoDaddy','31.50',3) [ RunTime:0.011640s ]
+SQL: SELECT * FROM `db_item` WHERE ( orderID=1490415772 )  [ RunTime:0.000292s ]
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000405s ]
+SQL: INSERT INTO `db_order` (`orderID`,`transactionID`,`username`,`issuedate`,`status`,`refundamount`,`invoicedate`,`duedate`,`description`) VALUES (1490415772,1490415873,'test','2017-03-25 12:22:52','active',0,'2017-03-25 12:22:52','2017-03-25 12:22:52','Renew domain ckdfefefe.club') [ RunTime:0.017279s ]
+SQL: SELECT * FROM `db_order` WHERE ( orderID = 1490415772 ) LIMIT 1   [ RunTime:0.000202s ]
+SQL: UPDATE `db_domainmgr` SET `expirydate`='2025-03-23 11:48:16',`nextduedate`='2025-03-23 11:48:16',`status`='active',`orderID`=1490415772 WHERE `id` = 4 [ RunTime:0.001325s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000139s ]
+SQL: SHOW COLUMNS FROM `db_transaction` [ RunTime:0.000375s ]
+SQL: SELECT * FROM `db_transaction` WHERE `orderID` = '1490415747' LIMIT 1   [ RunTime:0.000122s ]
+SQL: INSERT INTO `db_transaction` (`transactionID`,`clientname`,`orderID`,`invoiceID`,`description`,`paydate`,`paymethod`,`accountnumber`,`settleamount`) VALUES (1490415873,'uy',1490415772,1490415773,'Renew the domain ckdfefefe.club','2017-03-25 12:22:53','PayPal','632587441236547899',94.5) [ RunTime:0.000740s ]
+SQL: SELECT * FROM `db_transaction` WHERE ( transactionID =1490415873 ) LIMIT 1   [ RunTime:0.000108s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000029s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000054s ]
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 95 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 101 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 102 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 103 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 104 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 106 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 107 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 112 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 113 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 114 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 115 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 116 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 117 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 118 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 119 行.
+NOTIC: [8] Undefined variable: items /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 145 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010255s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010323s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000211s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000254s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000064s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001722s ]
+
+[ 2017-03-25T12:25:08+08:00 ] 127.0.0.1 /DomainSystem/index.php/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000158s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000042s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000063s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000021s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000044s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010450s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010496s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000065s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000089s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000037s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000056s ]
+
+[ 2017-03-25T12:25:10+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000055s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000020s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000039s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000041s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000071s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007609s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007637s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000025s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000041s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000027s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000050s ]
+
+[ 2017-03-25T12:25:12+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domainlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000060s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000044s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000763s ]
+NOTIC: [8] Undefined index: limit /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db.class.php 第 788 行.
+SQL: SELECT * FROM `db_domainmgr` WHERE `username` = 'test' AND `status` = 'active' ORDER BY id desc LIMIT 0,20   [ RunTime:0.000219s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `db_domainmgr` WHERE `username` = 'test' AND `status` = 'active' LIMIT 1   [ RunTime:0.000202s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000043s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000070s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006314s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006340s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000048s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000163s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000202s ]
+
+[ 2017-03-25T12:25:19+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domaindetail/domainid/4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000054s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000020s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000040s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000408s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000048s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000296s ]
+SQL: SELECT * FROM `db_item` WHERE `domainname` = 'ckdfefefe.club' LIMIT 1   [ RunTime:0.000136s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000238s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000306s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.053505s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.053585s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000064s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000094s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000066s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000114s ]
+
+[ 2017-03-25T12:25:25+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domainrenew/domainid/4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000027s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000050s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000648s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000051s ]
+SQL: SHOW COLUMNS FROM `db_premiumdomain` [ RunTime:0.000279s ]
+SQL: SELECT * FROM `db_premiumdomain` WHERE `domainname` = 'ckdfefefe.club' LIMIT 1   [ RunTime:0.000265s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000229s ]
+SQL: INSERT INTO `db_item` (`domainname`,`orderID`,`registrar`,`price`,`years`) VALUES ('ckdfefefe.club',1490415925,'GoDaddy','31.50',3) [ RunTime:0.001669s ]
+SQL: SELECT * FROM `db_item` WHERE ( orderID=1490415925 )  [ RunTime:0.000240s ]
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000238s ]
+SQL: INSERT INTO `db_order` (`orderID`,`transactionID`,`username`,`issuedate`,`status`,`refundamount`,`invoicedate`,`duedate`,`description`) VALUES (1490415925,1490416026,'test','2017-03-25 12:25:25','active',0,'2017-03-25 12:25:25','2017-03-25 12:25:25','Renew domain ckdfefefe.club') [ RunTime:0.000694s ]
+SQL: SELECT * FROM `db_order` WHERE ( orderID = 1490415925 ) LIMIT 1   [ RunTime:0.000110s ]
+SQL: UPDATE `db_domainmgr` SET `expirydate`='2028-03-23 11:48:16',`nextduedate`='2028-03-23 11:48:16',`status`='active',`orderID`=1490415925 WHERE `id` = 4 [ RunTime:0.001543s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000119s ]
+SQL: SHOW COLUMNS FROM `db_transaction` [ RunTime:0.000376s ]
+SQL: SELECT * FROM `db_transaction` WHERE `orderID` = '1490415772' LIMIT 1   [ RunTime:0.000206s ]
+SQL: INSERT INTO `db_transaction` (`transactionID`,`clientname`,`orderID`,`invoiceID`,`description`,`paydate`,`paymethod`,`accountnumber`,`settleamount`) VALUES (1490416026,'uy',1490415925,1490415925,'Renew the domain ckdfefefe.club','2017-03-25 12:25:25','PayPal','632587441236547899',94.5) [ RunTime:0.000983s ]
+SQL: SELECT * FROM `db_transaction` WHERE ( transactionID =1490416026 ) LIMIT 1   [ RunTime:0.000104s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000027s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000055s ]
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 95 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 101 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 102 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 103 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 104 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 106 行.
+NOTIC: [8] Undefined variable: order /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 107 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 112 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 113 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 114 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 115 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 116 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 117 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 118 行.
+NOTIC: [8] Undefined variable: trans /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 119 行.
+NOTIC: [8] Undefined variable: items /var/www/html/DomainSystem/Application/Runtime/Cache/Home/0dedcae84b768072ec23b68452193938.php 第 145 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007577s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000034s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000048s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000066s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000117s ]
+
+[ 2017-03-25T12:26:44+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000062s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000044s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000022s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000049s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003319s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003345s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000027s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000043s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000020s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000036s ]
+
+[ 2017-03-25T12:26:45+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000053s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000020s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000041s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000045s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000080s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008774s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008808s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000047s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000029s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000054s ]
+
+[ 2017-03-25T12:26:47+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/orderlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000054s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000021s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000040s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000530s ]
+NOTIC: [8] Undefined index: limit /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db.class.php 第 788 行.
+SQL: SELECT * FROM `db_order` WHERE `username` = 'test' ORDER BY issuedate desc LIMIT 0,20   [ RunTime:0.000184s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `db_order` WHERE `username` = 'test' LIMIT 1   [ RunTime:0.000274s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000044s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000079s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007983s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008011s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000049s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000026s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000044s ]
+
+[ 2017-03-25T12:26:54+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/orderdetail/orderid/1490415925
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000067s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000044s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000495s ]
+SQL: SELECT * FROM `db_order` WHERE `orderID` = '1490415925' LIMIT 1   [ RunTime:0.000152s ]
+SQL: SHOW COLUMNS FROM `db_transaction` [ RunTime:0.000296s ]
+SQL: SELECT * FROM `db_transaction` WHERE `orderID` = '1490415925' LIMIT 1   [ RunTime:0.000116s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.001446s ]
+SQL: SELECT * FROM `db_item` WHERE `orderID` = 1490415925  [ RunTime:0.000203s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000051s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000082s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011466s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011498s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000096s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000116s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000042s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000073s ]
+
+[ 2017-03-25T12:27:00+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/orderlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000056s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000075s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000099s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000397s ]
+NOTIC: [8] Undefined index: limit /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db.class.php 第 788 行.
+SQL: SELECT * FROM `db_order` WHERE `username` = 'test' ORDER BY issuedate desc LIMIT 0,20   [ RunTime:0.000046s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `db_order` WHERE `username` = 'test' LIMIT 1   [ RunTime:0.000031s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000049s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000080s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015930s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015967s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000040s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000059s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000043s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000077s ]
+
+[ 2017-03-25T12:27:02+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/orderdetail/orderid/1490415772
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000051s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000116s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000138s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000444s ]
+SQL: SELECT * FROM `db_order` WHERE `orderID` = '1490415772' LIMIT 1   [ RunTime:0.000184s ]
+SQL: SHOW COLUMNS FROM `db_transaction` [ RunTime:0.000231s ]
+SQL: SELECT * FROM `db_transaction` WHERE `orderID` = '1490415772' LIMIT 1   [ RunTime:0.000110s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000273s ]
+SQL: SELECT * FROM `db_item` WHERE `orderID` = 1490415772  [ RunTime:0.000100s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000048s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000075s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011036s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011066s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000034s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000050s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000029s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000050s ]
+
+[ 2017-03-25T12:27:20+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/orderlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000047s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000421s ]
+NOTIC: [8] Undefined index: limit /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db.class.php 第 788 行.
+SQL: SELECT * FROM `db_order` WHERE `username` = 'test' ORDER BY issuedate desc LIMIT 0,20   [ RunTime:0.000104s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `db_order` WHERE `username` = 'test' LIMIT 1   [ RunTime:0.000033s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000055s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000160s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013751s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013781s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000042s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000059s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000038s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000060s ]
+
+[ 2017-03-25T12:29:32+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/orderdetail/orderid/1490415925
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000054s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000077s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000524s ]
+SQL: SELECT * FROM `db_order` WHERE `orderID` = '1490415925' LIMIT 1   [ RunTime:0.000043s ]
+SQL: SHOW COLUMNS FROM `db_transaction` [ RunTime:0.000229s ]
+SQL: SELECT * FROM `db_transaction` WHERE `orderID` = '1490415925' LIMIT 1   [ RunTime:0.000049s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000263s ]
+SQL: SELECT * FROM `db_item` WHERE `orderID` = 1490415925  [ RunTime:0.000036s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000051s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000081s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009424s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009450s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000035s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000050s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000028s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000047s ]
+
+[ 2017-03-25T12:29:52+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/orderlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000056s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000023s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000042s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.000341s ]
+NOTIC: [8] Undefined index: limit /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db.class.php 第 788 行.
+SQL: SELECT * FROM `db_order` WHERE `username` = 'test' ORDER BY issuedate desc LIMIT 0,20   [ RunTime:0.000047s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `db_order` WHERE `username` = 'test' LIMIT 1   [ RunTime:0.000155s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000060s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000095s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012173s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012210s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000047s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000065s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000038s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000064s ]
+
+[ 2017-03-25T12:30:18+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/orderdetail/orderid/1490415925
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000315s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000042s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000101s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_order` [ RunTime:0.001692s ]
+SQL: SELECT * FROM `db_order` WHERE `orderID` = '1490415925' LIMIT 1   [ RunTime:0.000074s ]
+SQL: SHOW COLUMNS FROM `db_transaction` [ RunTime:0.000409s ]
+SQL: SELECT * FROM `db_transaction` WHERE `orderID` = '1490415925' LIMIT 1   [ RunTime:0.002558s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000332s ]
+SQL: SELECT * FROM `db_item` WHERE `orderID` = 1490415925  [ RunTime:0.000043s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000060s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000162s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018340s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018383s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000057s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000075s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000098s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000166s ]
+
+[ 2017-03-25T12:31:00+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000059s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000028s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000051s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000043s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000071s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005522s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005548s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000031s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000046s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000032s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000055s ]
+
+[ 2017-03-25T12:31:02+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domainlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000052s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000020s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000040s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000404s ]
+NOTIC: [8] Undefined index: limit /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db.class.php 第 788 行.
+SQL: SELECT * FROM `db_domainmgr` WHERE `username` = 'test' AND `status` = 'active' ORDER BY id desc LIMIT 0,20   [ RunTime:0.000556s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `db_domainmgr` WHERE `username` = 'test' AND `status` = 'active' LIMIT 1   [ RunTime:0.000251s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000047s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000084s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009780s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009808s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000028s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000042s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000026s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000048s ]
+
+[ 2017-03-25T12:31:13+08:00 ] 127.0.0.1 /DomainSystem/index.php/Home/Client/domaindetail/domainid/4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000046s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/DomainSystem/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `db_domainmgr` [ RunTime:0.000405s ]
+SQL: SELECT * FROM `db_domainmgr` WHERE `id` = 4 LIMIT 1   [ RunTime:0.000051s ]
+SQL: SHOW COLUMNS FROM `db_item` [ RunTime:0.000238s ]
+SQL: SELECT * FROM `db_item` WHERE `domainname` = 'ckdfefefe.club' LIMIT 1   [ RunTime:0.000129s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000115s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000251s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019006s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019058s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000060s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000081s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000100s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000201s ]
+

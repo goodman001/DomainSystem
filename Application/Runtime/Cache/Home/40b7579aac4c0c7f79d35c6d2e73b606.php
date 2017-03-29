@@ -207,10 +207,17 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             </li>
         </ul>
     </li>
-    <li class='active'>
+    <li class="active">
         <a href="<?php echo U('Client/orderlist');;?>">
             <i class="icon-bookmark-empty"></i>
             <span class="title">My Orders</span>
+            <span class="selected"></span>
+        </a>
+    </li>
+    <li>
+        <a href="<?php echo U('Client/domainlist');;?>">
+            <i class="icon-bookmark-empty"></i>
+            <span class="title">My Domains</span>
             <span class="selected"></span>
         </a>
     </li>

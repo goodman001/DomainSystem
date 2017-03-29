@@ -20,69 +20,59 @@
     </li>
     <li class="start">
         <a href="{:U('Profile/index');}">
-            <i class="icon-home"></i>
+            <i class="fa fa-home" aria-hidden="true"></i>
             <span class="title">My Profile</span>
             <span class="selected"></span>
         </a>
     </li>
-    <li class="">
+    <li>
         <a href="javascript:;">
-            <i class="icon-bookmark-empty"></i>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
             <span class="title">Customers manager</span>
             <span class="arrow "></span>
         </a>
         <ul class="sub-menu">
-            <li >
+            <li>
                 <a href="{:U('Customer/customerlist');}">
                     Customers List
                 </a>
             </li>
-            <li>
+            <li >
                 <a href="{:U('Customer/customeradd');}">
                     Add Customers</a>
             </li>
         </ul>
     </li>
-	<li>
-        <a href="javascript:;">
-            <i class="icon-bookmark-empty"></i>
+     <li>
+        <a href="{:U('Order/orderlist');}">
+            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
             <span class="title">Order manager</span>
             <span class="arrow "></span>
         </a>
-        <ul class="sub-menu">
-            <li>
-                <a href="{:U('Order/orderlist');}">
-                    Order List
-                </a>
-            </li>
-            <li>
-                <a href="{:U('Order/orderadd');}">
-                    Add Order</a>
-            </li>
-        </ul>
     </li>
-	<li>
-        <a href="javascript:;">
-            <i class="icon-bookmark-empty"></i>
+    <li>
+        <a href="{:U('Transaction/translist');}">
+            <i class="fa fa-cogs" aria-hidden="true"></i>
             <span class="title">Transaction manager</span>
             <span class="arrow "></span>
         </a>
-        <ul class="sub-menu">
-            <li>
-                <a href="{:U('Transaction/translist');}">
-                    Transaction List
-                </a>
-            </li>
-        </ul>
     </li>
-	<li class="active">
-        <a href="javascript:;">
-            <i class="icon-bookmark-empty"></i>
+    <li class="active">
+        <a href="{:U('Domain/domainlist');}">
+            <i class="fa fa-database" aria-hidden="true"></i>
             <span class="title">Domains manager</span>
             <span class="arrow "></span>
         </a>
+    </li>
+    <li >
+        <a href="javascript:;">
+            <i class="fa fa-handshake-o" aria-hidden="true"></i>
+            <span class="title">Support</span>
+            <span class="arrow "></span>
+        </a>
+        <!--
         <ul class="sub-menu">
-            <li class="active">
+            <li>
                 <a href="{:U('Domain/domainlist');}">
                     Domain List
                 </a>
@@ -90,6 +80,98 @@
 			<li>
                 <a href="{:U('Domain/premiumlist');}">
                     Premium List
+                </a>
+            </li>
+        </ul>
+        -->
+    </li>
+    <li >
+        <a href="javascript:;">
+            <i class="fa fa-clipboard" aria-hidden="true"></i>
+            <span class="title">Report Module</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a> Monthly Active TLDs</a>
+            </li>
+			<li>
+                 <a> Active Accounts Per TLDs</a>
+            </li>
+            <li>
+                 <a> New Customer</a>
+            </li>
+            <li>
+                 <a> Monthly Transactions</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a class="active" href="javascript:;">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            <span class="title">Configuration</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="javascript:;">
+                    General
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{:U('Configure/general_web');}">Web Setting</a></li>
+                    <li><a href="{:U('Configure/general_language');}">Language</a></li>
+                    <li><a href="{:U('Configure/general_domain');}">Domains</a></li>
+                    <li><a href="{:U('Configure/general_mail');}">Mail</a></li>
+                    <li><a href="{:U('Configure/general_credit');}">Credit</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="{:U('Configure/security');}">
+                     Security
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Email Template
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    Administrators
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{:U('Configure/adminlist');}">Users manager</a></li>
+                    <li><a href="{:U('Configure/adminrolelist');}">Roles Manager</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    Domain Price
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{:U('Configure/pricesetting');}">Price setting</a></li>
+                    <li><a href="{:U('Configure/pricetools');}">Tools Manager</a></li>
+                    <li><a href="{:U('Configure/premiumlist');}">Premium Manager</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    Payment
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{:U('Configure/paymentlist');}">Payment method</a></li>
+                    <li><a href="{:U('Configure/currencies');}">Currencies</a></li>
+                    <li><a href="{:U('Configure/taxrules');}">Tax Rules</a></li>
+                    <li><a href="{:U('Configure/promotion');}">Promotion</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="{:U('Configure/domainregistrar');}">
+                    <span class="title">Domain Registrar</span>
                 </a>
             </li>
         </ul>
@@ -117,8 +199,8 @@
 <div class="row-fluid">
     <div class="span12">
         <h3 class="page-title">
-            Customer Manager
-            <small> Customer Manager</small>
+            Domain Manager
+            <small> Domain Manager</small>
         </h3>
         <ul class="breadcrumb">
             <li>
@@ -127,11 +209,11 @@
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
             <li>
-                <a href="{:U('Transaction/translist');}"> Transaction Manager</a>
+                <a href="{:U('Domain/domainlist');}"> Domain Manager</a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
-            <li><a href="{:U('Transaction/translist');}"> Transaction List</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-			<li><a href="{:U('Transaction/transdetail?transid='.$transid.'');}"> Transaction Detail</a></li>
+            <li><a href="{:U('Domain/domainlist');}"> Domain List</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+            <li><a href="#">Domain Detail</a></li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>

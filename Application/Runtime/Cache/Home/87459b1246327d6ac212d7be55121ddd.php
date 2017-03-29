@@ -182,7 +182,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         </form>
         <!-- END RESPONSIVE QUICK SEARCH FORM -->
     </li>
-    <li>
+    <li class="start">
         <a href="<?php echo U('Client/index');;?>">
             <i class="icon-home"></i>
             <span class="title">Welcome</span>
@@ -214,7 +214,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <span class="selected"></span>
         </a>
     </li>
-    <li class='active'>
+    <li class="active">
         <a href="<?php echo U('Client/domainlist');;?>">
             <i class="icon-bookmark-empty"></i>
             <span class="title">My Domains</span>

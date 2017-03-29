@@ -59,21 +59,6 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <ul class="nav navbar-nav">
         <li class="active"><a href="#">iOS</a></li>
         <li><a href="#">SVN</a></li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Java
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a href="#">jmeter</a></li>
-                <li><a href="#">EJB</a></li>
-                <li><a href="#">Jasper Report</a></li>
-                <li class="divider"></li>
-                <li><a href="#">分离的链接</a></li>
-                <li class="divider"></li>
-                <li><a href="#">另一个分离的链接</a></li>
-            </ul>
-        </li>
     </ul>
     <ul class="nav pull-right">
     <!-- BEGIN INBOX DROPDOWN -->
@@ -84,7 +69,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         </a>
         <ul class="dropdown-menu extended inbox">
             <li>
-                <p>你有12条消??/p>
+                <p>12 messages</p>
             </li>
             <li>
                 <a href="<?php echo U('Client/inbox');;?>">
@@ -113,7 +98,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 </a>
             </li>
             <li>
-                <a href="inbox.html?a=view">
+                <a href="#">
                     <span class="photo"><img src=".//DomainSystem/Public/metronic/media/image/avatar1.jpg" alt=""/></span>
                                     <span class="subject">
                                     <span class="from">Bob Nilson</span>
@@ -126,7 +111,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 </a>
             </li>
             <li class="external">
-                <a href="inbox.html">查看????消息<i class="m-icon-swapright"></i></a>
+                <a href="#">inbox<i class="m-icon-swapright"></i></a>
             </li>
         </ul>
     </li>
@@ -184,14 +169,14 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     </li>
     <li class="start active ">
         <a href="<?php echo U('Profile/index');;?>">
-            <i class="icon-home"></i>
+            <i class="fa fa-home" aria-hidden="true"></i>
             <span class="title">My Profile</span>
             <span class="selected"></span>
         </a>
     </li>
     <li class="">
         <a href="javascript:;">
-            <i class="icon-bookmark-empty"></i>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
             <span class="title">Customers manager</span>
             <span class="arrow "></span>
         </a>
@@ -207,55 +192,30 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             </li>
         </ul>
     </li>
-    <li class="">
-        <a href="javascript:;">
-            <i class="icon-bookmark-empty"></i>
+     <li class="">
+        <a href="<?php echo U('Order/orderlist');;?>">
+            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
             <span class="title">Order manager</span>
             <span class="arrow "></span>
         </a>
-        <ul class="sub-menu">
-            <li>
-                <a href="<?php echo U('Order/orderlist');;?>">
-                    Order List
-                </a>
-            </li>
-            <li>
-                <a href="<?php echo U('Order/orderadd');;?>">
-                    Add Order</a>
-            </li>
-        </ul>
     </li>
     <li class="">
-        <a href="javascript:;">
-            <i class="icon-bookmark-empty"></i>
+        <a href="<?php echo U('Transaction/translist');;?>">
+            <i class="fa fa-cogs" aria-hidden="true"></i>
             <span class="title">Transaction manager</span>
             <span class="arrow "></span>
         </a>
-        <ul class="sub-menu">
-            <li>
-                <a href="<?php echo U('Transaction/translist');;?>">
-                    Transaction List
-                </a>
-            </li>
-        </ul>
     </li>
     <li >
-        <a href="javascript:;">
-            <i class="icon-bookmark-empty"></i>
+        <a href="<?php echo U('Domain/domainlist');;?>">
+            <i class="fa fa-database" aria-hidden="true"></i>
             <span class="title">Domains manager</span>
             <span class="arrow "></span>
         </a>
-        <ul class="sub-menu">
-            <li>
-                <a href="<?php echo U('Domain/domainlist');;?>">
-                    Domain List
-                </a>
-            </li>
-        </ul>
     </li>
     <li >
         <a href="javascript:;">
-            <i class="icon-bookmark-empty"></i>
+            <i class="fa fa-handshake-o" aria-hidden="true"></i>
             <span class="title">Support</span>
             <span class="arrow "></span>
         </a>
@@ -276,7 +236,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     </li>
     <li >
         <a href="javascript:;">
-            <i class="icon-bookmark-empty"></i>
+            <i class="fa fa-clipboard" aria-hidden="true"></i>
             <span class="title">Report Module</span>
             <span class="arrow "></span>
         </a>
@@ -297,7 +257,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     </li>
     <li>
         <a class="active" href="javascript:;">
-            <i class="icon-sitemap"></i>
+            <i class="fa fa-cog" aria-hidden="true"></i>
             <span class="title">Configuration</span>
             <span class="arrow "></span>
         </a>

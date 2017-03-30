@@ -18,50 +18,37 @@
 				<div class="container-fluid">
 					<div class="cus0">
 						<div class="navbar-header">
-							<a class="navbar-brand" href="#">菜鸟教程</a>
+							<a class="navbar-brand" href="#">Index</a>
 						</div>
 						<div>
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="#">iOS</a></li>
 								<li><a href="#">SVN</a></li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										Java
-										<b class="caret"></b>
-									</a>
-									<ul class="dropdown-menu">
-										<li><a href="#">jmeter</a></li>
-										<li><a href="#">EJB</a></li>
-										<li><a href="#">Jasper Report</a></li>
-										<li class="divider"></li>
-										<li><a href="#">分离的链接</a></li>
-										<li class="divider"></li>
-										<li><a href="#">另一个分离的链接</a></li>
-									</ul>
-								</li>
 							</ul>
 							<!--right-->
 							<?php if(cookie('u_username')): ?><ul class="nav navbar-nav navbar-right">
 									<li>
-										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Shopping Cart</a>
+										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a>
 									</li>
 									<li>
-										<a href="<?php echo U('Client/index');;?>">My Account</a>
+										
+										<a href="<?php echo U('Client/index');;?>"><i class="fa fa-user-o" aria-hidden="true"></i> My Account</a>
 									</li>
 									<li>
-										<a href="<?php echo U('Login/logout');;?>">Logout</a>
+										
+										<a href="<?php echo U('Login/logout');;?>"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
 									</li>
 								</ul>
 							<?php else: ?> 
 								<ul class="nav navbar-nav navbar-right">
 									<li>
-										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Shopping Cart</a>
+										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a>
 									</li>
 									<li>
-										<a href="<?php echo U('Login/login');;?>">Login</a>
+										<a href="<?php echo U('Login/login');;?>"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
 									</li>
 									<li>
-										<a href="<?php echo U('Login/register');;?>">Register </a>
+										<a href="<?php echo U('Login/register');;?>"><i class="fa fa-registered" aria-hidden="true"></i> Register </a>
 									</li>
 									<li>
 

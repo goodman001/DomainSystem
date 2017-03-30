@@ -59,21 +59,6 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <ul class="nav navbar-nav">
         <li class="active"><a href="#">iOS</a></li>
         <li><a href="#">SVN</a></li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Java
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a href="#">jmeter</a></li>
-                <li><a href="#">EJB</a></li>
-                <li><a href="#">Jasper Report</a></li>
-                <li class="divider"></li>
-                <li><a href="#">分离的链接</a></li>
-                <li class="divider"></li>
-                <li><a href="#">另一个分离的链接</a></li>
-            </ul>
-        </li>
     </ul>
     <ul class="nav pull-right">
     <!-- BEGIN INBOX DROPDOWN -->
@@ -84,7 +69,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         </a>
         <ul class="dropdown-menu extended inbox">
             <li>
-                <p>你有12条消??/p>
+                <p>12 messages</p>
             </li>
             <li>
                 <a href="<?php echo U('Client/inbox');;?>">
@@ -113,7 +98,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 </a>
             </li>
             <li>
-                <a href="inbox.html?a=view">
+                <a href="#">
                     <span class="photo"><img src=".//DomainSystem/Public/metronic/media/image/avatar1.jpg" alt=""/></span>
                                     <span class="subject">
                                     <span class="from">Bob Nilson</span>
@@ -126,7 +111,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 </a>
             </li>
             <li class="external">
-                <a href="inbox.html">查看????消息<i class="m-icon-swapright"></i></a>
+                <a href="#">inbox<i class="m-icon-swapright"></i></a>
             </li>
         </ul>
     </li>
@@ -393,20 +378,10 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN PAGE CONTENT-->
 <div class="row-fluid">
     <div class="span12">
-        <form role="form" action="<?php echo U('Configure/premiumlist');;?>" method="post" class="form-search">
-            <div class="control">
-                <input name = 'search' class="m-wrap" type="text" required><button type="submit" class="btn green" type="button">Search!</button>
-            </div>
-        </form>
-    </div>
-</div>
-<div class="row-fluid">
-    <div class="span12">
 
 		<!--BEGIN TABS-->
 <div class="tabbable tabbable-custom tabbable-full-width">
 <ul class="nav nav-tabs">
-    
     <li class="active"><a href="#tab_1_1" data-toggle="tab">Premium Domain</a></li>
 	<li><a href="#tab_1_2" data-toggle="tab">Add premium</a></li>
 </ul>
@@ -432,7 +407,10 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <td><?php echo ($vo["price"]); ?></td>
             <td><?php echo ($vo["rate"]); ?></td>
 			<td>
-				<a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Configure/premiumdel?domainid='.$vo['id'].'');;?>">
+                <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Configure/premiumdetail?id='.$vo['id'].'');;?>">
+                    Edit		
+                </a>
+				<a class="btn red easy-pie-chart-reload" href="<?php echo U('Configure/premiumdel?domainid='.$vo['id'].'');;?>">
 					Delete
 				</a>
 			</td>

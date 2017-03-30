@@ -174,19 +174,19 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <span class="selected"></span>
         </a>
     </li>
-    <li class="active">
+    <li class="">
         <a href="javascript:;">
             <i class="fa fa-user-circle" aria-hidden="true"></i>
             <span class="title">Customers manager</span>
             <span class="arrow "></span>
         </a>
         <ul class="sub-menu">
-            <li class="active">
+            <li>
                 <a href="<?php echo U('Customer/customerlist');;?>">
                     Customers List
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="<?php echo U('Customer/customeradd');;?>">
                     Add Customers</a>
             </li>
@@ -255,7 +255,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             </li>
         </ul>
     </li>
-    <li>
+    <li class="active">
         <a class="active" href="javascript:;">
             <i class="fa fa-cog" aria-hidden="true"></i>
             <span class="title">Configuration</span>
@@ -295,7 +295,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                     <li><a href="<?php echo U('Configure/adminrolelist');;?>">Roles Manager</a></li>
                 </ul>
             </li>
-            <li>
+            <li class="active">
                 <a href="javascript:;">
                     Domain Price
                     <span class="arrow"></span>
@@ -303,7 +303,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 <ul class="sub-menu">
                     <li><a href="<?php echo U('Configure/pricesetting');;?>">Price setting</a></li>
                     <li><a href="<?php echo U('Configure/pricetools');;?>">Tools Manager</a></li>
-                    <li><a href="<?php echo U('Configure/premiumlist');;?>">Premium Manager</a></li>
+                    <li class="active"><a href="<?php echo U('Configure/premiumlist');;?>">Premium Manager</a></li>
                 </ul>
             </li>
             <li>
@@ -363,10 +363,13 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
             <li>
-                <a href="#">Customer Manager</a>
+                <a href="#">Configuration</a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
-            <li><a href="<?php echo U('Customer/customerlist');;?>">Customers List</a></li>
+            <li><a href="#">Domain Price</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+             <li>
+                <a href="<?php echo U('Configure/premiumlist');;?>">Premium manager</a>
+            </li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -375,52 +378,53 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN PAGE CONTENT-->
 <div class="row-fluid">
     <div class="span12">
-        <form role="form" action="<?php echo U('Customer/customerlist');;?>" method="post" class="form-search">
-            <div class="control">
-                <input name = 'search' class="m-wrap" type="text" required><button type="submit" class="btn green" type="button">Search!</button>
+
+		<!--BEGIN TABS-->
+<div class="tabbable tabbable-custom tabbable-full-width">
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#tab_1_1" data-toggle="tab">Edit premium</a></li>
+</ul>
+<div class="tab-content">
+
+<!--end tab-pane-->
+<div class="tab-pane row-fluid active" id="tab_1_1">
+	<div style="height: auto;" id="accordion1-1" class="accordion collapse">
+        <div class="span12">
+            <h4><i class="fa fa-cog" aria-hidden="true"></i> Add Preminum Domain</h4>
+            <div class="span4">
+                <form role="form" action="<?php echo U('Configure/premiumedit?id='.$item['id'].'');;?>" method="post"> 
+					<label class="control-label">ID</label>
+                    <input name="domainid" type="text" value="<?php echo ($item["id"]); ?>" class="m-wrap span8" readonly/>
+                    <label class="control-label">Domain name</label>
+                    <input name="domainname" type="text" id="domainname" placeholder="domainname" value="<?php echo ($item["domainname"]); ?>" class="m-wrap span8" required/>
+                    <label class="control-label">Domain price</label>
+                    <input name="price" type="text" placeholder="domain price" pattern="^[0-9]+([\.,]{0,1}[0-9]*)$" maxlength="15" minlength="1" value="<?php echo ($item["price"]); ?>" class="m-wrap span8" required/>
+                    <label class="control-label">Domain rating</label>
+                    <input name="rate" type="text" placeholder="domain rate" pattern="^[0-9]+([\.,]{0,1}[0-9]*)$" maxlength="15" minlength="1" value="<?php echo ($item["rate"]); ?>" class="m-wrap span8" required/>
+                    <div class="submit-btn">
+                        <button type="submit" class="btn green">Save Changes</button>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>       
     </div>
 </div>
-<div class="row-fluid">
-    <div class="span12">
-    <table class="table table-striped table-hover">
-       <thead>
-        <tr>
-            <th>Username</th>
-            <th>Email</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Country</th>
-            <th>Phone</th>
-            <th>Currency</th>
-            <th>Balance</th>
-            <th>Account Status</th>
-            <th>Regist time</th>
-            <th></th>
-        </tr>
-       </thead>
-       <tbody>
-        <?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
-            <td><?php echo ($vo["username"]); ?></td>
-            <td><?php echo ($vo["email"]); ?></td>
-            <td><?php echo ($vo["city"]); ?></td>
-            <td><?php echo ($vo["state"]); ?></td>
-            <td><?php echo ($vo["country"]); ?></td>
-            <td><?php echo ($vo["phone"]); ?></td>
-            <td><?php echo ($vo["currency"]); ?></td>
-            <td><?php echo ($vo["balance"]); ?></td>
-            <td><?php echo ($vo["status"]); ?></td>
-            <td><?php echo ($vo["regtime"]); ?></td>
-            <td>
-                <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Customer/customerdetail?id='.$vo['id'].'');;?>">
-                    view detail		
-                </a>
-            </td>
-          </tr><?php endforeach; endif; ?>
-       </tbody>
-    </table>
-    <span><div class="page"><?php echo ($page); ?></div></span>
+<!-- tab_1_3 -->
+
+
+<!-- tab_1_3 -->
+<!--end tab-pane-->
+<!--end tab-pane-->
+
+<!--end tab-pane-->
+</div>
+</div>
+<!--END TABS-->
+		
+		
+		
+		
+		
     </div>
 </div>
 <!-- END PAGE CONTENT-->

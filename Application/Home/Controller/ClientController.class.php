@@ -303,32 +303,42 @@ class ClientController extends Controller {
 		$years = I('post.years');
 		$nowtime = date('Y-m-d H:i:s',time());
 		
-		
+		$DoM = M('domainmgr');
+		$domaininfo = $DoM->where($where)->find();
 		$username = cookie('u_username');
 		$transactionID = time()+101;
 		$orderID = time();
-		$expiry_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($nowtime)));
-		$nextdue_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($nowtime)));
+		$expiry_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($domaininfo["expirydate"])));
+		$nextdue_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($domaininfo["nextduedate"])));
 		//print($registrar);
 		//get domain infomation
-		$DoM = M('domainmgr');
-		$domaininfo = $DoM->where($where)->find();
+		
 		///get price
 		$price = 0;
-		$pieces = explode(".", $domaininfo['domainname']);     
-        $Mpice = M('premium');
-        $dcp["domainname"] = array('like','%'.$pieces[count($pieces)-1].'%');
-        $content2 = $Mpice->where($dcp)->find();
-        if(!empty($content2))
+		$Mt = M('fakedomains');
+        $dprice["domainname"] = $domaininfo['domainname'];
+        $presult = $Mt->where($dprice)->find();
+        if(!empty($presult))
         {
-            $price = $content2['price']*($content2['rate']+1);//increase 20%
+            $pieces = explode(".", $domaininfo['domainname']);
+            $Model = M('premium');
+            $dcp["domainname"] = array('like','%.'.$pieces[count($pieces)-1]);
+            $content2 = $Model->where($dcp)->find();
+            if(!empty($content2))
+            {
+                $price = $content2['price']*($content2['rate']+1);//increase 20%
+            }else
+            {
+                $Model = M('configure');
+                $re = $Model->field('domainprice')->where('id=1')->find();
+                $price = $re['domainprice'];
+            }
         }else
         {
-            $Mpice  = M('configure');
-            $re = $Mpice->field('domainprice')->where('id=1')->find();
+            $Model = M('configure');
+            $re = $Model->field('domainprice')->where('id=1')->find();
             $price = $re['domainprice'];
         }
-		
 		
 		
 		
@@ -350,7 +360,7 @@ class ClientController extends Controller {
 		$order['status'] = 'active';
 		$order['refundamount'] = 0.0;
 		$order['invoicedate'] = date('Y-m-d H:i:s',time());
-		$order['duedate'] = $nextdue_db;
+		$order['duedate'] = date('Y-m-d H:i:s',time());
 		$order['description'] = 'Renew domain '.$domaininfo['domainname'];
 		$orderM->data($order)->add();
 		$orderinfo = $orderM->where('orderID = '.$orderID)->find();

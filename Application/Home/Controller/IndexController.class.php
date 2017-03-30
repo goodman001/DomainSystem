@@ -19,20 +19,33 @@ class IndexController extends Controller {
             return 0;
         }
         //get price configure
-        $pieces = explode(".", $dm_name);
-        
-        $Model = M('premium');
-        $dcp["domainname"] = array('like','%.'.$pieces[count($pieces)-1]);
-        $content2 = $Model->where($dcp)->find();
-        if(!empty($content2))
+        $Mt = M('fakedomains');
+        $dprice["domainname"] = $dm_name;
+        $presult = $Mt->where($dprice)->find();
+        if(!empty($presult))
         {
-            $price = $content2['price']*($content2['rate']+1);//increase 20%
+            $pieces = explode(".", $dm_name);
+            $Model = M('premium');
+            $dcp["domainname"] = array('like','%.'.$pieces[count($pieces)-1]);
+            $content2 = $Model->where($dcp)->find();
+            if(!empty($content2))
+            {
+                $price = $content2['price']*($content2['rate']+1);//increase 20%
+            }else
+            {
+                $Model = M('configure');
+                $re = $Model->field('domainprice')->where('id=1')->find();
+                $price = $re['domainprice'];
+            }
         }else
         {
             $Model = M('configure');
             $re = $Model->field('domainprice')->where('id=1')->find();
             $price = $re['domainprice'];
         }
+        
+        
+        
         $showflag = 0;//
         $msg = getWhois($dm_name);
         $flag =  $msg[1];

@@ -28,13 +28,15 @@
 							<!--right-->
 							<?php if(cookie('u_username')): ?><ul class="nav navbar-nav navbar-right">
 									<li>
-										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Shopping Cart</a>
+										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a>
 									</li>
 									<li>
-										<a href="<?php echo U('Client/index');;?>">My Account</a>
+										
+										<a href="<?php echo U('Client/index');;?>"><i class="fa fa-user-o" aria-hidden="true"></i> My Account</a>
 									</li>
 									<li>
-										<a href="<?php echo U('Login/logout');;?>">Logout</a>
+										
+										<a href="<?php echo U('Login/logout');;?>"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
 									</li>
 								</ul>
 							<?php else: ?> 

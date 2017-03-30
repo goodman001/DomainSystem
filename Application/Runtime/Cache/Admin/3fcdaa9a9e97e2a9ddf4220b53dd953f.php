@@ -28,19 +28,19 @@
 							<!--right-->
 							<?php if(cookie('admin_uid')): ?><ul class="nav navbar-nav navbar-right">
 									<li>
-										<a href="<?php echo U('Client/index');;?>">My Account</a>
+										<a href="<?php echo U('Index/shop');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Return Shopping</a>
 									</li>
 									<li>
-										<a href="<?php echo U('Login/logout');;?>">Logout</a>
+										<a href="<?php echo U('Login/logout');;?>"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
 									</li>
 								</ul>
 							<?php else: ?> 
 								<ul class="nav navbar-nav navbar-right">
 									<li>
-										<a href="<?php echo U('Login/index');;?>">Login</a>
+										<a href="<?php echo U('Index/shop');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Return Shopping</a>
 									</li>
 									<li>
-
+										<a href="<?php echo U('Login/index');;?>"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
 									</li>
 								</ul><?php endif; ?>
 
@@ -78,7 +78,6 @@
 						<button type="submit" class="btn btn-primary  btn-large">  
 							Submit
 						</button>  
-						<a href="<?php echo U('Login/findpwdstep0');;?>"> Forget password?</a>
 					</div>  
 				</div>  
 				</form> 

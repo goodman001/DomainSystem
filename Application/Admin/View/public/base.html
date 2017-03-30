@@ -29,19 +29,19 @@
 							<if condition="cookie('admin_uid')">
 								<ul class="nav navbar-nav navbar-right">
 									<li>
-										<a href="{:U('Client/index');}">My Account</a>
+										<a href="{:U('Index/shop');}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Return Shopping</a>
 									</li>
 									<li>
-										<a href="{:U('Login/logout');}">Logout</a>
+										<a href="{:U('Login/logout');}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
 									</li>
 								</ul>
 							<else /> 
 								<ul class="nav navbar-nav navbar-right">
 									<li>
-										<a href="{:U('Login/index');}">Login</a>
+										<a href="{:U('Index/shop');}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Return Shopping</a>
 									</li>
 									<li>
-
+										<a href="{:U('Login/index');}"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
 									</li>
 								</ul>
 							</if>

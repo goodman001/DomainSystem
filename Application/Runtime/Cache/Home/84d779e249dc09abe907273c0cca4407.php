@@ -42,13 +42,13 @@
 							<?php else: ?> 
 								<ul class="nav navbar-nav navbar-right">
 									<li>
-										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Shopping Cart</a>
+										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a>
 									</li>
 									<li>
-										<a href="<?php echo U('Login/login');;?>">Login</a>
+										<a href="<?php echo U('Login/login');;?>"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
 									</li>
 									<li>
-										<a href="<?php echo U('Login/register');;?>">Register </a>
+										<a href="<?php echo U('Login/register');;?>"><i class="fa fa-registered" aria-hidden="true"></i> Register </a>
 									</li>
 									<li>
 

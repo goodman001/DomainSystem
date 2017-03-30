@@ -6,7 +6,7 @@
 		<meta name="author" content="domain shopping">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href="/DomainSystem/Public/style.css" rel="stylesheet" type="text/css">
 		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -18,50 +18,37 @@
 				<div class="container-fluid">
 					<div class="cus0">
 						<div class="navbar-header">
-							<a class="navbar-brand" href="#">菜鸟教程</a>
+							<a class="navbar-brand" href="#">Index</a>
 						</div>
 						<div>
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="#">iOS</a></li>
 								<li><a href="#">SVN</a></li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										Java
-										<b class="caret"></b>
-									</a>
-									<ul class="dropdown-menu">
-										<li><a href="#">jmeter</a></li>
-										<li><a href="#">EJB</a></li>
-										<li><a href="#">Jasper Report</a></li>
-										<li class="divider"></li>
-										<li><a href="#">分离的链接</a></li>
-										<li class="divider"></li>
-										<li><a href="#">另一个分离的链接</a></li>
-									</ul>
-								</li>
 							</ul>
 							<!--right-->
 							<?php if(cookie('u_username')): ?><ul class="nav navbar-nav navbar-right">
 									<li>
-										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Shopping Cart</a>
+										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a>
 									</li>
 									<li>
-										<a href="<?php echo U('Client/index');;?>">My Account</a>
+										
+										<a href="<?php echo U('Client/index');;?>"><i class="fa fa-user-o" aria-hidden="true"></i> My Account</a>
 									</li>
 									<li>
-										<a href="<?php echo U('Login/logout');;?>">Logout</a>
+										
+										<a href="<?php echo U('Login/logout');;?>"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
 									</li>
 								</ul>
 							<?php else: ?> 
 								<ul class="nav navbar-nav navbar-right">
 									<li>
-										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Shopping Cart</a>
+										<a href="<?php echo U('Index/showshoppingcart');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a>
 									</li>
 									<li>
-										<a href="<?php echo U('Login/login');;?>">Login</a>
+										<a href="<?php echo U('Login/login');;?>"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
 									</li>
 									<li>
-										<a href="<?php echo U('Login/register');;?>">Register </a>
+										<a href="<?php echo U('Login/register');;?>"><i class="fa fa-registered" aria-hidden="true"></i> Register </a>
 									</li>
 									<li>
 
@@ -158,7 +145,7 @@
 				<div class="form-group">  
 					<label class="col-md-3 control-label" for="name">City</label>  
 					<div class="col-md-9">  
-						<input class="form-control" name="city" type="text" id="city" placeholder="Address 2" value="" required/>  
+						<input class="form-control" name="city" type="text" id="city" placeholder="City" value="" required/>  
 					</div>  
 				</div>
 				<div class="form-group">  

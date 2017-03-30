@@ -7,6 +7,7 @@ class LoginController extends Controller {
     }
 	public function checkLog()
 	{
+		cookie('admin_uid',null);
 		$data['username']= I('post.username','','htmlspecialchars');//get name
 		$data['password'] = I('post.password','','htmlspecialchars');//get name
 		$Model = M('admins');

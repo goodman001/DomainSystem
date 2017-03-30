@@ -358,13 +358,13 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         </h3>
         <ul class="breadcrumb">
             <li>
-                <i class="icon-home"></i>
+                <i class="fa fa-home" aria-hidden="true"></i>
                 <a href="<?php echo U('Profile/index');;?>">Home</a>
-                <i class="icon-angle-right"></i>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
             <li>
                 <a href="#">Order Manager</a>
-                <i class="icon-angle-right"></i>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
             <li><a href="<?php echo U('Order/orderlist');;?>">Order List</a></li>
         </ul>

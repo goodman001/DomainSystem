@@ -392,7 +392,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         <div class="span12">
             <h4><i class="fa fa-cog" aria-hidden="true"></i> Add Preminum Domain</h4>
             <div class="span4">
-                <form role="form" action="<?php echo U('Configure/premiumedit?id='.$item['id'].'');;?>" method="post"> 
+                <form role="form" action="<?php echo U('Configure/premiumedit');;?>" method="post"> 
 					<label class="control-label">ID</label>
                     <input name="domainid" type="text" value="<?php echo ($item["id"]); ?>" class="m-wrap span8" readonly/>
                     <label class="control-label">Domain name</label>

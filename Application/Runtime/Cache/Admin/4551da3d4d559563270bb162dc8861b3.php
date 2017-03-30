@@ -69,7 +69,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         </a>
         <ul class="dropdown-menu extended inbox">
             <li>
-                <p>你有12条消??/p>
+                <p>12 messages</p>
             </li>
             <li>
                 <a href="<?php echo U('Client/inbox');;?>">
@@ -98,7 +98,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 </a>
             </li>
             <li>
-                <a href="inbox.html?a=view">
+                <a href="#">
                     <span class="photo"><img src=".//DomainSystem/Public/metronic/media/image/avatar1.jpg" alt=""/></span>
                                     <span class="subject">
                                     <span class="from">Bob Nilson</span>
@@ -111,7 +111,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 </a>
             </li>
             <li class="external">
-                <a href="inbox.html">inbox<i class="m-icon-swapright"></i></a>
+                <a href="#">inbox<i class="m-icon-swapright"></i></a>
             </li>
         </ul>
     </li>

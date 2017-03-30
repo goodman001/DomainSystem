@@ -318,7 +318,7 @@ class ConfigureController extends CommonController {
 	}
 	public function premiumedit()
 	{
-		$date['domainid'] =I('post.id');
+		$data['id'] =I('post.domainid');
 		$where['domainname'] =I('post.domainname');
 		$Model = M('premium');
 		$count = $Model->where($where)->count();
@@ -329,7 +329,7 @@ class ConfigureController extends CommonController {
 		{
 			$where['price'] = I('post.price');
 			$where['rate'] = I('post.rate');
-			$Model->data($data)->save($where);
+			$Model->where($data)->save($where);
 			$this->success('The domain has already edit successfully!',U('Configure/premiumlist'),2);
 		}
 	}

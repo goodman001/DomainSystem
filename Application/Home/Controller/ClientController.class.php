@@ -360,7 +360,7 @@ class ClientController extends Controller {
 		$data['nextduedate'] = $nextdue_db;
 		$data['status'] = 'active';
 		$data['orderID'] = $orderID;
-		$DoM->where($where)->save();
+		$DoM->where($where)->save($data);
 		$domainnew = $DoM->where($where)->find();
 		//$domainnew = $DoM->where($where)->find();
 		// pay

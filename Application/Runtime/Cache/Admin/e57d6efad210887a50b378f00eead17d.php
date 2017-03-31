@@ -383,31 +383,79 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div class="tab-pane" id="tab_1_2">
 	<div style="height: auto;" id="accordion1-1" class="accordion collapse">
         <div class="span12">
-            <h4><i class="fa fa-cog" aria-hidden="true"></i> Update domain</h4>
-                <form role="form" action="<?php echo U('Domain/domainupdate?domainid='.$domainid.'');;?>" method="post">  
+            <h4><i class="fa fa-cog" aria-hidden="true"></i> Add new domain</h4>
+                
+                <form role="form" action="<?php echo U('Domain/domainadd');;?>" method="post">  
+                    <h5>domain infomation</h5>
                     <label class="control-label">Domain Name</label>
-					<input name="domainname" type="text" id="domainname" value="<?php echo ($domain["domainname"]); ?>" class="m-wrap span8" readonly/>
-					<label class="control-label">Expired Date</label>
-                    <input name="expirydate" type="text" id="expirydate" placeholder="Expiry date" value="<?php echo ($domain["expirydate"]); ?>" class="m-wrap span8" required/>
-					<label class="control-label">Next due date</label>
-                    <input name="nextduedate" type="text" id="nextduedate" placeholder="Next due date" value="<?php echo ($domain["nextduedate"]); ?>" class="m-wrap span8" required/>
-					<label>Status</label>
-					<select class="m-wrap span8" name="status" required>
-						<option value= "pending">pending</option>
-						<option value= "active">active</option>
-						<option value= "suspend">suspend</option>
-					</select>
+					<input name="domainname" type="text" value="" placeholder="Domain name" class="m-wrap span8" required/>
+                    <label class="control-label">Username</label>
+                    <select class="m-wrap span8" name="username" required>
+                        <?php if(is_array($users)): foreach($users as $key=>$vo): ?><option value="<?php echo ($vo["username"]); ?>"><?php echo ($vo["username"]); ?></option><?php endforeach; endif; ?>
+                    </select>
+                    <label class="control-label">Years</label>
+                    <select class="m-wrap span8" name="years" required>
+                        <option value="1">one years </option>
+                        <option value="2" >two years </option> 
+                        <option value="3">three years</option>
+                        <option value="5">five years </option>
+                        <option value="10">ten years </option>
+                    </select>
 					<label>Auto renew</label>
 					<select class="m-wrap span8" name="autorenew" required>
 						<option value= "N">N</option>
 						<option value= "Y">Y</option>
 					</select>
-					
-					
+					<h5>Domain Registration Profile</h5>
+					<label class="control-label">First Name</label>
+                    <input class="m-wrap span8"  name="firstname" type="text" id="firstname" placeholder="first name" value="" required/>  
+                    <label>Last Name</label>
+                    <input class="m-wrap span8" name="lastname" type="text" id="lastname" placeholder="last name" value="" required/> 
+                    <label>Company Name</label>
+                    <input class="m-wrap span8" name="company" type="text" id="company" placeholder="Company" value="" /> 
+                    <label>Job Title</label>
+                    <input class="m-wrap span8" name="jobtitle" type="text" id="jobtitle" placeholder="Job title" value="" /> 
+                    <label>Email</label>
+                    <input class="m-wrap span8" name="email" type="email" id="email" placeholder="Email" value="" required/> 
+                    <label>City</label>
+                    <input  name="city" type="text" id="city" placeholder="City" value="" required/> 
+                    <label>State</label>
+                    <input class="m-wrap span8" name="state" type="text" id="state" placeholder="State" value="" required/> 
+                    <label>Postcode</label>
+                    <input class="m-wrap span8" type="number" value="" name="postcode" id="postcode" placeholder="Postcode" required> 
+                    <label>Country</label>
+                    <input class="m-wrap span8" name="country" type="text" id="country" placeholder="Country" value="" required/>
+                    <label>Phone</label>
+                    <input class="m-wrap span8" type="tel" value="" name="phone" id="phone" placeholder="Phone" required> 
+                    <label>FAX</label>
+                    <input class="m-wrap span8" type="tel" value="" name="fax" id="fax" placeholder="Fax" required> 
+                    <label>Address1</label>
+                    <input class="m-wrap span8" name="address1" type="text" id="address1" placeholder="Address 1" value="" required/> 
+                    <label>Address2</label>
+                    <input class="m-wrap span8" name="address2" type="text" id="address2" placeholder="Address 2" value="" required/>
+                    <label>NameServer1(require)</label>
+                    <input class="m-wrap span8" name="ns1" type="text" id="ns1" placeholder="NameServer" value="" required/>
+                    <label>NameServer2(optional)</label>
+                    <input class="m-wrap span8" name="ns2" type="text" id="ns2" placeholder="NameServer" value="" />
+                    <label>NameServer3(optional)</label>
+                    <input class="m-wrap span8" name="ns3" type="text" id="ns3" placeholder="NameServer" value="" />
+                    <label>NameServer4(optional)</label>
+                    <input class="m-wrap span8" name="ns4" type="text" id="ns4" placeholder="NameServer" value="" />
+                    
+                    <h5>Transaction infomation</h5>
+                    <label class="control-label">Client Name</label>
+                    <input name="clientname" type="text" id="clientname" placeholder="client name" value="" class="m-wrap span8" required/>
+					<label class="control-label">Account number</label>
+                    <input name="accountnumber" type="text"  placeholder="account /card number" value="" class="m-wrap span8" required/>
+					<label>Select payment method</label>
+					<select class="m-wrap span8" name="paymethod" required>
+						<?php if(is_array($payments)): foreach($payments as $key=>$vo): ?><option value= "<?php echo ($vo["method"]); ?>"><?php echo ($vo["method"]); ?></option><?php endforeach; endif; ?>
+					</select>
                     <div class="submit-btn">
                         <button type="submit" class="btn green">Save Changes</button>
                     </div>
                 </form>
+                
         </div>       
     </div>
 </div>
@@ -417,12 +465,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!--end tab-pane-->
 </div>
 </div>
-<!--END TABS-->
-		
-		
-		
-		
-		
+<!--END TABS-->		
     </div>
 </div>
 

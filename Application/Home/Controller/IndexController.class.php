@@ -161,7 +161,8 @@ class IndexController extends Controller {
             cookie('shoptotal',$total,360000);
             cookie('shopcart',$lists,360000);
         }
-        
+        $years = I('post.years');
+		$nowtime = date('Y-m-d H:i:s',time());
         //print(cookie('shopcart'));
         R('Index/showshoppingcart');
     }

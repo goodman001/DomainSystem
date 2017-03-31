@@ -62,14 +62,14 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     </ul>
     <ul class="nav pull-right">
     <!-- BEGIN INBOX DROPDOWN -->
-    <li class="dropdown" id="header_notification_bar">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="icon-envelope"></i>
-            <span class="badge">5</span>
-        </a>
-    </li>
     <!-- END INBOX DROPDOWN -->
     <!-- BEGIN USER LOGIN DROPDOWN -->
+    <li class="dropdown user">
+        <a href="<?php echo U('Index/shop');;?>" class="dropdown-toggle">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <span class="username">Return shopping</span>
+        </a>
+    </li>
     <li class="dropdown user">
         <a href="<?php echo U('Login/logout');;?>" class="dropdown-toggle">
             <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -402,9 +402,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <script src="/DomainSystem/Public/metronic/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
 <script src="/DomainSystem/Public/metronic/media/js/bootstrap.min.js" type="text/javascript"></script>
 <!--[if lt IE 9]>
-<!-- IE 支持 canvas -->
 <script src="/DomainSystem/Public/metronic/media/js/excanvas.min.js"></script>
-<!--Respond.js 是一个快速??轻量??polyfill，用于为 IE6-8 以及其它不支??CSS3 /DomainSystem/Public/metronic/media Queries 的浏览器提供媒体查询??min-width ??max-width 特??，实现响应式网页设计（Responsive Web Design）??-->
 <script src="/DomainSystem/Public/metronic/media/js/respond.min.js"></script>
 <![endif]-->
 <!--滚动??插件-->
@@ -412,14 +410,10 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!--进行 AJAX 操作时模拟同步传输时锁定浏览器操??->
 <script src="/DomainSystem/Public/metronic/media/js/jquery.blockui.min.js" type="text/javascript"></script>
 <script src="/DomainSystem/Public/metronic/media/js/jquery.cookie.min.js" type="text/javascript"></script>
-<!--美化 form 表单元素-->
 <script src="/DomainSystem/Public/metronic/media/js/jquery.uniform.min.js" type="text/javascript"></script>
 
-<!-- BEGIN PAGE LEVEL PLUGINS -->
 
-<!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<!--项目config -->
 
 
     <!-- END PAGE LEVEL SCRIPTS -->

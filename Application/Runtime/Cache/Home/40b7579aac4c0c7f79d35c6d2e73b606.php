@@ -113,14 +113,14 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     </li>
     <li class="start">
         <a href="<?php echo U('Client/index');;?>">
-            <i class="icon-home"></i>
+            <i class="fa fa-home" aria-hidden="true"></i>
             <span class="title">Welcome</span>
             <span class="selected"></span>
         </a>
     </li>
     <li class="">
         <a href="javascript:;">
-            <i class="icon-bookmark-empty"></i>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
             <span class="title">My Infomation</span>
             <span class="arrow "></span>
         </a>
@@ -138,14 +138,14 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     </li>
     <li class="active">
         <a href="<?php echo U('Client/orderlist');;?>">
-            <i class="icon-bookmark-empty"></i>
+            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
             <span class="title">My Orders</span>
             <span class="selected"></span>
         </a>
     </li>
     <li>
         <a href="<?php echo U('Client/domainlist');;?>">
-            <i class="icon-bookmark-empty"></i>
+            <i class="fa fa-database" aria-hidden="true"></i>
             <span class="title">My Domains</span>
             <span class="selected"></span>
         </a>

@@ -303,7 +303,7 @@
 					<a href="{:U('Order/orderRefund?orderid='.$order['orderID'].'');}" class="btn green easy-pie-chart-reload">Refund</a>
 				</if>
 				<a href="{:U('Order/orderdel?orderid='.$order['orderID'].'');}" class="btn yellow easy-pie-chart-reload">Remove</a>
-                <a href="" class="btn yellow easy-pie-chart-reload">View Transaction</a>
+                <a href="{:U('Transaction/transdetail?transid='.$order['transactionID'].'');}" class="btn yellow easy-pie-chart-reload">View Transaction</a>
             </div>
         </div>      
 	</div>

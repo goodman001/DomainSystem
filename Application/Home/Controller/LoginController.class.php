@@ -22,8 +22,12 @@ class LoginController extends Controller {
 	**/
 	public function checkReg(){
 		$data['username'] = I('post.username','','htmlspecialchars');//get username
+		$data['email'] = I('post.email','','htmlspecialchars');//get email
+		$map['username'] = $data['username'];
+		$map['email'] = $data['email'];
+		$map['_logic'] = 'OR';
 		$Model = M('users');
-		$content = $Model->field('username,regtime,status')->where($data)->find();
+		$content = $Model->field('username,regtime,status')->where($map)->find();
 		if(!empty($content))//exist username
 		{
 			if($content['status'] == 'pending' )//Pending = 0
@@ -42,7 +46,7 @@ class LoginController extends Controller {
 		}else
 		{
 			
-			$data['email'] = I('post.email','','htmlspecialchars');//get email
+			
 			$data['firstname'] = I('post.firstname','','htmlspecialchars');//get firstname
 			$data['lastname'] = I('post.lastname','','htmlspecialchars');//get firstname
 			$data['company'] = I('post.company','','htmlspecialchars');//get firstname

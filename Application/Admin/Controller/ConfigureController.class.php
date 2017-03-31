@@ -258,11 +258,11 @@ class ConfigureController extends CommonController {
         if(!empty($search))
         {
             $condition['domainname'] = array('like','%'.$search.'%');
-            $list = $Model->where($condition)->order('id desc')->page(I('get.p').',42')->select();
+            $list = $Model->where($condition)->order('id asc')->page(I('get.p').',42')->select();
 		    $count = $Model->where($condition)->count();// get count of records
         }else
         {
-            $list = $Model->where("id>=0")->order('id desc')->page(I('get.p').',42')->select();
+            $list = $Model->where("id>=0")->order('id asc')->page(I('get.p').',42')->select();
 		    $count = $Model->where("id>=0")->count();// get count of records
         }
         

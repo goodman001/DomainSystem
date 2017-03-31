@@ -1,5 +1,5 @@
 <?php
-function getWhois($domain){
+/*function getWhois($domain){
 	$msg = array();
 	Vendor('PHPWhois.PHPWhoisAutoload');//load the lib to get the whois infomation
 	$phpwhois = new PHPWhois($domain);
@@ -16,4 +16,4 @@ function getWhois($domain){
 	return $msg;
 
 
-}
+}*/

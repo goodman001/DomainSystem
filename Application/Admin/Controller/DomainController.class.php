@@ -21,12 +21,19 @@ class DomainController extends CommonController {
             $list = $Model->where("id>=0")->order('id desc')->page(I('get.p').',42')->select();
 		    $count = $Model->where("id>=0")->count();// get count of records
         }
-        
-		
+        $User = M('users');
+		$ct["status"] = 'active';
+		$userlists = $User->where($ct)->select();	
 		//print_r($list);
 		/**
 		* pages
 		**/
+		/*get payment method*/
+		$Model = M('paymethod');
+		$conditions['useable'] = 'Y';
+		$cts = $Model->field('method')->where($conditions)->select();
+		$this->assign('payments',$cts);
+		
 		
 		$Page = new \Think\Page($count,42);// page object
 		$Page->setConfig('prev','prev');
@@ -37,6 +44,7 @@ class DomainController extends CommonController {
 		$show = $Page->show();// page output
 		$this->assign('page',$show);// 
 		$this->assign('list',$list);
+		$this->assign('users',$userlists);
         $this->display(T('mgr/domains_list'));
 		
 	}
@@ -138,6 +146,192 @@ class DomainController extends CommonController {
 			
 		
 		$this->success('Remove the domain successfully!',U('Domain/domainlist'),1);
+		
+	}
+	public function domainadd()
+	{
+		$nowtime = date('Y-m-d H:i:s',time());
+		$msg = array();
+        $dm_name = I('post.domainname');
+        $dm_name = str_replace('www.','',$dm_name);
+        if(empty($dm_name)){
+            $this->error('Domain name must be not null！');
+            return 0;
+        }
+		//get price configure
+        $Mt = M('fakedomains');
+        $dprice["domainname"] = $dm_name;
+        $presult = $Mt->where($dprice)->find();
+        if(!empty($presult))
+        {
+            $pieces = explode(".", $dm_name);
+            $Model = M('premium');
+            $dcp["domainname"] = array('like','%.'.$pieces[count($pieces)-1]);
+            $content2 = $Model->where($dcp)->find();
+            if(!empty($content2))
+            {
+                $price = $content2['price']*($content2['rate']+1);//increase 20%
+            }else
+            {
+                $Model = M('configure');
+                $re = $Model->field('domainprice')->where('id=1')->find();
+                $price = $re['domainprice'];
+            }
+        }else
+        {
+            $Model = M('configure');
+            $re = $Model->field('domainprice')->where('id=1')->find();
+            $price = $re['domainprice'];
+        }
+		/*check domain useful*/
+		$showflag = 0;//
+        $msg = getWhois($dm_name);
+        $flag =  $msg[1];
+        $whoisinfo =  $msg[0];//whoisinfo
+        //print($flag);
+        if($flag == "Y"){////we can use it!
+            $data["domainname"] = $dm_name;
+            $Model = M('domainmgr');
+		    $content = $Model->field('domainname,nextduedate,status')->where($data)->find();
+            if(!empty($content))
+            {
+                $duedate = strtotime($content['nextduedate']);
+                $now = time();
+                if($content['status'] != 'suspend')
+                {
+                    if($content['status'] != 'pending')
+                    {
+                        if($now > $duedate)// domain : pending(renew/wait to check) active suspend
+                        {
+                            $showflag = 2;
+                        }
+                    }
+                    
+                }
+                
+            }else
+            {
+                $showflag = 1;
+            }
+            
+        }
+		if($showflag == 0)
+		{
+			$this->error('Domain has been used!Please change new domain!');
+			return 0;
+		}
+		/*build order item transaction*/
+		$transactionID = time()+101;
+		$orderID = time();
+		$years = I('post.years');
+		$username = I('post.username');
+		$paymethod =  I('post.paymethod');
+		$total = $price * $years;
+		/*get registar*/
+		$Model = M('registrar');
+		$condition['status'] = 'Y';
+		$ct = $Model->field('registrar')->where($condition)->select();
+		shuffle($ct);
+		//print_r($ct);
+		$registrar = $ct[0]['registrar'];
+		
+		$Model = M('item');
+		$item["domainname"] = $dm_name;
+		$item["orderID"] = $orderID;
+		$item["registrar"] = $registrar;
+		$item["price"] = $price;
+		$item["years"] = $years;
+		$Model->data($item)->add();
+		
+		
+		$paystatus = 'active';
+		$expiry_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($nowtime)));
+		$nextdue_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($nowtime)));
+		$registrationdate = $nowtime;
+		$dudate_order = $nowtime;
+		$paystatus = "active";
+		
+		
+		/*get domain infomation*/
+		$data['domainname'] = $dm_name;
+		$data['username'] = $username;
+		$data['registrar'] = $registrar;
+		$data['registrationdate'] = $registrationdate;
+		$data['expirydate'] = $expiry_db;
+		$data['nextduedate'] = $nextdue_db;
+		$data['status'] = $paystatus;
+		$data['mainforward'] = '';
+		$data['DNSmgr'] = '';
+		$data['orderID'] = $orderID;
+
+
+
+		/*get domain registation profile*/
+		$data['email'] = I('post.email','','htmlspecialchars');//get email
+		$data['firstname'] = I('post.firstname','','htmlspecialchars');//get firstname
+		$data['lastname'] = I('post.lastname','','htmlspecialchars');//get firstname
+		$data['company'] = I('post.company','','htmlspecialchars');//get firstname
+		$data['jobtitle'] = I('post.jobtitle','','htmlspecialchars');//get firstname
+		$data['address1'] = I('post.address1','','htmlspecialchars');//get firstname
+		$data['address2'] = I('post.address2','','htmlspecialchars');//get firstname
+		$data['city'] = I('post.city','','htmlspecialchars');//get firstname
+		$data['state'] = I('post.state','','htmlspecialchars');//get firstname
+		$data['postcode'] = I('post.postcode','','htmlspecialchars');//get firstname
+		$data['country'] = I('post.country','','htmlspecialchars');//get firstname
+		$data['phone'] = I('post.phone','','htmlspecialchars');//get firstname
+		$data['fax'] = I('post.fax','','htmlspecialchars');//get firstname
+		$data['ns1'] = I('post.ns1','','htmlspecialchars');//get firstname
+		$data['ns2'] = I('post.ns2','','htmlspecialchars');//get firstname
+		$data['ns3'] = I('post.ns3','','htmlspecialchars');//get firstname
+		$data['ns4'] = I('post.ns4','','htmlspecialchars');//get firstname
+		//print_r($data);
+		//print $showflag;
+		$DoM = M('domainmgr');
+		if($showflag == 2)
+		{
+			$cwdomain['domainname'] = $dm_name;
+			$DoM->where($cwdomain)->save($data);
+		}else
+		{
+			$DoM->data($data)->add();
+		}
+		
+		/*get order infomation*/
+		$orderM = M('order');
+		$order['orderID'] = $orderID;//get order id
+		$order['transactionID'] = $transactionID;//get id
+		$order['username'] = $username;
+		$order['issuedate'] = date('Y-m-d H:i:s',time());
+		$order['status'] = $paystatus;
+		$order['refundamount'] = 0.0;
+		$order['invoicedate'] = date('Y-m-d H:i:s',time());
+		$order['duedate'] = $dudate_order;
+		$order['description'] = 'Administrator add new order';
+		$orderM->data($order)->add();
+		//transaction
+		
+		
+		$transM = M('transaction');
+		$trans['transactionID'] = $transactionID;
+		$trans['clientname'] = I('post.clientname','','htmlspecialchars');
+		$trans['orderID'] = $orderID;
+		$trans['invoiceID'] = time();
+		$trans['description'] = 'I use the '.$paymethod.' to pay for the order';
+		$trans['paydate'] = date('Y-m-d H:i:s',time());
+		$trans['paymethod'] = $paymethod;
+		$trans['accountnumber'] = I('post.accountnumber','','htmlspecialchars');
+		$trans['settleamount'] = $total;
+		$transM->data($trans)->add();
+		
+		
+		//$this->assign('items',$item);
+		//$this->assign('data',$data);
+		//$this->assign('order',$order);
+		//$this->assign('trans',$trans);
+		//print_r($ct);
+		//$this->success('ADD the domain(order & transaction) successfully!',U('Domain/domainlist'),1);
+		//print_r($data);
+		//print_r($item[$index]);
 		
 	}
 	

@@ -7,8 +7,6 @@ class CommonController extends Controller
 {
 	public function _initialize()
 	{
-		//如果I('uid')等于0，说明不是uploadify上传，不适合每次新增session都要改上传页模板
-		//故作如下调整
 		
 		if(empty(cookie('admin_uid')))
 		{
@@ -16,7 +14,7 @@ class CommonController extends Controller
 			return 0;
 		}else if(!in_array(cookie('admin_uid'),explode(',',C('AUTH_SUPERADMIN'))))//whether is superadmin or not		
 		{
-			//import('ORG.Util.Auth');//加载类库
+			//import('ORG.Util.Auth');//
 			//print(cookie('admin_uid'));
 			//print(C('AUTH_SUPERADMIN'));
 			$auth =new Auth();

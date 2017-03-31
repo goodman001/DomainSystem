@@ -1,5 +1,5 @@
 <?php
-/*function test()
+function test()
 {
 	echo "testfunc";
 }
@@ -25,7 +25,7 @@ function getWhois($domain){
 /**
  * email send
  */
-/*function sendMail($to, $subject, $content) {
+function sendMail($to, $subject, $content) {
 		Vendor('PHPMailer.PHPMailerAutoload');	 
 		$mail = new PHPMailer(); 
 		 $mail->IsSMTP(); // start SMTP
@@ -47,7 +47,7 @@ function getWhois($domain){
 		 } else{
 		 return 1;
 		 }
-	}*/
+	}
 
 
 

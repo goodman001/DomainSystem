@@ -243,7 +243,7 @@ class OrderController extends Controller {
 				$expiry_db = date('Y-m-d H:i:s', strtotime('+'.$res[$index][2].' year', strtotime($nowtime)));
 				$nextdue_db = date('Y-m-d H:i:s', strtotime('+'.$res[$index][2].' year', strtotime($nowtime)));
 				$registrationdate = $nowtime;
-				$dudate_order = $nextdue_db;
+				$dudate_order = $nowtime;
 			}else
 			{
 				$paystatus = 'pending';

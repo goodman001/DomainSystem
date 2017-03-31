@@ -59,94 +59,22 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <ul class="nav navbar-nav">
         <li class="active"><a href="#">iOS</a></li>
         <li><a href="#">SVN</a></li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Java
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a href="#">jmeter</a></li>
-                <li><a href="#">EJB</a></li>
-                <li><a href="#">Jasper Report</a></li>
-                <li class="divider"></li>
-                <li><a href="#">分离的链接</a></li>
-                <li class="divider"></li>
-                <li><a href="#">另一个分离的链接</a></li>
-            </ul>
-        </li>
     </ul>
     <ul class="nav pull-right">
     <!-- BEGIN INBOX DROPDOWN -->
-    <li class="dropdown" id="header_notification_bar">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="icon-envelope"></i>
-            <span class="badge">5</span>
-        </a>
-        <ul class="dropdown-menu extended inbox">
-            <li>
-                <p>你有12条消??/p>
-            </li>
-            <li>
-                <a href="<?php echo U('Client/inbox');;?>">
-                    <span class="photo"><img src="/DomainSystem/Public/metronic/media/image/avatar2.jpg" alt=""/></span>
-                                    <span class="subject">
-                                    <span class="from">Lisa Wong</span>
-                                    <span class="time">Just Now</span>
-                                    </span>
-                                    <span class="message">
-                                    Vivamus sed auctor nibh congue nibh. auctor nibh
-                                    auctor nibh...
-                                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="inbox.html?a=view">
-                    <span class="photo"><img src=".//DomainSystem/Public/metronic/media/image/avatar3.jpg" alt=""/></span>
-                                    <span class="subject">
-                                    <span class="from">Richard Doe</span>
-                                    <span class="time">16 mins</span>
-                                    </span>
-                                    <span class="message">
-                                    Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh
-                                    auctor nibh...
-                                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="inbox.html?a=view">
-                    <span class="photo"><img src=".//DomainSystem/Public/metronic/media/image/avatar1.jpg" alt=""/></span>
-                                    <span class="subject">
-                                    <span class="from">Bob Nilson</span>
-                                    <span class="time">2 hrs</span>
-                                    </span>
-                                    <span class="message">
-                                    Vivamus sed nibh auctor nibh congue nibh. auctor nibh
-                                    auctor nibh...
-                                    </span>
-                </a>
-            </li>
-            <li class="external">
-                <a href="inbox.html">查看????消息<i class="m-icon-swapright"></i></a>
-            </li>
-        </ul>
-    </li>
     <!-- END INBOX DROPDOWN -->
     <!-- BEGIN USER LOGIN DROPDOWN -->
     <li class="dropdown user">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img alt="" src="/DomainSystem/Public/metronic/media/image/avatar1_small.jpg"/>
-            <span class="username">Bob Nilson</span>
-            <i class="icon-angle-down"></i>
+        <a href="<?php echo U('Index/shop');;?>" class="dropdown-toggle">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <span class="username">Return shopping</span>
         </a>
-        <ul class="dropdown-menu">
-            <li><a href="extra_profile.html"><i class="icon-user"></i> My Profile</a></li>
-            <li><a href="page_calendar.html"><i class="icon-calendar"></i> My Calendar</a></li>
-            <li><a href="inbox.html"><i class="icon-envelope"></i> My Inbox(3)</a></li>
-            <li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
-            <li class="divider"></li>
-            <li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a></li>
-            <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
-        </ul>
+    </li>
+    <li class="dropdown user">
+        <a href="<?php echo U('Login/logout');;?>" class="dropdown-toggle">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <span class="username">Logout</span>
+        </a>
     </li>
     <!-- END USER LOGIN DROPDOWN -->
     </ul>
@@ -515,9 +443,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <script src="/DomainSystem/Public/metronic/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
 <script src="/DomainSystem/Public/metronic/media/js/bootstrap.min.js" type="text/javascript"></script>
 <!--[if lt IE 9]>
-<!-- IE 支持 canvas -->
 <script src="/DomainSystem/Public/metronic/media/js/excanvas.min.js"></script>
-<!--Respond.js 是一个快速??轻量??polyfill，用于为 IE6-8 以及其它不支??CSS3 /DomainSystem/Public/metronic/media Queries 的浏览器提供媒体查询??min-width ??max-width 特??，实现响应式网页设计（Responsive Web Design）??-->
 <script src="/DomainSystem/Public/metronic/media/js/respond.min.js"></script>
 <![endif]-->
 <!--滚动??插件-->
@@ -525,14 +451,10 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!--进行 AJAX 操作时模拟同步传输时锁定浏览器操??->
 <script src="/DomainSystem/Public/metronic/media/js/jquery.blockui.min.js" type="text/javascript"></script>
 <script src="/DomainSystem/Public/metronic/media/js/jquery.cookie.min.js" type="text/javascript"></script>
-<!--美化 form 表单元素-->
 <script src="/DomainSystem/Public/metronic/media/js/jquery.uniform.min.js" type="text/javascript"></script>
 
-<!-- BEGIN PAGE LEVEL PLUGINS -->
 
-<!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<!--项目config -->
 
 
     <!-- END PAGE LEVEL SCRIPTS -->

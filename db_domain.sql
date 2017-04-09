@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 31, 2017 at 04:21 PM
--- Server version: 5.5.50-0ubuntu0.14.04.1
--- PHP Version: 5.6.23-1+deprecated+dontuse+deb.sury.org~trusty+1
+-- Generation Time: Apr 09, 2017 at 09:29 AM
+-- Server version: 5.5.53-0ubuntu0.14.04.1
+-- PHP Version: 5.5.9-1ubuntu4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -263,14 +263,16 @@ CREATE TABLE IF NOT EXISTS `db_domainmgr` (
   `ns4` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `domainname` (`domainname`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `db_domainmgr`
 --
 
 INSERT INTO `db_domainmgr` (`id`, `domainname`, `username`, `registrar`, `registrationdate`, `expirydate`, `nextduedate`, `status`, `autorenew`, `mainforward`, `DNSmgr`, `IDprotect`, `orderID`, `email`, `firstname`, `lastname`, `company`, `jobtitle`, `address1`, `address2`, `city`, `state`, `country`, `postcode`, `phone`, `fax`, `ns1`, `ns2`, `ns3`, `ns4`) VALUES
-(9, 'barbarbar.cc', 'walkerman', 'eNom', '2017-03-31 15:27:35', '2019-03-31 15:27:35', '2019-03-31 15:27:35', 'active', 'N', '', '', 'N', 1490945255, 'mic_welker@arvinmeritor.info', 'Jerrie', 'Donner', 'Applied Industrial Technologies, Inc.', 'Property Assessor', '4707 Archwood Avenue', '4707 Archwood Avenue', 'Cheyenne', 'Wyoming', 'USA', 82001, '307-777-3463', '307-777-3463', '176.68.35.62', '176.68.35.63', '176.68.35.64', '176.68.35.65');
+(9, 'barbarbar.cc', 'walkerman', 'eNom', '2017-03-31 15:27:35', '2019-03-31 15:27:35', '2019-03-31 15:27:35', 'active', 'N', '', '', 'N', 1490945255, 'mic_welker@arvinmeritor.info', 'Jerrie', 'Donner', 'Applied Industrial Technologies, Inc.', 'Property Assessor', '4707 Archwood Avenue', '4707 Archwood Avenue', 'Cheyenne', 'Wyoming', 'USA', 82001, '307-777-3463', '307-777-3463', '176.68.35.62', '176.68.35.63', '176.68.35.64', '176.68.35.65'),
+(10, 'acdfef.cc', 'walkerman', 'eNom', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'pending', 'N', '', '', 'N', 1491235539, 'mic_welker@arvinmeritor.info', 'Jerrie', 'Donner', 'Applied Industrial Technologies, Inc.', 'Property Assessor', '4707 Archwood Avenue', '4707 Archwood Avenue', 'Cheyenne', 'Wyoming', 'USA', 82001, '307-777-3463', '', 'ns1.namserver.com', 'ns2.namserver.com', 'ns3.namserver.com', 'ns4.namserver.com'),
+(11, 'akckefiud.club', 'walkerman', 'Namecheap', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'pending', 'N', '', '', 'N', 1491235923, 'mic_welker@arvinmeritor.info', 'Jerrie', 'Donner', 'Applied Industrial Technologies, Inc.', 'Property Assessor', '4707 Archwood Avenue', '4707 Archwood Avenue', 'Cheyenne', 'Wyoming', 'USA', 82001, '307-777-3463', '', 'ns1.namserver.com', 'ns2.namserver.com', 'ns3.namserver.com', 'ns4.namserver.com');
 
 -- --------------------------------------------------------
 
@@ -282,7 +284,7 @@ CREATE TABLE IF NOT EXISTS `db_fakedomains` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `domainname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -299,14 +301,16 @@ CREATE TABLE IF NOT EXISTS `db_item` (
   `price` decimal(10,2) NOT NULL,
   `years` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=37 ;
 
 --
 -- Dumping data for table `db_item`
 --
 
 INSERT INTO `db_item` (`id`, `domainname`, `orderID`, `registrar`, `IDprotect`, `price`, `years`) VALUES
-(34, 'barbarbar.cc', 1490945255, 'eNom', 'N', 10.00, 2);
+(34, 'barbarbar.cc', 1490945255, 'eNom', 'N', 10.00, 2),
+(35, 'acdfef.cc', 1491235539, 'eNom', 'N', 10.00, 1),
+(36, 'akckefiud.club', 1491235923, 'Namecheap', 'N', 10.00, 1);
 
 -- --------------------------------------------------------
 
@@ -328,14 +332,16 @@ CREATE TABLE IF NOT EXISTS `db_order` (
   `description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `orderID` (`orderID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=29 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `db_order`
 --
 
 INSERT INTO `db_order` (`id`, `orderID`, `username`, `transactionID`, `issuedate`, `status`, `refund`, `refundamount`, `invoicedate`, `duedate`, `description`) VALUES
-(28, 1490945255, 'walkerman', 1490945356, '2017-03-31 15:27:35', 'active', 'N', 0.00, '2017-03-31 15:27:35', '2017-03-31 15:27:35', '');
+(28, 1490945255, 'walkerman', 1490945356, '2017-03-31 15:27:35', 'active', 'N', 0.00, '2017-03-31 15:27:35', '2017-03-31 15:27:35', ''),
+(29, 1491235539, 'walkerman', 1491235640, '2017-04-04 00:05:39', 'pending', 'N', 0.00, '2017-04-04 00:05:39', '0000-00-00 00:00:00', ''),
+(30, 1491235923, 'walkerman', 1491236024, '2017-04-04 00:12:03', 'pending', 'N', 0.00, '2017-04-04 00:12:03', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -432,14 +438,16 @@ CREATE TABLE IF NOT EXISTS `db_transaction` (
   `settleamount` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `transactionID` (`transactionID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `db_transaction`
 --
 
 INSERT INTO `db_transaction` (`id`, `transactionID`, `clientname`, `orderID`, `invoiceID`, `description`, `paydate`, `paymethod`, `accountnumber`, `settleamount`) VALUES
-(22, 1490945356, 'John J Fletcher', 1490945255, 1490945255, 'I use the PayPal to pay for the order', '2017-03-31 15:27:35', 'PayPal', '5242245986762530', 20.00);
+(22, 1490945356, 'John J Fletcher', 1490945255, 1490945255, 'I use the PayPal to pay for the order', '2017-03-31 15:27:35', 'PayPal', '5242245986762530', 20.00),
+(23, 1491235640, '', 1491235539, 1491235539, 'I use the Bank Transfer to pay for the order', '2017-04-04 00:05:39', 'Bank Transfer', '', 10.00),
+(24, 1491236024, '', 1491235923, 1491235923, 'I use the Bank Transfer to pay for the order', '2017-04-04 00:12:03', 'Bank Transfer', '', 10.00);
 
 -- --------------------------------------------------------
 
@@ -456,8 +464,6 @@ CREATE TABLE IF NOT EXISTS `db_users` (
   `jobtitle` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `question` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
-  `answer` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `address1` varchar(225) COLLATE utf8_unicode_ci NOT NULL,
   `address2` varchar(225) COLLATE utf8_unicode_ci NOT NULL,
   `city` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -473,14 +479,17 @@ CREATE TABLE IF NOT EXISTS `db_users` (
   `status` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `regtime` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `db_users`
 --
 
-INSERT INTO `db_users` (`id`, `username`, `firstname`, `lastname`, `company`, `jobtitle`, `email`, `password`, `question`, `answer`, `address1`, `address2`, `city`, `state`, `postcode`, `country`, `phone`, `fax`, `overdue`, `taxexemption`, `currency`, `balance`, `status`, `regtime`) VALUES
-(5, 'walkerman', 'Jerrie', 'Donner', 'Applied Industrial Technologies, Inc.', 'Property Assessor', 'mic_welker@arvinmeritor.info', '12345678', 'Where is your birthplace?', 'CA', '4707 Archwood Avenue', '4707 Archwood Avenue', 'Cheyenne', 'Wyoming', 82001, 'USA', '307-777-3463', '307-777-3463', 'Enable', 'NO', 'HKD', 30.00, 'active', '2017-03-31 15:09:18');
+INSERT INTO `db_users` (`id`, `username`, `firstname`, `lastname`, `company`, `jobtitle`, `email`, `password`, `address1`, `address2`, `city`, `state`, `postcode`, `country`, `phone`, `fax`, `overdue`, `taxexemption`, `currency`, `balance`, `status`, `regtime`) VALUES
+(5, 'walkerman', 'Jerrie', 'Donner', 'Applied Industrial Technologies, Inc.', 'Property Assessor', 'mic_welker@arvinmeritor.info', '12345678', '4707 Archwood Avenue', '4707 Archwood Avenue', 'Cheyenne', 'Wyoming', 82001, 'USA', '307-777-3463', '307-777-3463', 'Enable', 'NO', 'HKD', 30.00, 'active', '2017-03-31 15:09:18'),
+(6, 'adff', '12', '123', '23', '123', 'xx@gmail.com', '123', 'dafd', '', 'ad', 'af', 12345, 'ad', '267-321-2291', '', 'Enable', 'NO', 'HKD', 0.00, 'active', '2017-04-03 23:16:26'),
+(7, 'adfDF', 'FDF', 'ln', 'ADF', 'A', 'CADF@G.COM', '12345', 'ad', '', 'city', 'state', 12345, 'ADF', '267-321-2291', '267-321-2291', 'Enable', 'NO', 'HKD', 0.00, 'active', '2017-04-03 23:24:29'),
+(8, 'dfafd', 'fn', 'AF', 'ADFADF', 'ADF', 'ADFAGEG@GMAIL.COM', '123', 'ADD', '', 'city', 'state', 12345, 'DFA', '267-321-2291', '267-321-2291', 'Enable', 'NO', 'HKD', 0.00, 'active', '2017-04-03 23:28:53');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

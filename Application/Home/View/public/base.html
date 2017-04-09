@@ -10,20 +10,21 @@
 		<link href="__PUBLIC__/style.css" rel="stylesheet" type="text/css">
 		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 	</head>
-	<body>
+	<body <if condition="$bodyshow eq 1"> class="indexbody"<else />class="commonbody"</if> >
 		<div class="header navbar navbar-inverse ">
 		<!-- BEGIN TOP NAVIGATION BAR -->
 			<div class="navbar-inner">
 				<div class="container-fluid">
 					<div class="cus0">
 						<div class="navbar-header">
-							<a class="navbar-brand" href="#">Index</a>
+							<a class="navbar-brand" href="{:U('Index/index');}"><img style="max-width:100px; margin-top: -7px;" src="__PUBLIC__/img/logo.png" /></a>
 						</div>
 						<div>
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="#">iOS</a></li>
-								<li><a href="#">SVN</a></li>
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Help</a></li>
 							</ul>
 							<!--right-->
 							<if condition="cookie('u_username')">

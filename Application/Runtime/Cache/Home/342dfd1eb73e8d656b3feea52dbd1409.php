@@ -10,20 +10,21 @@
 		<link href="/DomainSystem/Public/style.css" rel="stylesheet" type="text/css">
 		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 	</head>
-	<body>
+	<body <?php if($bodyshow == 1): ?>class="indexbody"<?php else: ?>class="commonbody"<?php endif; ?> >
 		<div class="header navbar navbar-inverse ">
 		<!-- BEGIN TOP NAVIGATION BAR -->
 			<div class="navbar-inner">
 				<div class="container-fluid">
 					<div class="cus0">
 						<div class="navbar-header">
-							<a class="navbar-brand" href="#">Index</a>
+							<a class="navbar-brand" href="<?php echo U('Index/index');;?>"><img style="max-width:100px; margin-top: -7px;" src="/DomainSystem/Public/img/logo.png" /></a>
 						</div>
 						<div>
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="#">iOS</a></li>
-								<li><a href="#">SVN</a></li>
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Help</a></li>
 							</ul>
 							<!--right-->
 							<?php if(cookie('u_username')): ?><ul class="nav navbar-nav navbar-right">
@@ -67,7 +68,7 @@
 		</div>
 		<div class="cus0">
 		
-	<div class="container">
+	<div class="container" style="background-color:white">
 		<h3><i class="fa fa-shopping-basket" aria-hidden="true"></i> My Order</h3>
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -117,72 +118,72 @@
 				<div class="col-md-12">
 					<div class="form-group col-lg-3">
 						<label>First Name</label>
-						<input class="form-control" name="firstname" type="text" id="firstname" placeholder="first name" value="" required/>  
+						<input class="form-control" name="firstname" type="text" id="firstname" placeholder="first name" value="<?php echo ($profiles["firstname"]); ?>" required/>  
 					</div>
 					<div class="form-group col-lg-3">
 						<label>Last Name</label>
-						<input class="form-control" name="lastname" type="text" id="lastname" placeholder="last name" value="" required/> 
+						<input class="form-control" name="lastname" type="text" id="lastname" placeholder="last name" value="<?php echo ($profiles["lastname"]); ?>" required/> 
 					</div>
 					<div class="form-group col-lg-3">
 						<label>Company Name</label>
-						<input class="form-control" name="company" type="text" id="company" placeholder="Company" value="" /> 
+						<input class="form-control" name="company" type="text" id="company" placeholder="Company" value="<?php echo ($profiles["company"]); ?>" /> 
 					</div>
 					<div class="form-group col-lg-3">
 						<label>Job Title</label>
-						<input class="form-control" name="jobtitle" type="text" id="jobtitle" placeholder="Job title" value="" /> 
+						<input class="form-control" name="jobtitle" type="text" id="jobtitle" placeholder="Job title" value="<?php echo ($profiles["jobtitle"]); ?>" /> 
 					</div>
 					<div class="form-group col-lg-3">
 						<label>Email</label>
-						<input class="form-control" name="email" type="email" id="email" placeholder="Email" value="" required/> 
+						<input class="form-control" name="email" type="email" id="email" placeholder="Email" value="<?php echo ($profiles["email"]); ?>" required/> 
 					</div>
 					<div class="form-group col-lg-3">
 						<label>City</label>
-						<input class="form-control" name="city" type="text" id="city" placeholder="City" value="" required/> 
+						<input class="form-control" name="city" type="text" id="city" placeholder="City" value="<?php echo ($profiles["city"]); ?>" required/> 
 					</div>
 					<div class="form-group col-lg-3">
 						<label>State</label>
-						<input class="form-control" name="state" type="text" id="state" placeholder="State" value="" required/> 
+						<input class="form-control" name="state" type="text" id="state" placeholder="State" value="<?php echo ($profiles["state"]); ?>" required/> 
 					</div>
 					<div class="form-group col-lg-3">
 						<label>Postcode</label>
-						<input class="form-control" type="number" value="" name="postcode" id="postcode" placeholder="Postcode" required> 
+						<input class="form-control" type="number" value="<?php echo ($profiles["postcode"]); ?>" name="postcode" id="postcode" placeholder="Postcode" required> 
 					</div>
 					<div class="form-group col-lg-3">
 						<label>Country</label>
-						<input class="form-control" name="country" type="text" id="country" placeholder="Country" value="" required/>
+						<input class="form-control" name="country" type="text" id="country" placeholder="Country" value="<?php echo ($profiles["country"]); ?>" required/>
 					</div>
 					<div class="form-group col-lg-3">
 						<label>Phone</label>
-						<input class="form-control" type="tel" value="" name="phone" id="phone" placeholder="Phone" required> 
+						<input class="form-control" type="tel" value="<?php echo ($profiles["phone"]); ?>" name="phone" id="phone" placeholder="Phone" required> 
 					</div>
 					<div class="form-group col-lg-3">
 						<label>FAX</label>
-						<input class="form-control" type="tel" value="" name="fax" id="fax" placeholder="Fax" required> 
+						<input class="form-control" type="tel" value="" name="fax" id="fax" value="<?php echo ($profiles["fax"]); ?>" placeholder="Fax" > 
 					</div>
 					
 					<div class="form-group col-lg-6">
 						<label>Address1</label>
-						<input class="form-control" name="address1" type="text" id="address1" placeholder="Address 1" value="" required/> 
+						<input class="form-control" name="address1" type="text" id="address1" placeholder="Address 1" value="<?php echo ($profiles["address1"]); ?>" required/> 
 					</div>
 					<div class="form-group col-lg-6">
 						<label>Address2</label>
-						<input class="form-control" name="address2" type="text" id="address2" placeholder="Address 2" value="" required/>
+						<input class="form-control" name="address2" type="text" id="address2" placeholder="Address 2" value="<?php echo ($profiles["address2"]); ?>" />
 					</div>
 					<div class="form-group col-lg-4">
 						<label>NameServer1(require)</label>
-						<input class="form-control" name="ns1" type="text" id="ns1" placeholder="NameServer" value="" required/>
+						<input class="form-control" name="ns1" type="text" id="ns1" placeholder="NameServer" value="ns1.namserver.com" required/>
 					</div>
 					<div class="form-group col-lg-4">
 						<label>NameServer2(optional)</label>
-						<input class="form-control" name="ns2" type="text" id="ns2" placeholder="NameServer" value="" required/>
+						<input class="form-control" name="ns2" type="text" id="ns2" placeholder="NameServer" value="ns2.namserver.com" required/>
 					</div>
 					<div class="form-group col-lg-4">
 						<label>NameServer3(optional)</label>
-						<input class="form-control" name="ns3" type="text" id="ns3" placeholder="NameServer" value="" required/>
+						<input class="form-control" name="ns3" type="text" id="ns3" placeholder="NameServer" value="ns3.namserver.com" required/>
 					</div>
 					<div class="form-group col-lg-4">
 						<label>NameServer4(optional)</label>
-						<input class="form-control" name="ns4" type="text" id="ns4" placeholder="NameServer" value="" required/>
+						<input class="form-control" name="ns4" type="text" id="ns4" placeholder="NameServer" value="ns4.namserver.com" required/>
 					</div>	
 				</div>
 			</div>
@@ -199,17 +200,18 @@
 						<?php if(is_array($payments)): foreach($payments as $key=>$vo): ?><option value= "<?php echo ($vo["method"]); ?>"><?php echo ($vo["method"]); ?></option><?php endforeach; endif; ?>
 					</select>
 					</div>
+					<h5>If you use credit card and paypal,you must input below infomation</h5>
 					<div class="form-group col-lg-12">
 						<label >Card Number/Account number</label>
-						<input type="text" value="" name="accountnumber" id="accountnumber"  placeholder="Amount Number" class="form-control" required>
+						<input type="text" value="" name="accountnumber" id="accountnumber"  placeholder="Amount Number" class="form-control" >
 					</div>
 					<div class="form-group col-lg-12">
 						<label >Client name</label>
-						<input type="text" value="" name="clientname" id="accountnumber"  placeholder="Client's real name" class="form-control" required>
+						<input type="text" value="" name="clientname" id="accountnumber"  placeholder="Client's real name" class="form-control" >
 					</div>
 					<div class="form-group col-lg-12">
 					<label>One-Time Password</label>
-					<input type="password" value="" name="onepassword" id="onepassword"  placeholder="onepassword" class="form-control" required> 
+					<input type="password" value="" name="onepassword" id="onepassword"  placeholder="onepassword" class="form-control"> 
 					</div>
 				</div>
 			</div>

@@ -10,20 +10,21 @@
 		<link href="/DomainSystem/Public/style.css" rel="stylesheet" type="text/css">
 		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 	</head>
-	<body>
+	<body <?php if($bodyshow == 1): ?>class="indexbody"<?php else: ?>class="commonbody"<?php endif; ?> >
 		<div class="header navbar navbar-inverse ">
 		<!-- BEGIN TOP NAVIGATION BAR -->
 			<div class="navbar-inner">
 				<div class="container-fluid">
 					<div class="cus0">
 						<div class="navbar-header">
-							<a class="navbar-brand" href="#">Index</a>
+							<a class="navbar-brand" href="<?php echo U('Index/index');;?>"><img style="max-width:100px; margin-top: -7px;" src="/DomainSystem/Public/img/logo.png" /></a>
 						</div>
 						<div>
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="#">iOS</a></li>
-								<li><a href="#">SVN</a></li>
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Help</a></li>
 							</ul>
 							<!--right-->
 							<?php if(cookie('u_username')): ?><ul class="nav navbar-nav navbar-right">
@@ -67,11 +68,12 @@
 		</div>
 		<div class="cus0">
 		
-	<div class="container" style="margin-top:10px;margin-left:1%;margin-right:2%;">
+	<div class="container" style="margin-top:10px;margin-left:1%;margin-right:2%;background-color:white">
 		<div class="row">
-			<h3><i class="fa fa-user" aria-hidden="true">User register</i></h3>
-			<div class="row" style="margin-left:5px;margin-right:5px;padding:10px; width:50%;">			          
-				<form role="form" class="form-horizontal" action="<?php echo U('Login/checkReg');;?>" method="post">  
+			
+			<div class="row" style="margin-left:5px;margin-right:5px;padding:10px; width:50%;">		
+				<h3><i class="fa fa-user" aria-hidden="true">User register</i></h3>
+				<form role="form" class="form-horizontal" action="<?php echo U('Login/checkReg');;?>"  data-toggle="validator" method="post">  
 				<div class="form-group">  
 					<label class="col-md-3 control-label" for="name">Username</label>  
 					<div class="col-md-9">  
@@ -108,26 +110,23 @@
 						<input class="form-control" name="email" type="email" id="email" placeholder="Email" value="" required/>  
 					</div>  
 				</div> 	
-				<div class="form-group">  
+				<!--<div class="form-group">  
 					<label class="col-md-3 control-label" for="exampleInputPassword1">Password</label>  
 					<div class="col-md-9">  
 						<input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>  
 					</div>  	
+				</div> -->
+				<div class="form-group">  
+					<label class="col-md-3 control-label" for="exampleInputPassword1">Password</label>  
+					<div class="col-md-9">  
+						<input name="password" type="password" data-minlength="3" class="form-control" id="inputPassword" placeholder="Password" required>
+					</div>  
 				</div>  
 				<div class="form-group">  
-					<label class="col-md-3 control-label" for="exampleInputPassword2">Security Question</label>  
+					<label class="col-md-3 control-label" for="exampleInputPassword2">Confirm</label>  
 					<div class="col-md-9">  
-						<select class="form-control" name="question" required>
-							<option value="Where is your birthplace?" >Where is your birthplace?</option> 
-							<option value="What is your favorite sport?">What is your favorite sport?</option>
-							<option value="Who is your first love?">Who is your first love?</option>
-						</select>  
-					</div>  
-				</div>
-				<div class="form-group">  
-					<label class="col-md-3 control-label" for="name">Answer</label>  
-					<div class="col-md-9">  
-						<input class="form-control" name="answer" type="text" id="answer" placeholder="answer" value="" required/>  
+						 <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Sorry, these don't match" placeholder="Confirm" required >
+						<div class="help-block with-errors"></div>
 					</div>  
 				</div>
 				<div class="form-group">  
@@ -139,7 +138,7 @@
 				<div class="form-group">  
 					<label class="col-md-3 control-label" for="name">Address2</label>  
 					<div class="col-md-9">  
-						<input class="form-control" name="address2" type="text" id="address2" placeholder="Address 2" value="" required/>  
+						<input class="form-control" name="address2" type="text" id="address2" placeholder="Address 2" value="" />  
 					</div>  
 				</div>
 				<div class="form-group">  
@@ -175,7 +174,7 @@
 				<div class="form-group">  
 					<label class="col-md-3 control-label" for="name">Fax</label>  
 					<div class="col-md-9">  
-						<input class="form-control" type="tel" value="" name="fax" id="fax" placeholder="Fax" required> 
+						<input class="form-control" type="tel" value="" name="fax" id="fax" placeholder="Fax" > 
 					</div>  
 				</div>
 				<div class="form-group">  

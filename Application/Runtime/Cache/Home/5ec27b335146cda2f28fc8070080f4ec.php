@@ -68,25 +68,78 @@
 		</div>
 		<div class="cus0">
 		
-	<div class="container" style="margin-top:20px">
+	<div class="container" style="margin-top:20px;background-color:white;padding-top:20px">
 	   <div class="row">
 			<div class="col-md-6">
 				<form action="<?php echo U('Index/search');;?>" method="post" >
 				<div class="input-group">
-					<h3 style="color:white"><strong>&nbsp;&nbsp;GET YOUR DOMAIN NOW!</strong></h3>
-				</div>
-				<div class="input-group">
-					<input name="dmname" type="text" class="form-control input-lg" placeholder="Search for...">
+					<input name="dmname" type="text" class="form-control" placeholder="Search for...">
 					<span class="input-group-btn">
-						<button class="btn btn-lg btn-danger " type="submit">SEARCH</button>
+						<button class="btn btn-default" type="submit">Search</button>
 					</span>
 				</div><!-- /input-group -->
-					<h3 style="color:white"><em><strong>&nbsp;&nbsp;.COM&nbsp;&nbsp;&nbsp;&nbsp;.HK&nbsp;&nbsp;&nbsp;&nbsp;.NET&nbsp;&nbsp;&nbsp;&nbsp;.CN</strong></em></h3>
 				</form>
 			</div>
 			<div class="col-md-6"> 
 			</div>
 		</div>
+		<?php if($showindex == 1): ?><h3>Search results</h3>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Domain state
+					</div>
+					<?php if($showflag == 1): ?><div class="panel-body">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>Domain</th>
+									<th>State</th>
+									<th>Price</th>
+									<th>Years</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><?php echo ($dm_name); ?></td>
+									<td>Avaliable</td>
+									<td><?php echo ($price); ?> HK$ per year</td>
+									<form role="form" action="<?php echo U('Index/addshoppingcart');;?>" method="post">
+									<input name="dm" type="hidden" value="<?php echo ($dm_name); ?>" />
+									<input name="price" type="hidden" value="<?php echo ($price); ?>" />
+									<td>
+										<select class="form-control" name="years" required>
+											<option value="1">one years </option>
+											<option value="2" >two years </option> 
+											<option value="3">three years</option>
+											<option value="5">five years </option>
+											<option value="10">ten years </option>
+										</select>
+									</td>
+									<td><button type="submit" class="btn btn-primary  btn-large">Add to shopping cart</button> </td>
+									</form>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<?php else: ?>
+						<div class="panel-body">
+							<?php echo ($dm_name); ?> has been registered!No avaliable!
+						</div><?php endif; ?>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Whois infomation
+					</div>
+					<div class="panel-body">
+						<?php echo ($whoisinfo); ?>
+					</div>
+				</div>
+			</div>
+			
+		</div><?php endif; ?>
 	</div>
 
 		</div>

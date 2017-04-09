@@ -47,7 +47,7 @@ class TransactionController extends CommonController {
 		$data['transactionID'] = $transid;
 		/*transaction*/
 		$Model = M('transaction');
-		$trans = $Model->where($transid)->find();
+		$trans = $Model->where($data)->find();
 		$this->assign('trans',$trans);// 
 		$this->assign('transid',$transid);// 
 		/*get payment method*/

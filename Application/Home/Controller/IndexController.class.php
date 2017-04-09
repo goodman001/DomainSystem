@@ -6,7 +6,7 @@ class IndexController extends Controller {
 	 	//test();
 		//getWhois();
         //$this->show('<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} body{ background: #fff; font-family: "微软雅黑"; color: #333;font-size:24px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.8em; font-size: 36px }</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>欢迎使用 <b>ThinkPHP</b>！</p><br/>[ 您现在访问的是Home模块的Index控制器 ]</div><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script>','utf-8');
-		$this->assign('showindex',0);
+		$this->assign('bodyshow',1);
         $this->display(T('homepage/index'));
     }
     public function search(){
@@ -42,10 +42,7 @@ class IndexController extends Controller {
             $Model = M('configure');
             $re = $Model->field('domainprice')->where('id=1')->find();
             $price = $re['domainprice'];
-        }
-        
-        
-        
+        } 
         $showflag = 0;//
         $msg = getWhois($dm_name);
         $flag =  $msg[1];
@@ -82,10 +79,10 @@ class IndexController extends Controller {
         $this->assign('price',$price);
         $this->assign('whoisinfo',$whoisinfo);
         $this->assign('showindex',1);
-        $this->display(T('homepage/index'));
-            //$this->assign('showflag',1);
-            //$this->assign('available',1);
-            //
+        $this->display(T('homepage/searchres'));
+        //$this->assign('showflag',1);
+        //$this->assign('available',1);
+        //
     }
     //shoppingcart list
     public function addshoppingcart()

@@ -141,6 +141,10 @@ class OrderController extends Controller {
 			$this->error($target.' have been suspend by administrator!Please contact administrator!',U('Index/showshoppingcart'),3);
 		}else*/
 		{
+			$cuser['username'] = cookie('u_username');//get username
+			$User = M('users');
+			$content = $User->where($cuser)->find();
+			$this->assign('profiles',$content);
 			$total = cookie('shoptotal');
 			$lists = cookie('shopcart');
 			$showcart = 1;
@@ -201,6 +205,11 @@ class OrderController extends Controller {
 	/*upload order infomation*/
 	public function upload()
 	{
+		if(I('post.accounttype','','htmlspecialchars') == "PayPal" || 	I('post.accounttype','','htmlspecialchars') == "Credit Card" ){
+			if(I('post.clientname','','htmlspecialchars') == "" || I('post.accountnumber','','htmlspecialchars') == "" ){
+				$this->error('When the paymethod is paypal or Credit Card, you must input account infomation! ',U('Index/showshoppingcart'),3);
+			}
+		}
 		$username = cookie('u_username');
 		$transactionID = time()+101;
 		$orderID = time();

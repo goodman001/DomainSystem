@@ -10,20 +10,21 @@
 		<link href="/DomainSystem/Public/style.css" rel="stylesheet" type="text/css">
 		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 	</head>
-	<body>
+	<body <?php if($bodyshow == 1): ?>class="indexbody"<?php else: ?>class="commonbody"<?php endif; ?> >
 		<div class="header navbar navbar-inverse ">
 		<!-- BEGIN TOP NAVIGATION BAR -->
 			<div class="navbar-inner">
 				<div class="container-fluid">
 					<div class="cus0">
 						<div class="navbar-header">
-							<a class="navbar-brand" href="#">Index</a>
+							<a class="navbar-brand" href="<?php echo U('Index/index');;?>"><img style="max-width:100px; margin-top: -7px;" src="/DomainSystem/Public/img/logo.png" /></a>
 						</div>
 						<div>
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="#">iOS</a></li>
-								<li><a href="#">SVN</a></li>
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Help</a></li>
 							</ul>
 							<!--right-->
 							<?php if(cookie('u_username')): ?><ul class="nav navbar-nav navbar-right">
@@ -67,7 +68,7 @@
 		</div>
 		<div class="cus0">
 		
-	<div class="container">
+	<div class="container" style="background-color:white">
 		<h3><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</h3>
 		<?php if($showcart == 1): ?><table id="cart" class="table table-hover table-condensed">
 			<thead>

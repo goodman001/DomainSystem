@@ -38,7 +38,7 @@ class LoginController extends Controller {
 			}else if($content['status'] == 'active' )//active = 1
 			{
 				//echo "exsit!";
-				$this->success('The email address has been successfully registered, please log in',U('Login/login'),3);
+				$this->success('The email address has been registered, please log in',U('Login/login'),3);
 			}else//active = 1
 			{
 				$this->error('Account Status is Suspend, please contact the administrator',U('Index/index'),3);
@@ -52,8 +52,8 @@ class LoginController extends Controller {
 			$data['company'] = I('post.company','','htmlspecialchars');//get firstname
 			$data['jobtitle'] = I('post.jobtitle','','htmlspecialchars');//get firstname
 			$data['password'] = I('post.password','','htmlspecialchars');//get firstname
-			$data['question'] = I('post.question','','htmlspecialchars');//get firstname
-			$data['answer'] = I('post.answer','','htmlspecialchars');//get firstname
+			//$data['question'] = I('post.question','','htmlspecialchars');//get firstname
+			//$data['answer'] = I('post.answer','','htmlspecialchars');//get firstname
 			$data['address1'] = I('post.address1','','htmlspecialchars');//get firstname
 			$data['address2'] = I('post.address2','','htmlspecialchars');//get firstname
 			$data['city'] = I('post.city','','htmlspecialchars');//get firstname

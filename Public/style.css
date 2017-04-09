@@ -12,3 +12,17 @@
 	margin:0 auto;
 	width:1000px;
 }
+.indexbody{
+	background:url("img/frontpage_v1.jpg") no-repeat center center fixed;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover;
+}
+.commonbody{
+	background-color:#a8a9ad;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover;
+}

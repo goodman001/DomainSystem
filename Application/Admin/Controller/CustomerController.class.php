@@ -94,8 +94,8 @@ class CustomerController extends CommonController {
                 $data['lastname'] = I('post.lastname','','htmlspecialchars');//get firstname
                 $data['company'] = I('post.company','','htmlspecialchars');//get firstname
                 $data['jobtitle'] = I('post.jobtitle','','htmlspecialchars');//get firstname
-                $data['question'] = I('post.question','','htmlspecialchars');//get firstname
-                $data['answer'] = I('post.answer','','htmlspecialchars');//get firstname
+                //$data['question'] = I('post.question','','htmlspecialchars');//get firstname
+                //$data['answer'] = I('post.answer','','htmlspecialchars');//get firstname
                 $data['address1'] = I('post.address1','','htmlspecialchars');//get firstname
                 $data['address2'] = I('post.address2','','htmlspecialchars');//get firstname
                 $data['city'] = I('post.city','','htmlspecialchars');//get firstname
@@ -136,8 +136,8 @@ class CustomerController extends CommonController {
             $data['lastname'] = I('post.lastname','','htmlspecialchars');//get firstname
             $data['company'] = I('post.company','','htmlspecialchars');//get firstname
             $data['jobtitle'] = I('post.jobtitle','','htmlspecialchars');//get firstname
-            $data['question'] = I('post.question','','htmlspecialchars');//get firstname
-            $data['answer'] = I('post.answer','','htmlspecialchars');//get firstname
+            //$data['question'] = I('post.question','','htmlspecialchars');//get firstname
+            //$data['answer'] = I('post.answer','','htmlspecialchars');//get firstname
             $data['address1'] = I('post.address1','','htmlspecialchars');//get firstname
             $data['address2'] = I('post.address2','','htmlspecialchars');//get firstname
             $data['city'] = I('post.city','','htmlspecialchars');//get firstname

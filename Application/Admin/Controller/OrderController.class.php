@@ -140,10 +140,24 @@ class OrderController extends CommonController {
 			{
 				$ctd['domainname'] = $val['domainname'];
 				$Mdomain = M('domainmgr');
-				$Mdomain->where($ctd)->setField('status','active');//active domain
-				$Mdomain->where($ctd)->setField('registrationdate',$nowtime);//registartiton date
-				$Mdomain->where($ctd)->setField('expirydate',date('Y-m-d H:i:s', strtotime('+'.$val['years'].' year', strtotime($nowtime))));//expirydate
-				$Mdomain->where($ctd)->setField('nextduedate',date('Y-m-d H:i:s', strtotime('+'.$val['years'].' year', strtotime($content['issuedate']))));//issuedate
+				$ctd1['domainname'] = $val['domainname'];
+				$ctd1['renew'] = 1;
+				$infod = $Mdomain->where($ctd1)->find();
+				if(!empty($infod)){
+					$Mdomain->where($ctd)->setField('renew',0);//
+					$Mdomain->where($ctd)->setField('status','active');//active domain
+					$years = 1;
+					$Mdomain->where($ctd)->setField('expirydate',date('Y-m-d', strtotime('+'.$years.' year', strtotime($infod["expirydate"]))));//expirydate
+					$Mdomain->where($ctd)->setField('nextduedate',date('Y-m-d', strtotime('+'.$years.' year', strtotime($infod['nextduedate']))));//issuedate
+				}else
+				{
+					$Mdomain->where($ctd)->setField('status','active');//active domain
+					$Mdomain->where($ctd)->setField('registrationdate',$nowtime);//registartiton date
+					$Mdomain->where($ctd)->setField('expirydate',date('Y-m-d', strtotime('+'.$val['years'].' year', strtotime($nowtime))));//expirydate
+					$Mdomain->where($ctd)->setField('nextduedate',date('Y-m-d', strtotime('+'.$val['years'].' year', strtotime($content['issuedate']))));//issuedate
+				}
+
+				
 			}
 			$this->success('Accept the order successfully!',U('Order/orderdetail?orderid='.$orderid.''),1);
 		}
@@ -164,15 +178,15 @@ class OrderController extends CommonController {
 			$Model-> where($data)->setField('status','cancle');
 			$Model-> where($data)->setField('refund','Y');
 			$Model-> where($data)->setField('refundamount',$trans['settleamount']);
-			/*del item*/
+			/*item*/
 			$Model =  M('item');
 			$items = $Model->where($data)->select();
-			/*del domain*/
+			/*set domain*/
 			foreach($items as &$val)
 			{
 				$ctd['domainname'] = $val['domainname'];
 				$Mdomain = M('domainmgr');
-				$Mdomain->where($ctd)->delete();//del domain
+				$Mdomain->where($ctd)->setField('status','suspend');//
 			}
 			$this->success('Refund the order successfully!',U('Order/orderdetail?orderid='.$orderid.''),1);
 		}
@@ -229,17 +243,44 @@ class OrderController extends CommonController {
 	public function itemadd()
 	{
 		$orderid = I('get.orderid');
-		$data['domainname'] = I('post.domainname');
+		$data['domainname'] = str_replace('www.','',I('post.domainname'));
 		$data['orderID'] = $orderid;
 		/*get registar*/
 		$Mr = M('registrar');
 		$condition['status'] = 'Y';
 		$crs = $Mr->field('registrar')->where($condition)->select();
 		shuffle($crs);
+		
+		/*get price*/
+		$price = 0;
+		$Mt = M('fakedomains');
+        $dprice["domainname"] = $data['domainname'];
+        $presult = $Mt->where($dprice)->find();
+        if(!empty($presult))
+        {
+            $pieces = explode(".", $data['domainname']);
+            $Model = M('premium');
+            $dcp["domainname"] = array('like','%.'.$pieces[count($pieces)-1]);
+            $content2 = $Model->where($dcp)->find();
+            if(!empty($content2))
+            {
+                $price = $content2['price']*($content2['rate']+1);//increase 20%
+            }else
+            {
+                $Model = M('configure');
+                $re = $Model->field('domainprice')->where('id=1')->find();
+                $price = $re['domainprice'];
+            }
+        }else
+        {
+            $Model = M('configure');
+            $re = $Model->field('domainprice')->where('id=1')->find();
+            $price = $re['domainprice'];
+        }
 		//print_r($ct);
 		$registrar = $crs[0]['registrar'];
 		$data['registrar'] = $registrar;	
-		$data['price'] = I('post.price');
+		$data['price'] = $price;
 		$data['years'] = I('post.years');
 		
 		/*check domain available*/
@@ -297,6 +338,51 @@ class OrderController extends CommonController {
 			$cc['settleamount'] = $sum;
 			$M3 = M('transaction');
 			$M3->where($ct1)->save($cc);
+			/*add domain*/
+			$ct2['orderID'] = $orderid;
+			$M4 =  M('order');
+			$content = $M4->where($ct2)->find();
+			$paystatus = $content['status'];
+			$cuser['username'] = $content['username'];//get username
+			$User = M('users');
+			$userinfo = $User->where($cuser)->find();
+			$nowtime = date('Y-m-d H:i:s',time());
+			$expiry_db = '';
+			$nextdue_db = '';
+			$registrationdate = '';
+			
+			$datadb['domainname'] = $data['domainname'];
+			$datadb['username'] = $userinfo['username'];
+			$datadb['registrar'] = $registrar;
+			$datadb['registrationdate'] = $registrationdate;
+			$datadb['expirydate'] = $expiry_db;
+			$datadb['nextduedate'] = $nextdue_db;
+			$datadb['status'] = $paystatus;
+			$datadb['mainforward'] = '';
+			$datadb['DNSmgr'] = '';
+			$datadb['orderID'] = $orderid;
+			
+			/*get domain registation profile*/
+			$datadb['email'] = $userinfo['email'];//get email
+			$datadb['firstname'] = $userinfo['firstname'];//get firstname
+			$datadb['lastname'] = $userinfo['lastname'];//get firstname
+			$datadb['company'] = $userinfo['company'];//get firstname
+			$datadb['jobtitle'] = $userinfo['jobtitle'];//get firstname
+			$datadb['address1'] = $userinfo['address1'];//get firstname
+			$datadb['address2'] = $userinfo['address2'];//get firstname
+			$datadb['city'] = $userinfo['city'];//get firstname
+			$datadb['state'] = $userinfo['state'];//get firstname
+			$datadb['postcode'] = $userinfo['postcode'];//get firstname
+			$datadb['country'] = $userinfo['country'];//get firstname
+			$datadb['phone'] = $userinfo['phone'];//get firstname
+			$datadb['fax'] = $userinfo['fax'];//get firstname
+			$datadb['ns1'] = "ns1.namserver.com";//get firstname
+			$datadb['ns2'] = "ns2.namserver.com";//get firstname
+			$datadb['ns3'] = "ns3.namserver.com";//get firstname
+			$datadb['ns4'] = "ns4.namserver.com";//get firstname
+			$DoM = M('domainmgr');
+			$DoM->data($datadb)->add();
+			
 			$this->success('Add new item into the order successfully!',U('Order/orderdetail?orderid='.$orderid.''),1);
 		}else
 		{

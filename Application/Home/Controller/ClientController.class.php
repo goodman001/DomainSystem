@@ -251,6 +251,11 @@ class ClientController extends Controller {
         $flag =  $msg[1];
         $whoisinfo =  $msg[0];//whoisinfo
 		$this->assign('whois',$whoisinfo);// 
+		/*get payment method*/
+		$Model = M('paymethod');
+		$condition1['useable'] = 'Y';
+		$ct1 = $Model->field('method')->where($condition1)->select();
+		$this->assign('payments',$ct1);
 		$this->display(T('client/my_domaindetail'));
 	}
 	public function domainprofileupdate()
@@ -298,18 +303,35 @@ class ClientController extends Controller {
 	public function domainrenew()
 	{
 		$where['id'] = I('get.domainid');
-		
-		
+		if(I('post.accounttype','','htmlspecialchars') == "PayPal" || 	I('post.accounttype','','htmlspecialchars') == "Credit Card" ){
+			if(I('post.clientname','','htmlspecialchars') == "" || I('post.accountnumber','','htmlspecialchars') == "" ){
+				$this->error('When the paymethod is paypal or Credit Card, you must input account infomation!',U('Client/domaindetail?domainid='.$where['id'].''),3);
+			}
+		}
 		$years = I('post.years');
 		$nowtime = date('Y-m-d H:i:s',time());
+		
+		
+		
 		
 		$DoM = M('domainmgr');
 		$domaininfo = $DoM->where($where)->find();
 		$username = cookie('u_username');
 		$transactionID = time()+101;
 		$orderID = time();
-		$expiry_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($domaininfo["expirydate"])));
-		$nextdue_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($domaininfo["nextduedate"])));
+		$pay['accounttype'] = I('post.accounttype','','htmlspecialchars');//get firstname
+		if($pay['accounttype'] == 'PayPal'){
+			$paystatus = 'active';
+			$expiry_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($domaininfo["expirydate"])));
+			$nextdue_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($domaininfo["nextduedate"])));
+		}else
+		{
+			$paystatus = 'pending';
+			$yeartmp = 0;
+			$expiry_db = date('Y-m-d H:i:s', strtotime('+'.$yeartmp.' year', strtotime($domaininfo["expirydate"])));
+			$nextdue_db = date('Y-m-d H:i:s', strtotime('+'.$yeartmp.' year', strtotime($domaininfo["nextduedate"])));
+		}
+		
 		//print($registrar);
 		//get domain infomation
 		
@@ -351,13 +373,16 @@ class ClientController extends Controller {
 		$item["years"] = $years;
 		$Model->data($item)->add();
 		$iteminfo =$Model->where('orderID='.$orderID)->select();
+		
+		
+		
 		//order
 		$orderM = M('order');
 		$order['orderID'] = $orderID;//get order id
 		$order['transactionID'] = $transactionID;//get id
 		$order['username'] = $username;
 		$order['issuedate'] = date('Y-m-d H:i:s',time());
-		$order['status'] = 'active';
+		$order['status'] = $paystatus;
 		$order['refundamount'] = 0.0;
 		$order['invoicedate'] = date('Y-m-d H:i:s',time());
 		$order['duedate'] = date('Y-m-d H:i:s',time());
@@ -369,6 +394,7 @@ class ClientController extends Controller {
 		$data['expirydate'] = $expiry_db;
 		$data['nextduedate'] = $nextdue_db;
 		$data['status'] = 'active';
+		$data['renew'] = 1;
 		$data['orderID'] = $orderID;
 		$DoM->where($where)->save($data);
 		$domainnew = $DoM->where($where)->find();
@@ -376,20 +402,20 @@ class ClientController extends Controller {
 		// pay
 		$transM = M('transaction');
 		
-		$cto['orderID'] = $domaininfo['orderID'];
-		$gettrans = $transM->where($cto)->find();
-		$paymethod = $gettrans['paymethod'];
+		
+		$paymethod = $pay['accounttype'];
+		
 		
 		//	transaction
 		
 		$trans['transactionID'] = $transactionID;
-		$trans['clientname'] = $gettrans['clientname'];
+		$trans['clientname'] = I('post.clientname','','htmlspecialchars');
 		$trans['orderID'] = $orderID;
 		$trans['invoiceID'] = time();
 		$trans['description'] = 'Renew the domain '.$domaininfo['domainname'];
 		$trans['paydate'] = date('Y-m-d H:i:s',time());
 		$trans['paymethod'] = $paymethod;
-		$trans['accountnumber'] = $gettrans['accountnumber'];
+		$trans['accountnumber'] = I('post.accountnumber','','htmlspecialchars');
 		$trans['settleamount'] = $price * $years;
 		$transM->data($trans)->add();
 		$transinfo = $transM->where('transactionID ='.$transactionID)->find();

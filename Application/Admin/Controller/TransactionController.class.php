@@ -48,13 +48,23 @@ class TransactionController extends CommonController {
 		/*transaction*/
 		$Model = M('transaction');
 		$trans = $Model->where($data)->find();
+		$showpay = 0;
+		$showperson = 0;
+		if($trans['paymethod'] =="Bank Transfer" || $trans['paymethod'] =="Cheque" || $trans['paymethod']== "E-Banking"){
+			$showpay = 1;
+		}
+		if($trans['paymethod'] =="PayPal" || $trans['paymethod'] =="Credit Card"){
+			$showperson = 1;
+		}
+		$this->assign('showpay',$showpay);// 
+		$this->assign('showperson',$showperson);//
 		$this->assign('trans',$trans);// 
 		$this->assign('transid',$transid);// 
 		/*get payment method*/
-		$Model = M('paymethod');
+		/*$Model = M('paymethod');
 		$condition['useable'] = 'Y';
 		$ct = $Model->field('method')->where($condition)->select();
-		$this->assign('payments',$ct);
+		$this->assign('payments',$ct);*/
 		
 		
 		$this->display(T('mgr/transactions_detail'));
@@ -64,11 +74,16 @@ class TransactionController extends CommonController {
 	{
 		$transid = I('post.transactionID');
 		$where['transactionID'] = $transid;
-		$data['clientname'] = I('post.clientname');
-		$data['accountnumber'] = I('post.accountnumber');
+		if(!empty(I('post.clientname'))){
+			$data['clientname'] = I('post.clientname');
+		}
+		if(!empty(I('post.accountnumber'))){
+			$data['accountnumber'] = I('post.accountnumber');
+		}
 		$data['invoiceID'] = I('post.invoiceID');
-		$data['paymethod'] = I('post.paymethod');
+		//$data['paymethod'] = I('post.paymethod');
 		$data['settleamount'] = I('post.settleamount');
+		$data['paydate'] = date('Y-m-d H:i:s', strtotime(I('post.paydate')));
 		$data['description'] = I('post.description');
 		$M3 = M('transaction');
 		$M3->where($where)->save($data);

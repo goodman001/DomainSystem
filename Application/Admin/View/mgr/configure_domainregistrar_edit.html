@@ -157,7 +157,7 @@
                     <li><a href="{:U('Configure/premiumlist');}">Premium Manager</a></li>
                 </ul>
             </li>
-            <li class="active">
+            <li>
                 <a href="javascript:;">
                     Payment
                     <span class="arrow"></span>
@@ -165,11 +165,11 @@
                 <ul class="sub-menu">
                     <li><a href="{:U('Configure/paymentlist');}">Payment method</a></li>
                     <li><a href="{:U('Configure/currencies');}">Currencies</a></li>
-                    <li class="active"><a href="{:U('Configure/taxrules');}">Tax Rules</a></li>
+                    <li><a href="{:U('Configure/taxrules');}">Tax Rules</a></li>
                     <li><a href="{:U('Configure/promotion');}">Promotion</a></li>
                 </ul>
             </li>
-            <li>
+            <li class="active">
                 <a href="{:U('Configure/domainregistrar');}">
                     <span class="title">Domain Registrar</span>
                 </a>
@@ -205,16 +205,21 @@
         <ul class="breadcrumb">
             <li>
                 <i class="fa fa-home" aria-hidden="true"></i>
-                <a href="{:U('Profile/index');}">Home</a>
+                <a href="{:U('Profile/index');}"> Home</a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
             <li>
-                <a href="#">Configuration</a>
+                <a href="#"> Configuration</a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
+            <li>
+                <a href="{:U('Configure/domainregistrar');}"> Domain Registrar</a>
+				<i class="fa fa-angle-right" aria-hidden="true"></i>
+            </li>
 			<li>
-				<a href="{:U('Configure/taxrules');}">Tax Rules</a>
-			</li>
+                <a href="#"> Domain Registrar Edit</a>
+            </li>
+             
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -223,103 +228,39 @@
 <!-- BEGIN PAGE CONTENT-->
 <div class="row-fluid">
     <div class="span12">
+    <div class="tabbable tabbable-custom tabbable-full-width">
+        <ul class="nav nav-tabs">   
+            <li class="active"><a href="#tab_1_1" data-toggle="tab">Registrar Edit</a></li>
+        </ul>
+        <div class="tab-content">
+        <!--end tab-pane-->
+        <!--tab_1_1-->
+        <div class="tab-pane row-fluid active" id="tab_1_1">
+            <div style="height: auto;" id="accordion1-1" class="accordion collapse">
+                <div class="span12">
+                    <h4><i class="fa fa-cog" aria-hidden="true"></i> Add new Registrar</h4>
+                        <form role="form" action="{:U('Configure/editregistrar');}" method="post">  
+                            <label class="control-label">Registrar Name</label>
+                            <input name="registrar" type="text" value="{$list.registrar}" placeholder="Registrar" class="m-wrap span8" readonly/>
+                            <label class="control-label">Status</label>
+                            <select class="m-wrap span8" name="status" required>
+                                <option value="Y">Y</option>
+                                <option value="N">N</option>
+                            </select>
+                            <div class="submit-btn">
+                                <button type="submit" class="btn green">Save Changes</button>
+                            </div>
+                        </form>
 
-		<!--BEGIN TABS-->
-<div class="tabbable tabbable-custom tabbable-full-width">
-<ul class="nav nav-tabs">
-    
-    <li class="active"><a href="#tab_1_0" data-toggle="tab">Tax on/off</a></li>
-	<li><a href="#tab_1_1" data-toggle="tab">List Active Tax Rules</a></li>
-	<li><a href="#tab_1_2" data-toggle="tab">Add new currency</a></li>
-</ul>
-<div class="tab-content">
-
-<!--end tab-pane-->
-<div class="tab-pane row-fluid active" id="tab_1_0">
-    <div class="span12">
-    <label class="control-label">Tax</label>
-	<a href="" class="btn red mini active">Enable</a>
-	<a href="" class="btn red mini">Disable</a>
-    </div>
-    
-</div>
-<div class="tab-pane row-fluid" id="tab_1_1">
-    <div class="span12">
-    <table class="table table-striped table-hover">
-	   <thead>
-		<tr>
-			<th>ID</th>
-			<th>Level</th>
-            <th>Name</th>
-			<th>Country</th>
-			<th>Tax Rate</th>
-			<th></th>
-		</tr>
-	   </thead>
-	   <tbody>
-		  <tr>
-			<td>1</td>
-			<td>1</td>
-            <td>Rule1</td>
-			<td>USA</td>
-			<td>0.25</td>
-			<td><a class="btn red easy-pie-chart-reload" href="">UPDATE</a><a class="btn yellow easy-pie-chart-reload" href="">DELETE</a></td>
-		  </tr>
-		  <tr>
-			<td>2</td>
-			<td>1</td>
-            <td>Rule2</td>
-			<td>HK</td>
-			<td>0.3</td>
-			<td><a class="btn red easy-pie-chart-reload" href="">UPDATE</a><a class="btn yellow easy-pie-chart-reload" href="">DELETE</a></td>
-		  </tr>
-	   </tbody>
-	</table>
-    </div>
-    
-</div>
-<!--tab_1_2-->
-<div class="tab-pane" id="tab_1_2">
-	<div style="height: auto;" id="accordion1-1" class="accordion collapse">
-        <div class="span12">
-            <h4><i class="fa fa-cog" aria-hidden="true"></i> Add new Tax Rule</h4>
-            <div class="span4">
-                <form role="form" action="" method="post">  
-                    <label class="control-label">Level</label>
-					<select class="form-control" name="level" required>
-						<option value="1">1</option>
-						<option value="2" >2</option> 
-					</select>  
-					<label class="control-label">Tax rule name</label>
-                    <input name="name" type="text" placeholder="tax rule name" value="" class="m-wrap span8" required/>
-					<label class="control-label">Country</label>
-                    <input name="country" type="text" placeholder="country" class="m-wrap span8" required/>
-                    <label class="control-label">Tax rating</label>
-                    <input name="formate" type="text" placeholder="Tax rating" class="m-wrap span8" required/>
-                    <div class="submit-btn">
-                        <button type="submit" class="btn green">Save Changes</button>
-                    </div>
-                </form>
+                </div>       
             </div>
-        </div>       
+        </div>
+        <!--end tab-pane-->
+        <!--end tab-pane-->
+
+        <!--end tab-pane-->
+        </div>
     </div>
-</div>
-<!-- tab_1_3 -->
-
-
-<!-- tab_1_3 -->
-<!--end tab-pane-->
-<!--end tab-pane-->
-
-<!--end tab-pane-->
-</div>
-</div>
-<!--END TABS-->
-		
-		
-		
-		
-		
     </div>
 </div>
 <!-- END PAGE CONTENT-->

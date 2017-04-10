@@ -17,7 +17,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!--<![endif]-->
 <head>
     <meta charset="utf-8"/>
-    <title>Metronic | Admin Dashboard Template</title>
+    <title>JHCL</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
@@ -32,7 +32,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <link href="/DomainSystem/Public/metronic/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
     <link href="/DomainSystem/Public/metronic/media/css/chosen.css" rel="stylesheet" type="text/css" />
 <!-- END CORE PLUGINS -->
-    <link href="/DomainSystem/Public/metronic/media/css/profile.css" rel="stylesheet" type="text/css" />
+    
     <!-- END begin global -->
     <!--favicon
     <link rel="shortcut icon" href="/DomainSystem/Public/metronic/media/image/favicon.ico"/>
@@ -58,12 +58,11 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN TOP NAVIGATION MENU -->
     <ul class="nav pull-right">
     <!-- BEGIN INBOX DROPDOWN -->
-    
     <!-- END INBOX DROPDOWN -->
     <!-- BEGIN USER LOGIN DROPDOWN -->
     <li class="dropdown user">
-        <a href="<?php echo U('Index/index');;?>" class="dropdown-toggle">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        <a href="<?php echo U('Index/shop');;?>" class="dropdown-toggle">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
             <span class="username">Return shopping</span>
         </a>
     </li>
@@ -108,43 +107,162 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         <!-- END RESPONSIVE QUICK SEARCH FORM -->
     </li>
     <li class="start">
-        <a href="<?php echo U('Client/index');;?>">
+        <a href="<?php echo U('Profile/index');;?>">
             <i class="fa fa-home" aria-hidden="true"></i>
-            <span class="title">Welcome</span>
+            <span class="title">My Profile</span>
             <span class="selected"></span>
         </a>
     </li>
     <li class="">
         <a href="javascript:;">
             <i class="fa fa-user-circle" aria-hidden="true"></i>
-            <span class="title">My Infomation</span>
+            <span class="title">Customers manager</span>
             <span class="arrow "></span>
         </a>
         <ul class="sub-menu">
             <li>
-                <a href="<?php echo U('Client/myprofile');;?>">
-                    My Profile
+                <a href="<?php echo U('Customer/customerlist');;?>">
+                    Customers List
                 </a>
             </li>
             <li>
-                <a href="<?php echo U('Client/mywallet');;?>">
-                    My Wallet</a>
+                <a href="<?php echo U('Customer/customeradd');;?>">
+                    Add Customers</a>
             </li>
         </ul>
     </li>
-    <li>
-        <a href="<?php echo U('Client/orderlist');;?>">
+     <li class="">
+        <a href="<?php echo U('Order/orderlist');;?>">
             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-            <span class="title">My Orders</span>
-            <span class="selected"></span>
+            <span class="title">Order manager</span>
+            <span class="arrow "></span>
         </a>
     </li>
-    <li class="active">
-        <a href="<?php echo U('Client/domainlist');;?>">
-            <i class="fa fa-database" aria-hidden="true"></i>
-            <span class="title">My Domains</span>
-            <span class="selected"></span>
+    <li class="">
+        <a href="<?php echo U('Transaction/translist');;?>">
+            <i class="fa fa-cogs" aria-hidden="true"></i>
+            <span class="title">Transaction manager</span>
+            <span class="arrow "></span>
         </a>
+    </li>
+    <li >
+        <a href="<?php echo U('Domain/domainlist');;?>">
+            <i class="fa fa-database" aria-hidden="true"></i>
+            <span class="title">Domains manager</span>
+            <span class="arrow "></span>
+        </a>
+    </li>
+    <li >
+        <a href="javascript:;">
+            <i class="fa fa-handshake-o" aria-hidden="true"></i>
+            <span class="title">Support</span>
+            <span class="arrow "></span>
+        </a>
+        <!--
+        <ul class="sub-menu">
+            <li>
+                <a href="<?php echo U('Domain/domainlist');;?>">
+                    Domain List
+                </a>
+            </li>
+			<li>
+                <a href="<?php echo U('Domain/premiumlist');;?>">
+                    Premium List
+                </a>
+            </li>
+        </ul>
+        -->
+    </li>
+    <li >
+        <a href="javascript:;">
+            <i class="fa fa-clipboard" aria-hidden="true"></i>
+            <span class="title">Report Module</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a> Monthly Active TLDs</a>
+            </li>
+			<li>
+                 <a> Active Accounts Per TLDs</a>
+            </li>
+            <li>
+                 <a> New Customer</a>
+            </li>
+            <li>
+                 <a> Monthly Transactions</a>
+            </li>
+        </ul>
+    </li>
+    <li class="active">
+        <a class="active" href="javascript:;">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            <span class="title">Configuration</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="javascript:;">
+                    General
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="<?php echo U('Configure/general_web');;?>">Web Setting</a></li>
+                    <li><a href="<?php echo U('Configure/general_language');;?>">Language</a></li>
+                    <li><a href="<?php echo U('Configure/general_domain');;?>">Domains</a></li>
+                    <li><a href="<?php echo U('Configure/general_mail');;?>">Mail</a></li>
+                    <li><a href="<?php echo U('Configure/general_credit');;?>">Credit</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="<?php echo U('Configure/security');;?>">
+                     Security
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Email Template
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    Administrators
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="<?php echo U('Configure/adminlist');;?>">Users manager</a></li>
+                    <li><a href="<?php echo U('Configure/adminrolelist');;?>">Roles Manager</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    Domain Price
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="<?php echo U('Configure/pricesetting');;?>">Price setting</a></li>
+                    <li><a href="<?php echo U('Configure/pricetools');;?>">Tools Manager</a></li>
+                    <li><a href="<?php echo U('Configure/premiumlist');;?>">Premium Manager</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    Payment
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="<?php echo U('Configure/paymentlist');;?>">Payment method</a></li>
+                    <li><a href="<?php echo U('Configure/currencies');;?>">Currencies</a></li>
+                    <li><a href="<?php echo U('Configure/taxrules');;?>">Tax Rules</a></li>
+                    <li><a href="<?php echo U('Configure/promotion');;?>">Promotion</a></li>
+                </ul>
+            </li>
+            <li class="active">
+                <a href="<?php echo U('Configure/domainregistrar');;?>">
+                    <span class="title">Domain Registrar</span>
+                </a>
+            </li>
+        </ul>
     </li>
     </ul>
 </div>
@@ -174,20 +292,27 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div class="row-fluid">
     <div class="span12">
         <h3 class="page-title">
-            My Domains
-            <small> Domain Manager</small>
+            Configuration
+            <small> Configuration</small>
         </h3>
         <ul class="breadcrumb">
             <li>
                 <i class="fa fa-home" aria-hidden="true"></i>
-                <a href="<?php echo U('Client/index');;?>">Home</a>
+                <a href="<?php echo U('Profile/index');;?>"> Home</a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
             <li>
-                <a href="<?php echo U('Client/domainlist');;?>">My Domains</a>
+                <a href="#"> Configuration</a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
-            <li><a href="#">Domain List</a></li>
+            <li>
+                <a href="<?php echo U('Configure/domainregistrar');;?>"> Domain Registrar</a>
+				<i class="fa fa-angle-right" aria-hidden="true"></i>
+            </li>
+			<li>
+                <a href="#"> Domain Registrar Edit</a>
+            </li>
+             
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -196,43 +321,39 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN PAGE CONTENT-->
 <div class="row-fluid">
     <div class="span12">
-    <table class="table table-striped table-hover">
-	   <thead>
-		<tr>
-			<th>Domain</th>
-			<th>Registrar</th>
-			<th>Email</th>
-			<th>Firstname</th>
-			<th>Lastname</th>
-			<th>City</th>
-			<th>State</th>
-			<th>Country</th>
-			<th>Phone</th>
-			<th>Postcode</th>
-			<th></th>
-		</tr>
-	   </thead>
-	   <tbody>
-		<?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
-			<td><a href="<?php echo U('Client/domaindetail?domainid='.$vo['id'].'');;?>"><?php echo ($vo["domainname"]); ?></a></td>
-			<td><?php echo ($vo["registrar"]); ?></td>
-			<td><?php echo ($vo["email"]); ?></td>
-			<td><?php echo ($vo["firstname"]); ?></td>
-			<td><?php echo ($vo["lastname"]); ?></td>
-			<td><?php echo ($vo["city"]); ?></td>
-			<td><?php echo ($vo["state"]); ?></td>
-			<td><?php echo ($vo["country"]); ?></td>
-			<td><?php echo ($vo["phone"]); ?></td>
-			<td><?php echo ($vo["postcode"]); ?></td>
-			<td>
-				<a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Client/domaindetail?domainid='.$vo['id'].'');;?>">
-					view detail
-				</a>
-			</td>
-		  </tr><?php endforeach; endif; ?>
-	   </tbody>
-	</table>
-	<span><div class="page"><?php echo ($page); ?></div></span>
+    <div class="tabbable tabbable-custom tabbable-full-width">
+        <ul class="nav nav-tabs">   
+            <li class="active"><a href="#tab_1_1" data-toggle="tab">Registrar Edit</a></li>
+        </ul>
+        <div class="tab-content">
+        <!--end tab-pane-->
+        <!--tab_1_1-->
+        <div class="tab-pane row-fluid active" id="tab_1_1">
+            <div style="height: auto;" id="accordion1-1" class="accordion collapse">
+                <div class="span12">
+                    <h4><i class="fa fa-cog" aria-hidden="true"></i> Add new Registrar</h4>
+                        <form role="form" action="<?php echo U('Configure/editregistrar');;?>" method="post">  
+                            <label class="control-label">Registrar Name</label>
+                            <input name="registrar" type="text" value="<?php echo ($list["registrar"]); ?>" placeholder="Registrar" class="m-wrap span8" readonly/>
+                            <label class="control-label">Status</label>
+                            <select class="m-wrap span8" name="status" required>
+                                <option value="Y">Y</option>
+                                <option value="N">N</option>
+                            </select>
+                            <div class="submit-btn">
+                                <button type="submit" class="btn green">Save Changes</button>
+                            </div>
+                        </form>
+
+                </div>       
+            </div>
+        </div>
+        <!--end tab-pane-->
+        <!--end tab-pane-->
+
+        <!--end tab-pane-->
+        </div>
+    </div>
     </div>
 </div>
 <!-- END PAGE CONTENT-->
@@ -282,7 +403,6 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <script src="/DomainSystem/Public/metronic/media/js/jquery.uniform.min.js" type="text/javascript"></script>
 
 
-<!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 
 

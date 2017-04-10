@@ -173,7 +173,7 @@ class LoginController extends Controller {
     {
 		cookie('u_username',null);
 		//$this->show('login');
-    	$this->display(T('homepage/index'));
+		$this->success('Login out successfully! welcome ',U('Index/index'));
     }
 	
 }

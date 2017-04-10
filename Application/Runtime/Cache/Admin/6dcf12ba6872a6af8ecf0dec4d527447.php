@@ -46,8 +46,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div class="navbar-inner">
 <div class="container-fluid">
 <!-- BEGIN LOGO -->
-    <a class="brand" href="index.html">
-        <img src="/DomainSystem/Public/metronic/media/image/logo.png" alt="logo"/>
+    <a class="brand" href="<?php echo U('Profile/index');;?>">
+        <center><img style="max-width:100px; margin-top: -7px;" src="/DomainSystem/Public/img/logo.png" /></center>
     </a>
     <!-- END LOGO -->
     <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -56,10 +56,6 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     </a>
 <!-- END RESPONSIVE MENU TOGGLER -->
 <!-- BEGIN TOP NAVIGATION MENU -->
-    <ul class="nav navbar-nav">
-        <li class="active"><a href="#">iOS</a></li>
-        <li><a href="#">SVN</a></li>
-    </ul>
     <ul class="nav pull-right">
     <!-- BEGIN INBOX DROPDOWN -->
     <!-- END INBOX DROPDOWN -->
@@ -430,8 +426,6 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 <form role="form" action="<?php echo U('Order/itemadd?&orderid='.$order['orderID'].'');;?>" method="post">  
                     <label class="control-label">Domain name</label>
                     <input name="domainname" type="text" id="domainname" placeholder="domainname" value="" class="m-wrap span8" required>
-                    <label class="control-label">Price</label>
-                    <input type="text" value="" name="price" id="price" pattern="^[0-9]+([\.,]{0,1}[0-9]*)$" maxlength="15" minlength="1"   class="m-wrap span8" required>
                     <label class="control-label">Years</label>
                     <select class="form-control" name="years" required>
                         <option value="1">one years </option>

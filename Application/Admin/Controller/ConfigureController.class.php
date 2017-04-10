@@ -360,6 +360,41 @@ class ConfigureController extends CommonController {
 		$this->assign('list',$ct);// 
 		$this->display(T('mgr/configure_domainregistrar'));
 	}
+	public function delregistrar(){
+		/*get payment method*/
+		$ct['id'] = I('get.id');
+		$Model = M('registrar');
+		$Model->where($ct)->delete();
+		$this->success('The registrar deletes successfully!',U('Configure/domainregistrar'),2);
+	}
+	public function addregistrar(){
+		/*get payment method*/
+		$Mt = M('registrar');
+        $dr["registrar"] = I('post.registrar');
+        $rr = $Mt->where($dr)->find();
+		if(!empty($rr)){
+			$this->error('The registrar has already existed!',U('Configure/domainregistrar'),2);
+		}else
+		{
+			$dr["status"] = I('post.status');
+			$Mt->data($dr)->add();
+			$this->success('The registrar has already added successfully!',U('Configure/domainregistrar'),2);
+		}
+	}
+	public function editregistrarpage(){
+		$ct['id'] = I('get.id');
+		$Model = M('registrar');
+		$content = $Model->where($ct)->find();
+		$this->assign('list',$content);// 
+		$this->display(T('mgr/configure_domainregistrar_edit'));
+	}
+	public function editregistrar(){
+		$Mt = M('registrar');
+        $dr["registrar"] = I('post.registrar');
+		$dc['status'] = I('post.status');
+        $Mt->where($dr)->save($dc);
+		$this->success('The registrar has already changed successfully!',U('Configure/domainregistrar'),2);
+	}
 	/*############################*/
 	
 	

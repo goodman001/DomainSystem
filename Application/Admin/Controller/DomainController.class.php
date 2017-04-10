@@ -70,15 +70,21 @@ class DomainController extends CommonController {
         $flag =  $msg[1];
         $whoisinfo =  $msg[0];//whoisinfo
 		$this->assign('whois',$whoisinfo);// 
+		/*get registrar*/
+		$Model = M('registrar');
+		$condition['status'] = 'Y';
+		$cts = $Model->field('registrar')->where($condition)->select();
+		$this->assign('registrar',$cts);
 		$this->display(T('mgr/domains_detail'));
 	}
 	public function domainupdate()
 	{
 		$where['id'] = I('get.domainid');
 		$data['domainname'] = I('post.domainname');
-		$data['expirydate'] = I('post.expirydate');
-		$data['nextduedate'] = I('post.nextduedate');
+		$data['expirydate'] = date('Y-m-d',strtotime(I('post.expirydate')));
+		$data['nextduedate'] = date('Y-m-d',strtotime(I('post.nextduedate')));
 		$data['status'] = I('post.status');
+		$data['registrar'] = I('post.registrar');
 		$data['autorenew'] = I('post.autorenew');
 		$Model = M('domainmgr');
 		$Model->where($where)->save($data);
@@ -150,6 +156,11 @@ class DomainController extends CommonController {
 	}
 	public function domainadd()
 	{
+		if(I('post.accounttype','','htmlspecialchars') == "PayPal" || 	I('post.accounttype','','htmlspecialchars') == "Credit Card" ){
+			if(I('post.clientname','','htmlspecialchars') == "" || I('post.accountnumber','','htmlspecialchars') == "" ){
+				$this->error('When the paymethod is paypal or Credit Card, you must input account infomation! ',U('Domain/domainlist'),3);
+			}
+		}
 		$nowtime = date('Y-m-d H:i:s',time());
 		$msg = array();
         $dm_name = I('post.domainname');
@@ -245,8 +256,8 @@ class DomainController extends CommonController {
 		
 		
 		$paystatus = 'active';
-		$expiry_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($nowtime)));
-		$nextdue_db = date('Y-m-d H:i:s', strtotime('+'.$years.' year', strtotime($nowtime)));
+		$expiry_db = date('Y-m-d', strtotime('+'.$years.' year', strtotime($nowtime)));
+		$nextdue_db = date('Y-m-d', strtotime('+'.$years.' year', strtotime($nowtime)));
 		$registrationdate = $nowtime;
 		$dudate_order = $nowtime;
 		$paystatus = "active";
@@ -263,27 +274,29 @@ class DomainController extends CommonController {
 		$data['mainforward'] = '';
 		$data['DNSmgr'] = '';
 		$data['orderID'] = $orderID;
-
-
+		
+		$cuser['username'] = $username;//get username
+		$User = M('users');
+		$userinfo = $User->where($cuser)->find();
 
 		/*get domain registation profile*/
-		$data['email'] = I('post.email','','htmlspecialchars');//get email
-		$data['firstname'] = I('post.firstname','','htmlspecialchars');//get firstname
-		$data['lastname'] = I('post.lastname','','htmlspecialchars');//get firstname
-		$data['company'] = I('post.company','','htmlspecialchars');//get firstname
-		$data['jobtitle'] = I('post.jobtitle','','htmlspecialchars');//get firstname
-		$data['address1'] = I('post.address1','','htmlspecialchars');//get firstname
-		$data['address2'] = I('post.address2','','htmlspecialchars');//get firstname
-		$data['city'] = I('post.city','','htmlspecialchars');//get firstname
-		$data['state'] = I('post.state','','htmlspecialchars');//get firstname
-		$data['postcode'] = I('post.postcode','','htmlspecialchars');//get firstname
-		$data['country'] = I('post.country','','htmlspecialchars');//get firstname
-		$data['phone'] = I('post.phone','','htmlspecialchars');//get firstname
-		$data['fax'] = I('post.fax','','htmlspecialchars');//get firstname
-		$data['ns1'] = I('post.ns1','','htmlspecialchars');//get firstname
-		$data['ns2'] = I('post.ns2','','htmlspecialchars');//get firstname
-		$data['ns3'] = I('post.ns3','','htmlspecialchars');//get firstname
-		$data['ns4'] = I('post.ns4','','htmlspecialchars');//get firstname
+		$data['email'] = $userinfo['email'];//get email
+		$data['firstname'] = $userinfo['firstname'];//get firstname
+		$data['lastname'] = $userinfo['lastname'];//get firstname
+		$data['company'] = $userinfo['company'];//get firstname
+		$data['jobtitle'] = $userinfo['jobtitle'];//get firstname
+		$data['address1'] = $userinfo['address1'];//get firstname
+		$data['address2'] = $userinfo['address2'];//get firstname
+		$data['city'] = $userinfo['city'];//get firstname
+		$data['state'] = $userinfo['state'];//get firstname
+		$data['postcode'] = $userinfo['postcode'];//get firstname
+		$data['country'] = $userinfo['country'];//get firstname
+		$data['phone'] = $userinfo['phone'];//get firstname
+		$data['fax'] = $userinfo['fax'];//get firstname
+		$data['ns1'] = "ns1.namserver.com";//get firstname
+		$data['ns2'] = "ns2.namserver.com";//get firstname
+		$data['ns3'] = "ns3.namserver.com";//get firstname
+		$data['ns4'] = "ns4.namserver.com";//get firstname
 		//print_r($data);
 		//print $showflag;
 		$DoM = M('domainmgr');
@@ -329,7 +342,7 @@ class DomainController extends CommonController {
 		//$this->assign('order',$order);
 		//$this->assign('trans',$trans);
 		//print_r($ct);
-		//$this->success('ADD the domain(order & transaction) successfully!',U('Domain/domainlist'),1);
+		$this->success('ADD the domain(order & transaction) successfully!',U('Domain/domainlist'),1);
 		//print_r($data);
 		//print_r($item[$index]);
 		

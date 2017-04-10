@@ -17,7 +17,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!--<![endif]-->
 <head>
     <meta charset="utf-8"/>
-    <title>Metronic | Admin Dashboard Template</title>
+    <title>JHCL</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
@@ -46,8 +46,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div class="navbar-inner">
 <div class="container-fluid">
 <!-- BEGIN LOGO -->
-    <a class="brand" href="index.html">
-        <img src="/DomainSystem/Public/metronic/media/image/logo.png" alt="logo"/>
+    <a class="brand" href="<?php echo U('Profile/index');;?>">
+        <center><img style="max-width:100px; margin-top: -7px;" src="/DomainSystem/Public/img/logo.png" /></center>
     </a>
     <!-- END LOGO -->
     <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -56,10 +56,6 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     </a>
 <!-- END RESPONSIVE MENU TOGGLER -->
 <!-- BEGIN TOP NAVIGATION MENU -->
-    <ul class="nav navbar-nav">
-        <li class="active"><a href="#">iOS</a></li>
-        <li><a href="#">SVN</a></li>
-    </ul>
     <ul class="nav pull-right">
     <!-- BEGIN INBOX DROPDOWN -->
     <!-- END INBOX DROPDOWN -->
@@ -296,8 +292,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div class="row-fluid">
     <div class="span12">
         <h3 class="page-title">
-            Customer Manager
-            <small> Customer Manager</small>
+            Configuration
+            <small> Configuration</small>
         </h3>
         <ul class="breadcrumb">
             <li>
@@ -321,26 +317,72 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN PAGE CONTENT-->
 <div class="row-fluid">
     <div class="span12">
-    <table class="table table-striped table-hover">
-	   <thead>
-		<tr>
-			<th>ID</th>
-			<th>Payment method</th>
-            <th>status</th>
-			<th></th>
-		</tr>
-	   </thead>
-	   <tbody>
-		<?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
-			<td><?php echo ($vo["id"]); ?></td>
-			<td><?php echo ($vo["registrar"]); ?></td>
-            <td><?php echo ($vo["status"]); ?></td>
-			<td>
-			</td>
-		  </tr><?php endforeach; endif; ?>
-	   </tbody>
-	</table>
-	<span><div class="page"><?php echo ($page); ?></div></span>
+    <div class="tabbable tabbable-custom tabbable-full-width">
+        <ul class="nav nav-tabs">   
+            <li class="active"><a href="#tab_1_1" data-toggle="tab">Registrar list</a></li>
+            <li><a href="#tab_1_2" data-toggle="tab">Add new Registrar </a></li>
+        </ul>
+        <div class="tab-content">
+
+        <!--end tab-pane-->
+        <div class="tab-pane row-fluid active" id="tab_1_1">
+            <div class="span12">
+            <table class="table table-striped table-hover">
+               <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Registrar</th>
+                    <th>status</th>
+                    <th></th>
+                </tr>
+               </thead>
+               <tbody>
+                <?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
+                    <td><?php echo ($vo["id"]); ?></td>
+                    <td><?php echo ($vo["registrar"]); ?></td>
+                    <td><?php echo ($vo["status"]); ?></td>
+                    <td>
+                        <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Configure/editregistrarpage?id='.$vo['id'].'');;?>">
+                            Edit
+                        </a>
+                        <a class="btn red easy-pie-chart-reload" href="<?php echo U('Configure/delregistrar?id='.$vo['id'].'');;?>">
+                            Delete
+                        </a>
+                    </td>
+                  </tr><?php endforeach; endif; ?>
+               </tbody>
+            </table>
+            <span><div class="page"><?php echo ($page); ?></div></span>
+            </div>
+
+        </div>
+        <!--tab_1_2-->
+        <div class="tab-pane" id="tab_1_2">
+            <div style="height: auto;" id="accordion1-1" class="accordion collapse">
+                <div class="span12">
+                    <h4><i class="fa fa-cog" aria-hidden="true"></i> Add new Registrar</h4>
+                        <form role="form" action="<?php echo U('Configure/addregistrar');;?>" method="post">  
+                            <label class="control-label">Registrar Name</label>
+                            <input name="registrar" type="text" value="" placeholder="Registrar" class="m-wrap span8" required/>
+                            <label class="control-label">Status</label>
+                            <select class="m-wrap span8" name="status" required>
+                                <option value="Y">Y</option>
+                                <option value="N">N</option>
+                            </select>
+                            <div class="submit-btn">
+                                <button type="submit" class="btn green">Save Changes</button>
+                            </div>
+                        </form>
+
+                </div>       
+            </div>
+        </div>
+        <!--end tab-pane-->
+        <!--end tab-pane-->
+
+        <!--end tab-pane-->
+        </div>
+    </div>
     </div>
 </div>
 <!-- END PAGE CONTENT-->

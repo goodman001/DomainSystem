@@ -46,8 +46,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div class="navbar-inner">
 <div class="container-fluid">
 <!-- BEGIN LOGO -->
-    <a class="brand" href="<?php echo U('Profile/index');;?>">
-        <center><img style="max-width:100px; margin-top: -7px;" src="/DomainSystem/Public/img/logo.png" /></center>
+    <a class="brand" href="index.html">
+        <img src="/DomainSystem/Public/metronic/media/image/logo.png" alt="logo"/>
     </a>
     <!-- END LOGO -->
     <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -56,6 +56,10 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     </a>
 <!-- END RESPONSIVE MENU TOGGLER -->
 <!-- BEGIN TOP NAVIGATION MENU -->
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="#">iOS</a></li>
+        <li><a href="#">SVN</a></li>
+    </ul>
     <ul class="nav pull-right">
     <!-- BEGIN INBOX DROPDOWN -->
     
@@ -132,14 +136,14 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             </li>
         </ul>
     </li>
-    <li>
+    <li class="active">
         <a href="<?php echo U('Client/orderlist');;?>">
             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
             <span class="title">My Orders</span>
             <span class="selected"></span>
         </a>
     </li>
-    <li class="active">
+    <li>
         <a href="<?php echo U('Client/domainlist');;?>">
             <i class="fa fa-database" aria-hidden="true"></i>
             <span class="title">My Domains</span>
@@ -174,20 +178,21 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div class="row-fluid">
     <div class="span12">
         <h3 class="page-title">
-            My Domains
-            <small> Domain Manager</small>
+            My orders
+            <small> My orders</small>
         </h3>
         <ul class="breadcrumb">
             <li>
-                <i class="fa fa-home" aria-hidden="true"></i>
-                <a href="<?php echo U('Client/index');;?>">Home</a>
-                <i class="fa fa-angle-right" aria-hidden="true"></i>
-            </li>
+				<i class="fa fa-home" aria-hidden="true"></i>
+				<a href="<?php echo U('Client/index');;?>">Home</a>
+				<i class="fa fa-angle-right" aria-hidden="true"></i>
+			</li>
             <li>
-                <a href="<?php echo U('Client/domainlist');;?>">My Domains</a>
+                <a href="#">My Orders</a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
-            <li><a href="#">Domain List</a></li>
+            <li><a href="<?php echo U('Client/orderlist');;?>">Order List</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+			<li><a href="<?php echo U('Client/orderdetail');;?>">Order Detail</a></li>
         </ul>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -196,43 +201,90 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN PAGE CONTENT-->
 <div class="row-fluid">
     <div class="span12">
-    <table class="table table-striped table-hover">
-	   <thead>
-		<tr>
-			<th>Domain</th>
-			<th>Registrar</th>
-			<th>Email</th>
-			<th>Firstname</th>
-			<th>Lastname</th>
-			<th>City</th>
-			<th>State</th>
-			<th>Country</th>
-			<th>Phone</th>
-			<th>Postcode</th>
-			<th></th>
-		</tr>
-	   </thead>
-	   <tbody>
-		<?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
-			<td><a href="<?php echo U('Client/domaindetail?domainid='.$vo['id'].'');;?>"><?php echo ($vo["domainname"]); ?></a></td>
-			<td><?php echo ($vo["registrar"]); ?></td>
-			<td><?php echo ($vo["email"]); ?></td>
-			<td><?php echo ($vo["firstname"]); ?></td>
-			<td><?php echo ($vo["lastname"]); ?></td>
-			<td><?php echo ($vo["city"]); ?></td>
-			<td><?php echo ($vo["state"]); ?></td>
-			<td><?php echo ($vo["country"]); ?></td>
-			<td><?php echo ($vo["phone"]); ?></td>
-			<td><?php echo ($vo["postcode"]); ?></td>
-			<td>
-				<a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Client/domaindetail?domainid='.$vo['id'].'');;?>">
-					view detail
-				</a>
-			</td>
-		  </tr><?php endforeach; endif; ?>
-	   </tbody>
-	</table>
-	<span><div class="page"><?php echo ($page); ?></div></span>
+
+		<!--BEGIN TABS-->
+<div class="tabbable tabbable-custom tabbable-full-width">
+<ul class="nav nav-tabs">
+    
+    <li class="active"><a href="#tab_1_1" data-toggle="tab">Order Detail</a></li>
+</ul>
+<div class="tab-content">
+
+<!--end tab-pane-->
+<div class="tab-pane row-fluid active" id="tab_1_1">
+    <div class="span12">
+        <div class="portlet box yellow">
+            <div class="portlet-title">
+                <div class="caption"><i class="icon-coffee"></i>Order</div>
+            </div>
+            <div class="portlet-body">
+                <div class="span12">
+                    <div class="span4">
+                        <h5><strong>OrderID :</strong><?php echo ($order["orderID"]); ?></h5>
+                        <h5><strong>Issue date :</strong><?php echo ($order["issuedate"]); ?></h5>
+                        <h5><strong>Status :</strong><span class="label label-info"><?php echo ($order["status"]); ?></span></h5>
+                        <h5><strong>Description :</strong><span class="label label-warning"><?php echo ($order["description"]); ?></span></h5>
+                    </div>
+                    <div class="span4">
+                        <h5><strong>Refund :</strong><?php echo ($order["refund"]); ?></h5>
+                        <h5><strong>Refund Amount:</strong><?php echo ($order["refundamount"]); ?></h5>
+                        <?php if($order["status"] == 'pending'): ?><h5><strong>Due date :</strong>NULL</h5>
+                        <?php else: ?>
+                            <h5><strong>Due date :</strong><?php echo ($order["invoicedate"]); ?></h5><?php endif; ?>
+                        <h5><strong>Invoice date :</strong><?php echo ($order["invoicedate"]); ?></h5>
+                    </div>
+                    <div class="span4">
+                        <h5><strong>Transaction ID :</strong><?php echo ($trans["transactionID"]); ?></h5>
+                        <h5><strong>Paymethod :</strong><?php echo ($trans["paymethod"]); ?></h5>
+                        <h5><strong>Settle Date :</strong><?php echo ($trans["paydate"]); ?></h5>
+                        <h5><strong>Amount :</strong><?php echo ($trans["settleamount"]); ?> HK$</h5>
+                    </div>
+                </div>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td class="text-center"><strong>Item</strong></td>
+                            <td class="text-center"><strong>Price</strong></td>
+                            <td class="text-center"><strong>Years</strong></td>
+                            <td class="text-center"><strong>Totals</strong></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                        <?php if(is_array($items)): foreach($items as $key=>$vo): ?><tr>
+                            <td class="text-center"><?php echo ($vo["domainname"]); ?></td>
+                            <td class="text-center"><?php echo ($vo["price"]); ?> HK$</td>
+                            <td class="text-center"><?php echo ($vo["years"]); ?></td>
+                            <td class="text-center"><?php echo $vo['years']*$vo['price']; ?> </td>
+                            <!--<td class="text-center">
+                                <a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Order/delitem?itemid='.$vo['id'].'&orderid='.$order['orderID'].'');;?>">Remove</a>
+                            </td>-->
+                        </tr><?php endforeach; endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>      
+	</div>
+    
+</div>
+<!--tab_1_2-->
+
+<!-- tab_1_3 -->
+
+
+<!-- tab_1_3 -->
+<!--end tab-pane-->
+<!--end tab-pane-->
+
+<!--end tab-pane-->
+</div>
+</div>
+<!--END TABS-->
+		
+		
+		
+		
+		
     </div>
 </div>
 <!-- END PAGE CONTENT-->

@@ -12,7 +12,7 @@ function getWhois($domain){
 	$msg[0] = $whois_answer;
 	$msg[0] = str_replace("\n","<br>",$msg[0]);
 	$flag = $phpwhois->isAvailable();
-	if(strstr($whois_answer,"No match for")||strstr($whois_answer,"No Domain exists") || strstr($whois_answer,"No Data Found")|| strstr($whois_answer,"has not been registered")) 
+	if(strstr($whois_answer,"No match")||strstr($whois_answer,"No Domain exists")||strstr($whois_answer,"t valid") || strstr($whois_answer,"No Data Found")|| strstr($whois_answer,"has not been registered")) 
 	{
 		$msg[1] =  "Y";//we can use it!
 	}else{

@@ -170,7 +170,7 @@ class DomainController extends CommonController {
             return 0;
         }
 		//get price configure
-        $Mt = M('fakedomains');
+        /*$Mt = M('fakedomains');
         $dprice["domainname"] = $dm_name;
         $presult = $Mt->where($dprice)->find();
         if(!empty($presult))
@@ -188,6 +188,29 @@ class DomainController extends CommonController {
                 $re = $Model->field('domainprice')->where('id=1')->find();
                 $price = $re['domainprice'];
             }
+        }else
+        {
+            $Model = M('configure');
+            $re = $Model->field('domainprice')->where('id=1')->find();
+            $price = $re['domainprice'];
+        }*/
+		$price = 0;
+		$pieces = explode(".", $dm_name);
+        $Model = M('premium');
+        $dcp["domainname"] = array('like','%.'.$pieces[count($pieces)-1]);
+        $content2 = $Model->where($dcp)->find();
+        if(!empty($content2))
+        {
+            $Mt = M('fakedomains');
+            $dprice["domainname"] = $dm_name;
+            $presult = $Mt->where($dprice)->find();
+            if(!empty($presult))
+            {
+                $price = $content2['price']*($content2['rate']+1);//increase rateing
+            }else
+            {
+                $price = $content2['price'];//increase 20%
+            }   
         }else
         {
             $Model = M('configure');
@@ -260,7 +283,6 @@ class DomainController extends CommonController {
 		$nextdue_db = date('Y-m-d', strtotime('+'.$years.' year', strtotime($nowtime)));
 		$registrationdate = $nowtime;
 		$dudate_order = $nowtime;
-		$paystatus = "active";
 		
 		
 		/*get domain infomation*/
@@ -315,7 +337,7 @@ class DomainController extends CommonController {
 		$order['transactionID'] = $transactionID;//get id
 		$order['username'] = $username;
 		$order['issuedate'] = date('Y-m-d H:i:s',time());
-		$order['status'] = $paystatus;
+		$order['status'] = "pending";
 		$order['refundamount'] = 0.0;
 		$order['invoicedate'] = date('Y-m-d H:i:s',time());
 		$order['duedate'] = $dudate_order;

@@ -50,8 +50,8 @@ class ClientController extends Controller {
 			$data['lastname'] = I('post.lastname','','htmlspecialchars');//get firstname
 			$data['company'] = I('post.company','','htmlspecialchars');//get firstname
 			$data['jobtitle'] = I('post.jobtitle','','htmlspecialchars');//get firstname
-			$data['question'] = I('post.question','','htmlspecialchars');//get firstname
-			$data['answer'] = I('post.answer','','htmlspecialchars');//get firstname
+			//$data['question'] = I('post.question','','htmlspecialchars');//get firstname
+			//$data['answer'] = I('post.answer','','htmlspecialchars');//get firstname
 			$data['address1'] = I('post.address1','','htmlspecialchars');//get firstname
 			$data['address2'] = I('post.address2','','htmlspecialchars');//get firstname
 			$data['city'] = I('post.city','','htmlspecialchars');//get firstname
@@ -336,7 +336,7 @@ class ClientController extends Controller {
 		//get domain infomation
 		
 		///get price
-		$price = 0;
+		/*$price = 0;
 		$Mt = M('fakedomains');
         $dprice["domainname"] = $domaininfo['domainname'];
         $presult = $Mt->where($dprice)->find();
@@ -355,6 +355,30 @@ class ClientController extends Controller {
                 $re = $Model->field('domainprice')->where('id=1')->find();
                 $price = $re['domainprice'];
             }
+        }else
+        {
+            $Model = M('configure');
+            $re = $Model->field('domainprice')->where('id=1')->find();
+            $price = $re['domainprice'];
+        }*/
+		$price = 0;
+		$dm_name = $domaininfo['domainname'];
+		$pieces = explode(".", $dm_name);
+        $Model = M('premium');
+        $dcp["domainname"] = array('like','%.'.$pieces[count($pieces)-1]);
+        $content2 = $Model->where($dcp)->find();
+        if(!empty($content2))
+        {
+            $Mt = M('fakedomains');
+            $dprice["domainname"] = $dm_name;
+            $presult = $Mt->where($dprice)->find();
+            if(!empty($presult))
+            {
+                $price = $content2['price']*($content2['rate']+1);//increase rateing
+            }else
+            {
+                $price = $content2['price'];//increase 20%
+            }   
         }else
         {
             $Model = M('configure');

@@ -244,8 +244,6 @@
 			<li><span>Job Title:</span><strong> {$profiles.jobtitle}</strong></li>
 			<li><span>Email:</span><strong> <a href="{$profiles.email}">{$profiles.email}</a></strong></li>
 			<li><span>Password:</span><strong> {$profiles.password}</strong></li>
-			<li><span>Security Question:</span><strong> {$profiles.question}</strong></li>
-			<li><span>Answer:</span><strong> {$profiles.answer}</strong></li>
 			<li><span>Address1:</span><strong> {$profiles.address1}</strong></li>
 			<li><span>Address2:</span><strong> {$profiles.address2}</strong></li>
 			<li><span>City:</span><strong> {$profiles.city}</strong></li>
@@ -283,18 +281,11 @@
             <input name="email" type="email" id="email" placeholder="Email" value="{$profiles.email}"  class="m-wrap span8" required/>
 			<label class="control-label">Password</label>
 			<input type="text" name="password" class="form-control"  placeholder="Password" value="{$profiles.password}" required>  
-			<label class="control-label">Security Question</label>
-            <select class="form-control" name="question" required>
-				<option value="Where is your birthplace?" >Where is your birthplace?</option> 
-				<option value="What is your favorite sport?">What is your favorite sport?</option>
-				<option value="Who is your first love?">Who is your first love?</option>
-			</select>
-			<label class="control-label">Answer</label>
-            <input name="answer" type="text" id="answer" placeholder="answer" value=""  class="m-wrap span8" required/>	
+			
 			<label class="control-label">Address1</label>
             <input name="address1" type="text" id="address1" placeholder="Address 1" value="{$profiles.address1}"  class="m-wrap span8" required/>	
 			<label class="control-label">Address2</label>
-            <input name="address2" type="text" id="address2" placeholder="Address 2" value="{$profiles.address2}"  class="m-wrap span8" required/>
+            <input name="address2" type="text" id="address2" placeholder="Address 2" value="{$profiles.address2}"  class="m-wrap span8" />
 			
 			<label class="control-label">City</label>
             <input name="city" type="text" id="city" placeholder="City" value="{$profiles.city}"  class="m-wrap span8" required/>
@@ -307,7 +298,7 @@
 			<label class="control-label">Phone</label>
 			<input type="tel" value="{$profiles.phone}" name="phone" id="phone" placeholder="Phone"  class="m-wrap span8" required> 
 			<label class="control-label">Fax</label>
-			<input type="tel" value="{$profiles.fax}" name="fax" id="fax" placeholder="Fax"  class="m-wrap span8" required> 
+			<input type="tel" value="{$profiles.fax}" name="fax" id="fax" placeholder="Fax"  class="m-wrap span8" > 
 			<label class="control-label">Overdue Notice</label>
 			<div class="controls">
 			<label class="radio">

@@ -176,8 +176,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <!-- END BEGIN STYLE CUSTOMIZER -->
             <!-- BEGIN PAGE TITLE & BREADCRUMB-->
             <h3 class="page-title">
-                Welcome page
-                <small>Welcome to website</small>
+                Welcome to JHCL 
+                <small>User Page</small>
             </h3>
             <ul class="breadcrumb">
                 <li>

@@ -114,7 +114,8 @@
 			<th>State</th>
 			<th>Country</th>
 			<th>Phone</th>
-			<th>Postcode</th>
+			<th>Status</th>
+			<th>Expiry Date</th>
 			<th></th>
 		</tr>
 	   </thead>
@@ -130,7 +131,8 @@
 			<td>{$vo.state}</td>
 			<td>{$vo.country}</td>
 			<td>{$vo.phone}</td>
-			<td>{$vo.postcode}</td>
+			<td>{$vo.status}</td>
+			<td>{$vo.expirydate}</td>
 			<td>
 				<a class="btn yellow easy-pie-chart-reload" href="{:U('Client/domaindetail?domainid='.$vo['id'].'');}">
 					view detail

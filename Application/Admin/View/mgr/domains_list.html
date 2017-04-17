@@ -254,7 +254,8 @@
 			<th>State</th>
 			<th>Country</th>
 			<th>Phone</th>
-			<th>Postcode</th>
+			<th>Status</th>
+			<th>Expiry Date</th>
 			<th></th>
 		</tr>
 	   </thead>
@@ -270,7 +271,8 @@
 			<td>{$vo.state}</td>
 			<td>{$vo.country}</td>
 			<td>{$vo.phone}</td>
-			<td>{$vo.postcode}</td>
+			<td>{$vo.status}</td>
+			<td>{$vo.expirydate}</td>
 			<td>
 				<a class="btn yellow easy-pie-chart-reload" href="{:U('Domain/domaindetail?domainid='.$vo['id'].'');}">
 					view detail
@@ -321,8 +323,8 @@
 							<option value= "{$vo.method}">{$vo.method}</option>
 						</foreach>
 					</select>
-					<h5>If you use credit card and paypal,you must input below infomation</h5>
-                    <label >Card Number/Account number</label>
+					<h5>If you use Credit Card and Paypal,you must input below infomation</h5>
+                    <label >Card Number/Account Number</label>
                     <input type="text" value="" name="accountnumber" id="accountnumber"  placeholder="Amount Number" class="form-control" >
                     <label >Client name</label>
                     <input type="text" value="" name="clientname" id="accountnumber"  placeholder="Client's real name" class="form-control" >

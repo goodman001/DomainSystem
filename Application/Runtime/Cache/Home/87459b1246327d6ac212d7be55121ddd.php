@@ -208,7 +208,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 			<th>State</th>
 			<th>Country</th>
 			<th>Phone</th>
-			<th>Postcode</th>
+			<th>Status</th>
+			<th>Expiry Date</th>
 			<th></th>
 		</tr>
 	   </thead>
@@ -223,7 +224,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 			<td><?php echo ($vo["state"]); ?></td>
 			<td><?php echo ($vo["country"]); ?></td>
 			<td><?php echo ($vo["phone"]); ?></td>
-			<td><?php echo ($vo["postcode"]); ?></td>
+			<td><?php echo ($vo["status"]); ?></td>
+			<td><?php echo ($vo["expirydate"]); ?></td>
 			<td>
 				<a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Client/domaindetail?domainid='.$vo['id'].'');;?>">
 					view detail

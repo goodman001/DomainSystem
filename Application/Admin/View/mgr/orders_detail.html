@@ -293,7 +293,7 @@
                     </tbody>
                 </table>
 				
-				<if condition="$order.status neq 'cancle'">
+				<if condition="$order.status neq 'cancel'">
 					<if condition="$order.status neq 'active'"> 
 						<a href="{:U('Order/orderaccept?orderid='.$order['orderID'].'');}" class="btn red easy-pie-chart-reload">Accept</a>
 					</if>

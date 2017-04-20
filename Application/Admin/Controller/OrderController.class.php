@@ -175,7 +175,7 @@ class OrderController extends CommonController {
 		if(!empty($content))
 		{
 			/*update order due time*/
-			$Model-> where($data)->setField('status','cancle');
+			$Model-> where($data)->setField('status','cancel');
 			$Model-> where($data)->setField('refund','Y');
 			$Model-> where($data)->setField('refundamount',$trans['settleamount']);
 			/*item*/
@@ -201,7 +201,7 @@ class OrderController extends CommonController {
 		if(!empty($content))
 		{
 			/*update order due time*/
-			$Model-> where($data)->setField('status','cancle');
+			$Model-> where($data)->setField('status','cancel');
 			/*del item*/
 			$Model =  M('item');
 			$items = $Model->where($data)->select();
@@ -212,7 +212,7 @@ class OrderController extends CommonController {
 				$Mdomain = M('domainmgr');
 				$Mdomain->where($ctd)->delete();//del domain
 			}
-			$this->success('Cancle the order successfully!',U('Order/orderdetail?orderid='.$orderid.''),1);
+			$this->success('Cancel the order successfully!',U('Order/orderdetail?orderid='.$orderid.''),1);
 		}
 		
 	}

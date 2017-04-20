@@ -88,14 +88,14 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Domain state
+						Domain status
 					</div>
 					<?php if($showflag == 1): ?><div class="panel-body">
 						<table class="table table-hover">
 							<thead>
 								<tr>
 									<th>Domain</th>
-									<th>State</th>
+									<th>Status</th>
 									<th>Price</th>
 									<th>Years</th>
 									<th></th>
@@ -126,7 +126,7 @@
 					</div>
 					<?php else: ?>
 						<div class="panel-body">
-							<?php echo ($dm_name); ?> has been registered!No avaliable!
+							<?php echo ($dm_name); ?> has been registered! Not available for registration!
 						</div><?php endif; ?>
 				</div>
 				<div class="panel panel-default">

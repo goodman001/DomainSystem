@@ -336,24 +336,24 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <div class="portlet-body">
                 <div class="span12">
                     <div class="span4">
-                        <h5><strong>OrderID :</strong><?php echo ($order["orderID"]); ?></h5>
-                        <h5><strong>Issue date :</strong><?php echo ($order["issuedate"]); ?></h5>
-                        <h5><strong>Status :</strong><span class="label label-info"><?php echo ($order["status"]); ?></span></h5>
+                        <h5><strong>OrderID: </strong><?php echo ($order["orderID"]); ?></h5>
+                        <h5><strong>Issue date: </strong><?php echo ($order["issuedate"]); ?></h5>
+                        <h5><strong>Status: </strong><span class="label label-info"><?php echo ($order["status"]); ?></span></h5>
                         
                     </div>
                     <div class="span4">
-                        <h5><strong>Refund :</strong><?php echo ($order["refund"]); ?></h5>
-                        <h5><strong>Refund Amount:</strong><?php echo ($order["refundamount"]); ?></h5>
-                        <?php if($order["status"] == 'pending'): ?><h5><strong>Due date :</strong>NULL</h5>
+                        <h5><strong>Refund: </strong><?php echo ($order["refund"]); ?></h5>
+                        <h5><strong>Refund Amount: </strong><?php echo ($order["refundamount"]); ?></h5>
+                        <?php if($order["status"] == 'pending'): ?><h5><strong>Due date: </strong>NULL</h5>
                         <?php else: ?>
-                            <h5><strong>Due date :</strong><?php echo ($order["invoicedate"]); ?></h5><?php endif; ?>
-                        <h5><strong>Invoice date :</strong><?php echo ($order["invoicedate"]); ?></h5>
+                            <h5><strong>Due date: </strong><?php echo ($order["invoicedate"]); ?></h5><?php endif; ?>
+                        <h5><strong>Invoice date: </strong><?php echo ($order["invoicedate"]); ?></h5>
                     </div>
                     <div class="span4">
-                        <h5><strong>Transaction ID :</strong><?php echo ($trans["transactionID"]); ?></h5>
-                        <h5><strong>Paymethod :</strong><?php echo ($trans["paymethod"]); ?></h5>
-                        <h5><strong>Settle Date :</strong><?php echo ($trans["paydate"]); ?></h5>
-                        <h5><strong>Amount :</strong><?php echo ($trans["settleamount"]); ?> HK$</h5>
+                        <h5><strong>Transaction ID: </strong><?php echo ($trans["transactionID"]); ?></h5>
+                        <h5><strong>Paymethod: </strong><?php echo ($trans["paymethod"]); ?></h5>
+                        <h5><strong>Settle Date: </strong><?php echo ($trans["paydate"]); ?></h5>
+                        <h5><strong>Amount: </strong><?php echo ($trans["settleamount"]); ?> HK$</h5>
                     </div>
                 </div>
                 <table class="table table-bordered table-hover">

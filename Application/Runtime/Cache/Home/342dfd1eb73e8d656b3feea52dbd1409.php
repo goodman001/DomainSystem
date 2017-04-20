@@ -68,7 +68,7 @@
 		</div>
 		<div class="cus0">
 		
-	<div class="container" style="background-color:white">
+	<div class="container" style="background-color:white;padding-bottom:80px;">
 		<h3><i class="fa fa-shopping-basket" aria-hidden="true"></i> My Order</h3>
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -200,9 +200,9 @@
 						<?php if(is_array($payments)): foreach($payments as $key=>$vo): ?><option value= "<?php echo ($vo["method"]); ?>"><?php echo ($vo["method"]); ?></option><?php endforeach; endif; ?>
 					</select>
 					</div>
-					<h5>If you use credit card and paypal,you must input below infomation</h5>
+					<h5>If you use Credit Card and Paypal,you must input below infomation</h5>
 					<div class="form-group col-lg-12">
-						<label >Card Number/Account number</label>
+						<label >Card Number/Account Number</label>
 						<input type="text" value="" name="accountnumber" id="accountnumber"  placeholder="Amount Number" class="form-control" >
 					</div>
 					<div class="form-group col-lg-12">

@@ -116,7 +116,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <li>
         <a href="javascript:;">
             <i class="fa fa-user-circle" aria-hidden="true"></i>
-            <span class="title">Customers manager</span>
+            <span class="title">Customer Managerment</span>
             <span class="arrow "></span>
         </a>
         <ul class="sub-menu">
@@ -134,21 +134,21 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
      <li>
         <a href="<?php echo U('Order/orderlist');;?>">
             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-            <span class="title">Order manager</span>
+            <span class="title">Order Managerment</span>
             <span class="arrow "></span>
         </a>
     </li>
     <li>
         <a href="<?php echo U('Transaction/translist');;?>">
             <i class="fa fa-cogs" aria-hidden="true"></i>
-            <span class="title">Transaction manager</span>
+            <span class="title">Transaction Managerment</span>
             <span class="arrow "></span>
         </a>
     </li>
     <li class="active">
         <a href="<?php echo U('Domain/domainlist');;?>">
             <i class="fa fa-database" aria-hidden="true"></i>
-            <span class="title">Domains manager</span>
+            <span class="title">Domains Managerment</span>
             <span class="arrow "></span>
         </a>
     </li>
@@ -176,7 +176,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <li >
         <a href="javascript:;">
             <i class="fa fa-clipboard" aria-hidden="true"></i>
-            <span class="title">Report Module</span>
+            <span class="title">Report</span>
             <span class="arrow "></span>
         </a>
         <ul class="sub-menu">
@@ -230,8 +230,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="<?php echo U('Configure/adminlist');;?>">Users manager</a></li>
-                    <li><a href="<?php echo U('Configure/adminrolelist');;?>">Roles Manager</a></li>
+                    <li><a href="<?php echo U('Configure/adminlist');;?>">Users Managerment</a></li>
+                    <li><a href="<?php echo U('Configure/adminrolelist');;?>">Roles Managerment</a></li>
                 </ul>
             </li>
             <li>
@@ -241,8 +241,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 </a>
                 <ul class="sub-menu">
                     <li><a href="<?php echo U('Configure/pricesetting');;?>">Price setting</a></li>
-                    <li><a href="<?php echo U('Configure/pricetools');;?>">Tools Manager</a></li>
-                    <li><a href="<?php echo U('Configure/premiumlist');;?>">Premium Manager</a></li>
+                    <li><a href="<?php echo U('Configure/pricetools');;?>">Tools Managerment</a></li>
+                    <li><a href="<?php echo U('Configure/premiumlist');;?>">Premium Managerment</a></li>
                 </ul>
             </li>
             <li>
@@ -292,8 +292,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div class="row-fluid">
     <div class="span12">
         <h3 class="page-title">
-            Domain Manager
-            <small> Domain Manager</small>
+            Domain Managerment
+            <small> Domain Managerment</small>
         </h3>
         <ul class="breadcrumb">
             <li>
@@ -302,7 +302,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
             <li>
-                <a href="<?php echo U('Domain/domainlist');;?>">Domain Manager</a>
+                <a href="<?php echo U('Domain/domainlist');;?>">Domain Managerment</a>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </li>
             <li><a href="<?php echo U('Domain/domainlist');;?>">Domain List</a></li>
@@ -347,7 +347,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 			<th>State</th>
 			<th>Country</th>
 			<th>Phone</th>
-			<th>Postcode</th>
+			<th>Status</th>
+			<th>Expiry Date</th>
 			<th></th>
 		</tr>
 	   </thead>
@@ -362,7 +363,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 			<td><?php echo ($vo["state"]); ?></td>
 			<td><?php echo ($vo["country"]); ?></td>
 			<td><?php echo ($vo["phone"]); ?></td>
-			<td><?php echo ($vo["postcode"]); ?></td>
+			<td><?php echo ($vo["status"]); ?></td>
+			<td><?php echo ($vo["expirydate"]); ?></td>
 			<td>
 				<a class="btn yellow easy-pie-chart-reload" href="<?php echo U('Domain/domaindetail?domainid='.$vo['id'].'');;?>">
 					view detail
@@ -408,8 +410,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 					<select class="form-control" name="paymethod" required>
 						<?php if(is_array($payments)): foreach($payments as $key=>$vo): ?><option value= "<?php echo ($vo["method"]); ?>"><?php echo ($vo["method"]); ?></option><?php endforeach; endif; ?>
 					</select>
-					<h5>If you use credit card and paypal,you must input below infomation</h5>
-                    <label >Card Number/Account number</label>
+					<h5>If you use Credit Card and Paypal,you must input below infomation</h5>
+                    <label >Card Number/Account Number</label>
                     <input type="text" value="" name="accountnumber" id="accountnumber"  placeholder="Amount Number" class="form-control" >
                     <label >Client name</label>
                     <input type="text" value="" name="clientname" id="accountnumber"  placeholder="Client's real name" class="form-control" >

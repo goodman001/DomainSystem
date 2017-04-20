@@ -332,9 +332,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <th>State</th>
             <th>Country</th>
             <th>Phone</th>
-            <th>Currency</th>
-            <th>Balance</th>
-            <th>Account Status</th>
+            <th>Status</th>
             <th>Regist time</th>
             <th></th>
         </tr>
@@ -347,8 +345,6 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <td><?php echo ($vo["state"]); ?></td>
             <td><?php echo ($vo["country"]); ?></td>
             <td><?php echo ($vo["phone"]); ?></td>
-            <td><?php echo ($vo["currency"]); ?></td>
-            <td><?php echo ($vo["balance"]); ?></td>
             <td><?php echo ($vo["status"]); ?></td>
             <td><?php echo ($vo["regtime"]); ?></td>
             <td>

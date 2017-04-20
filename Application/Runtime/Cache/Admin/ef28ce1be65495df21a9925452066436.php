@@ -326,13 +326,13 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <table class="table table-striped table-hover">
        <thead>
         <tr>
-            <th>orderID</th>
-            <th>username</th>
-            <th>transactionID</th>
-            <th>issue Date</th>
-            <th>status</th>
-            <th>refund</th>
-            <th>refund amount</th>
+            <th>OrderID</th>
+            <th>Username</th>
+            <th>TransactionID</th>
+            <th>Issue Date</th>
+            <th>Status</th>
+            <th>Refund</th>
+            <th>Refund amount</th>
             <th>Invoice date</th>
             <th>Due date</th>
             <th></th>

@@ -17,7 +17,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!--<![endif]-->
 <head>
     <meta charset="utf-8"/>
-    <title>Metronic | Admin Dashboard Template</title>
+    <title>JHCL</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
@@ -116,7 +116,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <li>
         <a href="javascript:;">
             <i class="fa fa-user-circle" aria-hidden="true"></i>
-            <span class="title">Customers manager</span>
+            <span class="title">Customers Manager</span>
             <span class="arrow "></span>
         </a>
         <ul class="sub-menu">
@@ -134,21 +134,21 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
      <li>
         <a href="<?php echo U('Order/orderlist');;?>">
             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-            <span class="title">Order manager</span>
+            <span class="title">Order Manager</span>
             <span class="arrow "></span>
         </a>
     </li>
     <li class="active">
         <a href="<?php echo U('Transaction/translist');;?>">
             <i class="fa fa-cogs" aria-hidden="true"></i>
-            <span class="title">Transaction manager</span>
+            <span class="title">Transaction Manager</span>
             <span class="arrow "></span>
         </a>
     </li>
     <li >
         <a href="<?php echo U('Domain/domainlist');;?>">
             <i class="fa fa-database" aria-hidden="true"></i>
-            <span class="title">Domains manager</span>
+            <span class="title">Domains Manager</span>
             <span class="arrow "></span>
         </a>
     </li>
@@ -230,7 +230,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="<?php echo U('Configure/adminlist');;?>">Users manager</a></li>
+                    <li><a href="<?php echo U('Configure/adminlist');;?>">Users Manager</a></li>
                     <li><a href="<?php echo U('Configure/adminrolelist');;?>">Roles Manager</a></li>
                 </ul>
             </li>
@@ -335,17 +335,17 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 				<div class = "row-fluid">
 					<div class="span12">
 						<div class="span6">
-							<h5><strong>transactionID :</strong><?php echo ($trans["transactionID"]); ?></h5>
-							<h5><strong>OrderID :</strong><?php echo ($trans["orderID"]); ?></h5>
-							<h5><strong>Client Name :</strong><span class="label label-info"><?php echo ($trans["clientname"]); ?></span></h5>
-							<h5><strong>Pay Method :</strong><?php echo ($trans["paymethod"]); ?></h5>
+							<h5><strong>TransactionID: </strong><?php echo ($trans["transactionID"]); ?></h5>
+							<h5><strong>OrderID: </strong><?php echo ($trans["orderID"]); ?></h5>
+							<h5><strong>Client Name: </strong><span class="label label-info"><?php echo ($trans["clientname"]); ?></span></h5>
+							<h5><strong>Pay Method: </strong><?php echo ($trans["paymethod"]); ?></h5>
 
 						</div>
 						<div class="span6">
-							<h5><strong>Invoice ID :</strong><?php echo ($trans["invoiceID"]); ?></h5>
-							<h5><strong>Settle date:</strong><?php echo ($trans["paydate"]); ?></h5>
-							<h5><strong>Settle amount:</strong><?php echo ($trans["settleamount"]); ?></h5>
-							<h5><strong>Account/Card number:</strong><?php echo ($trans["accountnumber"]); ?></h5>
+							<h5><strong>Invoice ID: </strong><?php echo ($trans["invoiceID"]); ?></h5>
+							<h5><strong>Settle date: </strong><?php echo ($trans["paydate"]); ?></h5>
+							<h5><strong>Settle amount: </strong><?php echo ($trans["settleamount"]); ?></h5>
+							<h5><strong>Account/Card Number: </strong><?php echo ($trans["accountnumber"]); ?></h5>
 						</div>
 					</div>	
 				</div>
@@ -431,7 +431,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN FOOTER -->
 <div class="footer">
     <div class="footer-inner">
-        2013 &copy; Metronic by keenthemes.
+        2017 &copy; JHCL
     </div>
     <div class="footer-tools">
 			<span class="go-top">
@@ -444,26 +444,16 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN CORE PLUGINS -->
 <!--jquery-->
 <script src="/DomainSystem/Public/metronic/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
-<!--兼容1.9 以前的代??-->
+
 <script src="/DomainSystem/Public/metronic/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
-<!-- IMPORTANT!   ??引入bootstrap.min.js 前引??jquery-ui-1.10.1.custom.min.js 避免 bootstrap tooltip ??jquery ui tooltip 冲突 -->
-<!--jquery UI js-->
 <script src="/DomainSystem/Public/metronic/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
 <script src="/DomainSystem/Public/metronic/media/js/bootstrap.min.js" type="text/javascript"></script>
 <!--[if lt IE 9]>
 <script src="/DomainSystem/Public/metronic/media/js/excanvas.min.js"></script>
 <script src="/DomainSystem/Public/metronic/media/js/respond.min.js"></script>
 <![endif]-->
-<!--滚动??插件-->
+
 <script src="/DomainSystem/Public/metronic/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
-<!--进行 AJAX 操作时模拟同步传输时锁定浏览器操??->
-<script src="/DomainSystem/Public/metronic/media/js/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.cookie.min.js" type="text/javascript"></script>
-<script src="/DomainSystem/Public/metronic/media/js/jquery.uniform.min.js" type="text/javascript"></script>
-
-
-<!-- BEGIN PAGE LEVEL SCRIPTS -->
-
 
     <!-- END PAGE LEVEL SCRIPTS -->
     <script type="text/javascript" src="/DomainSystem/Public/metronic/media/js/bootstrap-fileupload.js"></script>

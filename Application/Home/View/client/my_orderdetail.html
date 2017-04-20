@@ -122,26 +122,26 @@
             <div class="portlet-body">
                 <div class="span12">
                     <div class="span4">
-                        <h5><strong>OrderID :</strong>{$order.orderID}</h5>
-                        <h5><strong>Issue date :</strong>{$order.issuedate}</h5>
-                        <h5><strong>Status :</strong><span class="label label-info">{$order.status}</span></h5>
-                        <h5><strong>Description :</strong><span class="label label-warning">{$order.description}</span></h5>
+                        <h5><strong>OrderID: </strong>{$order.orderID}</h5>
+                        <h5><strong>Issue date: </strong>{$order.issuedate}</h5>
+                        <h5><strong>Status: </strong><span class="label label-info">{$order.status}</span></h5>
+                        <h5><strong>Description: </strong><span class="label label-warning">{$order.description}</span></h5>
                     </div>
                     <div class="span4">
-                        <h5><strong>Refund :</strong>{$order.refund}</h5>
-                        <h5><strong>Refund Amount:</strong>{$order.refundamount}</h5>
+                        <h5><strong>Refund: </strong>{$order.refund}</h5>
+                        <h5><strong>Refund Amount: </strong>{$order.refundamount}</h5>
                         <if condition="$order.status eq 'pending'"> 
-                            <h5><strong>Due date :</strong>NULL</h5>
+                            <h5><strong>Due date: </strong>NULL</h5>
                         <else />
-                            <h5><strong>Due date :</strong>{$order.invoicedate}</h5>
+                            <h5><strong>Due date: </strong>{$order.invoicedate}</h5>
                         </if>
-                        <h5><strong>Invoice date :</strong>{$order.invoicedate}</h5>
+                        <h5><strong>Invoice date: </strong>{$order.invoicedate}</h5>
                     </div>
                     <div class="span4">
-                        <h5><strong>Transaction ID :</strong>{$trans.transactionID}</h5>
-                        <h5><strong>Paymethod :</strong>{$trans.paymethod}</h5>
-                        <h5><strong>Settle Date :</strong>{$trans.paydate}</h5>
-                        <h5><strong>Amount :</strong>{$trans.settleamount} HK$</h5>
+                        <h5><strong>Transaction ID: </strong>{$trans.transactionID}</h5>
+                        <h5><strong>Paymethod: </strong>{$trans.paymethod}</h5>
+                        <h5><strong>Settle Date: </strong>{$trans.paydate}</h5>
+                        <h5><strong>Amount: </strong>{$trans.settleamount} HK$</h5>
                     </div>
                 </div>
                 <table class="table table-bordered table-hover">

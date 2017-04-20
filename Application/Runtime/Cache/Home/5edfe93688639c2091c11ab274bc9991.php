@@ -286,16 +286,16 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 			<label class="control-label">Fax</label>
 			<input type="tel" value="<?php echo ($profiles["fax"]); ?>" name="fax" id="fax" placeholder="Fax"  class="m-wrap span8" > 
 			<label class="control-label">Overdue Notice</label>
-			<div class="controls">
-			<label class="radio">
-				<input type="radio" name="overdue" id="optionsRadios1" value="Enable" class="span3" checked/>Enable
-				
-			</label>
-			<label class="radio">
-				<input type="radio" name="overdue" id="optionsRadios2" value="Disable" class="span3" />Disable
-				
-			</label>    
-			</div>
+            <div class="control-group span12">
+                <div class="controls" style="margin-left:10px">
+                    <label class="radio" style="width:60px">
+                        <span><input type="radio" name="overdue" id="optionsRadios1" value="Enable"  checked/>Enable</span>
+                    </label>
+                    <label class="radio" style="width:60px">
+                        <span><input type="radio" name="overdue" id="optionsRadios2" value="Disable" />Disable</span>
+                    </label>    
+                </div>
+            </div>
 			<label class="control-label">Currency</label>
 			<select class="form-control" name="currency" required>
 				<option value="HKD">HKD</option>

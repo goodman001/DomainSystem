@@ -18,17 +18,17 @@
 				<div class="container-fluid">
 					<div class="cus0">
 						<div class="navbar-header">
-							<a class="navbar-brand" href="#">Index</a>
+							<a class="navbar-brand" href="<?php echo U('Index/shop');;?>"><img style="max-width:100px; margin-top: -7px;" src="/DomainSystem/Public/img/logo.png" /></a>
 						</div>
 						<div>
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="#">iOS</a></li>
-								<li><a href="#">SVN</a></li>
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Help</a></li>
 							</ul>
 							<!--right-->
 							<?php if(cookie('admin_uid')): ?><ul class="nav navbar-nav navbar-right">
 									<li>
-										<a href="<?php echo U('Index/shop');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Return Shopping</a>
+										<a href="<?php echo U('Index/shop');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Return Home Page</a>
 									</li>
 									<li>
 										<a href="<?php echo U('Login/logout');;?>"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
@@ -37,7 +37,7 @@
 							<?php else: ?> 
 								<ul class="nav navbar-nav navbar-right">
 									<li>
-										<a href="<?php echo U('Index/shop');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Return Shopping</a>
+										<a href="<?php echo U('Index/shop');;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Return Home Page</a>
 									</li>
 									<li>
 										<a href="<?php echo U('Login/index');;?>"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>

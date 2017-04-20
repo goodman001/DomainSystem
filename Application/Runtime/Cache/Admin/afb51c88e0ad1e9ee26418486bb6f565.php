@@ -392,7 +392,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 					<label class="control-label">Next due date</label>
                     <input name="nextduedate" type="text" id="nextduedate" placeholder="Next due date" value="<?php echo ($domain["nextduedate"]); ?>" class="m-wrap span8" required/>
 					<label>Status</label>
-					<select class="m-wrap span8" name="status" required>
+					<select class="form-control" name="status" required>
 						<option value= "pending">pending</option>
 						<option value= "active">active</option>
 						<option value= "suspend">suspend</option>

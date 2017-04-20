@@ -297,7 +297,7 @@
 					<if condition="$order.status neq 'active'"> 
 						<a href="{:U('Order/orderaccept?orderid='.$order['orderID'].'');}" class="btn red easy-pie-chart-reload">Accept</a>
 					</if>
-					<a href="{:U('Order/ordercancle?orderid='.$order['orderID'].'');}" class="btn blue easy-pie-chart-reload">Cancle</a>
+					<a href="{:U('Order/ordercancle?orderid='.$order['orderID'].'');}" class="btn blue easy-pie-chart-reload">Cancel</a>
 				</if>
 				<if condition="$order.refund eq 'N'">
 					<a href="{:U('Order/orderRefund?orderid='.$order['orderID'].'');}" class="btn green easy-pie-chart-reload">Refund</a>

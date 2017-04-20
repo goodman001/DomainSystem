@@ -91,7 +91,7 @@ class LoginController extends Controller {
 		{
 			if($content['status'] == 'pending' || $content['status'] == 'active')
 			{
-				$Model-> where($data)->setField('status',0);
+				$Model-> where($data)->setField('status','pending');
 				$emailbody="Dear".$content['username']."：<br/>The email is for finding your password verification <br/>your verification code is 9823<br/> "; 
 				if(sendMail($data['email'],"Find password verification",$emailbody) == 1)
 				{
@@ -155,15 +155,20 @@ class LoginController extends Controller {
 		$content = $Model->field('username,regtime,status')->where($data)->find();
 		if(!empty($content) )//exist email
 		{
-			if($content['status'] == 'pending' || $content['status'] == 'active' ){
-				$Model-> where($data)->setField('status','active');
+			if($content['status'] == 'active' ){
+				//$Model-> where($data)->setField('status','active');
 				cookie('u_username',$data['username'],36000);
 				$this->success('Login successfully! welcome ',U('Index/index'));
-			}else
+			}else if($content['status'] == 'pending' )
+			{
+				$this->error('Account Status is pending, please check your email',U('Index/index'),3);
+			}
+			else
 			{
 				$this->error('Account Status is Suspend, please contact the administrator',U('Index/index'),3);
 			}
-		}else
+		}
+		else
 		{
 			cookie('u_username',null);
 			$this->error('Email or password is wrong!', U('Login/login'),3);
